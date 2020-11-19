@@ -1,0 +1,905 @@
+<html lang="en"  >
+<head>
+    
+    <!-- Page title -->
+	<title> control panel -  general settings </title>
+    
+    <!-- meta -->
+   	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=7">
+    <meta name="description" content="لوحة التحكم">
+    
+    <!-- favicon -->
+	<link rel="icon" type="image/x-icon" href="/assets/admin/images/favicon.png" /> 
+
+        <!-- css style -->
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/ltr.css" />
+		
+	<!-- JS script -->
+	<script type="text/javascript" src="/assets/admin/js/all.js"></script>
+	
+    <!-- check for javascript -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=http://www.google.com" />
+    </noscript>
+    
+    
+    
+    <style>
+    .preview-thumbnail img {
+    width: 100%;
+    margin-bottom: 25px;
+    }
+    #Upload-thumbnail {
+        display: none;
+    }
+    </style>
+
+				
+<style>
+    
+.galleryitem {
+    width: 100% !important;
+}
+
+.galleryitem img {
+    width: 100%;
+}
+    
+    
+#MediaUploaderModal div#mediaList {
+    height: 320px;
+    width: 100%;
+    overflow-y: auto;
+}    
+#MediaUploaderModal .checkFile {
+    position: absolute;
+    top: 0;
+    left: 6px;
+}
+#MediaUploaderModal .dropzone .dz-preview .dz-details .dz-filename, .dropzone-previews .dz-preview .dz-details .dz-filename {
+    height: initial;
+}
+#MediaUploaderModal .modal-dialog {
+    width: 80%;
+}
+#MediaUploaderModal  .modal-header {
+    border-bottom: 2px solid #f5f1f1;
+    padding-bottom: 25px;
+}
+
+#MediaUploaderModal  .modal-header a {
+    padding:24px 20px;
+    font-size:15px;
+}
+#MediaUploaderModal  .modal-header a.active {
+    border-bottom: 2px solid blue;
+}
+    
+#MediaUploaderModal .modal-footer {
+    border-top: 2px solid #f5f1f1;
+    padding-top: 25px;
+}
+    
+    
+#MediaUploaderModal .modal-footer #Modalassign {
+    padding: 7px 40px;
+    border: 1px solid #1287e4;
+}
+#MediaUploaderModal .modal-footer [data-dismiss="modal"] {
+    background: #e6e6e6;
+    color: #000000b5;
+    border: 1px solid #00000036;
+    padding: 7px 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+     #MediaUploaderModal  .checkedimg {
+    border: 3px solid #03a9f4 !important;
+}
+#MediaUploaderModal .thumbnail input[type="checkbox"] {
+display: none;
+}
+
+#MediaUploaderModal  .thumbnail label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 2px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+#MediaUploaderModal  .thumbnail :checked + label {
+  border-color: #ddd;
+}
+      
+              #MediaUploaderModal      .thumbnail .thumb {
+    overflow: hidden;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}     
+#MediaUploaderModal  .thumbnail :checked + label:before {
+    content: "+";
+    background-color: #03a9f4;
+    transform: scale(1);
+}
+ #MediaUploaderModal   .mediapreview {
+    display: inline-block;
+    width: 100px;
+    height: 70px;
+    background: #cec3c3;
+    border-radius: 5px;
+}
+.thumbnail {
+    border: 2px solid #03a9f4 !important;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+}
+</style>
+
+
+
+
+
+
+ </head>
+<body>
+    
+    
+    
+    <!-- Iconified modal -->
+<div id="MediaUploaderModal" class="modal fade">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <a href="javascript:;" class="active" id="uploadfiles">رفع الملفات</a>
+          <a href="javascript:;"  id='ModalLibrary'>مكتبة الوسائط</a>
+        </div>
+
+        <div class="modal-body">
+        
+           <!-- Files Library -->
+           <div id="mediaList" style="display: none;"></div>
+           
+            <!-- uploader -->
+             <div class="dropzone" id="myDZ">
+               <div class="dz-default dz-message"><span>اسحب الملفات هنا</span>
+               <a href="javascript:;" class="btn btn-primary" id="openSelect">يمكنك  أيضاً اختيار الملفات من جهازك</a>
+               </div>         
+             </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" id='Modalassign' disabled> تعيين </button>
+            <button class="btn btn-primary" data-dismiss="modal"> تراجع </button>
+        </div>
+    </div>
+</div>
+</div>
+
+    
+    
+    
+    
+
+    <!-- Main navbar -->
+<div class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/dashboard/">control panel</a>
+
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav">
+            <li><a class="sidebar-control sidebar-main-toggle hidden-xs "><i class="icon-paragraph-justify3"></i></a></li>
+            <li><a class="goout" target="_blank" href="http://sara.local">
+            <i class="icon-enter"></i>
+            visite website</a></li>
+            
+           <li class="dropdown language-switch">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+					<i class="icon-plus3"></i>	new
+				
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+                            <li><a href="/dashboard/users/create/">user</a></li>
+                            <li><a href="/dashboard/pages/create/">page</a></li>
+                            <li><a href="/dashboard/posts/create/">post </a></li>
+                            <li><a href="/dashboard/products/create/">product</a></li>
+					</ul>
+				</li>
+            
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+           
+           <li class="hidden-xs">
+                    <a href="#" onClick="go_full_screen();" ><i class="icon-enlarge"></i></a>
+                </li>
+         
+           
+           <li class="dropdown language-switch hidden">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="/assets//admin/images/en.png" class="position-left" alt="">
+				
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu ">
+                            <li><a class="deutsch" href="?lang=ar"><img src="/assets//admin/images/ar.png" alt=""> العربية</a></li>
+                            <li><a class="deutsch" href="?lang=en"><img src="/assets//admin/images/en.png" alt=""> English</a></li>
+<!--                            <li><a class="deutsch" href="?lang=fr"><img src="/assets//admin/images/fr.png" alt=""> français</a></li>-->
+					</ul>
+				</li>
+           
+           
+            <li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="/assets//admin/images/ar.png" alt="">
+                    <span>
+                        soulaimane takiddine
+                    </span>
+                    <i class="caret"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="/dashboard/settings/account/"><i class="icon-cog5"></i> account settings</a></li>
+                    <li><a href="/auth/logout/"><i class="icon-switch2"></i>logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /main navbar -->
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+       
+         <!-- sidbar -->
+        <!-- Main sidebar -->
+<div class="sidebar sidebar-main">
+    <div class="sidebar-content">
+ 
+
+        <!-- Main navigation -->
+        <div class="sidebar-category sidebar-category-visible mt-15">
+            <div class="category-content no-padding">
+                <ul class="navigation navigation-main navigation-accordion">
+                    
+    
+                    <li><a href="/dashboard/"><i class="icon-home4"></i> <span>overview</span></a></li>
+                    
+                    <li><a href="/dashboard/mail/"><i class="icon-envelop2"></i> <span>Messages</span></a></li>
+                    <li><a href="/dashboard/users/"><i class="icon-users"></i> <span>users</span></a></li>
+                    <li><a href="/dashboard/media/"><i class="icon-camera"></i> <span>Media</span></a></li>
+                    <li><a href="/dashboard/pages/"><i class="icon-files-empty2"></i> <span>Pages</span></a></li>
+                    <li><a href="/dashboard/posts/"><i class="icon-price-tag3"></i> <span>  posts </span></a>
+                    <ul>
+                        <li><a href="/dashboard/posts/"><span>  posts </span></a></li>
+                        <li><a href="/dashboard/posts/categories/"><span> posts categories </span></a></li>
+                        <li><a href="/dashboard/comments/"><span> comments   </span></a></li>
+                    </ul>
+                    </li>
+                    <li><a href="/dashboard/menus/"><i class="icon-list-unordered"></i> <span>  Menus  </span></a></li>
+                    <li><a href="/dashboard/ads/"><i class="icon-barcode2"></i> <span>  Ads </span></a></li>
+                    <li>
+                    <a href="/dashboard/products/"><i class="icon-store2"></i> <span>  Products  </span></a>
+                        <ul>
+                           <li><a href="/dashboard/products/"><span>  Products </span></a></li>
+                           <li><a href="/dashboard/products/categories/"><span> products categories</span></a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- المتجر -->
+                    <li>
+                    <a href="/dashboard/orders/"><i class="icon-basket"></i> <span>  store   </span></a>
+                        <ul>
+                           <li><a href="/dashboard/orders/"> <span>  orders </span></a></li>
+                           <li><a href="/dashboard/coupons/"><span> coupons </span></a></li>
+                           <li><a href="/dashboard/shipping/">   طرق الشحن </a></li>
+                           <li><a href="/dashboard/payments/"> وسائل الدفع </a></li>
+                        </ul>
+                    </li>
+                    
+                    <!--// المتجر -->
+                    
+                    <!-- Faq -->
+                    <li><a href="/dashboard/faqs/"><i class="icon-question3"></i> <span> Faqs </span></a>
+                        <ul>
+                            <li><a href="/dashboard/faqs/"><span>  Faqs</span></a></li>
+                            <li><a href="/dashboard/faqs/categories/"><span>  faq categories </span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Faq -->
+                    
+            
+                   <li>
+                    <a href="/dashboard/settings/"><i class="icon-gear"></i> <span>settings</span></a>
+                    <ul>
+                        <li><a href="/dashboard/settings/"> general settings  </a></li>
+                        <li><a href="/dashboard/settings/others/">others</a></li>
+                        <li><a href="/dashboard/dangerZone/">     تفريغ المحتوى    </a></li>
+                        <li><a href="/dashboard/settings/system-info/">     معلومات النظام    </a></li>
+
+                    </ul>
+                    </li>
+                   <li>
+                    <a href="/dashboard/settings/"><i class="icon-bucket"></i> <span>costumize</span></a>
+                    <ul>
+                        <li><a href="/dashboard/slider/">home slider</a></li>
+                        <li><a href="/dashboard/beside-slider/">hero images</a></li>
+                        <li><a href="/dashboard/settings/home/">home page</a></li>
+                        <li><a href="/dashboard/settings/footer/">footer</a></li>
+                    </ul>
+                    </li>
+               
+               
+                </ul>
+            </div>
+        </div>
+        <!-- /main navigation -->
+        
+        
+
+        
+        
+        
+        
+    </div>
+</div>
+<!-- /main sidebar --> 	
+        
+
+        
+<!-- Main content -->
+<div class="content-wrapper">
+
+<!-- Page header -->
+<div class="page-header page-header-transparent">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h1> <span class="text-semibold">الدفع بواسطة بايبال</span></h1>
+        </div>
+
+        
+    </div>
+</div>
+<!-- /page header -->
+
+<!-- Content area -->
+<div class="content">
+				
+
+	<div class="panel panel-flat col-md-8">
+		
+
+
+		<div class="panel-body">
+			<form class="form-horizontal" enctype='multipart/form-data' method="post" action="/dashboard/ads/create/" />
+				<fieldset class="content-group">
+			
+
+                
+<div class="form-group switechers">
+    <label class="control-label col-lg-3">تفعيل الدفع بواسطة بايبال</label>
+    <div class="col-lg-9">
+        <label class="adminswitch">
+    <input name='active' type="checkbox"  value="active" checked />
+    <span class="slider round"></span>
+    </label>
+    </div>
+</div>
+                    
+         
+<div class="row">      
+<div class="col-md-6">
+<div class="form-group">
+    <label class="control-label col-lg-3">عنوان وسيلة الدفع</label>
+    <div class="col-lg-9">
+        <input type="text" class="form-control" name="name" />
+      
+    </div>
+</div>
+	</div>          				
+					
+					
+	<div class="col-md-6">			
+<div class="form-group">
+    <label class="control-label col-lg-3">الوصف</label>
+    <div class="col-lg-9">
+        <input type="text" class="form-control" name="name" />
+      
+    </div>
+</div>	</div>   
+</div>          
+                
+                
+                
+<div class="row">      
+<div class="col-md-6">        
+                
+       <div class="form-group">
+    <label class="control-label col-lg-3">اميل البايبال</label>
+    <div class="col-lg-9">
+        <input type="text" class="form-control" name="name" />
+      
+    </div>
+</div>          
+   </div>
+<div class="col-md-6">        
+       <div class="form-group">
+     <label class="control-label col-lg-3">تفعيل حالة التجربة</label>
+    <div class="col-lg-9">
+        <label class="adminswitch">
+    <input name='active' type="checkbox"  value="active" checked />
+    <span class="slider round"></span>
+    </label>
+    </div>
+</div>          
+                
+   </div>
+   
+</div> 
+       
+       			
+       									
+
+               
+         
+<div class="row">    
+
+  
+  <div class="col-md-12"> <h2>معلومات البايبال</h2> 
+       <h3>أدخل بيانات اعتماد PayPal API لاستلام الدفع والتحقق من الدفع تلقائيًا.</h3>
+       </div>
+        
+<div class="col-md-6">
+<div class="form-group">
+    <label class="control-label">API Client ID
+</label>
+    
+        <input type="text" class="form-control" value="AXTyHcfng4vKs2j0Jpoa31GjF-b2w9Inkn4KgoIaEue2vOaxo0A8c9FBFvrZg06TGbOH3KKNDT4UeuIL" name="name" />
+      
+   
+</div>
+	</div>          				
+					
+					
+	<div class="col-md-6 pd15">			
+<div class="form-group">
+    <label class="control-label">API Client Secret</label>
+    
+        <input type="password" value="AXTyHcfng4vKs2j0Jpoa31GjF-b2w9Inkn4KgoIaEue2vOaxo0A8c9FBFvrZg06TGbOH3KKNDT4UeuIL" class="form-control" name="name" />
+      
+   
+</div>	</div>   
+</div>          
+             
+
+
+				</fieldset>
+				<div class="text-right">
+					<button type="submit" class="btn btn-primary" id="Submit_AD_ADS_FORM">حفظ التغييرات<i class="icon-arrow-left13 position-right"></i></button>
+				</div>
+			
+		</div>
+				<div id="submitResult"></div>
+
+	</div>
+
+    <div class="col-md-4">
+							<div class="panel">
+								<div class="panel-body">
+									<h5 class="content-group">
+										<span class="label label-flat label-rounded label-icon border-grey text-grey mr-10">
+											<i class="icon-info3"></i>
+										</span>
+do you need help !
+											
+										
+									</h5>
+
+
+									<ul class="list list-icons">
+										<li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>activate ad</b>
+											<br>
+											<p class="mg10">choose if you want to show the ads or not</p>
+										</li>
+										<li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>title ad</b>
+											<br>
+											<p class="mg10">title , is not important , but it is good for you to reconize ads .</p>
+										</li>                                        
+								            <li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>ad link</b>
+											<br>
+											<p class="mg10">make sure that the link start with<span dir="ltr">http://</span> </p>
+										</li>
+										<li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>ad image</b>
+											<br>
+											<p class="mg10">
+											     accept only this extenstions : 
+											    jpeg,png,gif
+											</p>
+										</li>
+									<li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>custom ad code</b>
+											<br>
+											<p class="mg10">
+											   you can ad google adsense code or any html code
+											</p>
+										</li>										
+										<li>
+											<i class="icon-checkmark-circle text-success position-left"></i>
+											<b>attention </b> 
+											<br>
+											<p class="mg10"> when you add custom code ad , the image &amp; link will be ignored  </p>
+										</li>
+
+									</ul>
+								</div>                     
+        </div>
+        
+
+							
+						
+							
+							
+        
+
+    </div>
+
+
+		
+	
+</div>
+
+
+</div>
+
+
+
+
+        
+		</div>
+		
+	</div>
+	
+	
+    <script type="text/javascript" src="/assets/admin/js/jquery.nestable.js"></script>
+    <script type="text/javascript" src="/assets/admin/js/jquery.nestable++.js"></script>
+    <script type="text/javascript" src="/assets/admin/js/mediaUploader.js?v=0.2"></script>
+    <script type="text/javascript" src="/assets/admin/js/main.js?v=0.1"></script>
+    <script type="text/javascript" src="/assets/admin/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/assets/admin/moment/moment.js"></script>
+    <script type="text/javascript" src="/assets/admin/calendar/dist/fullcalendar.min.js"></script>
+ 
+   <script type="text/javascript" src="/assets/admin/dropzone.js"></script>
+   <script type="text/javascript" src="/assets/admin/MediaUploader.js"></script>
+
+    <script src="/assets/admin/ckeditor/ckeditor.js"></script>
+
+   
+   
+  <script>
+
+  // check if a div or element is empty
+  function isEmpty( el ){
+      return !$.trim(el.html())
+  }
+
+  // on check enable the button of chose image
+  $(document).on('click', '.checkFile', function(e) {
+      if(this.checked) {
+          $('#Modalassign').removeAttr("disabled");
+          $(this).attr('checked','checked');
+      }else {
+          $(this).removeAttr("checked");
+          $('#Modalassign').prop("disabled", true);
+      }  
+  });
+        
+      
+      
+    // show the dropZone Uploader Tab
+    $('#uploadfiles').click(function (){
+            $('#MediaUploaderModal .modal-header a').removeClass('active');
+            $(this).addClass('active');
+            $('.dropzone').show();
+            $('#MediaUploaderModal #mediaList').hide();        
+    });
+      
+    // show the media list tab 
+    $('#ModalLibrary').click(function (){
+            $('#MediaUploaderModal .modal-header a').removeClass('active');
+            $(this).addClass('active');
+            $('.dropzone').hide();
+            $('#MediaUploaderModal #mediaList').show();
+            if (isEmpty($('#mediaList'))) {
+                 $.ajax({
+                   url:'/dashboard/media/load/',
+                   type:"GET",
+                     cache:false,
+                    contentType: 'json',
+                    processData: false,
+                   success:function(response)
+                   {
+                      $.each(JSON.parse(response), function(i, item) {
+                          var html  = '<div class="thumbnail"> <div class="thumb"> <input type="checkbox" class="mediacheckbox" value="'+item.id+'" id="img'+item.id+'" /> <label for="img'+item.id+'"> <img src="http://sara.local//uploads/media/'+item.name+'" > </label> </div> </div>';
+                          $('#MediaUploaderModal #mediaList').append(html);
+
+                        }); 
+                     console.log(response);
+                   }
+                  });   
+            }  
+    });
+    
+
+    // allow selecting only one check box in media list  
+//    $(document).on('click', '.mediacheckbox', function() {
+//        $('.mediacheckbox').not(this).prop('checked', false);
+//        $('.mediacheckbox').not(this).closest('.mediauploder .thumbnail').removeClass('checkedimg');
+//    });
+//    
+    // add border and selected icon for the media when you check it
+//    $(document).on('change', '.mediacheckbox', function() {
+//        if(this.checked) {
+//            $(this).closest('.mediauploder .thumbnail').addClass('checkedimg');
+//        }else{
+//         $(this).closest('.mediauploder .thumbnail').removeClass('checkedimg');
+//        }    
+//    });      
+
+ 
+
+
+    // Remove the image From Gallery
+    jQuery('body').on('click','#removeitem',function(e){
+     $(this).closest(".galleryitem").remove();
+     e.preventDefault();
+    });
+
+      
+
+      
+      
+    function designReturn(gallery){
+        $.each( gallery, function( key, value ) {
+            var myDesign = '<div class="galleryitem"><img src="/assets/admin/images/mediaDelete.png" id="removeitem" /><img src="'+value[1]+'" /><input type="hidden" name="gallery[]" value="'+value[0]+'"  /></div>';
+            $('#MediaThumbnail').append(myDesign);
+        });
+    }
+
+
+
+
+    // on click on chose image get the array of selected images + clear the dropZone + close the modal
+    $('#Modalassign').click(function(){ 
+         var gallery = new Array();
+          $('.dz-complete').each(function () {
+              
+               var Myinput = $(this).find('.checkFile');
+               if(Myinput[0].hasAttribute("checked")) {
+                   gallery.push( [Myinput.data("id") , Myinput.data("url") ]) ;
+               }
+           });
+        
+         designReturn(gallery);
+        
+        // clear the dropZone and close the modal
+        Dropzone.forElement('#myDZ').removeAllFiles(true);
+        $('#MediaUploaderModal').modal('toggle');
+    });
+
+    
+    //Disabling autoDiscover
+    Dropzone.autoDiscover = false;
+    $(function() {
+        var myDropzone = new Dropzone(".dropzone", {
+            url: "/dashboard/media/upload/",
+            paramName: "file",
+            maxFilesize: 2,
+            maxFiles: 10,
+            addRemoveLinks: true,
+            clickable:true,
+            acceptedFiles: "image/*,application/pdf",
+            success: function(file, response){
+              var response =  JSON.parse(response)
+                  var input = '<input type="checkbox" name="" data-url="'+response.url+'" data-id="'+response.id+'" class="checkFile">';
+                  $(file.previewTemplate).find('.dz-image img').attr('id', response.id );
+                  $(file.previewTemplate).find('.dz-image').append(input);
+                  $(file.previewTemplate).find('.dz-filename').remove();
+                  $(file.previewTemplate).find('.dz-size').remove();
+                  $(file.previewTemplate).find('.dz-remove').remove();
+                  $(file.previewElement).addClass("dz-success");
+            }
+        });
+    });
+</script>
+   
+   
+    <script>
+   
+// add post editor to a page
+if($('#posteditor').length){
+   CKEDITOR.replace( 'posteditor', {
+       language: 'en',
+   });
+}
+
+// check all rows in a table
+$( document ).ready(function() {
+    $("#checkAllItems").change(function() {
+            if(this.checked) {
+                $('.Tableitem').prop('checked', true);
+            }else{
+                 $('.Tableitem').prop('checked', false);
+            }
+        });
+ });
+
+
+// collect the ids and submit the form of multiAction    
+$("#multiActionForm").submit(function() {
+     
+    var TableItems = new Array();
+    $('.Tableitem').each(function () {  
+          if(this.checked) {
+                TableItems.push($(this).data('item'));
+          }
+    });
+    $('#ids').val(TableItems);
+    $(this).submit();
+});
+
+    
+// create and edit product pages
+// add multiple video fileds and remove theme
+$('#AddMoreProductVideos').click(function(){
+        var morevide = '<div class="input-group videolist" style="margin-bottom: 15px"><span class="input-group-addon"><i class="icon-youtube"></i></span><input type="text" name="videos[]" class="form-control" placeholder="youtube link"><a><i class="icon-close2"></i></a></div>';  
+        $( morevide ).insertBefore(this);
+});
+
+$('body').on('click', '.icon-close2' ,function(){
+    $(this).closest('div').remove();
+});
+
+    
+   
+</script>
+
+
+
+
+		
+<!-- set the select -->		
+<script> $('.areaUndetected').select2({ placeholder: 'تحديد تصنيف المنتوج',}); </script>
+
+
+<!-- change the value of selected Country to user's country -->
+<script> $(document).ready(function() { $(".areaUndetected").select2().val("").trigger("change") }); </script>		
+	
+
+
+
+<!-- حذف الصور -->
+<script>
+$("#deleteImage").click(function(){
+        $("#isAdChanged").val("true");          // تعين الحقل بأنه تم التغيير
+        $(".chosethumbnailBtn").show();         // اظهار الزر للرفع من جديد
+        $("#product_thumbnail").remove();   // مسح الصورة القديمة
+        $("#deleteImage").hide();               // اخفاء زر الحذف
+});
+</script>
+
+<!-- تغيير الصورة الجديدة -->
+<script>
+$("#ProductThumbnail").change(function(){    
+    $('.preview-thumbnail').html('<img src="" id="product_thumbnail" /> ');  // اضافة الصورة الجديدة
+    $('.chosethumbnailBtn').hide();         // اخفاء زر اضافة صورة
+    $("#deleteImage").show();               // اظهار زر حذف صورة
+    readURL(this);                          // اظهار الصورة التي تم اختيارها
+    $("#isAdChanged").val("true");          // جعل القيمة تم تغييره
+});    
+</script>
+
+
+
+
+
+
+
+<!-- Alert Before Taking Danger Action -->
+<script>
+  swal({   
+            title: "هل انتي متأكدة من الإلغاء",   
+            text: "انتباه ، المرجوا الإنتباه جيداً قبل الإلغاء",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "نعم قم بالإلغاء",   
+            cancelButtonText: "لا تراجع ",   
+            closeOnConfirm: false,   
+            closeOnCancel: false 
+        }, function(isConfirm){   
+            if (isConfirm) { 
+               
+            
+                    swal("تم الإلغاء بنجاح!", "تم الغاء البيانات بنجاح.", "success");  
+                
+                 
+                swal("تراجع", "كل شيء بأمان لم تحصل اية مشكلة  :)", "success");   
+           
+        });
+
+</script>
+
+
+                   
+
+
+
+		
+<script>
+    
+      
+</script>
+
+<!-- set the select -->		
+<script> $('.postCategory').select2({ placeholder: 'تحديد تصنيف المنتوج',}); </script>
+
+
+<!-- set the select -->		
+<script> $('.postCategory').select2({ placeholder: 'تحديد تصنيف السؤال',}); </script>
+<script> $(document).ready(function() { $(".postCategory").select2().val("").trigger("change") }); </script>   
+
+
+
+<!-- set the select -->		
+<script> $('.postCategory').select2({ placeholder: 'تحديد تصنيف المنتوج',}); </script>
+
+<!-- change the value of selected Country to user's country -->
+<script> $(document).ready(function() { $(".postCategory").select2().val("").trigger("change") })</script>		 		 
+   		 
+
+</body>
+</html>

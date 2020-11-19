@@ -1,0 +1,11 @@
+.env
+.env.example
+.env.local
+.env.staging
+public/uploads/
+/vendor
+/app/storage/
+/bootstrap/compiled.php
+composer.lock
+/.idea
+/.vs

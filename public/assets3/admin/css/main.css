@@ -1,0 +1,77 @@
+
+      #MediaThumbnail img {
+    width: 100%;
+}
+#MediaThumbnail {
+    margin-top: 30px;
+}
+.galleryRow {
+    width: 100% !important;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.gallery_thumbnail img {
+    width: 150 !important;
+}
+.videolist a {
+    right: initial !important;
+    left: 10px;
+}
+a.removeImage {
+    position: relative;
+    top: 3px;
+    color: black;
+}
+
+.product-image-list {
+    width: 90px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid #00000038;
+}
+
+.product-image-list img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* this must be for phone only */
+.GalleryPreviewRow {
+    display: inline-block;
+    float: right;
+    width: initial !important;
+}
+
+.galleryRow.GalleryPreviewRow {
+    padding: 4;
+    margin: 4;
+}
+.oldgallery {
+    margin-bottom: 25px;
+    display: block;
+    overflow: hidden;
+}
+.slider-image img {
+    width: 100%;
+}
+.logo-settings-preview {
+    width: 210px;
+    border: 1px solid #00000014;
+}
+
+.logo-settings-preview img {
+    max-width: 100%;
+}
+
+.shipping-order-details label:after {content: ':';margin-left: 18px;margin-right: 5px;}
+
+.shipping-order-details label {
+    font-weight: bold;
+}
+
+
+
+
