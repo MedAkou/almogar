@@ -1,12 +1,3 @@
-  <style>
-      aside.widget.widget_footer {
-    width: 25%;
-    float: left;
-}
-
-  </style>
-
-
   <footer class="ps-footer">
         <div class="ps-container">
             <div class="ps-footer__copyright">

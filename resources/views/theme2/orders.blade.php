@@ -6,15 +6,15 @@
 @section('content')
 
 <main class="main">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+
+            <div class="ps-breadcrumb">
                 <div class="container">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home',['store' => $store ]) }}"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">{{ __('account') }}</li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('Orders') }}</li>
-                    </ol> 
+                    <ul class="breadcrumb">
+                        <li><a href="http://almogar.test:82/matjar"><i class="icon-home"></i></a></li>
+                        <li>{{ __('Orders') }}</li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
 
             <div class="container">
                 <div class="row">

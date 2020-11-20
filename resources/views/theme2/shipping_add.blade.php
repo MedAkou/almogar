@@ -5,19 +5,12 @@
 
 @section('content')
 
-<style>
-    .checkout-steps-action input {
-    padding: 15px 40px 30px 40px;
-}
-</style>
-
 <main class="main">
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{ route('home',['store' => $store ]) }}">Home</a></li>
-                <li>{{ __('account') }}</li>
-                <li>{{ __('Add shipping') }}</li>
+                <li>{{ __('shipping') }}</li>
             </ul>
         </div>
     </div>

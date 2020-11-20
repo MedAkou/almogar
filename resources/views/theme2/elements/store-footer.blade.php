@@ -1,13 +1,3 @@
-
-
-
-<style>
-    .mmenu-active .mobile-menu-container {
-    transform: translateX(0%) !important;
-    visibility: visible;
-}
-</style>
-
 <div class="mobile-menu-overlay"></div>
 
 <div class="mobile-menu-container">

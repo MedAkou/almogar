@@ -1,63 +1,14 @@
-@extends('theme2/layout') @section('title') {{ __('Chekout') }} @endsection @section('content')
+@extends('theme2/layout') 
+
+@section('title') {{ __('Chekout') }}
+@endsection 
+
+@section('content')
 
 <input type="hidden" id='subtotal' value="{{ ShoppingCart::totalPrice() }}" />
 
 
 <form action="{{ route('checkout.pay',['store' => $store]) }}" method='post'>
-
-
-<style>
-    input[name="exp_year"]{
-    margin-top:0 !important;
-}
-a.ps-btn.ps-btn--sm {
-    text-align: center;
-}
-table.table.table-striped.table-step-shipping {
-    margin-bottom: 0;
-}
-
-
-@media (max-width: 600px) and (min-width: 0px) {
-.ps-btn--sm, button.ps-btn--sm {
-    padding: .5rem 1rem;
-}
-
-
-.ps-section__content {
-    margin-top: 0;
-}
-.checkoutbtn {
-    padding: 10px 17px;
-}
-
-span.TotalPrice {
-    width: 100% !important;
-    margin-top: 13px;
-    display: inline-block;
-}
-
-.ps-block--shopping-total {
-    overflow: hidden;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background: transparent;
-}
-
-.ps-block--payment-method .ps-tab-list li.active .ps-btn {
-    background-color: rgb(195, 20, 50) !important;
-    background: rgb(195, 20, 50) !important;
-}
-
-}
-
-
-img#talcartat {
-    padding-top: 30px;
-}
-
-</style>
 
 
 
@@ -88,7 +39,7 @@ img#talcartat {
                                                             <br> {{ $addresse->country_code }}
                                                             <br> {{ $addresse->phone }}
                                                             <br>
-                                                            <a href="{{ route('shipping.set',['id' =>  $addresse->id , 'store' => $store]) }}" class="btn btn-sm btn-link"> {{ __('ship here') }}</a>
+                                                            <a href="{{ route('shipping.set',['id' =>  $addresse->id , 'store' => $store]) }}" class="ps-btn"> {{ __('ship here') }}</a>
                                                         </div>
                     
                                                     </div>
@@ -258,7 +209,6 @@ img#talcartat {
 
 
 @endsection
-
-
-
-
+@section('scripts') 
+    <script src="{{ asset('assets/website/js/ccvalidate.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
+@endsection 

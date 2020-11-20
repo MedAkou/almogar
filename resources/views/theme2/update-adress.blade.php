@@ -5,15 +5,16 @@
 
 @section('content')
 
-<main class="main">
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+<main class="main">   
+
+    <div class="ps-breadcrumb">
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Dashboard') }}</li>
-            </ol>
+            <ul class="breadcrumb">
+                <li><a href="http://almogar.test:82/matjar"><i class="icon-home"></i></a></li>
+                <li>{{ __('Dashboard') }}</li>
+            </ul>
         </div>
-    </nav>
+    </div>
 
     <div class="container">
         <div class="row">
