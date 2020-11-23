@@ -26,6 +26,8 @@
 	"the return link is only valid for 30 minutes": "İade bağlantısı sadece 30 dakika geçerlidir",
 	"press next button to retrieve it": "Geri almak için İleri düğmesine basın",
 	"you have requested to recover the password for your account at the site": "Sitede hesabınızın şifresini kurtarmayı talep ettiniz",
+	"Thank you for placing your order with": "İle sipariş verdiğiniz için teşekkür ederiz",
+	"This email is to confirm your order has been placed successfully, and will be processed and shipped to you soon.": "Bu e-posta, siparişinizin başarıyla verildiğini onaylamak içindir ve kısa süre içinde işleme konulup size gönderilecektir.",
 
 
 	"coupons": "kuponlar",
