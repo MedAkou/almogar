@@ -17,10 +17,8 @@
         <!-- css style -->
 	<link rel="stylesheet" type="text/css" href="/assets/admin/css/rtl.css" />
 	
-	<!-- JS script -->
-	<script type="text/javascript" src="assets/admin/js/all.js"></script>
-	
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- check for javascript -->
     <noscript>
         <meta http-equiv="refresh" content="0; url=http://www.google.com" />
@@ -83,6 +81,12 @@ input#password {
     width: 100%;
     height: 100%;
 }
+.form-control-feedback2 {
+    position: absolute;
+    left: 13px;
+    top: 15px;
+    cursor: pointer;
+}
     </style>
 
 </head>
@@ -123,6 +127,10 @@ input#password {
                         <div class="form-control-feedback">
                             <i class="icon-lock2 text-muted"></i>
                         </div>
+
+                        <div class="form-control-feedback2">
+                            <i class="icon-eye text-muted"></i>
+                        </div>
                     </div>
 
 
@@ -152,7 +160,17 @@ input#password {
     </div>
 </div>
 </div>
-<script type="text/javascript" src="assets/admin/js/main.js"></script>
+<script type="text/javascript" src="{{ asset('/assets/admin/js/main.js') }}"></script>
+<script>
+    const $eye = $("i.icon-eye");
+    const $input = $("input#password");
+
+    $eye.click(()=>{
+        $input.attr("type") == "password"
+        ? $input.attr("type", "text")
+        : $input.attr("type", "password");
+    });
+</script>
 
 </body>
 </html>
