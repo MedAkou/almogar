@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 
   Route::get('/account/login', 'AccountController@user')->name('account.user');
 

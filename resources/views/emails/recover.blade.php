@@ -47,30 +47,27 @@
 <body style='background: whitesmoke;'>
     <div class="boxemail">
         <div class="head">
-            استرجاع معلومات الدخول لـ {{ env('APP_NAME') }}
+            {{ __('Retrieve login information for') }} {{ env('APP_NAME') }}
         </div>
         <div class="bodymail">
             
             <div style="line-height:35px;">
-                مرحبا <b>{{ $name }}</b>
+                {{ __('welcome') }} <b>{{ $name }}</b>
                 <br>
-                لقد قمت بطلب استعادة كلمة المرور الخاصة بحسابك في موقع {{ env('APP_NAME') }} ، اضغط على الزر التالي لاسترجاعه
+                {{ __('you have requested to recover the password for your account at the site') }} {{ env('APP_NAME') }} ، {{ __('press next button to retrieve it') }}
                 
-                ، رابط الإسترجاع صالح لمدة 30 دقيقة فقط
+                ، {{ __('the return link is only valid for 30 minutes') }}
                 <br>
     
             </div>
             <br>
             <center>
-                <a href="{{ $link }}" class="link">إسترجاع كلمة المرور</a>
+                <a href="{{ $link }}" class="link">{{ __('Password recovery') }}</a>
             </center>
             <br>
-            <p style="color:#666666;">اذا لم تقم بهذه الخطوة ، رجاء تجاهل هذا البريد  </p>
-            <p style="color:#666666;">إدارة موقع {{ env('APP_NAME') }} ، شكراً لك</p>
+            <p style="color:#666666;">{{ __('If you do not do this step, please ignore this email') }}</p>
+            <p style="color:#666666;">{{ __('Site management') }} {{ env('APP_NAME') }} ، {{ __('thank you') }}</p>
             <p style="color:#666666;">  </p>
-            
-            
-        </div>
     </div>
 </body>
 </html>

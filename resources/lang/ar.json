@@ -10,6 +10,13 @@
   "welcome": "مرحبا بك",
   "welcome to": "مرحبا بك في",
   "You have been registered on the site, and this is your registration data:": "لقد تم تسجيلك في الموقع , وهذه بيانات التسجيل الخاصة بك :",
+  "Retrieve login information for": "استرجاع معلومات الدخول لـ",
+  "Password recovery": "إسترجاع كلمة المرور",
+  "If you do not do this step, please ignore this email": "اذا لم تقم بهذه الخطوة ، رجاء تجاهل هذا البريد",
+  "Site management": "إدارة الموقع",
+  "the return link is only valid for 30 minutes": "رابط الإسترجاع صالح لمدة 30 دقيقة فقط",
+  "press next button to retrieve it": "اضغط على الزر التالي لاسترجاعه",
+  "you have requested to recover the password for your account at the site": "لقد قمت بطلب استعادة كلمة المرور الخاصة بحسابك في موقع",
 
   "coupons": "كوبونات",
   "create new coupon": "إضافة كوبون جديد",

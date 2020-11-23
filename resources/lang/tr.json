@@ -19,6 +19,13 @@
 	"welcome": "Hoşgeldiniz",
 	"welcome to": "Hoşgeldiniz",
 	"You have been registered on the site, and this is your registration data:": "Siteye kaydoldunuz ve bu sizin kayıt verileriniz:",
+	"Retrieve login information for": "İçin giriş bilgilerini alın",
+	"Password recovery": "Şifre kurtarma",
+	"If you do not do this step, please ignore this email": "Bu adımı atmazsanız, lütfen bu e-postayı dikkate almayın",
+	"Site management": "Site yönetimi",
+	"the return link is only valid for 30 minutes": "İade bağlantısı sadece 30 dakika geçerlidir",
+	"press next button to retrieve it": "Geri almak için İleri düğmesine basın",
+	"you have requested to recover the password for your account at the site": "Sitede hesabınızın şifresini kurtarmayı talep ettiniz",
 
 
 	"coupons": "kuponlar",
@@ -686,7 +693,6 @@
 	"when you recieve new order will apear here": "Yeni sipariş aldıgınızda burada görünecek",
 	"Products Create ": "Ürünleri oluştur",
 	"create new product": "Yeni ürün oluştur",
-	"product name": "Ürün adı",
 	"product images ( gallery ) ": "Ürün resmi (Galeri)",
 	"+ add images": "+ Resim ekle",
 	"product videos ( youtube links only ) ": "Ürün videoları ( sadece youtube linkleri)",
