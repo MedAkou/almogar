@@ -560,34 +560,26 @@ return $content;
 
     private function sendResetEmail($email, $token)
     {
-    //Retrieve the user from the database
-    $user = DB::table('users')->where('email', $email)->select('name', 'email')->first();
-    //Generate, the password reset link. The token generated is embedded in the link
-    $link = env('APP_URL') . 'reset_password/' . $token ;
+        //Retrieve the user from the database
+        $user = DB::table('users')->where('email', $email)->select('name', 'email')->first();
+        //Generate, the password reset link. The token generated is embedded in the link
+        $link = env('APP_URL') . 'reset_password/' . $token ;
 
-            $url = 'https://api.elasticemail.com/v2/email/send';
+        // email data
+        $email_data = array(
+            'name' => $user->name,
+            'link' => $link,
+            'email' => $email
+        );
 
-            $post = array('from' => 'contact@3now.de',
-            'fromName' => 'O-Bazaar',
-            'apikey' => '9ECAE3B0E7E28B94621D30D634B0238ACC12BE45DA5CC17DEC385C99EE08C9212403CDE46FE482701696293D221895D8',
-            'subject' => 'Passwort zurücksetzen',
-            'to' => $email,
-            'bodyHtml' => $link,
-            'isTransactional' => false);
-
-            $ch = curl_init();
-            curl_setopt_array($ch, array(
-                CURLOPT_URL => $url,
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $post,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HEADER => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ));
-
-            $result=curl_exec ($ch);
-            curl_close ($ch);
-            return true;
+        // send email with the template
+        Mail::send('emails.recover', $email_data, function ($message) use ($email_data) {
+            $message->to($email_data['email'], $email_data['name'], $email_data['link'])
+                ->subject('Welcome to o-bazaar')
+                ->from('contact@o-bazaar.com', 'Welcome');
+        });
+        
+        return true;
     }
 
     public function getPassword($token) {
