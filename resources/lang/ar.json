@@ -3,9 +3,17 @@
   "Login & Register": "انشاء حساب جديد / تسجيل الدخول",
   "product.create.title": "",
 
+  "Warning": "تحذير",
+  "are you  sure you want to do  this!": "هل انت متأكد من أنك تريد أن تفعل هذا!",
+  "cancel": "إلغاء",
+  "i agree and responsible": "أنا موافق ومسؤول",
+
   "coupons": "كوبونات",
+  "create new coupon": "إضافة كوبون جديد",
   "Coupon code": "رمز الكوبون",
   "Status": "الحالة",
+  "Percent reduction": "تخفيض في المئة",
+  "Third memorization": "الحفظ الثالث",
   "Frequency of use": "تردد الاستخدام",
   "Add a new coupon": "أضف كوبون جديدة",
   "Delete all Coupons": "احذف جميع كوبونات",
