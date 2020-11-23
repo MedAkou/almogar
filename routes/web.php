@@ -1,5 +1,8 @@
 <?php
 
+require base_path().'/app/Helpers.php';
+
+
 
   Route::get('/account/login', 'AccountController@user')->name('account.user');
 
@@ -55,69 +58,22 @@ Route::any('reset_password/{token}', 'WebsiteController@getPassword')->name('pas
 
 Route::post('couponcheck', 'PayementController@applyCoupon')->name('applyCoupon');
 
-Route::get('/datenschutzerklarung', function(){
-    return view('theme2/datenschutzerklarung');
-});
 
+Route::get('/datenschutzerklarung', 'WebsiteController@datenschutzerklarung')->name('datenschutzerklarung');
 
-/*
-$stores = \App\Models\Stores::all();
+Route::get('/faq', 'WebsiteController@faq')->name('faq');
 
-foreach ($stores as $store) {
-  $store->name = 'Unter Bearbeitung';
-  $store->save();
-}*/
+Route::get('/agb', 'WebsiteController@agb')->name('agb');
 
-Route::get('/faq', function(){
-        return view('theme2/faq');
-});
+Route::get('/agb/kunden', 'WebsiteController@kunden')->name('kunden');
 
+Route::get('/agb/lieferanten', 'WebsiteController@lieferanten')->name('lieferanten');
 
+Route::get('/agb/lieferanten/Kunden', 'WebsiteController@lieferanten_Kunden')->name('lieferanten_Kunden');
 
-Route::get('/qdsfqsdfqsdqfsdffdfs', function(){
-    //    dd(\ShoppingCart::get());
-    //    
-   
-   $cart = (new \App\Helpers\Cart())->get();
-   dd($cart);
+Route::get('/datenschutzerklarung/kunden', 'WebsiteController@datenschutzerklarung_kunden')->name('datenschutzerklarung_kunden');
 
-});
-
-
-
-Route::get('/agb', function(){
-        return view('theme2/agb/index');
-});
-
-
-Route::get('/datenschutzerklarung', function(){
-        return view('theme2/datenschutzerklarung/index');
-});
-
-
-Route::get('/agb/kunden', function(){
-        return view('theme2/agb/kunden');
-});
-
-
-Route::get('/agb/lieferanten', function(){
-        return view('theme2/agb/lieferanten');
-});
-
-Route::get('/agb/lieferanten/Kunden', function(){
-        return view('theme2/agb/kunden-lieferanten');
-});
-
-Route::get('/datenschutzerklarung/kunden', function(){
-        return view('theme2/datenschutzerklarung/kunden');
-});
-
-Route::get('/datenschutzerklarung/lieferanten/drittanbieter', function(){
-        return view('theme2/datenschutzerklarung/lieferanten-drittanbieter');
-});
-
-
-
+Route::get('/datenschutzerklarung/lieferanten/drittanbieter', 'WebsiteController@lieferanten_drittanbieter')->name('lieferanten_drittanbieter');
 
 
 
@@ -133,206 +89,12 @@ Route::get('/contact/send', 'WebsiteController@contact-send')->name('contact.sen
 Route::get('/sendmail/{id}', 'WebsiteController@sendmail')->name('sendmail');
 
 
+Route::get('/current/user', 'WebsiteController@device_user_token')->name('device_user_token');
 
-Route::get('/current/user', function(){
+Route::get('send/device_token', 'WebsiteController@send_user_token')->name('send_user_token');
 
- return response()->json(['id'=> \Session::get('device_user_token')]);
+Route::get('/sendAlert', 'WebsiteController@send_alert')->name('send_alert');
 
-
-
- return response()->json();
-dd(session()->all());
-
- return response()->json(['id'=> \Auth::check()]);
-
-  $id = \Auth::user()->id;
-   return response()->json(['id'=> [$id]]);
-});
-
-
-
-
-
-
-Route::POST('send/device_token', function(){
-
-          $id = $_POST['id'];
-
-          preg_match("|\d+|", $id, $m);
-
-          $user               = \App\Models\User::find($m[0]);
-
-          $user->device_token = $_POST['token'];
-
-          if($user->save()){
-              return response()->json(['error'=>'true' ]);
-          }
-
-})->name('ldldldldldledldldldlmdl');
-
-
-
-
-
-
-
-
-
-Route::get('/sendAlert', function(){
-
-
-
- define('API_ACCESS_KEY','AAAA9g3hmXo:APA91bHIRa6ZBf1HKU8KTsQ1UDjWWNq-OwsCKD9L1apL1yxohBsu_x5LLzgi7lPss-CbCD1lnaKOCIxO6pzzvgcpxmYKOfCZnSSwWcrQoW7_mbUBGjZ1iBCPyySUnZLkcinAYI557cvS');
- $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
-
-        $notification = [
-            'title' =>'O-BAZAAR ORDER',
-            'body' => 'O-BAZAAR ORDER',
-            'sound' => 1,
-      "sound" => "default",
-            "click_action"=> "Open_URI"
-        ];
-
-       $extraNotificationData = ["message" => $notification,"moredata" =>'dd'];
-
-       $token = "f6aeUXFWSNS_J-WIIR4hus:APA91bGDWPcAVOsMVhSSUtyxb9CDwJBBVbqv5ok8wmz06U-2a7kTpqyZkBiby4fbP7JnUcTbJM9diJ4ie1oJFiK2UirBmCNyYE1twUjt769z339EMfpdTNgt9uDKVLGKBmy9l3X2xRBR";
-
-        $fcmNotification = [
- 'to'        => 'dCUTpyBFSn2rSJigtR1E7W:APA91bECE0kF8IEeUvqx6BPbCfZ3yhowcFCg0lEkVX7_IfcwH9z1gPiSLeT_Y7SdWFjojKvXl1NNpVqa1Jc4ujUzcO7-zBw0-FmcHmOamFF8VgDtHW1N9tXk0yc2Q4LG2cmF0JLPmmHE',
-            'notification' => $notification,
-            'data' => [
-                 "uri"=>  "https://o-bazaar.com/merchant/orders/edit/4",
-                  "msg_type" =>"Hello ",
-                  "request_id" =>7,
-                  "image_url" => 'https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png',
-                  "user_name"=>"abdulwahab",
-                  "msg"=>"msg"
-            ]
-        ];
-
-        $headers = [
-            'Authorization: key=' . API_ACCESS_KEY,
-            'Content-Type: application/json'
-        ];
-
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$fcmUrl);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        print_r($result);
-
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if (! function_exists('option')) {
-    /**
-     * Get / set the specified option value.
-     *
-     * If an array is passed as the key, we will assume you want to set an array of values.
-     *
-     * @param  array|string  $key
-     * @param  mixed  $default
-     * @return mixed|\Appstract\Options\Option
-     */
-    function option($key = null, $default = null)
-    {
-        if (is_null($key)) {
-            return app('option');
-        }
-
-        if (is_array($key)) {
-            return app('option')->set($key);
-        }
-
-        return app('option')->get($key, $default);
-    }
-}
-
-if (! function_exists('option_exists')) {
-    /**
-     * Check the specified option exits.
-     *
-     * @param  string  $key-
-     * @return mixed
-     */
-    function option_exists($key)
-    {
-        return app('option')->exists($key);
-    }
-}
-
-
-
-if (! function_exists('baseSetting')) {
-    /**
-     * Get / set the specified option value.
-     *
-     * If an array is passed as the key, we will assume you want to set an array of values.
-     *
-     * @param  array|string  $key
-     * @param  mixed  $default
-     * @return mixed|\Appstract\Options\Option
-     */
-    function baseSetting($key = null, $default = null)
-    {
-        if (is_null($key)) {
-            return app('BaseSettings');
-        }
-
-        if (is_array($key)) {
-            return app('BaseSettings')->set($key);
-        }
-
-        return app('BaseSettings')->get($key, $default);
-    }
-}
-
-if (! function_exists('baseSettings_exists')) {
-    /**
-     * Check the specified option exits.
-     *
-     * @param  string  $key-
-     * @return mixed
-     */
-    function baseSettings_exists($key)
-    {
-        return app('BaseSettings_exists')->exists($key);
-    }
-}
 
 
 

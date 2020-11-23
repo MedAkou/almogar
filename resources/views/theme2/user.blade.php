@@ -24,7 +24,7 @@
                      @csrf
                      @include('theme2/elements/alerts')
                      <div class="ps-form__content">
-                        <h5>Log In Your Account</h5>
+                     <h5>{{ __('please insert login info') }}</h5>
                         <div class="form-group">
                            <input type="email" placeholder="{{ __('Email address') }}"  value="{{ old('username') }}" name="username" class="form-control" id="login-email" required="">
                         </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                            <div class="ps-checkbox">
                               <input class="form-control" type="checkbox" id="remember-me" name="remember-me">
-                              <label for="remember-me">Rememeber me</label>
+                           <label for="remember-me">{{ __('Remember me') }}</label>
                            </div>
                         </div>
                         <div class="form-group submtit">
@@ -56,7 +56,7 @@
                   <form class="" action="{{ route('registration',['store' => $store]) }}" method="post">
                      @csrf
                      <div class="ps-form__content">
-                        <h5>Register An Account</h5>
+                        <h5>{{ __('Register account') }}</h5>
                         <div class="form-group">
                            <input placeholder="{{ __('Name') }}" value="{{ old('name') }}" type="text" name='name' class="form-control" id="name" >
                         </div>
@@ -67,7 +67,7 @@
                            <input placeholder="{{ __('Password') }}" type="password" name="password" class="form-control" id="register-password" />
                         </div>
                         <div class="form-group">
-                           <input type="password" placeholder="{{ __('Repeat Password') }} " name="confirm_password" class="form-control" id="confirm_password" >
+                           <input type="password" placeholder="{{ __('Confirm Password') }} " name="confirm_password" class="form-control" id="confirm_password" >
                         </div>
                         <div class="form-group">
                            <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="text" name="phone" class="form-control" id="phone" >

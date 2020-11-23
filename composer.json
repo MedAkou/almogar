@@ -54,8 +54,8 @@
             "database/seeds",
             "database/factories"
         ],
-         "files": [
-            
+        "files": [
+            "app/Helpers.php"
         ]
     },
     "autoload-dev": {

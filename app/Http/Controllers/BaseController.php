@@ -12,10 +12,12 @@ class BaseController extends Controller
 
     
     public function index() {
+
+
         
         $sliders = HomeSlider::get();
         
-        $stores  = Stores::paginate(12);
+        $stores  = Stores::with('owner')->paginate(12);
 
         $ads     = AdsManager::all();
 

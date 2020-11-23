@@ -20,15 +20,17 @@
          <div class="col-md-9">
             <div class="product-wrapper">
                <div class="product-intro divide-line up-effect">
-                  @foreach($products->chunk(3) as $items)
                   <div class="row productsrow">
+                  @foreach($products->chunk(3) as $items)
+                  
                      @foreach($items as $product)
                      <div class="col-xl-4² col-lg-4² col-md-4 col-sm-6 col-xs-6 nestele">
                         @include('theme2/elements/product')
                      </div>
                      @endforeach
-                  </div>
+                  
                   @endforeach
+               </div>
                </div>
             </div>
             <!-- End .product-wrapper -->

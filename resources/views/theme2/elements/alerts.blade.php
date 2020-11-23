@@ -3,5 +3,5 @@
 @endif
 
 @if (session()->has('error'))
-		<div class="alert alert-warning"> {{ session('error') }}	</div>
+		<div class="alert alert-error"> {{ session('error') }}	</div>
 @endif

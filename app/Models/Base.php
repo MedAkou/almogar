@@ -26,7 +26,6 @@ class Base extends Model
     }
 
 	   if (Auth::user() && Auth::user()->role == 'merchant'&& !empty(Auth::user()->store_id)) {
-        \Log::info('here now');
         if(!Session::has('admin_views')){
 	         return $query->where('store_id', Auth::user()->store_id);
         }

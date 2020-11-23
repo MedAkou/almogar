@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Helpers;
-use \App\Models\Product;
 use Session;
 use ShoppingCart;
+use \App\Models\Product;
+use App\Helpers\OnlineCartHelper;
 
 
 class Cart {
@@ -30,10 +31,12 @@ class Cart {
           //  dd(ShoppingCart::all());
 
             $product = Product::find($id);
+            $store_id = \Session::get('store_id');
             if($product){
                 ShoppingCart::associate('App\Models\Product');
                 ShoppingCart::add( $id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
             }
+            OnlineCartHelper::add($store_id,$product,$id,$quantity);
 
     }
 

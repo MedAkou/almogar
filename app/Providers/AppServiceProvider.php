@@ -31,9 +31,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-                App::setLocale('de');
-
-
+        App::setLocale('de');
 
         
 //            $_SESSION['browser_histoy'][] = rand(1000,1111);
