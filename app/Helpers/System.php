@@ -47,6 +47,12 @@ class System {
         return App::getLocale() == 'ar';
     }
     
-
+    public static function currency(){
+        switch(App::getLocale()){
+            case 'ar': return 'SAR';
+            case 'de': return  '€';
+            case 'tr': return '₺';
+        }
+    }
 
 }
