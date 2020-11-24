@@ -4,7 +4,7 @@ namespace App\Helpers;
 use App\Models\{User,Addresses};
 use ShoppingCart;
 use Auth;
-
+use Illuminate\Support\Facades\App;
 
 class System {
 
@@ -41,6 +41,10 @@ class System {
         if(self::checkauth('merchant')){
             return Auth::user()->id;
         }
+    }
+
+    public static function isRtl(){
+        return App::getLocale() == 'ar';
     }
     
 
