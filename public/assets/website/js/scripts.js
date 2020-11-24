@@ -139,6 +139,7 @@ function updatequantitiy(input) {
     var rawId = input.attr('data-product');
     var quantity = input.val();
     var product = input.attr('data-product-id');
+    var cart_id = input.attr('data-cart');
 
     var formData = new FormData();
 
@@ -146,6 +147,7 @@ function updatequantitiy(input) {
     formData.append('rawId', rawId);
     formData.append('quantity', quantity);
     formData.append('product_id', product);
+    formData.append('cart_id', cart_id);
 
     $.ajax({
         type: 'POST',

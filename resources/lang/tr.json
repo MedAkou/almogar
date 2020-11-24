@@ -13,6 +13,7 @@
     "Payment Methods": "Ödeme metodları",
 
     "Your shopping cart is empty": "Alışveriş sepetiniz boş",
+<<<<<<< HEAD
 	"welcome": "Hoşgeldiniz",
 	"welcome to": "Hoşgeldiniz",
 	"You have been registered on the site, and this is your registration data:": "Siteye kaydoldunuz ve bu sizin kayıt verileriniz:",
@@ -26,6 +27,8 @@
 	"Thank you for placing your order with": "İle sipariş verdiğiniz için teşekkür ederiz",
 	"This email is to confirm your order has been placed successfully, and will be processed and shipped to you soon.": "Bu e-posta, siparişinizin başarıyla verildiğini onaylamak içindir ve kısa süre içinde işleme konulup size gönderilecektir.",
 
+=======
+>>>>>>> 6d7a3fa1a7b7a773aa5a45b463ee1ffd7607ae6d
 
     "Total requests": "Toplam istek",
     "Total sales": "Toplam satış",
@@ -783,6 +786,7 @@
     " chose image": "resim seç",
     "allowed types ": " İzin verilen tipler ",
     "Lorem ipsum dolor sit amet.": "Teknik destek hizmetinizde",
+<<<<<<< HEAD
     "Edit user": "kullanıcıyı düzenle",
     "Edit user": "kullanıcıyı düzenle",
 	"cart": "araba",
@@ -1494,5 +1498,8 @@
 	"allowed types ": " İzin verilen tipler ",
 	"Lorem ipsum dolor sit amet.": "Teknik destek hizmetinizde",
 	"Edit user": "kullanıcıyı düzenle"
+=======
+    "Edit user": "kullanıcıyı düzenle"
+>>>>>>> 6d7a3fa1a7b7a773aa5a45b463ee1ffd7607ae6d
 
 }
