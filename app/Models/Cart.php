@@ -12,7 +12,7 @@ class Cart extends Model {
 
    use SoftDeletes;
 
-   protected $table = 'ads';
+   protected $table = 'carts';
     
    protected $guarded = ['id', 'created_at', 'updated_at'];
    protected $dates = ['created_at', 'updated_at', 'deleted_at'];

@@ -145,6 +145,7 @@ function updatequantitiy(input) {
     formData.append('_token', token);
     formData.append('rawId', rawId);
     formData.append('quantity', quantity);
+    formData.append('product_id', product);
 
     $.ajax({
         type: 'POST',
