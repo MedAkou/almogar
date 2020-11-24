@@ -146,8 +146,9 @@
             <h1 class="stores-heading-h1 d-none">{{ __('home_latest') }}</h1>
             <h3 class="stores-heading-h3 d-none">{{ __('explore') }}</h3>
             <div class="product-intro divide-line up-effect">
-               @foreach($stores->chunk(3) as $items)
                <div class="row">
+               @foreach($stores->chunk(3) as $items)
+               
                   @foreach($items as $product)
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 d-sm-none d-lg-none d-md-none">
                      <article class="ps-block--store-2">
@@ -182,8 +183,9 @@
                      </article>
                   </div>
                   @endforeach
-               </div>
+               
                @endforeach
+            </div>
             </div>
             <div class="home-pagination">
                {{ $stores->links() }}

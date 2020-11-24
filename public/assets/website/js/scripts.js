@@ -579,3 +579,84 @@ function calcultotalcoupon() {
     }
 
 }
+
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let link = $(this).attr('data-link');
+    let inputVal = $("#search-input").val();
+    let formData = new FormData();
+    formData.append('q', inputVal);
+    formData.append('_token', token);
+
+    $.ajax({
+        url: link,
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        cache: false,
+        dataType: "JSON",
+        success: function(response) {
+            if (response.products.data.length) {
+                console.log(response.products.data);
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
+
+$("#search-input").keyup(function() {
+
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let link = $("#search-form").attr('data-link');
+    let inputVal = $(this).val();
+    let results = $("#results");
+    let activeResult = "";
+    let formData = new FormData();
+    formData.append('q', inputVal);
+    formData.append('_token', token);
+
+    $.ajax({
+        url: link,
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        cache: false,
+        dataType: "JSON",
+        success: function(response) {
+            if (response.products.data.length) {
+                results.empty();
+                results.slideDown();
+                for (let i = 0; i < response.products.data.length; i++) {
+                    results.append(`<p class="result d-flex justify-content-end" id="${response.products.data[i].id}" data-store="${response.products.data[i].store_id}">
+                                                    <span>${response.products.data[i].name.ar}</span>
+                                                </p>`);
+                    let result = $(`p#${response.products.data[i].id}`);
+                    result.append(`<div class="img-cont">
+                                                    <img src="${response.products.data[i].thumbnail}"}>
+                                                </div>`);
+                }
+                $("p.result").click(function() {
+                    let productId = $(this)[0].id;
+                    let productSlug = response.storeSlug[0].slug;
+                    window.location.href = `/${productSlug}/shop/product/${productId}`;
+                })
+            } else {
+                results.empty();
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
+
+$("#search-input").blur(function() {
+    let results = $("#results");
+    results.slideUp();
+})

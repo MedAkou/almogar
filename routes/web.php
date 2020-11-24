@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 require base_path().'/app/Helpers.php';
 
 
-=======
-use Illuminate\Support\Facades\Route;
->>>>>>> c11813f47383f0db65e2395ba1bbfb6e8ef2217b
 
   Route::get('/account/login', 'AccountController@user')->name('account.user');
 
@@ -236,7 +232,7 @@ Route::group(['prefix' => '{store}', 'middleware' => 'store' ], function ($store
 
           Route::post('/account/password/update', 'ProfileController@passwordUpdate')->name('password-update')->middleware(['user']);
 
-          Route::get('/search', 'WebsiteController@searchProccess')->name('search');
+          Route::post('/search', 'WebsiteController@searchProccess')->name('search');
 
           Route::get('/blog', 'WebsiteController@blog')->name('blog');
 

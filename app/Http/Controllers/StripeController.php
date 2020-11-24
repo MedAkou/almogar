@@ -62,7 +62,7 @@ class StripeController extends Controller
 
         $currency = 'EUR';
 
-        $stripe = Stripe::make('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');
+        $stripe = Stripe::make('sk_test_StWGvG8T3PJBZbk0BEjAQodS00zOR7IUSq');
         try {
             $token = $stripe->tokens()->create([
                 'card' => [
@@ -75,12 +75,14 @@ class StripeController extends Controller
             if (!isset($token['id'])) {
                 return redirect()->route('checkout',['store'=> $request->store])->with('error','The Stripe Token was not generated correctly');   
             }
+
             $charge = $stripe->charges()->create([
                 'card' => $token['id'],
                 'currency' => $currency,
                 'amount'   => $total ,
-                'description' => 'payment charge for products from o-bazaar.com order',
+                'description' => 'payment charge for products from o-bazaar.com order ',
             ]);
+            
             if($charge['status'] == 'succeeded') {
                 
 

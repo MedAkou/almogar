@@ -472,3 +472,25 @@ aside.widget.widget_footer {
     width: 25%;
     float: left;
 }
+
+div#carouselExampleIndicators {
+    margin-bottom: 100px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .hidden-xs.inpconly {
+        min-width: 50% !important;
+    }
+    .carousel-inner {
+        max-height: 350px;
+    }
+    div#carouselExampleIndicators {
+        margin-bottom: 0px !important;
+    }
+}
+
+@media (max-width: 600px) and (min-width: 0px) {
+    div#carouselExampleIndicators {
+        margin-bottom: 0px !important;
+    }
+}

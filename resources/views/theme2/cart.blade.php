@@ -40,10 +40,10 @@
                                  <div class="form-group--number zaydnaks">
                                     <button class="up">+</button>
                                     <button class="down">-</button>
-                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart['id'] }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
+                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
                                  </div>
                               </td>
-                              <td>{{ $symbol }} <span class="price">{{ $product['total'] }}</span></td>
+                              <td>{{ $symbol }} <span class="price">{{ number_format((float)$product['total'], 2, '.', '') }}</span></td>
                               <td><a href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store])  }}"><i class="icon-cross"></i></a></td>
                            </tr>
                            @endforeach @endif
@@ -67,7 +67,7 @@
                            @if(!empty(ShoppingCart::all())) @foreach(ShoppingCart::all() as $product)
                            <li class="product-col-{{ $product['id'] }}">
                               <span class="ps-block__estimate"> 
-                              <span class="preis">{{ $product['total'] }}</span>  
+                              <span class="preis">{{ number_format((float)$product['total'], 2, '.', '') }}</span>  
                               </span>
                               <span class="ps-block__shipping product-qty ">
                               <a href="{{ route('shop.product',['id' => $product['id'], 'store' => $store]) }}"> 
@@ -77,7 +77,7 @@
                            </li>
                            @endforeach @endif
                         </ul>
-                        <h3>{{ __('Order Total') }} <span>{{ $symbol }} <i class="TotalPrice"> {{ ShoppingCart::totalPrice() }}</i></span></h3>
+                        <h3>{{ __('Order Total') }} <span>{{ $symbol }} <i class="TotalPrice"> {{ number_format((float)ShoppingCart::totalPrice(), 2, '.', '') }}</i></span></h3>
                      </div>
                   </div>
                   <a class="ps-btn ps-btn--fullwidth" href="{{ route('checkout', ['store' => $store]) }}">{{ __('Go to Checkout') }}</a>

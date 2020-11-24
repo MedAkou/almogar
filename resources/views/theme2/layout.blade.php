@@ -65,11 +65,25 @@
                   @endif
                </div>
                <div class="header__content-center">
-                  <form class="ps-form--quick-search" action="{{ route('search' ,[  'store' => $store] ) }}" method="get">
-                     <input type="{{ __('Search') }}" class="form-control" name="q" value="{{ app('request')->input('q') }}"  placeholder="{{ __('Search') }}" required>
-                     <button class="btn" type="submit"><i class="icon-search"></i>{{ __('Search') }}</button>
+                    
+                  <form   class="ps-form--quick-search"
+                          id="search-form"
+                          autocomplete="off"
+                          data-link="{{ route('search' ,[  'store' => $store] ) }}"
+                          method="post"
+                  >
+                      <input  type="text"
+                              class="form-control"
+                              id="search-input"
+                              name="q"
+                              placeholder="{{ ('Search') }}"
+                              required
+                      >
+                      <button class="btn" type="submit"><i class="icon-search"></i>{{ ('Search') }}</button>
                   </form>
-               </div>
+                  <div id="results">
+                  </div>
+              </div>
                <div class="header__content-right">
                   <div class="header__actions">
                      <a class="header__extra" href="{{ route('wishlist' ,[  'store' => $store] ) }}"><i class="icon-heart"></i><span><i class="wishlist_count">{{ $wishlist_count }}</i></span>
@@ -90,7 +104,7 @@
                               @endforeach @endif
                            </div>
                            <div class="ps-cart__footer">
-                              <h3>{{ __('Total') }}<strong>{{ $symbol }}{{  ShoppingCart::total() }}</strong></h3>
+                              <h3>{{ __('Total') }}<strong>{{ $symbol }}{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</strong></h3>
                               <figure><a class="ps-btn" href="{{ route('cart', ['store' => $store ]) }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
                            </div>
                         </div>
@@ -220,7 +234,7 @@
                   @endif
                </div>
                <div class="ps-cart__footer">
-                  <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>
+                  <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</span> </strong></h3>
                   <figure><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
                </div>
             </div>

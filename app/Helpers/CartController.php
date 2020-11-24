@@ -17,7 +17,7 @@ class CartController extends Controller
         $cart = (new Cart())->get();
         $total = (new Cart())->total();
         if(Auth::check()){
-            $dbcart = ModelsCart::where('user_id',Auth::user()->id)->get();dd($dbcart->id);
+            $dbcart = ModelsCart::where('user_id',Auth::user()->id)->get('id');dd($dbcart);
             return view ($this->theme.'cart',compact('cart','total','dbcart'));
         }
         

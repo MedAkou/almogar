@@ -23,51 +23,60 @@ class WebsiteController extends Controller {
      $store = $request->store;
      $symbol = '€';
     ?>
-    <div class="ps-cart__items">   
+<div class="ps-cart__items">
     <input type="hidden" id="cartcount" value="<?php  echo  ShoppingCart::count(false);?>">
-        
-                  <?php  if(!empty(ShoppingCart::all())): foreach(ShoppingCart::all() as $product):  ?>
 
-                      <div class="ps-product--cart-mobile">
-                        <div class="ps-product__thumbnail">
-                            <a href="<?php  route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">
-                                <img src="<?php  echo $product['thumbnail']  ?>" alt="product" />
-                            </a>
-                        </div>
-                        <div class="ps-product__content lhsabbdyaltele">
-                            <a class="ps-product__remove" href="<?php echo route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])   ?>">
-                                <i class="icon-cross"></i>
-                            </a>
+    <?php  if(!empty(ShoppingCart::all())): foreach(ShoppingCart::all() as $product):  ?>
 
-                            <a href="<?php echo route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">  
-                                <?php echo $product['name'];  ?>   
-                            </a>
-                           
-                            <small class="product-col-tele-<?php echo $product['id']  ?>"> <span class="prdqty"><?php echo $product['qty']  ?></span> x €<?php echo  $product['price']  ?>   <input type="hidden" class="preis" value="<?php  echo  $product['total']  ?>">  </small>
-                        </div>
-                        <div class="form-group--number zaydnaks updowntintele">
-                            <button class="up">+</button>
-                            <button class="down">-</button>         
-                            <input class="quantity-ajax form-control instantQuantity"  data-product-id='<?php echo $product['id'];?>' data-price='<?php echo $product['price'];  ?>' data-product="<?php echo $product->rawId();  ?>" type="text" value="<?php echo $product['qty']  ?>">
-                        </div>
-                    </div>
+    <div class="ps-product--cart-mobile">
+        <div class="ps-product__thumbnail">
+            <a href="<?php  route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">
+                <img src="<?php  echo $product['thumbnail']  ?>" alt="product" />
+            </a>
+        </div>
+        <div class="ps-product__content lhsabbdyaltele">
+            <a class="ps-product__remove"
+                href="<?php echo route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])   ?>">
+                <i class="icon-cross"></i>
+            </a>
+
+            <a href="<?php echo route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">
+                <?php echo $product['name'];  ?>
+            </a>
+
+            <small class="product-col-tele-<?php echo $product['id']  ?>"> <span
+                    class="prdqty"><?php echo $product['qty']  ?></span> x €<?php echo  $product['price']  ?> <input
+                    type="hidden" class="preis" value="<?php  echo  $product['total']  ?>"> </small>
+        </div>
+        <div class="form-group--number zaydnaks updowntintele">
+            <button class="up">+</button>
+            <button class="down">-</button>
+            <input class="quantity-ajax form-control instantQuantity" data-product-id='<?php echo $product['id'];?>'
+                data-price='<?php echo $product['price'];  ?>' data-product="<?php echo $product->rawId();  ?>"
+                type="text" value="<?php echo $product['qty']  ?>">
+        </div>
+    </div>
 
 
-                  <?php  endforeach;  ?>
-                  <?php  endif;  ?>
-  </div>
+    <?php  endforeach;  ?>
+    <?php  endif;  ?>
+</div>
 <div class="ps-cart__footer ps-cart__footer2 ">
-    <h3 class="jahnama"><?php  trans('Total')  ?><strong><?php echo $symbol  ?><?php  echo  ShoppingCart::total()  ?></strong></h3>
+    <h3 class="jahnama">
+        <?php  trans('Total')  ?><strong><?php echo $symbol  ?><?php  echo  ShoppingCart::total()  ?></strong></h3>
     <figure>
-        <a class="ps-btn" href="<?php echo route('cart', ['store' => $store ])  ?>" style="background-color: rgb(195, 20, 50);"> <?php echo trans('View Cart')  ?></a>
-        <a class="ps-btn" href="<?php echo route('checkout', ['store' => $store ])  ?>" style="background-color: rgb(195, 20, 50);"><?php echo trans('Checkout')  ?></a></figure>
+        <a class="ps-btn" href="<?php echo route('cart', ['store' => $store ])  ?>"
+            style="background-color: rgb(195, 20, 50);"> <?php echo trans('View Cart')  ?></a>
+        <a class="ps-btn" href="<?php echo route('checkout', ['store' => $store ])  ?>"
+            style="background-color: rgb(195, 20, 50);"><?php echo trans('Checkout')  ?></a>
+    </figure>
 </div>
 
 
 
 
 
-                 <?php
+<?php
                   $content = ob_get_clean(); 
                   return $content;
         }
@@ -81,55 +90,60 @@ class WebsiteController extends Controller {
      $store = $request->store;
      $symbol = '€';
     ?>
-    
 
 
-        <a href="javascript:;" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-            <span class="cart-count"> <?php echo  ShoppingCart::count(false) ?></span>
-        </a>
-        <div class="dropdown-menu">
-            <div class="dropdownmenu-wrapper">
-                <div class="dropdown-cart-header">
-                    <span> <?php  echo  ShoppingCart::count(false);  echo trans(' Items')    ?></span>
-                    <a href="<?php   route('cart', ['store' => $store ]) ?>">  <?php echo trans('View Cart');  ?></a>
-                </div>
-                <div class="dropdown-cart-products">
-                  <?php  if(!empty(ShoppingCart::all())): foreach(ShoppingCart::all() as $product):  ?>
-                    <div class="product">
-                        <div class="product-details">
-                            <h4 class="product-title">
-                                    <a href="<?php  route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">  
-                                        <?php echo $product['name'];  ?> 
-                                    </a>
-                                </h4>
 
-                            <span class="cart-product-info">
-                                    <span class="cart-product-qty"><?php echo $product['qty']  ?></span> x $<?php echo  $product['price']  ?>
-                            </span>
-                        </div>
-                        <figure class="product-image-container">
-                            <a href="<?php  route('shop.product',['id' => $product['id'], 'store' => $store ])  ?>" class="product-image">
-                                <img src="<?php  echo $product['thumbnail']  ?>" alt="product">
-                            </a>
-                            <a href="<?php  route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])   ?>" class="btn-remove">
-                                <i class="icon-cancel"></i>
-                            </a>
-                        </figure>
-                    </div>
-                  <?php  endforeach;  ?>
-                  <?php  endif;  ?>
-                </div>
-
-                <div class="dropdown-cart-total">
-                    <span><?php  trans('Total')  ?></span>
-                    <span class="cart-total-price"><?php echo $symbol  ?><?php  echo  ShoppingCart::total()  ?></span>
-                </div>
-
-                <div class="dropdown-cart-action">
-                    <a href="<?php route('checkout', ['store' => $store ])  ?>" class="btn btn-block"><?php echo trans('Checkout')  ?></a>
-                </div>
-            </div>
+<a href="javascript:;" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false" data-display="static">
+    <span class="cart-count"> <?php echo  ShoppingCart::count(false) ?></span>
+</a>
+<div class="dropdown-menu">
+    <div class="dropdownmenu-wrapper">
+        <div class="dropdown-cart-header">
+            <span> <?php  echo  ShoppingCart::count(false);  echo trans(' Items')    ?></span>
+            <a href="<?php   route('cart', ['store' => $store ]) ?>"> <?php echo trans('View Cart');  ?></a>
         </div>
+        <div class="dropdown-cart-products">
+            <?php  if(!empty(ShoppingCart::all())): foreach(ShoppingCart::all() as $product):  ?>
+            <div class="product">
+                <div class="product-details">
+                    <h4 class="product-title">
+                        <a href="<?php  route('shop.product',['id' => $product['id'] , 'store' => $store ])  ?>">
+                            <?php echo $product['name'];  ?>
+                        </a>
+                    </h4>
+
+                    <span class="cart-product-info">
+                        <span class="cart-product-qty"><?php echo $product['qty']  ?></span> x
+                        $<?php echo  $product['price']  ?>
+                    </span>
+                </div>
+                <figure class="product-image-container">
+                    <a href="<?php  route('shop.product',['id' => $product['id'], 'store' => $store ])  ?>"
+                        class="product-image">
+                        <img src="<?php  echo $product['thumbnail']  ?>" alt="product">
+                    </a>
+                    <a href="<?php  route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])   ?>"
+                        class="btn-remove">
+                        <i class="icon-cancel"></i>
+                    </a>
+                </figure>
+            </div>
+            <?php  endforeach;  ?>
+            <?php  endif;  ?>
+        </div>
+
+        <div class="dropdown-cart-total">
+            <span><?php  trans('Total')  ?></span>
+            <span class="cart-total-price"><?php echo $symbol  ?><?php  echo  ShoppingCart::total()  ?></span>
+        </div>
+
+        <div class="dropdown-cart-action">
+            <a href="<?php route('checkout', ['store' => $store ])  ?>"
+                class="btn btn-block"><?php echo trans('Checkout')  ?></a>
+        </div>
+    </div>
+</div>
 
 
 
@@ -213,18 +227,19 @@ return $content;
         public function searchProccess(Request $request) {
 
 
-        $q          = $request->q;
-        $lang       = \App::getLocale();
-        $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
-        $products->appends(['q' => $q]);
-        $count      = $products ->count();
-//        return view ($this->theme.'admin.products.index',compact('products','categories','count'))->withQuery ( $q );
+            $q          = $request->q;
+            $lang       = \App::getLocale();
+            $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
+            $products->appends(['q' => $q]);
+            $storeSlug = Stores::where('id', Session::get('store_id'))->get('slug');
+            $count      = $products ->count();
+    //        return view ($this->theme.'admin.products.index',compact('products','categories','count'))->withQuery ( $q );
 
 
+            
+            return response()->json(array('products' => $products, 'storeSlug' => $storeSlug), 200);
+            // return view ($this->theme.'search', compact('products','q'));
 
-
-
-            return view ($this->theme.'search', compact('products','q'));
         }
 
 
@@ -776,32 +791,37 @@ return $content;
 
   ?>
 
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
 
 
 
 <style>
-  body{
+body {
     width: 2500px;
     font-family: 'Raleway', sans-serif;
-  }
-  .title_1 {
+}
+
+.title_1 {
     font-size: 70px;
-  }
+}
 
-  .dint {
+.dint {
     font-size: 40px;
-  }
-  .leftspaced {
+}
+
+.leftspaced {
     margin-left: 875 px;
-  }
+}
 
-  .hidden {
-    display:none;
-  }
+.hidden {
+    display: none;
+}
 
-  @media  print {
-  @page  { margin: 0px 0px !important; padding: 0px !imortant;}
+@media print {
+    @page {
+        margin: 0px 0px !important;
+        padding: 0px !imortant;
+    }
 
 }
 </style>
@@ -811,7 +831,8 @@ return $content;
 <div style='clear:both; '></div>
 
 
-<img style='width: 250px;margin-left: 400px;' src="https://o-bazaar.com/uploads/media/xVqE71pZkbaYeHAnJ5vIMaduPJeyL0WGhkIunrbl.png" alt="">
+<img style='width: 250px;margin-left: 400px;'
+    src="https://o-bazaar.com/uploads/media/xVqE71pZkbaYeHAnJ5vIMaduPJeyL0WGhkIunrbl.png" alt="">
 
 
 <div style='clear:both;'></div>
@@ -824,64 +845,65 @@ return $content;
 
 
 <div id="printingDiv">
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'>Bestellnummer #<?php echo $content->id; ?> </h2>
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'> www.o-bazaar.com </h2>
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'> <?php echo $content->store->name; ?> </h2>
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'> <?php echo $content->store->street; ?></h2>
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'> <?php echo $content->store->description; ?></h2>
-<h2 class="title_1 leftspaced"  style='margin-left: 270px;'> <?php echo $content->store->postal_code; ?></h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'>Bestellnummer #<?php echo $content->id; ?> </h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'> www.o-bazaar.com </h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'> <?php echo $content->store->name; ?> </h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'> <?php echo $content->store->street; ?></h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'> <?php echo $content->store->description; ?></h2>
+    <h2 class="title_1 leftspaced" style='margin-left: 270px;'> <?php echo $content->store->postal_code; ?></h2>
 
-<h2 class="title_1 leftspaced"> ---------------------------------------</h2>
-
-
-<h2 class="title_1"> Name : <?php echo $content->addresse->given_name; ?> </h2>
-<h2 class="title_1"> Str.Nr : <?php echo $content->addresse->street; ?></h2>
-<h2 class="title_1"> Hausnummer : <?php echo $content->addresse->housenumber; ?></h2>
-<h2 class="title_1"> Stadt : <?php echo $content->addresse->city; ?></h2>
-<h2 class="title_1"> Plz : <?php echo $content->addresse->postal_code; ?></h2>
-<h2 class="title_1"> E-Mail : <?php echo $content->user->email; ?>  </h2>
-<h2 class="title_1"> Telefonnummer : <?php echo $content->user->phone; ?> </h2>
-<h2 class="title_1"> Versand : <?php echo  $content->shipping->name; ?>  </h2>
-<h2 class="title_1"> Datum : <?php echo $content->user->created_at; ?>  </h2>
-<h2 class="title_1"> Seriennummer : <?php echo $content->serial; ?>  </h2>
-
-<h2 class="title_1 leftspaced"> ---------------------------------------</h2>
-
-<?php foreach ($content->products as $product) : ?>
-<h2 class="title_1">
- Menge : <?php  echo $product->quantity ; ?>  
-<br>
-<?php echo  $product->product->getTranslation('name','de') ; ?> 
-<br>
- Preis : <?php  echo $product->price ?> € </h2>
- <br>
-<?php endforeach; ?>
-
-<h2 class="title_1 leftspaced"> ---------------------------------------</h2>
-<h2 class="title_1 "> Versandkosten : <?php echo $content->shipping->cost; ?> € </h2>
-<h2 class="title_1 "> Gesamtsumme : <?php echo $content->getTotal(); ?> € </h2>
-<h2 class="title_1 "> Bezahlen : <?php echo $content->methodinvoice(); ?>  </h2>
-
-<h2 class="title_1 leftspaced"> ---------------------------------------</h2>
-
-<h2 class="title_1 leftspaced" style='margin-left: 400px;' >  Danke für Ihren Einkauf  </h2>
+    <h2 class="title_1 leftspaced"> ---------------------------------------</h2>
 
 
-</div> 
+    <h2 class="title_1"> Name : <?php echo $content->addresse->given_name; ?> </h2>
+    <h2 class="title_1"> Str.Nr : <?php echo $content->addresse->street; ?></h2>
+    <h2 class="title_1"> Hausnummer : <?php echo $content->addresse->housenumber; ?></h2>
+    <h2 class="title_1"> Stadt : <?php echo $content->addresse->city; ?></h2>
+    <h2 class="title_1"> Plz : <?php echo $content->addresse->postal_code; ?></h2>
+    <h2 class="title_1"> E-Mail : <?php echo $content->user->email; ?> </h2>
+    <h2 class="title_1"> Telefonnummer : <?php echo $content->user->phone; ?> </h2>
+    <h2 class="title_1"> Versand : <?php echo  $content->shipping->name; ?> </h2>
+    <h2 class="title_1"> Datum : <?php echo $content->user->created_at; ?> </h2>
+    <h2 class="title_1"> Seriennummer : <?php echo $content->serial; ?> </h2>
+
+    <h2 class="title_1 leftspaced"> ---------------------------------------</h2>
+
+    <?php foreach ($content->products as $product) : ?>
+    <h2 class="title_1">
+        Menge : <?php  echo $product->quantity ; ?>
+        <br>
+        <?php echo  $product->product->getTranslation('name','de') ; ?>
+        <br>
+        Preis : <?php  echo $product->price ?> €
+    </h2>
+    <br>
+    <?php endforeach; ?>
+
+    <h2 class="title_1 leftspaced"> ---------------------------------------</h2>
+    <h2 class="title_1 "> Versandkosten : <?php echo $content->shipping->cost; ?> € </h2>
+    <h2 class="title_1 "> Gesamtsumme : <?php echo $content->getTotal(); ?> € </h2>
+    <h2 class="title_1 "> Bezahlen : <?php echo $content->methodinvoice(); ?> </h2>
+
+    <h2 class="title_1 leftspaced"> ---------------------------------------</h2>
+
+    <h2 class="title_1 leftspaced" style='margin-left: 400px;'> Danke für Ihren Einkauf </h2>
+
+
+</div>
 <script type="text/javascript">
-    function printpage() {
-        var printButton = document.getElementById("printingDiv");
+function printpage() {
+    var printButton = document.getElementById("printingDiv");
 
-          var element = document.getElementById("pr");
-          element.classList.add("hidden");
+    var element = document.getElementById("pr");
+    element.classList.add("hidden");
 
 
-        printButton.style.visibility = 'hidden';
-        document.title = "";
-        document.URL   = "";
-        window.print();
-        printButton.style.visibility = 'visible';
-    }
+    printButton.style.visibility = 'hidden';
+    document.title = "";
+    document.URL = "";
+    window.print();
+    printButton.style.visibility = 'visible';
+}
 </script>
 
 
