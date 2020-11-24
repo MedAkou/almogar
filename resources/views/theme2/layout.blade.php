@@ -17,7 +17,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
 <body class="@yield('bodyClass')  @if(auth::check())  has-logged   @endif" data-slug="{{$store}}">
-      @include('admin/elements/alerts')
+      @include('theme2/elements/alerts')
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
             <div class="container">
@@ -161,7 +161,7 @@
       </header>
       <div class="ps-panel--sidebar" id="cart-mobile">
          <div class="ps-panel__header">
-            <h3>Shopping Cart</h3>
+            <h3>{{ __('Shopping Cart') }}</h3>
          </div>
          <div class="navigation__content">
             <div class="ps-cart--mobile">
@@ -179,6 +179,17 @@
                      </div>
                   </div>
                   @endforeach @endif
+                  @if (ShoppingCart::count() == 0)
+                      <div class="container">
+                         <div class="row text-center">
+                            <div class="empty-cart">
+                               <i class="icon-cart"></i>
+                               <p>{{ __('Your shopping cart is empty') }}</p>
+                               <a class="ps-btn" href="/{{ $store }}">{{ __('Continue Shopping') }}</a>
+                            </div>
+                         </div>
+                      </div>
+                  @endif
                </div>
                <div class="ps-cart__footer">
                   <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>

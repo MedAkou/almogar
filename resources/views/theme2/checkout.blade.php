@@ -16,7 +16,7 @@
         <section class="ps-section--account ps-checkout">
             <div class="container">
                 <div class="ps-section__header">
-                    <h3>Payment</h3>
+                    <h3>{{__('Payment')}}</h3>
                 </div>
                 <div class="ps-section__content">
                     <form class="ps-form--checkout" action="{{ route('checkout.pay',['store' => $store]) }}" method="post">
@@ -76,7 +76,7 @@
                                                 </table>
                                             </figure>
                                         </div>
-                                        <h4>Payment Methods</h4>
+                                        <h4>{{ __('Payment Methods') }}</h4>
                                         <div class="ps-block--payment-method">
                                             <ul class="ps-tab-list">
                                                 <li class="active"><a class="ps-btn ps-btn--sm" id="facturem" href="#fatora">{{ __('facture') }}</a></li>

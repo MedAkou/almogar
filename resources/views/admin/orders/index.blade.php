@@ -39,7 +39,7 @@
                 <li class="active" title="{{ __('Orders') }}">{{ __('Orders') }}</li>
             </ul>
             <ul class="breadcrumb-elements not-collapsible  ">
-                <li><a href="javascript:;" id="show_search_box"><i class="icon-search4 position-left"></i>{{ __('search') }} </a></li>
+                
             </ul>
 
         </div>

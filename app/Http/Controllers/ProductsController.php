@@ -5,8 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\{Product,ProductCategories};
 use \App\Helpers\ProductHelper;
 use \App\Helpers\HistoryHelper;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller {
 
@@ -86,7 +85,10 @@ $categories = ProductCategories::where('store_id',$store)->get();
     }
 
     public function edit($id){
-        $content    = Product::find($id);
+        $content    = Product::where('id', $id)->where('store_id', Auth::user()->store_id)->first();
+        if(!$content){
+            return redirect()->back();
+        }
         $categories = ProductCategories::Merchant()->get();
         return view('admin.products.edit',compact('content','categories'));
     }

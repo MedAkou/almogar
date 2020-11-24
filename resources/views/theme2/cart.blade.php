@@ -40,7 +40,7 @@
                                  <div class="form-group--number zaydnaks">
                                     <button class="up">+</button>
                                     <button class="down">-</button>
-                                    <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
+                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart['id'] }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
                                  </div>
                               </td>
                               <td>{{ $symbol }} <span class="price">{{ $product['total'] }}</span></td>

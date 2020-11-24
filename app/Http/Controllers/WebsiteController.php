@@ -386,6 +386,8 @@ return $content;
     }
 
     public function home(Request $request){
+        
+
         if(!\Session::has('store_id')){
 
             $page = BasePages::where('slug',$request->store)->first();
@@ -507,8 +509,37 @@ return $content;
         return view ($this->theme.'about-us')  ;
     }
 
+    public function datenschutzerklarung(){
+        return view ($this->theme.'datenschutzerklarung')  ;
+    }
 
+    public function faq(){
+        return view ($this->theme.'faq')  ;
+    }
 
+    public function agb(){
+        return view ($this->theme.'agb.index')  ;
+    }
+
+    public function kunden(){
+        return view ($this->theme.'agb.kunden')  ;
+    }
+
+    public function lieferanten(){
+        return view ($this->theme.'agb.lieferanten')  ;
+    }
+
+    public function lieferanten_Kunden(){
+        return view ($this->theme.'agb.kunden-lieferanten')  ;
+    }
+
+    public function datenschutzerklarung_kunden(){
+        return view ($this->theme.'datenschutzerklarung.kunden')  ;
+    }
+
+    public function lieferanten_drittanbieter(){
+        return view ($this->theme.'datenschutzerklarung.lieferanten-drittanbieter')  ;
+    }
 
 
     public function search_blog()
@@ -657,6 +688,83 @@ return $content;
         }
         return redirect('/');
     }
+
+    public function device_user_token(){
+        return response()->json(['id'=> \Session::get('device_user_token')]);
+
+
+
+        return response()->json();
+        dd(session()->all());
+
+        return response()->json(['id'=> \Auth::check()]);
+
+        $id = \Auth::user()->id;
+        return response()->json(['id'=> [$id]]);
+    }
+
+    public function send_user_token(){
+        $id = $_POST['id'];
+
+          preg_match("|\d+|", $id, $m);
+
+          $user               = \App\Models\User::find($m[0]);
+
+          $user->device_token = $_POST['token'];
+
+          if($user->save()){
+              return response()->json(['error'=>'true' ]);
+          }
+    }
+
+    public function send_alert(){
+        define('API_ACCESS_KEY','AAAA9g3hmXo:APA91bHIRa6ZBf1HKU8KTsQ1UDjWWNq-OwsCKD9L1apL1yxohBsu_x5LLzgi7lPss-CbCD1lnaKOCIxO6pzzvgcpxmYKOfCZnSSwWcrQoW7_mbUBGjZ1iBCPyySUnZLkcinAYI557cvS');
+        $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
+
+        $notification = [
+            'title' =>'O-BAZAAR ORDER',
+            'body' => 'O-BAZAAR ORDER',
+            'sound' => 1,
+        "sound" => "default",
+            "click_action"=> "Open_URI"
+        ];
+
+        $extraNotificationData = ["message" => $notification,"moredata" =>'dd'];
+
+        $token = "f6aeUXFWSNS_J-WIIR4hus:APA91bGDWPcAVOsMVhSSUtyxb9CDwJBBVbqv5ok8wmz06U-2a7kTpqyZkBiby4fbP7JnUcTbJM9diJ4ie1oJFiK2UirBmCNyYE1twUjt769z339EMfpdTNgt9uDKVLGKBmy9l3X2xRBR";
+
+        $fcmNotification = [
+        'to'        => 'dCUTpyBFSn2rSJigtR1E7W:APA91bECE0kF8IEeUvqx6BPbCfZ3yhowcFCg0lEkVX7_IfcwH9z1gPiSLeT_Y7SdWFjojKvXl1NNpVqa1Jc4ujUzcO7-zBw0-FmcHmOamFF8VgDtHW1N9tXk0yc2Q4LG2cmF0JLPmmHE',
+            'notification' => $notification,
+            'data' => [
+                    "uri"=>  "https://o-bazaar.com/merchant/orders/edit/4",
+                    "msg_type" =>"Hello ",
+                    "request_id" =>7,
+                    "image_url" => 'https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png',
+                    "user_name"=>"abdulwahab",
+                    "msg"=>"msg"
+            ]
+        ];
+
+        $headers = [
+            'Authorization: key=' . API_ACCESS_KEY,
+            'Content-Type: application/json'
+        ];
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$fcmUrl);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        print_r($result);
+    }
+    
 
     public function printinvoiceThermal($id){ 
         $content =  \App\Models\Orders::with('store','products','addresse','payement','shipping')->where('id',$id)->first();

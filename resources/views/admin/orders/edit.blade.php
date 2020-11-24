@@ -26,7 +26,7 @@
             <h1> <span class="text-semibold"> {{ __('order details') }}  </span></h1>
          </div>
          <div class="heading-elements">
-            <a href="{{ route('manager.orders.delete',['id' => $content->id ]) }}" class="btn bg-danger btn-labeled heading-btn"><b>
+            <a href="{{ route('admin.orders.delete',['id' => $content->id ]) }}" class="btn bg-danger btn-labeled heading-btn"><b>
             <i class="icon-trash"></i></b> 
             {{ __('delete order') }}
             </a>

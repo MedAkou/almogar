@@ -168,7 +168,7 @@
 
 
 
-                <div class="panel panel-flat">
+                <div class="panel panel-flat" style="display: none">
                     <div class="panel-head">
 
                     </div>
