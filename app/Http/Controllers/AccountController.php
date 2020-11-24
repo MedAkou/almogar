@@ -11,6 +11,7 @@ use Hash;
 use Request as req;
 use hisorange\BrowserDetect\Parser as Browser;
 use \Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class AccountController extends Controller {
 
@@ -179,6 +180,19 @@ class AccountController extends Controller {
             $user->phone = $request->phone;
         }
         $user->save();
+
+        // email data
+        $email_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+        );
+        
+        // send email with the template
+        Mail::send('emails.welcome_email', $email_data, function ($message) use ($email_data) {
+            $message->to($email_data['email'], $email_data['name'], $email_data['email'])
+                ->subject('Welcome to o-bazaar')
+                ->from('contact@o-bazaar.com', 'Welcome');
+        });
 
         Auth::loginUsingId($user->id);
 

@@ -44,28 +44,28 @@ Coupons Create
             <div class="form-group">
                 <label class="col-sm-3 control-label">{{ __('Coupon address') }} </label>
                 <div class="col-sm-9">
-                    <input type="text" name="title" value="" placeholder="{{ __('  Coupon address') }}" class="form-control rf">
+                    <input type="text" name="title" value="" placeholder="{{ __('Coupon address') }}" class="form-control rf">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">{{ __('Coupon code') }}</label>
                 <div class="col-sm-9">
-                    <input type="text" name="code" value="" placeholder="{{ __('  coupon code ') }}" class="form-control rf">
+                    <input type="text" name="code" value="" placeholder="{{ __('Coupon code') }}" class="form-control rf">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">{{ __('Type') }}</label>
                 <div class="col-sm-9">
                     <select name="discount_type" id="input-type" class="form-control">
-<option value="percent">{{ __('Percent reduction') }}</option>
-<option value="fixed">{{ __('Third memorization') }}</option>
-</select>
+                        <option value="percent">{{ __('Percent reduction') }}</option>
+                        <option value="fixed">{{ __('Third memorization') }}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">{{ __('Reducing value') }} </label>
                 <div class="col-sm-9">
-                    <input type="text" name="discount" value="" placeholder="{{ __('  Reducing value ') }}" class="form-control rf">
+                    <input type="text" name="discount" value="" placeholder="{{ __('Reducing value') }}" class="form-control rf">
                 </div>
             </div>
             <div style="display: none;" class="form-group">

@@ -244,7 +244,7 @@
                     <td>
                         <br/>
 
-                        <h3>Thanks {{ \Auth::user()->name }}</h3>
+                        <h3>{{ __('thank you') }} {{ \Auth::user()->name }}</h3>
                         
                         <!-- You may like to include a Hero Image -->
                         <p style="display: none;"><img src="http://placekitten.com/g/600/300" alt="" /></p>
@@ -252,7 +252,7 @@
                         
                         <br/>
                         
-                        <p>Thank you for placing your order with  {{ option('sitename') }}. This email is to confirm your order has been placed successfully, and will be processed & shipped to you soon.</p>
+                        <p>{{ __('Thank you for placing your order with') }}  {{ option('sitename') }}. {{ __('This email is to confirm your order has been placed successfully, and will be processed and shipped to you soon.') }}</p>
                             
                         <br/>
 
@@ -283,7 +283,7 @@
                         <br/>
                         
                         <!-- Totals -->
-                        <h5><b>Total:</b>  {{ $order->total }} </h5>
+                        <h5><b>{{ __('order.total') }}:</b>  {{ $order->total }} </h5>
                         
               
 
@@ -296,9 +296,9 @@
                                         <table align="left" class="column">
                                             <tr>
                                                 <td>                
-                                                    <h5 class="">Shipping address</h5>
-                                                    <p class="">
-                                                         {{ $order->addresse->given_name }}<br/>
+                                                    <h5>{{ __('Shipping Address') }}</h5>
+                                                    <p>
+                                                        {{ $order->addresse->given_name }}<br/>
                                                         {{ $order->addresse->street }}<br/>
                                                         {{ $order->addresse->city }}<br/>
                                                         {{ $order->addresse->state }}

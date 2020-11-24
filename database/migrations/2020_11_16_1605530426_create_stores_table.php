@@ -14,7 +14,7 @@ class CreateStoresTable extends Migration
 			$table->string('name',250)->nullable()->default('NULL');
 			$table->string('street',250)->nullable()->default('NULL');
 			$table->string('description',250)->nullable()->default('NULL');
-			$table->text('logo');
+			$table->text('logo')->nullable();
 			$table->string('thumbnail')->nullable()->default('NULL');
 			$table->string('user_id')->nullable()->default('NULL');
 			$table->string('postal_code')->nullable()->default('NULL');

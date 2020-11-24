@@ -1,8 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 require base_path().'/app/Helpers.php';
 
 
+=======
+use Illuminate\Support\Facades\Route;
+>>>>>>> c11813f47383f0db65e2395ba1bbfb6e8ef2217b
 
   Route::get('/account/login', 'AccountController@user')->name('account.user');
 

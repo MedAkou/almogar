@@ -213,6 +213,17 @@ class PayementController extends Controller {
         }*/
 
 
+        // email data
+        $email_data = array(
+            'order' => $order,
+        );
+        
+        // send email with the template
+        Mail::send('emails.orderCreated', $email_data, function ($message) use ($email_data) {
+            $message->to($email_data['email'], $email_data['order'])
+                ->subject('Order confirmed | o-bazaar')
+                ->from('contact@o-bazaar.com', 'Order confirmed');
+        });
 
 			return redirect()->route('thank-you')->with('message','order created successfully');
 		}
