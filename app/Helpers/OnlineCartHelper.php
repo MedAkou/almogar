@@ -61,6 +61,7 @@ class OnlineCartHelper {
             //$subtotal = $quantity * $product_price;dd("rfrf");
 
             foreach($products as $product){
+                
                 //ShoppingCart::associate('App\Models\Product');
                 //ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
             }
@@ -68,28 +69,25 @@ class OnlineCartHelper {
         }
     }
 
-    public static function update($cart_id,$store_id, $product_id , $quantity)
+    public static function update($cart_id,$store_id , $quantity,$product_id)
     {
         if(!self::checkAuth()){
             return false;
         }
 
         $user_id = Auth::user()->id;
-        $product = Product::find($product_id)->get();
-        $cart = Cart::find($cart_id);dd($cart);
-        $cart->user_id = $user_id;
-        $cart->store_id = $store_id;
-        $cart->product_id = $product_id;
+        $product = Product::where("id",$product_id)->where("store_id",$store_id)->first(); 
+        $cart = Cart::where("product_id",$product_id)->where("user_id",$user_id)->first();
+
         $cart->quantity = $quantity;
-        $cart->price = $product->presentPrice();
         $cart->subtotal = $quantity * $product->presentPrice();
-        $cart->save();dd($cart);
+        $cart->save();
 
         return $cart;
     }
 
     public static function remove($cart_id)
     {
-        return Cart::find($cart_id)->delete();
+        //return Cart::where("product_id",$product_id)->where("user_id",$user_id)->delete();
     }
 }
