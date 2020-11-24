@@ -136,7 +136,7 @@
                               <h4>{{ $product->name }}</h4>
                               <br>
                               <p><i class="icon-map-marker"></i> {{ $product->street }}</p>
-                              <p><i class="icon-telephone"></i> {{ $product->owner->phone }}</p>
+                              <p><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></p>
                            </figure>
                         </div>
                         <div class="ps-block__author">
@@ -156,7 +156,7 @@
                            <ul class="ps-block__contact">
                               <li><i class="icon-map-marker"></i> {{ $product->street }}</li>
                               <li><i class="icon-envelope"></i><a href="mailto:{{ $product->owner->email }}" >{{ $product->owner->email }}</span></a></li>
-                              <li><i class="icon-telephone"></i> {{ $product->owner->phone }}</li>
+                              <li><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></li>
                            </ul>
                         </div>
                      </article>
