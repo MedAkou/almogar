@@ -72,26 +72,6 @@
          </div>
       </header>
       <header class="header header--mobile" data-sticky="true">
-         <div class="header__top">
-            <div class="header__left">
-               <p>{{ __('My Account') }}</p>
-            </div>
-            <div class="header__right">
-               <ul class="navigation__extra">
-                  <li><a href="{{ route('account.edit') }}">{{ __('My Account') }}</a></li>
-                  <li>
-                     <div class="ps-dropdown language">
-                        <a href="javascript:;">{{  app('SiteSetting')->PresentLang() }}</a>
-                        <ul class="ps-dropdown-menu">
-                           <li><a href="?lang=ar"><img src="{{ asset('assets/website/img/flag/sa.png') }}" alt=""> العربية</a></li>
-                           <li><a href="?lang=tr"><img src="{{ asset('assets/website/img/flag/tr.png') }}" alt=""> Turkish</a></li>
-                           <li><a href="?lang=de"><img src="{{ asset('assets/website/img/flag/de.png') }}" alt=""> Deutsch</a></li>
-                        </ul>
-                     </div>
-                  </li>
-               </ul>
-            </div>
-         </div>
          <div class="navigation--mobile">
             <div class="navigation__left">
                @php
@@ -157,7 +137,7 @@
                               <h4>{{ $product->name }}</h4>
                               <br>
                               <p><i class="icon-map-marker"></i> {{ $product->street }}</p>
-                              <p><i class="icon-telephone"></i> {{ $product->owner->phone }}</p>
+                              <p><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></p>
                            </figure>
                         </div>
                         <div class="ps-block__author">
@@ -177,7 +157,7 @@
                            <ul class="ps-block__contact">
                               <li><i class="icon-map-marker"></i> {{ $product->street }}</li>
                               <li><i class="icon-envelope"></i><a href="mailto:{{ $product->owner->email }}" >{{ $product->owner->email }}</span></a></li>
-                              <li><i class="icon-telephone"></i> {{ $product->owner->phone }}</li>
+                              <li><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></li>
                            </ul>
                         </div>
                      </article>

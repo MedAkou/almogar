@@ -324,25 +324,6 @@ a.navigation__item.ps-toggle--sidebar {
         </nav>
     </header>
     <header class="header header--mobile" data-sticky="true">
-        <div class="header__top">
-            <div class="header__left">
-                <p>{{ __('My Account') }}</p>
-            </div>
-            <div class="header__right">
-                <ul class="navigation__extra">
-                    <li><a href="{{ route('edit') }}">{{ __('My Account') }}</a></li>
-                    <li>
-                        <div class="ps-dropdown language"><a href="javascript:;">{{  app('SiteSetting')->PresentLang() }}</a>
-                            <ul class="ps-dropdown-menu">
-                                <li><a href="?lang=ar"><img src="{{ asset('assets/website/img/flag/sa.png') }}" alt=""> العربية</a></li>
-                                <li><a href="?lang=tr"><img src="{{ asset('assets/website/img/flag/tr.png') }}" alt=""> Turkish</a></li>
-                                <li><a href="?lang=de"><img src="{{ asset('assets/website/img/flag/de.png') }}" alt=""> Deutsch</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="navigation--mobile">
             <div class="navigation__left">
                 @php
@@ -422,7 +403,28 @@ a.navigation__item.ps-toggle--sidebar {
         </div>
     </div>
     <div class="navigation--list">
-        <div class="navigation__content"><a class="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i class="icon-menu"></i><span> Menu</span></a><a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i class="icon-list4"></i><span> Categories</span></a><a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Search</span></a><a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-cart"></i><span> Cart</span></a><a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/"><i class="icon-home"></i><span> Home</span></a></div>
+        <div class="navigation__content">
+            <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
+                <i class="icon-menu"></i>
+                <span>{{ __('Menu') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile">
+                <i class="icon-list4"></i>
+                <span>{{ __('Categories') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
+                <i class="icon-magnifier"></i>
+                <span>{{ __('Search') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile">
+                <i class="icon-cart"></i>
+                <span>{{ __('Cart') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/">
+                <i class="icon-home"></i>
+                <span>{{ __('Home') }}</span>
+            </a>
+        </div>
     </div>
     <div class="ps-panel--sidebar" id="search-sidebar">
         <div class="ps-panel__header">

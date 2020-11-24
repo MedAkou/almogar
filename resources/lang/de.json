@@ -13,24 +13,29 @@
 
     "Your shopping cart is empty": "Dein Warenkorb ist leer",
 
+<<<<<<< HEAD
     "Search": "Suche",
 
     "CART": "WAGEN",
     "Cart": "Wagen",
     "cart": "Wagen",
+=======
+    "welcome": "Welkom",
+    "welcome to": "welkom bij",
+    "You have been registered on the site, and this is your registration data:": "U bent geregistreerd op de site en dit zijn uw registratiegegevens:",
+    "Retrieve login information for": "Inloggegevens ophalen voor",
+    "Password recovery": "Wachtwoord herstel",
+    "If you do not do this step, please ignore this email": "Als u deze stap niet uitvoert, kunt u deze e-mail negeren",
+    "Site management": "Site beheer",
+    "the return link is only valid for 30 minutes": "De retourlink is slechts 30 minuten geldig",
+    "press next button to retrieve it": "Druk op de knop Volgende om het op te halen",
+    "you have requested to recover the password for your account at the site": "U heeft verzocht om het wachtwoord voor uw account op de site te herstellen",
+    "Thank you for placing your order with": "Bedankt voor het plaatsen van uw bestelling bij",
+    "This email is to confirm your order has been placed successfully, and will be processed & shipped to you soon.": "Deze e-mail is om te bevestigen dat uw bestelling met succes is geplaatst en zal binnenkort worden verwerkt en naar u verzonden.",
+>>>>>>> be5cf297b00b05053191c5125085ebf42421846b
 
     "activate": "aktivieren Sie",
     "deactivate": "deaktivieren",
-
-    "active_products": "Aktiviert",
-    "notactive_products": "Nicht aktiviert",
-
-    "Print products page": "Produktseite drucken",
-    "View by category": "Nach Kategorie anzeigen",
-    "Search for products": "Suche nach Produkten",
-    "product name": "Produktname",
-
-
 
     "coupons": "Coupons",
     "Coupon code": "Gutescheincode",
