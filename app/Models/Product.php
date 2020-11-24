@@ -163,7 +163,9 @@ class Product extends Base {
     }
 
 
-
+    public function price($price){
+      return str_replace(',',".","$price");
+    }
 
 
 }

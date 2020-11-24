@@ -3,11 +3,9 @@
   "Login & Register": "انشاء حساب جديد / تسجيل الدخول",
   "product.create.title": "",
 
-<<<<<<< HEAD
     "Login & Register": "انشاء حساب جديد / تسجيل الدخول",
     "Register account": "انشاء حساب جديد",
     "product.create.title": "",
-=======
   "Warning": "تحذير",
   "are you  sure you want to do  this!": "هل انت متأكد من أنك تريد أن تفعل هذا!",
   "cancel": "إلغاء",
@@ -41,7 +39,6 @@
   "publish coupon": "نشر الكوبون",
   "Saving changes": "حفظ التغييرات",
   "the description": "الوصف",
->>>>>>> be5cf297b00b05053191c5125085ebf42421846b
 
   "Print products page": "طباعة منتوجات الصفحة",
   "View by category": "عرض حسب التصنيف",
@@ -85,15 +82,11 @@
   "joinus": "انضم إلينا",
 
 
-<<<<<<< HEAD
     "explore": "Explore the greates places in the city",
-=======
   "explore": "Explore the greates places in the city",
->>>>>>> be5cf297b00b05053191c5125085ebf42421846b
 
   "order.received.subject": "Order Received!",
 
-<<<<<<< HEAD
     "price": "",
     "regular price": "السعر الأصلي",
     "discount price": "سعر التخفيض",
@@ -806,8 +799,7 @@
     "Total requests": "إجمالي الطلبات",
     "Total sales": "إجمالي المبيعات",
     "Pending requests": "الطلبات المعلقة",
-    "Edit user": "تعديل صاحب المتجر"
-=======
+    "Edit user": "تعديل صاحب المتجر",
   "price": "",
   "regular price": "السعر الأصلي",
   "discount price": "سعر التخفيض",
@@ -1517,5 +1509,4 @@
   "Total sales": "إجمالي المبيعات",
   "Pending requests": "الطلبات المعلقة",
   "Edit user": "تعديل صاحب المتجر"
->>>>>>> be5cf297b00b05053191c5125085ebf42421846b
 }

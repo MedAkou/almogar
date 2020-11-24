@@ -249,6 +249,7 @@ return [
         'PayPal'       => Srmklive\PayPal\Facades\PayPal::class ,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'System' => App\Helpers\System::class,
 
 
     ],
