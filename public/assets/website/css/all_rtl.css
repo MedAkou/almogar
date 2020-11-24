@@ -38509,3 +38509,14 @@ nav.navigation--mobile-product {
         margin-top: 20%;
     }
 }
+
+@media(max-width: 544px){
+      .dress-card-title{
+          height: 50px !important;
+      }
+}
+@media(max-width: 544px){
+    .product-card{
+        padding: 2px;
+    }
+}

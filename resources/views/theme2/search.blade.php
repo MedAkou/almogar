@@ -5,7 +5,6 @@
 
 @section('content')
 
-
             <div class="container">
             	<div class="row">
             		<div class="col-md-12">
@@ -22,7 +21,7 @@
                     <div class="row">
 
                 	@forelse ($products as $product)
-					       <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					       <div class="col-xl-3 col-lg-3 col-md-4 col-6 product-card">
                            @include('theme2/elements/product')
                     	   </div>
 					@empty

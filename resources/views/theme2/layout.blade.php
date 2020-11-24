@@ -252,7 +252,7 @@
       </div>
       <div class="ps-panel--sidebar" id="search-sidebar">
          <div class="ps-panel__header">
-            <form class="ps-form--search-mobile" action="{{ route('search' ,[  'store' => $store] ) }}" method="get">
+            <form class="ps-form--search-mobile" action="{{ route('searchMobile' ,['store' => $store] ) }}" method="get">
                <div class="form-group--nest">
                   <input class="form-control"type="{{ __('Search') }}" name="q" value="{{ app('request')->input('q') }}"  placeholder="{{ __('Search') }}">
                   <button><i class="icon-magnifier" type="submit"></i></button>

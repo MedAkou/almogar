@@ -38550,3 +38550,15 @@ nav.navigation--mobile-product {
 .alert {
     position: relative !important;
 }
+
+
+@media(max-width: 544px){
+      .dress-card-title{
+          height: 50px !important;
+      }
+}
+@media(max-width: 544px){
+    .product-card{
+        padding: 2px;
+    }
+}
