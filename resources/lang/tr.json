@@ -12,9 +12,7 @@
     "Payment": "Ödeme",
     "Payment Methods": "Ödeme metodları",
 
-<<<<<<< HEAD
     "Your shopping cart is empty": "Alışveriş sepetiniz boş",
-=======
 	"welcome": "Hoşgeldiniz",
 	"welcome to": "Hoşgeldiniz",
 	"You have been registered on the site, and this is your registration data:": "Siteye kaydoldunuz ve bu sizin kayıt verileriniz:",
@@ -28,7 +26,6 @@
 	"Thank you for placing your order with": "İle sipariş verdiğiniz için teşekkür ederiz",
 	"This email is to confirm your order has been placed successfully, and will be processed and shipped to you soon.": "Bu e-posta, siparişinizin başarıyla verildiğini onaylamak içindir ve kısa süre içinde işleme konulup size gönderilecektir.",
 
->>>>>>> c11813f47383f0db65e2395ba1bbfb6e8ef2217b
 
     "Total requests": "Toplam istek",
     "Total sales": "Toplam satış",
@@ -58,7 +55,6 @@
     "Saving changes": "Değişiklikleri kaydediyor",
     "the description": "tanım",
 
-<<<<<<< HEAD
     "Search": "arama",
     "assign to category": "kategoriye ata",
     "delete products": "ürünleri sil",
@@ -787,8 +783,7 @@
     " chose image": "resim seç",
     "allowed types ": " İzin verilen tipler ",
     "Lorem ipsum dolor sit amet.": "Teknik destek hizmetinizde",
-    "Edit user": "kullanıcıyı düzenle"
-=======
+    "Edit user": "kullanıcıyı düzenle",
 	"cart": "araba",
 	"FREE SHIPPING & RETURN": "ÜCRETSİZ KARGO VE İADE",
 	"Free shipping on all orders over $99.": "99 $ üzerindeki tüm siparişlerde ücretsiz gönderim.",
@@ -1498,6 +1493,5 @@
 	"allowed types ": " İzin verilen tipler ",
 	"Lorem ipsum dolor sit amet.": "Teknik destek hizmetinizde",
 	"Edit user": "kullanıcıyı düzenle"
->>>>>>> c11813f47383f0db65e2395ba1bbfb6e8ef2217b
 
 }
