@@ -9,6 +9,7 @@
     "Payment Method": "طريقة الدفع",
     "A great big thank you!": "شكرا جزيلا لك!",
     "For choosing us and being so awesome all at once.": "لاختيارنا وكونك رائعين في كل مرة.",
+    "You have to login": "يجب عليك تسجيل الدخول",
 
     "Login & Register": "انشاء حساب جديد / تسجيل الدخول",
     "Register account": "انشاء حساب جديد",
@@ -19,6 +20,7 @@
     "i agree and responsible": "أنا موافق ومسؤول",
     "welcome": "مرحبا بك",
     "welcome to": "مرحبا بك في",
+    "Welcome+": "أهلا بك",
     "You have been registered on the site, and this is your registration data:": "لقد تم تسجيلك في الموقع , وهذه بيانات التسجيل الخاصة بك :",
     "Retrieve login information for": "استرجاع معلومات الدخول لـ",
     "Password recovery": "إسترجاع كلمة المرور",
@@ -1515,5 +1517,28 @@
     "Total requests": "إجمالي الطلبات",
     "Total sales": "إجمالي المبيعات",
     "Pending requests": "الطلبات المعلقة",
-    "Edit user": "تعديل صاحب المتجر"
+    "Edit user": "تعديل صاحب المتجر",
+
+
+    "An online website that acts as an intermediary between shopkeepers and customers.": "موقع على الإنترنت يعمل كوسيط بين أصحاب المتاجر والعملاء.",
+    "Offering an online shopping service to reduce congestion and save time for everyone.": "تقديم خدمة تسوق عبر الإنترنت لتقليل الازدحام وتوفير الوقت للجميع.",
+    "It does this through their unrestricted support to make the buying process comfortable and safe for everyone and easy access to grocery stores for everyone.": "يقوم بذلك من خلال دعمهم غير المقيد لجعل عملية الشراء مريحة وآمنة للجميع وسهولة الوصول إلى متاجر البقالة للجميع.",
+    "Product for sale": "منتج للبيع",
+    "Sellers Active on Martfury": "الباعة النشطون في مارتفوري",
+    "Buyer active on Martfury": "المشترون النشطون في مارتفوري",
+    "Annual gross merchandise sales": "إجمالي مبيعات البضائع السنوية",
+    "M": "مليون",
+    "Download o-bazaar App Now!": "قم بتنزيل تطبيق o-bazaar الآن!",
+    "Shopping fastly and easily more with our app. Get a link to download the app on your phone": "تسوق بسرعة وسهولة أكثر مع تطبيقنا. احصل على رابط لتنزيل التطبيق على هاتفك",
+    "Fast delivery": "توصيل سريع",
+    "Secure payment": "دفع آمن",
+    "Help": "مساعدة",
+    "Gift service": "خدمة الهدايا",
+    "Coupons and discount": "القسائم والخصم",
+    "Call us": "اتصل بنا",
+    "Bremen - Germany": "بريمن - ألمانيا",
+    "How it works": "كيف تعمل",
+    "Faq": "التعليمات",
+    "Conditions": "الظروف",
+    "Data protection": "حماية البيانات"
 }

@@ -20,6 +20,7 @@
     "Payment Method": "Zahlungsmethode",
     "A great big thank you!": "Ein großes Dankeschön!",
     "For choosing us and being so awesome all at once.": "Dafür, dass du uns gewählt hast und auf einmal so großartig bist.",
+    "You have to login": "U moet inloggen",
 
     "Search": "Suche",
 
@@ -27,6 +28,7 @@
     "Cart": "Wagen",
     "cart": "Wagen",
     "welcome": "Welkom",
+    "Welcome+": "Herzlich Willkommen",
     "welcome to": "welkom bij",
     "You have been registered on the site, and this is your registration data:": "U bent geregistreerd op de site en dit zijn uw registratiegegevens:",
     "Retrieve login information for": "Inloggegevens ophalen voor",
@@ -99,7 +101,7 @@
     "pickup": "abholen",
     "product categories home": "Produktkategorien nach Hause",
     "View Shopping Cart": "Einkaufswagen anzeigen",
-    "item.added.cart.modal": "itemAddedCartModal",
+    "item.added.cart.modal": "Das Produkt wurde erfolgreich in den Warenkorb gelegt",
     "Continue Shopping": "Mit dem Einkaufen fortfahren",
     "backhome": "Zurück zuhause",
     "storename.required": "storenameErforderlich",
@@ -792,5 +794,26 @@
     "Total requests": "Gesamtzahl der Anfragen",
     "Total sales": "Gesamtumsatz",
     "Pending requests": "Offene Anfragen",
-    "Edit user": "Benutzer bearbeiten"
+    "Edit user": "Benutzer bearbeiten",
+
+    "An online website that acts as an intermediary between shopkeepers and customers.": "Eine Online-webseite, die als Vermittler zwischen Ladenbesitzern und Kunden .",
+    "Offering an online shopping service to reduce congestion and save time for everyone.": "Einen Online-Einkaufsservice anbietet, um Überlastung zu verringern und Zeit für alle zu sparen.",
+    "It does this through their unrestricted support to make the buying process comfortable and safe for everyone and easy access to grocery stores for everyone.": "Dies geschieht durch die uneingeschränkte Unterstützung, um den Kaufprozess für alle angenehm und sicher zu gestalten und für alle einen einfachen Zugang zu Lebensmittelgeschäften .",
+    "Product for sale": "Produkt zum Verkauf",
+    "Sellers Active on Martfury": "Verkäufer aktiv auf Martfury",
+    "Buyer active on Martfury": "Käufer aktiv auf Martfury",
+    "Annual gross merchandise sales": "Jährlicher Bruttowarenumsatz",
+    "Download o-bazaar App Now!": "Laden Sie die o-bazaar App jetzt herunter!",
+    "Shopping fastly and easily more with our app. Get a link to download the app on your phone": "Schneller und einfacher einkaufen mit unserer App. Holen Sie sich einen Link zum Herunterladen der App auf Ihr Handy",
+    "Fast delivery": "Schnelle Lieferung",
+    "Secure payment": "Sichere Bezahlung",
+    "Help": "Yardım",
+    "Gift service": "Geschenkservice",
+    "Coupons and discount": "Gutscheine und Rabatt",
+    "Call us": "Rufen Sie uns",
+    "Bremen - Germany": "Bremen - Deutschland",
+    "How it works": "Wie es funktioniert",
+    "Faq": "Faq",
+    "Conditions": "AGB",
+    "Data protection": "Datenschutzerklärung"
 }
