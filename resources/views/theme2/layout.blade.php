@@ -331,6 +331,18 @@
             </div>
          </div>
       </div>
+      <div class="modal" id="modalUnauth" tabindex="-1" role="dialog" >
+         <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <h5 class="modaltitle">{{ __('You have to login') }}</h5>
+                  <center>
+                     <a href="{{ route('account.user') }}" class="ps-btn">{{ __('Login') }}</a>
+                  </center>
+               </div>
+            </div>
+         </div>
+      </div>
       <div id="overlay">
          <div class="cv-spinner">
             <span class="spinner"></span>

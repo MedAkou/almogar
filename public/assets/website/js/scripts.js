@@ -98,6 +98,7 @@ $(document).on('click', 'body #quickview', function(e) {
 $(document).on('click', 'body #wishlist', function(e) {
 
     if (!$('body').hasClass('has-logged')) {
+        $('#modalUnauth').modal('show');
         return false;
     }
 
