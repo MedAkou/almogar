@@ -1456,6 +1456,7 @@
     "create html / css / js codes at the top of site": "html /css / js kodları sayfanın üst tarafından oluşturabilirsiniz",
     "create html / css / js tags at the bottom of the site ": " html /css / js kodları sayfanın alt tarafından oluşturabilirsiniz",
     "do you need help  ": "Yardıma ihtiyacınız var mı",
+    "item.added.cart.modal": "Ürün sepete başarıyla eklendi",
     "The first box": "İlk kutu",
     "Place in which codes you want to appear between and named ": "Görünmesini istediğiniz kodları ve adlarını yerleştir",
     "head": "Baş",
