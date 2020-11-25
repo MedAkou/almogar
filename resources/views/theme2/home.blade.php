@@ -14,14 +14,17 @@
       <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
       @if(System::isRtl())
          <link rel="stylesheet" href="{{ asset('assets/website/css/all_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/stylehome_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
       @else
          <link rel="stylesheet" href="{{ asset('assets/website/css/all.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/stylehome.css') }}?v={{ env('ASSETS_VERSION') }}">
       @endif
-      <link rel="stylesheet" href="{{ asset('assets/website/css/stylehome.css') }}?v={{ env('ASSETS_VERSION') }}">
+      
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
    <body>
       @include('theme2/elements/alerts')
+      
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
             <div class="container">
@@ -135,38 +138,43 @@
                @foreach($stores->chunk(3) as $items)
                
                   @foreach($items as $product)
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 d-sm-none d-lg-none d-md-none">
-                     <article class="ps-block--store-2">
-                        <div class="ps-block__content bg--cover" data-background="https://i.imgur.com/YSn2gIJ.png">
-                           <figure>
-                              <h4>{{ $product->name }}</h4>
-                              <br>
-                              <p><i class="icon-map-marker"></i> {{ $product->street }}</p>
-                              <p><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></p>
-                           </figure>
+                     @if(System::ismobile())
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 d-sm-none d-lg-none d-md-none">
+                           <article class="ps-block--store-2">
+                              <div class="ps-block__content bg--cover" data-background="https://i.imgur.com/YSn2gIJ.png">
+                                 <figure>
+                                    <h4>{{ $product->name }}</h4>
+                                    <br>
+                                    <p><i class="icon-map-marker"></i> {{ $product->street }}</p>
+                                    <p><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></p>
+                                 </figure>
+                              </div>
+                              <div class="ps-block__author">
+                                 <a class="ps-block__user" href="{{ $product->slug }}">
+                                 <img class="stroephimg" src="{!!  $product->presentThumbnailback() !!}" alt="">
+                                 </a>
+                                 <a class="ps-btn" href="{{ $product->slug }}">{{ __('Visit Store') }}</a>
+                              </div>
+                           </article>
                         </div>
-                        <div class="ps-block__author">
-                           <a class="ps-block__user" href="{{ $product->slug }}">
-                           <img class="stroephimg" src="{!!  $product->presentThumbnailback() !!}" alt="">
-                           </a>
-                           <a class="ps-btn" href="{{ $product->slug }}">{{ __('Visit Store') }}</a>
+                     @else
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 hidden-xs inpconly ">
+                           <article class="ps-block--store">
+                              <div class="ps-block__thumbnail bg--cover" data-background="{!!  $product->presentThumbnailback() !!}"></div>
+                              <div class="ps-block__content">
+                                 <div class="ps-block__author"></a><a class="ps-btn" href="{{ $product->slug }}">{{ __('Visit Store') }}</a></div>
+                                 <h4>{{ $product->name }}</h4>
+                                 <ul class="ps-block__contact">
+                                    <li><i class="icon-map-marker"></i> {{ $product->street }}</li>
+                                    <li><i class="icon-envelope"></i><a href="mailto:{{ $product->owner->email }}" >{{ $product->owner->email }}</span></a></li>
+                                    <li><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></li>
+                                 </ul>
+                              </div>
+                           </article>
                         </div>
-                     </article>
-                  </div>
-                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 hidden-xs inpconly ">
-                     <article class="ps-block--store">
-                        <div class="ps-block__thumbnail bg--cover" data-background="{!!  $product->presentThumbnailback() !!}"></div>
-                        <div class="ps-block__content">
-                           <div class="ps-block__author"></a><a class="ps-btn" href="{{ $product->slug }}">{{ __('Visit Store') }}</a></div>
-                           <h4>{{ $product->name }}</h4>
-                           <ul class="ps-block__contact">
-                              <li><i class="icon-map-marker"></i> {{ $product->street }}</li>
-                              <li><i class="icon-envelope"></i><a href="mailto:{{ $product->owner->email }}" >{{ $product->owner->email }}</span></a></li>
-                              <li><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></li>
-                           </ul>
-                        </div>
-                     </article>
-                  </div>
+                     @endif
+                  
+                  
                   @endforeach
                
                @endforeach

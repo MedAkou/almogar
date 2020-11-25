@@ -34,7 +34,7 @@
 
                             @foreach($product->videos() as $video)
                                 @if (!empty($video))
-                                    <a class="popup-youtube" href="{{ $video }}"><div class="item video"><img src="{{ $image }}" alt=""></div></a>
+                                    <div class="item video"><a class="popup-youtube" href="{{ $video }}"><img src="{{ $image }}" alt=""></a></div>
                                 @endif
                             @endforeach
 

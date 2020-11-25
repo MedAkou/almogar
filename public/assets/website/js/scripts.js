@@ -59,7 +59,7 @@ function colorReplace(findHexColor, replaceWith) {
         });
     });
 }
-colorReplace('#fcb800', '#c31432');
+colorReplace('#fcb800', 'rgb(195, 20, 50)');
 
 // #654ea3 , #456780 , 
 
@@ -149,6 +149,7 @@ function updatequantitiy(input) {
     formData.append('quantity', quantity);
     formData.append('product_id', product);
     formData.append('cart_id', cart_id);
+
 
     $.ajax({
         type: 'POST',
@@ -707,13 +708,12 @@ $("#search-input-mobile").blur(function() {
 // End search script
 
 
-$(function() {
-    $('.popup-youtube, .popup-vimeo').magnificPopup({
-        disableOn: 700,
+$(document).ready(function() {
+    $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
         type: 'iframe',
         mainClass: 'mfp-fade',
         removalDelay: 160,
         preloader: false,
-        fixedContentPos: false
+        fixedContentPos: true
     });
 });

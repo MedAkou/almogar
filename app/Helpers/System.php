@@ -5,8 +5,10 @@ use App\Models\{User,Addresses};
 use ShoppingCart;
 use Auth;
 use Illuminate\Support\Facades\App;
+use \Mobile_Detect;
 
 class System {
+    
 
     public static function checkauth($type){
         if($type == 'merchant'){
@@ -27,6 +29,13 @@ class System {
         }
     }
 
+    public static function ismobile(){
+        $detect = new Mobile_Detect;
+        if($detect->isMobile()){
+            return true;
+        }
+
+    }
     
     
     public static function userId(){
