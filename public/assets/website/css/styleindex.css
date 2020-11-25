@@ -441,26 +441,32 @@
         text-align: right;
     }
     
-    #results {
+    #results,
+    #results-mobile {
         display: none;
         border: 1px #CCC solid;
         width: 535px;
         position: absolute;
         background: #FFF;
         z-index: 999;
-        text-align: right;
         max-height: 400px;
         overflow-y: scroll;
     }
+
+    #results-mobile{
+        width: 360px;
+    }
     
-    #results>p {
+    #results>p,
+    #results-mobile>p {
         cursor: pointer;
         padding: 5px;
         margin-bottom: 0;
         padding: 10px 10px 10px 0;
     }
     
-    #results>p:hover {
+    #results>p:hover,
+    #results-mobile>p:hover {
         background-color: rgb(195, 20, 50);
         color: #FFF;
     }
