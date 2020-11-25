@@ -69,7 +69,16 @@ class ManagerSettingsController extends Controller
             baseSetting(['STRIPE_API_KEY'             => $request->STRIPE_API_KEY]);
             return redirect()->route('manager.settings')->with('success',trans('settings.updated'));
 
-     }
+        }
+
+        public function paypal (Request $request) {
+            
+            baseSetting(['PAYPAL_CLIENT_ID'              => $request->PAYPAL_CLIENT_ID]);
+            baseSetting(['PAYPAL_SECRET'              => $request->PAYPAL_SECRET]);
+            baseSetting(['PAYPAL_MODE'              => $request->PAYPAL_MODE]);
+
+            return redirect()->route('manager.settings')->with('success',trans('settings.updated'));
+        }
 
 
 }

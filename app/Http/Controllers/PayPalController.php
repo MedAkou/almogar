@@ -44,9 +44,9 @@ class PayPalController extends Controller
     public function __construct() {
 
         $paypal_conf      = \Config::get('paypal');  
-        $PAYPAL_CLIENT_ID = 'ASgPHk1OdViLzsQ0ObA3-OQgknv_6mTycfL4c1ck_ZNojqOYFgi5sfnRHW7W2Ve6tgrj_0oz1t2Kazg7';
-        $PAYPAL_SECRET    = 'ECs9_mHqeuvHYUsvxdb-QAcMtTf5VbNiStfMGBSVpUruH-qNiLpr5tKpa1y_w2WJRkDLEsrSF-FG-6bg';
-        $PAYPAL_MODE      = 'sandbox';
+        $PAYPAL_CLIENT_ID = baseSetting('PAYPAL_CLIENT_ID');
+        $PAYPAL_SECRET    = baseSetting('PAYPAL_SECRET');
+        $PAYPAL_MODE      = baseSetting('PAYPAL_MODE');
         $paypal_conf['settings']['mode'] =$PAYPAL_MODE;
 
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
@@ -95,6 +95,7 @@ class PayPalController extends Controller
         $data['items'] = OrdersHelper::Paypalitems();
 
         $this->serial=OrdersHelper::generate_booking_id();
+        session()->forget('order_serial');
         Session::put('order_serial', $this->serial);
         
         $data['invoice_id']          = rand(9000,12000);

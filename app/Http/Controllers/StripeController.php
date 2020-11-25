@@ -106,6 +106,9 @@ class StripeController extends Controller
             $order->shipping_id = $shippingid ?? NULL;
             $order->serial      = $this->serial;
 
+            session()->forget('order_serial');
+            Session::put('order_serial', $this->serial);
+
 
             $geo = geoip(\Request::ip());
 

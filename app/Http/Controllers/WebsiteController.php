@@ -403,7 +403,7 @@ return $content;
 
 
     public function thankyou() {
-        $content = Orders::where('serial','O-Bazaar5597818')->first();
+        $content = Orders::where('serial',Session::get('order_serial'))->first();
         if($content){
 
             return view ($this->theme.'thank-you',compact('content'));

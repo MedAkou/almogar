@@ -20,6 +20,7 @@ Route::group(['prefix' => '/manager', 'as' => 'manager.', 'middleware' => 'manag
     Route::post('/settings', 'ManagerSettingsController@update')->name('settings');
     Route::post('/settings/social', 'ManagerSettingsController@social')->name('settings.social');
     Route::post('/settings/stripe', 'ManagerSettingsController@stripe')->name('settings.stripe');
+    Route::post('/settings/paypal', 'ManagerSettingsController@paypal')->name('settings.paypal');
 
 
     Route::group(['prefix' => '/menus', 'as' => 'menus.'], function () {
