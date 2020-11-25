@@ -89,17 +89,19 @@
     
         <div class="container">
             <div class="ps-section__content">
-                @foreach($products->chunk(4) as $items)
                 <div class="ster">
                     <div class="row">
+                @foreach($products->chunk(4) as $items)
+                
                         @foreach($items as $product)
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 nestele">
                             @include('theme2/elements/product')
                         </div>
                         @endforeach
-                    </div>
-                </div>
+                    
                 @endforeach
+            </div>
+        </div>
             </div>
             <div class="ps-pagination">
                 <ul class="pagination">

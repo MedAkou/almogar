@@ -232,7 +232,8 @@ Route::group(['prefix' => '{store}', 'middleware' => 'store' ], function ($store
 
           Route::post('/account/password/update', 'ProfileController@passwordUpdate')->name('password-update')->middleware(['user']);
 
-          Route::get('/search', 'WebsiteController@searchProccess')->name('search');
+          Route::post('/search', 'WebsiteController@searchProccess')->name('search');
+          // Route::post('/search', 'WebsiteController@searchProccessTo')->name('searchTo');
 
           Route::get('/blog', 'WebsiteController@blog')->name('blog');
 

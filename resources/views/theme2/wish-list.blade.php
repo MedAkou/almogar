@@ -34,7 +34,7 @@
                                        <div class="ps-product__content"><a href="{{ route('shop.product',['id' => $product->id , 'store' => $store ]) }}">{{$product->product->name }}</a></div>
                                     </div>
                                  </td>
-                                 <td class="price">{{ $symbol }} {{ $product->product->presentPrice() }}</td>
+                                 <td class="price">{{ System::currency() }} {{ $product->product->presentPrice() }}</td>
                                  <td><a class="ps-btn" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}"><i class="icon-bag2"></i></a></td>
                               </tr>
                               @endforeach

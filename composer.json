@@ -27,7 +27,8 @@
         "spatie/laravel-newsletter": "^4.8",
         "spatie/laravel-translatable": "^4.3",
         "srmklive/paypal": "~1.0",
-        "torann/geoip": "^1.2"
+        "torann/geoip": "^1.2",
+        "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

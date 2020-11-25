@@ -17,6 +17,9 @@ use Session;
 
 class StripeController extends Controller
 {
+
+    public $serial ='';
+
     public function payWithStripe(Request $request)
     {
         return view('stripe');
@@ -62,7 +65,7 @@ class StripeController extends Controller
 
         $currency = 'EUR';
 
-        $stripe = Stripe::make('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');
+        $stripe = Stripe::make(baseSetting('STRIPE_API_KEY'));
         try {
             $token = $stripe->tokens()->create([
                 'card' => [
@@ -75,12 +78,16 @@ class StripeController extends Controller
             if (!isset($token['id'])) {
                 return redirect()->route('checkout',['store'=> $request->store])->with('error','The Stripe Token was not generated correctly');   
             }
+
+            $this->serial=OrdersHelper::generate_booking_id();
+
             $charge = $stripe->charges()->create([
                 'card' => $token['id'],
                 'currency' => $currency,
                 'amount'   => $total ,
-                'description' => 'payment charge for products from o-bazaar.com order',
+                'description' => 'payment charge for products from o-bazaar.com order #'.$this->serial.'',
             ]);
+            
             if($charge['status'] == 'succeeded') {
                 
 
@@ -97,7 +104,10 @@ class StripeController extends Controller
             $order->payement_id = $payement_id;
             $order->statue      = 'success';
             $order->shipping_id = $shippingid ?? NULL;
-            $order->serial      = OrdersHelper::generate_booking_id();
+            $order->serial      = $this->serial;
+
+            session()->forget('order_serial');
+            Session::put('order_serial', $this->serial);
 
 
             $geo = geoip(\Request::ip());

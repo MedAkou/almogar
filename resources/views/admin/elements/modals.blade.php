@@ -189,14 +189,15 @@ are you  sure you want to do  this!      </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">
           <i class="icon-warning"></i>
-          Warning
+          {{ __('Warning') }}
         </h4>
       </div>
       <div class="modal-body">
-are you  sure you want to do  this!      </div>
+        {{ __('are you  sure you want to do  this!') }} 
+      </div>
       <div class="modal-footer">
-        <a type="button" class="btn btn-default" data-dismiss="modal">cancel</a>
-        <a href="{{ route('admin.coupons.bulkdelete') }}" class="btn btn-danger btn-orderdelete"> i agree and responsible</a>
+        <a type="button" class="btn btn-default" data-dismiss="modal">{{ __('cancel') }}</a>
+        <a href="{{ route('admin.coupons.bulkdelete') }}" class="btn btn-danger btn-orderdelete"> {{ __('i agree and responsible') }}</a>
       </div>
     </div>
   </div>
@@ -266,14 +267,15 @@ are you  sure you want to do  this!      </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">
           <i class="icon-warning"></i>
-          Warning
+          {{ __('Warning') }}
         </h4>
       </div>
       <div class="modal-body">
-are you  sure you want to do  this!      </div>
+        {{ __('are you  sure you want to do  this!') }}
+      </div>
       <div class="modal-footer">
-        <a type="button" class="btn btn-default" data-dismiss="modal">cancel</a>
-        <a href="{{ route('admin.slider.bulkdelete') }}" class="btn btn-danger btn-orderdelete">i agree and responsible</a>
+        <a type="button" class="btn btn-default" data-dismiss="modal">{{ __('cancel') }}</a>
+        <a href="{{ route('admin.slider.bulkdelete') }}" class="btn btn-danger btn-orderdelete">{{ __('i agree and responsible') }}</a>
       </div>
     </div>
   </div>

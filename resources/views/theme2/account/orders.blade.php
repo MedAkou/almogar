@@ -43,7 +43,7 @@
                                                        <td><a href="{{ route('account.orders_detail',['id' => $order->id ]) }}">{{ $order->id }}</a></td>
                                                        <td>{{ $order->created_at->diffForHumans() }}</td>
                                                        <td>{{ $order->statue() }}</td>
-                                                       <td>{{ $order->total }} €</td>
+                                                       <td>{{ $order->total }} {{ System::currency() }}</td>
                                                        <td><a href="{{ route('account.orders_detail',['id' => $order->id ]) }}">{{ __('order details') }}</a></td>
                                                    </tr>
                                                 @endforeach

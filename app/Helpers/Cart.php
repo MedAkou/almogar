@@ -59,6 +59,10 @@ class Cart {
     }
 
     public function update($request) {
+        
+        $store_id = \Session::get('store_id');
+        OnlineCartHelper::update($request->cart_id,$store_id , $request->quantity , $request->product_id);
+
         return ShoppingCart::update($request->rawId, $request->quantity);
         
         $store_id = \Session::get('store_id');

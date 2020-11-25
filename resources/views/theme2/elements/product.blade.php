@@ -1,7 +1,7 @@
 <div class="dress-card">
 	@php
         $link = !empty($product->slug) ? $product->slug : $product->id;
-    @endphp
+  @endphp
   <div class="dress-card-head">
     {!! $product->presentcalculateDiscount() !!}
   	<a href="{{ route('shop.product',['id' => $link , 'store' => $store ]) }}">{!! $product->presentThumbnail() !!}</a>    

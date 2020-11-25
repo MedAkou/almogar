@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
 		$table->string('statue')->nullable()->default('NULL');
 		$table->string('store_id')->nullable()->default('NULL');
 		$table->string('os')->nullable()->default('NULL');
-		$table->text('device_token');
+		$table->text('device_token')->nullable();
 		$table->text('last_login');
 		$table->timestamps();
 		$table->timestamp('deleted_at')->nullable();

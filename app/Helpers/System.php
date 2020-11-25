@@ -4,9 +4,11 @@ namespace App\Helpers;
 use App\Models\{User,Addresses};
 use ShoppingCart;
 use Auth;
-
+use Illuminate\Support\Facades\App;
+use \Mobile_Detect;
 
 class System {
+    
 
     public static function checkauth($type){
         if($type == 'merchant'){
@@ -26,6 +28,15 @@ class System {
             return false;
         }
     }
+
+    public static function ismobile(){
+        $detect = new Mobile_Detect;
+        if($detect->isMobile()){
+            return true;
+        }
+
+    }
+    
     
     public static function userId(){
         return Auth::user()->id;
@@ -42,7 +53,17 @@ class System {
             return Auth::user()->id;
         }
     }
-    
 
+    public static function isRtl(){
+        return App::getLocale() == 'ar';
+    }
+    
+    public static function currency(){
+        switch(App::getLocale()){
+            case 'ar': return '€';
+            case 'de': return  '€';
+            case 'tr': return '€';
+        }
+    }
 
 }

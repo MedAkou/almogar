@@ -5,6 +5,7 @@
 
 @section('content')
 
+
 <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" data-product-id='{{$product->id}}'  title="{{ __('cart.add') }}">{{ __('cart.add') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></nav>
 <div class="ps-page--product">
     <div class="ps-container">
@@ -29,6 +30,15 @@
                             @foreach($product->gallery() as $image)
                               <div class="item"><img src="{{ $image }}" alt=""></div>
                               @endforeach
+
+
+                            @foreach($product->videos() as $video)
+                                @if (!empty($video))
+                                    <div class="item video"><a class="popup-youtube" href="{{ $video }}"><img src="{{ $image }}" alt=""></a></div>
+                                @endif
+                            @endforeach
+
+                              
                           </div>
                       </div>
 
@@ -37,7 +47,7 @@
                         
                         <div class="ps-product__info">
                             <h1>{{ $product->name }}</h1>
-                            <h4 class="ps-product__price">{{ $symbol }}{{ $product->presentPrice() }}</h4>
+                            <h4 class="ps-product__price">{{ System::currency() }}{{ $product->presentPrice() }}</h4>
                             <div class="ps-product__desc">
                                 <ul class="ps-list--dot" style="display: none;">
                                     <p>{!! $product->description !!}</p>
@@ -117,6 +127,7 @@
     <div at-magnifier-wrapper=""><div class="at-theme-light"><div class="at-base notranslate" translate="no"><div class="Z1-AJ" style="top: 0px; left: 0px;"></div></div></div></div>
     
 </div>
+
 
 
 @endsection

@@ -201,6 +201,70 @@
             </form>
 </div>
 </div>
+
+<div class="panel panel-flat" >
+
+    <div class="panel-heading no-padding-bottom">
+               <h3 class="panel-title">{{ __('Stripe info') }}</h3>
+               <legend class="text-bold"></legend>
+           </div>
+           <div class="panel-body">
+                   
+   
+               <form  class="form-horizontal" method="post" action="{{ route('manager.settings.stripe') }}">
+               @csrf
+               <div class="form-group">
+                   <label class="control-label col-lg-3">{{ __('Api Key') }}</label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control" name="STRIPE_API_KEY" value="{{ baseSetting('STRIPE_API_KEY') }}" >
+                   </div>
+               </div>
+               <div class="form-group">
+                        <input type="submit" value="{{ __(' save hanges') }}" class="btn btn-primary btn-block"  />
+                </div>
+               </form>
+   </div>
+   </div>
+
+   <div class="panel panel-flat" >
+
+    <div class="panel-heading no-padding-bottom">
+               <h3 class="panel-title">{{ __('Paypal') }}</h3>
+               <legend class="text-bold"></legend>
+           </div>
+           <div class="panel-body">
+                   
+   
+               <form  class="form-horizontal" method="post" action="{{ route('manager.settings.paypal') }}">
+               @csrf
+               <div class="form-group">
+                   <label class="control-label col-lg-3">{{ __('CLIENT ID') }}</label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control" name="PAYPAL_CLIENT_ID" value="{{ baseSetting('PAYPAL_CLIENT_ID') }}" >
+                   </div>
+               </div>
+               <div class="form-group">
+                    <label class="control-label col-lg-3">{{ __('SECRET') }}</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="PAYPAL_SECRET" value="{{ baseSetting('PAYPAL_SECRET') }}" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">{{ __('state') }}</label>
+                    <div class="col-lg-9">
+                        <select name="PAYPAL_MODE" class="form-control">
+                            <option @if (baseSetting('PAYPAL_MODE')== 'live') selected="selected" @endif  class="form-control">{{ __('live') }}</option>
+                            <option @if (baseSetting('PAYPAL_MODE')== 'sandbox') selected="selected" @endif  class="form-control">{{ __('sandbox') }}</option>
+                        </select>
+                    </div>
+                </div>
+            
+               <div class="form-group">
+                        <input type="submit" value="{{ __(' save hanges') }}" class="btn btn-primary btn-block"  />
+                </div>
+               </form>
+   </div>
+   </div>
   
 
 </div>

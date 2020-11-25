@@ -5,7 +5,7 @@ use App\Models\{User,Addresses};
 use ShoppingCart;
 use Auth;
 use Hash;
-
+use Mail;
 
 class UsersHelper {
 

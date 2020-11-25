@@ -280,13 +280,13 @@ a.navigation__item.ps-toggle--sidebar {
                                         <div class="ps-product__thumbnail"><a href="#"><img src="{{ $product['thumbnail'] }}" alt="product"></a></div>
                                         <div class="ps-product__content"><a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }} </a>
                                             <p><strong>Sold by</strong> {{ $store }}</p>
-                                            <small>{{ $product['qty'] }} x €{{ $product['price'] }}</small>
+                                            <small>{{ $product['qty'] }} x {{ System::currency() }}{{ $product['price'] }}</small>
                                         </div>
                                     </div>
                                     @endforeach @endif
                                 </div>
                                 <div class="ps-cart__footer">
-                                    <h3>{{ __('Total') }}<strong>{{ $symbol }}{{  ShoppingCart::total() }}</strong></h3>
+                                    <h3>{{ __('Total') }}<strong>{{ System::currency() }}{{  ShoppingCart::total() }}</strong></h3>
                                     <figure><a class="ps-btn" href="{{ route('cart') }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout') }}">{{ __('Checkout') }}</a></figure>
                                 </div>
                             </div>
@@ -324,25 +324,6 @@ a.navigation__item.ps-toggle--sidebar {
         </nav>
     </header>
     <header class="header header--mobile" data-sticky="true">
-        <div class="header__top">
-            <div class="header__left">
-                <p>{{ __('My Account') }}</p>
-            </div>
-            <div class="header__right">
-                <ul class="navigation__extra">
-                    <li><a href="{{ route('edit') }}">{{ __('My Account') }}</a></li>
-                    <li>
-                        <div class="ps-dropdown language"><a href="javascript:;">{{  app('SiteSetting')->PresentLang() }}</a>
-                            <ul class="ps-dropdown-menu">
-                                <li><a href="?lang=ar"><img src="{{ asset('assets/website/img/flag/sa.png') }}" alt=""> العربية</a></li>
-                                <li><a href="?lang=tr"><img src="{{ asset('assets/website/img/flag/tr.png') }}" alt=""> Turkish</a></li>
-                                <li><a href="?lang=de"><img src="{{ asset('assets/website/img/flag/de.png') }}" alt=""> Deutsch</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="navigation--mobile">
             <div class="navigation__left">
                 @php
@@ -405,7 +386,7 @@ a.navigation__item.ps-toggle--sidebar {
                     @endforeach @endif
                 </div>
                 <div class="ps-cart__footer">
-                    <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>
+                    <h3>{{ __('Total') }}<strong>{{ System::currency() }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>
                     <figure><a class="ps-btn" href="{{ route('checkout') }}">{{ __('Checkout') }}</a></figure>
                 </div>
             </div>
@@ -422,7 +403,28 @@ a.navigation__item.ps-toggle--sidebar {
         </div>
     </div>
     <div class="navigation--list">
-        <div class="navigation__content"><a class="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i class="icon-menu"></i><span> Menu</span></a><a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i class="icon-list4"></i><span> Categories</span></a><a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Search</span></a><a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-cart"></i><span> Cart</span></a><a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/"><i class="icon-home"></i><span> Home</span></a></div>
+        <div class="navigation__content">
+            <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
+                <i class="icon-menu"></i>
+                <span>{{ __('Menu') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile">
+                <i class="icon-list4"></i>
+                <span>{{ __('Categories') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
+                <i class="icon-magnifier"></i>
+                <span>{{ __('Search') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile">
+                <i class="icon-cart"></i>
+                <span>{{ __('Cart') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/">
+                <i class="icon-home"></i>
+                <span>{{ __('Home') }}</span>
+            </a>
+        </div>
     </div>
     <div class="ps-panel--sidebar" id="search-sidebar">
         <div class="ps-panel__header">
@@ -476,7 +478,7 @@ a.navigation__item.ps-toggle--sidebar {
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-body">
-                
+                fr
               <h5 class="modaltitle">{{ __('item.added.cart.modal') }}</h5>
           <center>
           <a href="{{ route('cart',['store'  => $store ]) }}"  class="ps-btn">{{ __('View Shopping Cart') }}</a>

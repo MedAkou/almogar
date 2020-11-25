@@ -436,3 +436,96 @@
         font-size: 20px;
         line-height: 100px;
     }
+    
+    input#search-input {
+        text-align: right;
+    }
+    
+    #results,
+    #results-mobile {
+        display: none;
+        border: 1px #CCC solid;
+        width: 535px;
+        position: absolute;
+        background: #FFF;
+        z-index: 999;
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+    
+    #results-mobile {
+        width: 360px;
+    }
+    
+    #results>p,
+    #results-mobile>p {
+        cursor: pointer;
+        padding: 5px;
+        margin-bottom: 0;
+        padding: 10px 10px 10px 0;
+    }
+    
+    #results>p:hover,
+    #results-mobile>p:hover {
+        background-color: rgb(195, 20, 50);
+        color: #FFF;
+    }
+    
+    div.img-cont {
+        height: 30px;
+        width: 30px;
+        margin-left: 10px;
+    }
+    
+    div#carouselExampleIndicators {
+        margin-bottom: 100px;
+    }
+    
+    .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-6.nestele {
+        margin: 10px 0px;
+    }
+    
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-6.nestele {
+            min-width: 50% !important;
+        }
+        .carousel-inner {
+            max-height: 350px;
+        }
+        .carousel-item {
+            height: 350px;
+        }
+        div#carouselExampleIndicators {
+            margin-bottom: 0px !important;
+        }
+        .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-6.nestele {
+            margin: 0px;
+        }
+    }
+    
+    @media (max-width: 600px) and (min-width: 0px) {
+        div#carouselExampleIndicators {
+            margin-bottom: 0px !important;
+        }
+        .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-6.nestele {
+            margin: 0px;
+        }
+    }
+    
+    .item.video::before {
+        content: "\f144";
+        position: absolute;
+        font-family: 'Font Awesome 5 Free';
+        top: 5px;
+        font-size: 30px;
+        right: 15px;
+        color: rgb(195 20 50);
+    }
+    
+    .item.video {
+        background: #00000075;
+    }
+    
+    .item.video img {
+        transition: none !important;
+    }

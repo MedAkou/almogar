@@ -38,14 +38,15 @@ class PayPalController extends Controller
 
     private $_api_context;
     protected $provider;
+    public $serial = '';
 
 
     public function __construct() {
 
         $paypal_conf      = \Config::get('paypal');  
-        $PAYPAL_CLIENT_ID = 'ASVvjz97rc-5De7IJsMN-hWpdGLIBYltnY2y7baYHjuU7OFxyF5phmnfucvCeN0x3le3_vuudC56Ssh7';
-        $PAYPAL_SECRET    = 'EKZKd7pxlIr-LrZNRx4lvZo0JrHiOmojeqCrZw7MWQzvwC2dE_9SbgVwL_nE1SkROcVi9sSuQYcUm0tu';
-        $PAYPAL_MODE      = 'live';
+        $PAYPAL_CLIENT_ID = baseSetting('PAYPAL_CLIENT_ID');
+        $PAYPAL_SECRET    = baseSetting('PAYPAL_SECRET');
+        $PAYPAL_MODE      = baseSetting('PAYPAL_MODE');
         $paypal_conf['settings']['mode'] =$PAYPAL_MODE;
 
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
@@ -92,9 +93,13 @@ class PayPalController extends Controller
         // set the data array we want to sent to paypal
         $data = [];
         $data['items'] = OrdersHelper::Paypalitems();
+
+        $this->serial=OrdersHelper::generate_booking_id();
+        session()->forget('order_serial');
+        Session::put('order_serial', $this->serial);
         
         $data['invoice_id']          = rand(9000,12000);
-        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['invoice_description'] = "payment charge for products from o-bazaar.com order #'.$this->serial.'";
         $data['return_url']          = route('paypal.success',['store' => $request->store ]);
         $data['cancel_url']          = route('paypal.faild',['store' => $request->store ]);
         $data['subtotal']            = $SubtotalPrice;
@@ -213,7 +218,7 @@ class PayPalController extends Controller
 
             if ($result->getState() == 'approved') {
 
-$order_id = OrdersHelper::save();
+            $order_id = OrdersHelper::save();
              
             $data = [
                 'order_id' => $order_id ,
@@ -225,8 +230,8 @@ $order_id = OrdersHelper::save();
             $order              = Orders::find($order_id);
             $order->payement_id = $payement_id;
             $order->statue      = 'success';
-            $order->shipping_id = $shippingid;
-            $order->serial      = OrdersHelper::generate_booking_id();
+            $order->shipping_id = $shippingid ?? NULL;
+            $order->serial      = Session::get('order_serial');
 
 
             $geo = geoip(\Request::ip());

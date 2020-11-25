@@ -15,7 +15,7 @@ class Product extends Base {
 
    use SoftDeletes;
 
-   protected $translatable  = ['name','description'];
+   protected $translatable  = ['name','description', 'slug'];
    protected $table = 'products';
     
    protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -163,7 +163,9 @@ class Product extends Base {
     }
 
 
-
+    public function price($price){
+      return str_replace(',',".","$price");
+    }
 
 
 }
