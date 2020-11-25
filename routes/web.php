@@ -77,11 +77,11 @@ Route::get('/datenschutzerklarung/lieferanten/drittanbieter', 'WebsiteController
 
 
 
-Route::post('/form/send', 'WebsiteController@contactsend')->name('contact.send');
+// Route::post('/form/send', 'WebsiteController@contactsend')->name('contact.send');
 Route::get('/contact-us', 'WebsiteController@contact')->name('contact');
 Route::get('/about-us', 'WebsiteController@about')->name('about');
 Route::get('/thank-you', 'WebsiteController@thankyou')->name('thank-you');    
-Route::get('/contact/send', 'WebsiteController@contact-send')->name('contact.send');
+Route::get('/contact/send', 'WebsiteController@contactSend')->name('contact.send');
 
 
 
