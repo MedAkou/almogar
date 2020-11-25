@@ -12,7 +12,7 @@ use ShoppingCart;
 use Session;
 use Auth;
 use App;
-
+use Illuminate\Support\Facades\Mail;
 
 class PayementController extends Controller {
 
@@ -216,6 +216,7 @@ class PayementController extends Controller {
         // email data
         $email_data = array(
             'order' => $order,
+            'email' => $order->user->email
         );
         
         // send email with the template

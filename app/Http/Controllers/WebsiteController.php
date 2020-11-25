@@ -638,6 +638,9 @@ return $content;
                 ->subject('Welcome to o-bazaar')
                 ->from('contact@o-bazaar.com', 'Welcome');
         });
+        if(!Mail::failures()){
+            session()->flash('success', trans('Email sent successfully'));
+        };
         
         return true;
     }
