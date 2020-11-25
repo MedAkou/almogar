@@ -19,7 +19,7 @@
          <link rel="stylesheet" href="{{ asset('assets/website/css/all.css') }}?v={{ env('ASSETS_VERSION') }}">
          <link rel="stylesheet" href="{{ asset('assets/website/css/styleindex.css') }}?v={{ env('ASSETS_VERSION') }}">
       @endif
-      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
 <body class="@yield('bodyClass')  @if(auth::check())  has-logged   @endif" data-slug="{{$store}}" data-store-id="{{ $id ?? '' }}">
@@ -336,11 +336,13 @@
             <span class="spinner"></span>
          </div>
       </div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
       <script src="{{ asset('assets/website/js/all.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
       <script src="{{ asset('assets/website/js/jquery.ez-plus.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
       <script src="https://cdn.jsdelivr.net/npm/jquery-creditcardvalidator@1.0.0/jquery.creditCardValidator.min.js"></script>
       <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
       <script src="{{ asset('assets/website/js/scripts.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
       @yield('scripts')
    </body>
    

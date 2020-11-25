@@ -65,7 +65,7 @@ class StripeController extends Controller
 
         $currency = 'EUR';
 
-        $stripe = Stripe::make('sk_test_StWGvG8T3PJBZbk0BEjAQodS00zOR7IUSq');
+        $stripe = Stripe::make(baseSetting('STRIPE_API_KEY'));
         try {
             $token = $stripe->tokens()->create([
                 'card' => [
@@ -105,6 +105,9 @@ class StripeController extends Controller
             $order->statue      = 'success';
             $order->shipping_id = $shippingid ?? NULL;
             $order->serial      = $this->serial;
+
+            session()->forget('order_serial');
+            Session::put('order_serial', $this->serial);
 
 
             $geo = geoip(\Request::ip());
