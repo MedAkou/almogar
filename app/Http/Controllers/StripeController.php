@@ -65,7 +65,7 @@ class StripeController extends Controller
 
         $currency = 'EUR';
 
-        $stripe = Stripe::make('sk_test_StWGvG8T3PJBZbk0BEjAQodS00zOR7IUSq');
+        $stripe = Stripe::make(baseSetting('STRIPE_API_KEY'));
         try {
             $token = $stripe->tokens()->create([
                 'card' => [

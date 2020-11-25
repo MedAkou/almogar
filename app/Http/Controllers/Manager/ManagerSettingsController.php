@@ -65,5 +65,11 @@ class ManagerSettingsController extends Controller
 
         }
 
+        public function stripe (Request $request) {
+            baseSetting(['STRIPE_API_KEY'             => $request->STRIPE_API_KEY]);
+            return redirect()->route('manager.settings')->with('success',trans('settings.updated'));
+
+     }
+
 
 }

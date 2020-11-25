@@ -205,29 +205,23 @@
 <div class="panel panel-flat" >
 
     <div class="panel-heading no-padding-bottom">
-               <h3 class="panel-title">{{ __('NewsLetter MailChimp') }}</h3>
+               <h3 class="panel-title">{{ __('Stripe info') }}</h3>
                <legend class="text-bold"></legend>
            </div>
            <div class="panel-body">
                    
    
-               <form  class="form-horizontal" method="post" action="{{ route('admin.settings.newsletter') }}">
+               <form  class="form-horizontal" method="post" action="{{ route('manager.settings.stripe') }}">
                @csrf
                <div class="form-group">
                    <label class="control-label col-lg-3">{{ __('Api Key') }}</label>
                    <div class="col-lg-9">
-                       <input type="text" class="form-control" name="ApiKey" value="{{ option('ApiKey') }}" >
+                       <input type="text" class="form-control" name="STRIPE_API_KEY" value="{{ baseSetting('STRIPE_API_KEY') }}" >
                    </div>
                </div>
                <div class="form-group">
-                   <label class="control-label col-lg-3">{{ __('List ID') }}</label>
-                   <div class="col-lg-9">
-                       <input type="text" class="form-control" name="listId" value="{{ option('listId') }}" >
-                   </div>
-               </div>
-               <div class="form-group">
-                       <input type="submit" value="{{ __('save changes') }}" class="btn btn-primary btn-block"  />
-               </div>
+                        <input type="submit" value="{{ __(' save hanges') }}" class="btn btn-primary btn-block"  />
+                </div>
                </form>
    </div>
    </div>
