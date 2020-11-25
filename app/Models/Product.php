@@ -15,7 +15,7 @@ class Product extends Base {
 
    use SoftDeletes;
 
-   protected $translatable  = ['name','description'];
+   protected $translatable  = ['name','description', 'slug'];
    protected $table = 'products';
     
    protected $guarded = ['id', 'created_at', 'updated_at'];
