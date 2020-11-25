@@ -583,16 +583,47 @@ function calcultotalcoupon() {
 }
 
 
-$("#search-form").submit(function(e) {
-    e.preventDefault();
-    let token = $('meta[name="csrf-token"]').attr('content');
-    let link = $(this).attr('data-link');
-    let inputVal = $("#search-input").val();
-    let formData = new FormData();
-    formData.append('q', inputVal);
-    formData.append('_token', token);
+// Search script
 
-    $.ajax({
+function searchKeyUp(link, formData, results){
+    return $.ajax({
+        url: link,
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        cache: false,
+        dataType: "JSON",
+        success: function(response) {
+            if (response.products.data.length) {
+                results.empty();
+                results.slideDown();
+                for (let i = 0; i < response.products.data.length; i++) {
+                    results.append(`<p class="result d-flex justify-content-start" id="${response.products.data[i].id}" data-store="${response.products.data[i].store_id}">
+                                    </p>`);
+                    let result = $(`p#${response.products.data[i].id}`);
+                    result.append(`<div class="img-cont">
+                                                    <img src="${response.products.data[i].thumbnail}"}>
+                                                </div>`);
+                    result.append(`<span>${response.products.data[i].name.ar}</span>`)
+                }
+                $("p.result").click(function() {
+                    let productId = $(this)[0].id;
+                    let productSlug = response.storeSlug[0].slug;
+                    window.location.href = `/${productSlug}/shop/product/${productId}`;
+                })
+            } else {
+                results.empty();
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
+function searchSubmit(link, formData){
+    return $.ajax({
         url: link,
         type: 'POST',
         processData: false,
@@ -609,6 +640,18 @@ $("#search-form").submit(function(e) {
             console.log(error);
         }
     });
+}
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let link = $(this).attr('data-link');
+    let inputVal = $("#search-input").val();
+    let formData = new FormData();
+    formData.append('q', inputVal);
+    formData.append('_token', token);
+
+    searchSubmit(link, formData);
 })
 
 $("#search-input").keyup(function() {
@@ -617,51 +660,47 @@ $("#search-input").keyup(function() {
     let link = $("#search-form").attr('data-link');
     let inputVal = $(this).val();
     let results = $("#results");
-    let activeResult = "";
-    console.log("Input: ", inputVal);
     let formData = new FormData();
     formData.append('q', inputVal);
     formData.append('_token', token);
-    console.log("Formdata: ", formData);
 
-    $.ajax({
-        url: link,
-        type: 'POST',
-        processData: false,
-        contentType: false,
-        data: formData,
-        cache: false,
-        dataType: "JSON",
-        success: function(response) {
-            console.log("Data", response.products.data);
-            if (response.products.data.length) {
-                results.empty();
-                results.slideDown();
-                for (let i = 0; i < response.products.data.length; i++) {
-                    results.append(`<p class="result d-flex justify-content-end" id="${response.products.data[i].id}" data-store="${response.products.data[i].store_id}">
-                                                    <span>${response.products.data[i].name.ar}</span>
-                                                </p>`);
-                    let result = $(`p#${response.products.data[i].id}`);
-                    result.append(`<div class="img-cont">
-                                                    <img src="${response.products.data[i].thumbnail}"}>
-                                                </div>`);
-                }
-                $("p.result").click(function() {
-                    let productId = $(this)[0].id;
-                    let productSlug = response.storeSlug[0].slug;
-                    window.location.href = `/${productSlug}/shop/product/${productId}`;
-                })
-            } else {
-                results.empty();
-            }
-        },
-        error: function(error) {
-            console.log(error);
-        }
-    });
+    searchKeyUp(link, formData, results);
 })
 
 $("#search-input").blur(function() {
     let results = $("#results");
     results.slideUp();
 })
+
+$("#search-form-mobile").submit(function(e) {
+    e.preventDefault();
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let link = $(this).attr('data-link');
+    let inputVal = $("#search-input-mobile").val();
+    let formData = new FormData();
+    formData.append('q', inputVal);
+    formData.append('_token', token);
+
+    searchSubmit(link, formData);
+})
+
+$("#search-input-mobile").keyup(function() {
+
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let link = $("#search-form-mobile").attr('data-link');
+    let inputVal = $(this).val();
+    let results = $("#results-mobile");
+    let formData = new FormData();
+    formData.append('q', inputVal);
+    formData.append('_token', token);
+
+    searchKeyUp(link, formData, results);
+})
+
+$("#search-input-mobile").blur(function() {
+    let results = $("#results-mobile");
+    results.slideUp();
+})
+
+
+// End search script
