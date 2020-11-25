@@ -5,6 +5,7 @@
 
 @section('content')
 
+
 <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" data-product-id='{{$product->id}}'  title="{{ __('cart.add') }}">{{ __('cart.add') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></nav>
 <div class="ps-page--product">
     <div class="ps-container">
@@ -29,6 +30,15 @@
                             @foreach($product->gallery() as $image)
                               <div class="item"><img src="{{ $image }}" alt=""></div>
                               @endforeach
+
+
+                            @foreach($product->videos() as $video)
+                                @if (!empty($video))
+                                    <a class="popup-youtube" href="{{ $video }}"><div class="item video"><img src="{{ $image }}" alt=""></div></a>
+                                @endif
+                            @endforeach
+
+                              
                           </div>
                       </div>
 
@@ -117,6 +127,7 @@
     <div at-magnifier-wrapper=""><div class="at-theme-light"><div class="at-base notranslate" translate="no"><div class="Z1-AJ" style="top: 0px; left: 0px;"></div></div></div></div>
     
 </div>
+
 
 
 @endsection

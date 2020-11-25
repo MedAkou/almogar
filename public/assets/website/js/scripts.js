@@ -585,7 +585,7 @@ function calcultotalcoupon() {
 
 // Search script
 
-function searchKeyUp(link, formData, results){
+function searchKeyUp(link, formData, results) {
     return $.ajax({
         url: link,
         type: 'POST',
@@ -622,7 +622,7 @@ function searchKeyUp(link, formData, results){
     });
 }
 
-function searchSubmit(link, formData){
+function searchSubmit(link, formData) {
     return $.ajax({
         url: link,
         type: 'POST',
@@ -704,3 +704,15 @@ $("#search-input-mobile").blur(function() {
 
 
 // End search script
+
+
+$(function() {
+    $('.popup-youtube, .popup-vimeo').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
+});
