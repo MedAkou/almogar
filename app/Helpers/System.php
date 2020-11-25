@@ -26,6 +26,8 @@ class System {
             return false;
         }
     }
+
+    
     
     public static function userId(){
         return Auth::user()->id;
@@ -49,9 +51,9 @@ class System {
     
     public static function currency(){
         switch(App::getLocale()){
-            case 'ar': return 'SAR';
+            case 'ar': return '€';
             case 'de': return  '€';
-            case 'tr': return '₺';
+            case 'tr': return '€';
         }
     }
 

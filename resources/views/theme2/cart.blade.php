@@ -35,7 +35,7 @@
                                     </div>
                                  </div>
                               </td>
-                              <td>{{ $symbol }}{{ $product['price'] }}</td>
+                              <td>{{ System::currency() }}{{ $product['price'] }}</td>
                               <td>
                                  <div class="form-group--number zaydnaks">
                                     <button class="up">+</button>
@@ -43,7 +43,7 @@
                                  <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart[0]['id'] }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
                                  </div>
                               </td>
-                              <td>{{ $symbol }} <span class="price">{{ number_format((float)$product['total'], 2, '.', '') }}</span></td>
+                              <td>{{ System::currency() }} <span class="price">{{ number_format((float)$product['total'], 2, '.', '') }}</span></td>
                               <td><a href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store])  }}"><i class="icon-cross"></i></a></td>
                            </tr>
                            @endforeach @endif
@@ -60,7 +60,7 @@
                         <p>{{ __('Summary') }} </p>
                      </div>
                      <style>
-                        span.preis::after {content: ' € ';}
+                        span.preis::after {content: ' {{ System::currency() }} ';}
                      </style>
                      <div class="ps-block__content">
                         <ul class="ps-block__product">
@@ -77,7 +77,7 @@
                            </li>
                            @endforeach @endif
                         </ul>
-                        <h3>{{ __('Order Total') }} <span>{{ $symbol }} <i class="TotalPrice"> {{ number_format((float)ShoppingCart::totalPrice(), 2, '.', '') }}</i></span></h3>
+                        <h3>{{ __('Order Total') }} <span>{{ System::currency() }} <i class="TotalPrice"> {{ number_format((float)ShoppingCart::totalPrice(), 2, '.', '') }}</i></span></h3>
                      </div>
                   </div>
                   <a class="ps-btn ps-btn--fullwidth" href="{{ route('checkout', ['store' => $store]) }}">{{ __('Go to Checkout') }}</a>
