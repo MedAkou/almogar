@@ -16,12 +16,14 @@ class CartController extends Controller
     public function index() {
         $cart = (new Cart())->get();
         $total = (new Cart())->total();
+        if(\Session::has('store_id')){
+            $id = \Session::get('store_id');
+        }
         if(Auth::check()){
             $dbcart = ModelsCart::where('user_id',Auth::user()->id)->get('id');//dd($dbcart);
-            return view ($this->theme.'cart',compact('cart','total','dbcart'));
+            return view ($this->theme.'cart',compact('cart','total','dbcart', 'id'));
         }
-        
-        return view ($this->theme.'cart',compact('cart','total'));
+        return view ($this->theme.'cart',compact('cart','total', 'id'));
     }
 
     public function add($store,$id,Request $request) {

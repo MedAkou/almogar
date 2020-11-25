@@ -478,7 +478,7 @@ a.navigation__item.ps-toggle--sidebar {
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-body">
-                
+                fr
               <h5 class="modaltitle">{{ __('item.added.cart.modal') }}</h5>
           <center>
           <a href="{{ route('cart',['store'  => $store ]) }}"  class="ps-btn">{{ __('View Shopping Cart') }}</a>

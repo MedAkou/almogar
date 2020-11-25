@@ -430,11 +430,10 @@ return $content;
             }
             
         }else {
-
-        $id = Stores::where('slug',$request->store)->first()->id;
-        $products = Product::where('store_id',$id)->where('active',1)->paginate(12);
-        $sliders  = Slider::Merchant()->get();
-        return view ($this->theme.'index',compact('products','sliders'));
+            $id = Stores::where('slug',$request->store)->first()->id;
+            $products = Product::where('store_id',$id)->where('active',1)->paginate(12);
+            $sliders  = Slider::Merchant()->get();
+            return view ($this->theme.'index',compact('products','sliders', 'id'));
         }
    
     }
