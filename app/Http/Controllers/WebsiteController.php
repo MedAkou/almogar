@@ -393,7 +393,12 @@ return $content;
 
 
     public function thankyou() {
-         return view ($this->theme.'thank-you');
+        $content = Orders::where('serial','O-Bazaar5597818')->first();
+        if($content){
+
+            return view ($this->theme.'thank-you',compact('content'));
+        }
+        return redirect('/');
     }
 
     public function down() {
@@ -699,7 +704,7 @@ return $content;
         $content = Orders::find($id);
         if($content){
 
-            return view ($this->theme.'invoice',compact('content'));
+            return view ('invoice',compact('content'));
         }
         return redirect('/');
     }

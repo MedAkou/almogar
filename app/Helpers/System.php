@@ -26,6 +26,8 @@ class System {
             return false;
         }
     }
+
+    
     
     public static function userId(){
         return Auth::user()->id;
