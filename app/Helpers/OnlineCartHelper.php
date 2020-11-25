@@ -61,30 +61,19 @@ class OnlineCartHelper {
             //$subtotal = $quantity * $product_price;dd("rfrf");
 
             foreach($products as $product){
-<<<<<<< HEAD
                 ShoppingCart::associate('App\Models\Product');
                 ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
-=======
-                
-                //ShoppingCart::associate('App\Models\Product');
-                //ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
->>>>>>> 8a4c333be6932b464644c690530dab1691c0023f
             }
             
         }
     }
 
-<<<<<<< HEAD
     public static function update($store_id, $product_id , $quantity)
-=======
-    public static function update($cart_id,$store_id , $quantity,$product_id)
->>>>>>> 8a4c333be6932b464644c690530dab1691c0023f
     {
         if(!self::checkAuth()){
             return false;
         }
 
-<<<<<<< HEAD
         // $user_id = Auth::user()->id;
         // $product = Product::find($product_id)->get();
         // $cart = Cart::find($cart_id);
@@ -95,15 +84,6 @@ class OnlineCartHelper {
         // $cart->price = $product->presentPrice();
         // $cart->subtotal = $quantity * $product->presentPrice();
         // $cart->save();
-=======
-        $user_id = Auth::user()->id;
-        $product = Product::where("id",$product_id)->where("store_id",$store_id)->first(); 
-        $cart = Cart::where("product_id",$product_id)->where("user_id",$user_id)->first();
-
-        $cart->quantity = $quantity;
-        $cart->subtotal = $quantity * $product->presentPrice();
-        $cart->save();
->>>>>>> 8a4c333be6932b464644c690530dab1691c0023f
 
         return $cart;
     }
