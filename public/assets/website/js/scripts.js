@@ -618,9 +618,11 @@ $("#search-input").keyup(function() {
     let inputVal = $(this).val();
     let results = $("#results");
     let activeResult = "";
+    console.log("Input: ", inputVal);
     let formData = new FormData();
     formData.append('q', inputVal);
     formData.append('_token', token);
+    console.log("Formdata: ", formData);
 
     $.ajax({
         url: link,
@@ -631,6 +633,7 @@ $("#search-input").keyup(function() {
         cache: false,
         dataType: "JSON",
         success: function(response) {
+            console.log("Data", response.products.data);
             if (response.products.data.length) {
                 results.empty();
                 results.slideDown();

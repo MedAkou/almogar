@@ -39,7 +39,7 @@
                                                              <div class="ps-product__content"><a href="#">{{$product->product->name }}</a></div>
                                                          </div>
                                                      </td>
-                                                     <td class="price">{{ $symbol }} {{ $product->product->presentPrice() }}</td>
+                                                     <td class="price">{{ System::currency() }} {{ $product->product->presentPrice() }}</td>
                                                  </tr>
                                                  @endforeach
                                              </tbody>

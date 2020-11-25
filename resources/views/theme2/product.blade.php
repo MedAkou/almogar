@@ -37,7 +37,7 @@
                         
                         <div class="ps-product__info">
                             <h1>{{ $product->name }}</h1>
-                            <h4 class="ps-product__price">{{ $symbol }}{{ $product->presentPrice() }}</h4>
+                            <h4 class="ps-product__price">{{ System::currency() }}{{ $product->presentPrice() }}</h4>
                             <div class="ps-product__desc">
                                 <ul class="ps-list--dot" style="display: none;">
                                     <p>{!! $product->description !!}</p>

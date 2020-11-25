@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
 			$table->text('description');
 			$table->string('categoryID')->nullable()->default('NULL');
 			$table->string('stock')->nullable()->default('NULL');
-			$table->string('slug');
+			$table->json('slug')->nullable();
 			$table->text('videos')->nullable();
 			$table->string('statue')->nullable()->default('NULL');
 			$table->string('lang')->nullable()->default('NULL');

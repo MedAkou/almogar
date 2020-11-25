@@ -25,15 +25,16 @@ class ProductHelper {
         //$gallery   = self::uploadGallery($request);
         
         // create slug from product name to use it for seo
-        $slug      = self::slugify($request);
-        
+        $slug      = self::slugify($content, $request);
+
         // create videos list imploded
         $videos    = self::videos($request);
         
         foreach (self::$langs  as $key => $value) {
-
             $name = 'title_'.$key;
             $desc = 'description_'.$key;
+
+            // dump($name." => ".$request->$name);
 
             if($request->filled($name)){
                 $content->setTranslation('name', $key, $request->$name);
@@ -51,7 +52,6 @@ class ProductHelper {
         $content->gallery     =  $gallery;
         $content->videos      =  $videos;
         $content->price       =  $content->price($request->price);
-        $content->slug        =  $slug;
         $content->statue      =  $request->statue;
         $content->categoryID  =  $request->category;
         
@@ -116,11 +116,15 @@ class ProductHelper {
 
 
 
-    public static function slugify($request) {
-        if($request->has('title')){
-            return Slug::create($request->title,'\App\Models\Product');     
+    public static function slugify($content, $request) {
+        foreach (self::$langs  as $key => $value) {
+            $name = 'title_'.$key;
+            if($request->filled($name)){
+                $content->setTranslation('slug', $key, Slug::create($request->$name,'\App\Models\Product'));
+            }
+                    
         }
-        return ''; 
+        return $content ?? ''; 
     }
 
     public static function videos($request) {

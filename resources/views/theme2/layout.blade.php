@@ -14,10 +14,12 @@
       <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
       @if(System::isRtl())
          <link rel="stylesheet" href="{{ asset('assets/website/css/all_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/styleindex_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
       @else
          <link rel="stylesheet" href="{{ asset('assets/website/css/all.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/styleindex.css') }}?v={{ env('ASSETS_VERSION') }}">
       @endif
-      <link rel="stylesheet" href="{{ asset('assets/website/css/styleindex.css') }}?v={{ env('ASSETS_VERSION') }}">
+      
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
 <body class="@yield('bodyClass')  @if(auth::check())  has-logged   @endif" data-slug="{{$store}}">
@@ -102,13 +104,13 @@
                                  <div class="ps-product__content">
                                     <a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }} </a>
                                     <p><strong>Sold by</strong> {{ $store }}</p>
-                                    <small>{{ $product['qty'] }} x €{{ $product['price'] }}</small>
+                                    <small>{{ $product['qty'] }} x {{ System::currency() }} {{ $product['price'] }}</small>
                                  </div>
                               </div>
                               @endforeach @endif
                            </div>
                            <div class="ps-cart__footer">
-                              <h3>{{ __('Total') }}<strong>{{ $symbol }}{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</strong></h3>
+                              <h3>{{ __('Total') }}<strong>{{ System::currency() }}{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</strong></h3>
                               <figure><a class="ps-btn" href="{{ route('cart', ['store' => $store ]) }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
                            </div>
                         </div>
@@ -188,7 +190,7 @@
                   <div class="ps-product--cart-mobile">
                      <div class="ps-product__thumbnail"><a href="{{ route('shop.product',['id' => $product['id'], 'store' => $store ]) }}"><img src="{{ $product['thumbnail'] }}" alt=""></a></div>
                      <div class="ps-product__content lhsabbdyaltele"><a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }}</a><br>
-                        <small class="product-col-tele-{{ $product['id'] }}"> <span class="prdqty">{{ $product['qty'] }}</span> x €{{ $product['price'] }} <input type="hidden" class="preis" value="{{ $product['total'] }}"> </small>
+                        <small class="product-col-tele-{{ $product['id'] }}"> <span class="prdqty">{{ $product['qty'] }}</span> x {{ System::currency() }} {{ $product['price'] }} <input type="hidden" class="preis" value="{{ $product['total'] }}"> </small>
                      </div>
                      <div class="form-group--number zaydnaks updowntintele">
                         <button class="up">+</button>
@@ -210,7 +212,7 @@
                   @endif
                </div>
                <div class="ps-cart__footer">
-                  <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</span> </strong></h3>
+                  <h3>{{ __('Total') }}<strong>{{ System::currency() }} <span class="TotalPriceM">{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</span> </strong></h3>
                   <figure><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
                </div>
             </div>
@@ -252,7 +254,7 @@
       </div>
       <div class="ps-panel--sidebar" id="search-sidebar">
          <div class="ps-panel__header">
-            <form class="ps-form--search-mobile" action="{{ route('search' ,[  'store' => $store] ) }}" method="get">
+            <form class="ps-form--search-mobile" action="{{ route('searchMobile' ,['store' => $store] ) }}" method="get">
                <div class="form-group--nest">
                   <input class="form-control"type="{{ __('Search') }}" name="q" value="{{ app('request')->input('q') }}"  placeholder="{{ __('Search') }}">
                   <button><i class="icon-magnifier" type="submit"></i></button>

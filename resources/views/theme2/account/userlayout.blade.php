@@ -280,13 +280,13 @@ a.navigation__item.ps-toggle--sidebar {
                                         <div class="ps-product__thumbnail"><a href="#"><img src="{{ $product['thumbnail'] }}" alt="product"></a></div>
                                         <div class="ps-product__content"><a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }} </a>
                                             <p><strong>Sold by</strong> {{ $store }}</p>
-                                            <small>{{ $product['qty'] }} x €{{ $product['price'] }}</small>
+                                            <small>{{ $product['qty'] }} x {{ System::currency() }}{{ $product['price'] }}</small>
                                         </div>
                                     </div>
                                     @endforeach @endif
                                 </div>
                                 <div class="ps-cart__footer">
-                                    <h3>{{ __('Total') }}<strong>{{ $symbol }}{{  ShoppingCart::total() }}</strong></h3>
+                                    <h3>{{ __('Total') }}<strong>{{ System::currency() }}{{  ShoppingCart::total() }}</strong></h3>
                                     <figure><a class="ps-btn" href="{{ route('cart') }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout') }}">{{ __('Checkout') }}</a></figure>
                                 </div>
                             </div>
@@ -386,7 +386,7 @@ a.navigation__item.ps-toggle--sidebar {
                     @endforeach @endif
                 </div>
                 <div class="ps-cart__footer">
-                    <h3>{{ __('Total') }}<strong>{{ $symbol }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>
+                    <h3>{{ __('Total') }}<strong>{{ System::currency() }} <span class="TotalPriceM">{{  ShoppingCart::total() }}</span> </strong></h3>
                     <figure><a class="ps-btn" href="{{ route('checkout') }}">{{ __('Checkout') }}</a></figure>
                 </div>
             </div>

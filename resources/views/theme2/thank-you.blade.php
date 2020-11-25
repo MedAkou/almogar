@@ -318,7 +318,7 @@ main {
                     
                     {{__('You purchased the')}} : <strong>@foreach($content->products as $product )  {{ $product->product->name }} ,  @endforeach</strong><br />
                     @php $total = 0; @endphp
-                    {{__('You will be charged')}} : <strong> € {{ $content->subtotal }} </strong>
+                    {{__('You will be charged')}} : <strong> {{ System::currency() }} {{ $content->subtotal }} </strong>
                     
 				</p>
 
@@ -340,13 +340,13 @@ main {
 
 				<dl class="cf">
 					<dt>{{__('Subtotal')}}</dt>
-					<dd>€ {{ $content->subtotal }}</dd>
+					<dd>{{ System::currency() }} {{ $content->subtotal }}</dd>
 
 					<dt>{{__('shipping')}}</dt>
-					<dd>{{ $content->currency }}  {{ $content->shipping->cost }} @if(empty($content->shipping->cost)) € 0 @endif</dd>
+					<dd>{{ $content->currency }}  {{ $content->shipping->cost }} @if(empty($content->shipping->cost)) {{ System::currency() }} 0 @endif</dd>
 
 					<dt class="big">{{__('order.total')}}</dt>
-					<dd class="big"> € {{ $content->getTotal() }}</dd>
+					<dd class="big"> {{ System::currency() }} {{ $content->getTotal() }}</dd>
 				</dl>
                 </div>
 

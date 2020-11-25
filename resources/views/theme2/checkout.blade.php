@@ -158,9 +158,9 @@
                                                 </ul>
                                                 <tr class="shippingRow d-none">
                                                     <td>{{ __('Shipping') }}</td>
-                                                    <td>{{ $symbol }} <span class="shippingPrice"></span></td>
+                                                    <td>{{ System::currency() }} <span class="shippingPrice"></span></td>
                                                 </tr>
-                                                <h3>{{ __('Order Total') }} <span class="TotalPrice">{{ $symbol }} {{ ShoppingCart::totalPrice() }}</span></h3>
+                                                <h3>{{ __('Order Total') }} <span class="TotalPrice">{{ System::currency() }} {{ ShoppingCart::totalPrice() }}</span></h3>
                                             </div>
                                         </div>
                                         <div class="ps-block--shopping-total">

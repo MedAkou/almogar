@@ -27,7 +27,7 @@
                             <span class="product-qty">{{ __('Qty') }}: <i>{{ $product['qty'] }}</i></span>
                         </div>
                     </td>
-                    <td class="price-col price-col-{{ $product['id'] }}">{{ $symbol }} <span>{{ $product['total'] }}</span></td>
+                    <td class="price-col price-col-{{ $product['id'] }}">{{ System::currency() }} <span>{{ $product['total'] }}</span></td>
                 </tr>
 
                 @endforeach @endif
@@ -36,11 +36,11 @@
                     <tfoot>
                          <tr class="shippingRow d-none">
                             <td>{{ __('Shipping') }}</td>
-                            <td>{{ $symbol }} <span class="shippingPrice"></span></td>
+                            <td>{{ System::currency() }} <span class="shippingPrice"></span></td>
                         </tr>
                         <tr>
                             <td>{{ __('Order Total') }}</td>
-                            <td>{{ $symbol }} <span class="TotalPrice">{{ ShoppingCart::totalPrice() }}</span></td>
+                            <td>{{ System::currency() }} <span class="TotalPrice">{{ ShoppingCart::totalPrice() }}</span></td>
                         </tr>
                     </tfoot>
                 </table>

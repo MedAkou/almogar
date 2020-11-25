@@ -38509,3 +38509,27 @@ nav.navigation--mobile-product {
         margin-top: 20%;
     }
 }
+
+@media(max-width: 544px){
+    .dress-card-title{
+        height: 50px !important;
+    }
+    .product-card{
+        padding: 2px;
+    }
+}
+
+@media(max-width: 758px){
+    .ps-block--site-features,
+    .widget_footer,
+    .ps-block__item{
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media(max-width: 820px){
+    .widget_footer{
+        width: 50%!important;
+    }
+}

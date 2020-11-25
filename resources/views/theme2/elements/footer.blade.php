@@ -37,7 +37,7 @@
             </div>
             <div class="ps-footer__copyright">
                 <div class="container">
-                <aside class="widget widget_footer widget_contact-us">
+                <aside class="widget widget_footer">
                     <h4 class="widget-title">{{ __('Address:') }}</h4>
                     <div class="widget_content">
                         <div style="display: none;">
@@ -99,7 +99,7 @@
                 </aside>
                 </div>
             </div>
-            <div class="ps-footer__copyright">
+            <div class="ps-footer__copyright footer-copyright">
                 <p>
                     @php
                     $copyright = baseSetting('footer_copyright');

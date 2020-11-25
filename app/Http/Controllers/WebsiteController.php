@@ -225,8 +225,6 @@ return $content;
         }
 
         public function searchProccess(Request $request) {
-
-
             $q          = $request->q;
             $lang       = \App::getLocale();
             $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
@@ -240,6 +238,18 @@ return $content;
             return response()->json(array('products' => $products, 'storeSlug' => $storeSlug), 200);
             // return view ($this->theme.'search', compact('products','q'));
 
+        }
+
+        public function searchProccessMobile(Request $request){
+            $q          = $request->q;
+            $lang       = \App::getLocale();
+            $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
+            $products->appends(['q' => $q]);
+            $storeSlug = Stores::where('id', Session::get('store_id'))->get('slug');
+            $count      = $products ->count();
+    //        return view ($this->theme.'admin.products.index',compact('products','categories','count'))->withQuery ( $q );
+
+            return view ($this->theme.'search', compact('products','q'));
         }
 
 
