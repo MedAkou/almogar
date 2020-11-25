@@ -5,23 +5,23 @@ namespace App\Helpers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use ShoppingCart;
 use Illuminate\Support\Facades\Auth;
 
 class OnlineCartHelper {
 
     public static $auth = false;
 
-    public function __construct()
-    {
+    private static function checkAuth(){
         if(Auth::check()){
-            self::$auth = true;
+            return true;
         }
     }
 
     public static function add($store_id, $product , $id , $quantity)
     {
-        $och = new OnlineCartHelper();
-        if(self::$auth != true){
+        //$och = new OnlineCartHelper();
+        if(!self::checkAuth()){
             return false;
         }
 
@@ -35,7 +35,7 @@ class OnlineCartHelper {
         $cart->price = $product->presentPrice();
         $cart->subtotal = $quantity * $product->presentPrice();
         $cart->save();
-dd("er");
+
         return $cart;
     }
 
@@ -44,45 +44,46 @@ dd("er");
         return Cart::find($cart_id);
     }
 
-    public static function load(Request $request, $store_id, $product_id)
+    public static function load()
     {
-        if($this->auth != true){
+        if(!self::checkAuth()){
             return false;
         }
 
         $user_id = Auth::user()->id;
-        $cart = Cart::where('user_id', $user_id);
-        if(empty($cart)){
-            $product_price = Product::find($product_id)->get('price');
-            $quantity = $request->quantity;
-            $subtotal = $quantity * $product_price;
+        $cart = Cart::where('user_id', $user_id)->first();
+        
+        
+        if(!empty($cart)){
+            $products = Product::where('id' , $cart->product_id)->get(); 
+            $quantity = $cart->quantity;
+            //$product_price = $product->presentPrice();
+            //$subtotal = $quantity * $product_price;dd("rfrf");
 
-            Session([   'userid' => $user_id,
-                        'storeid' => $store_id,
-                        'productid' => $product_id,
-                        'quantity' => $quantity,
-                        'price' => $product_price,
-                        'subtotal' => $subtotal
-            ]);
+            foreach($products as $product){
+                ShoppingCart::associate('App\Models\Product');
+                ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
+            }
+            
         }
     }
 
-    public static function update(Request $request, $cart_id, $store_id, $product_id)
+    public static function update($store_id, $product_id , $quantity)
     {
-        if($this->auth != true){
+        if(!self::checkAuth()){
             return false;
         }
 
-        $user_id = Auth::user()->id;
-        $product_price = Product::find($product_id)->get('price');
-        $cart = Cart::find($cart_id);
-        $cart->user_id = $user_id;
-        $cart->store_id = $store_id;
-        $cart->product_id = $product_id;
-        $cart->quantity = $request->quantity;
-        $cart->price = $product_price;
-        $cart->subtotal = $request->quantity * $request->price;
-        $cart->save();
+        // $user_id = Auth::user()->id;
+        // $product = Product::find($product_id)->get();
+        // $cart = Cart::find($cart_id);
+        // $cart->user_id = $user_id;
+        // $cart->store_id = $store_id;
+        // $cart->product_id = $product_id;
+        // $cart->quantity = $quantity;
+        // $cart->price = $product->presentPrice();
+        // $cart->subtotal = $quantity * $product->presentPrice();
+        // $cart->save();
 
         return $cart;
     }

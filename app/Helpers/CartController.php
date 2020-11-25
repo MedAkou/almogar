@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use \App\Models\Product;
-use \App\Helpers\Cart;
 use Response;
+use \App\Helpers\Cart;
+use \App\Models\Product;
+use Illuminate\Http\Request;
+use App\Models\Cart as ModelsCart;
+use Illuminate\Support\Facades\Auth;
+
 class CartController extends Controller
 {
 
@@ -13,6 +16,11 @@ class CartController extends Controller
     public function index() {
         $cart = (new Cart())->get();
         $total = (new Cart())->total();
+        if(Auth::check()){
+            $dbcart = ModelsCart::where('user_id',Auth::user()->id)->get();dd($dbcart->id);
+            return view ($this->theme.'cart',compact('cart','total','dbcart'));
+        }
+        
         return view ($this->theme.'cart',compact('cart','total'));
     }
 
