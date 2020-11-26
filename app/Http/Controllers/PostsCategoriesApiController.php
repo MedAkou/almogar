@@ -29,7 +29,7 @@ class PostsCategoriesApiController extends Controller
      */
     public function details($id){
         return new JsonResponse([
-            'postsCategories' => PostCategories::find($id)
+            'postCategory' => PostCategories::find($id)
         ]);
     }
 

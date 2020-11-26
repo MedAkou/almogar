@@ -108,15 +108,12 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Stores routes
-    Route::prefix('stores')->middleware('auth:api')->group(function (){
-        Route::get('/', 'ManagerStoresApiController@index');
-        Route::post('/store', 'ManagerStoresApiController@store');
-        Route::post('/update/{id}', 'ManagerStoresApiController@update');
-        Route::get('/delete/{id}', 'ManagerStoresApiController@delete');
-        Route::get('/clone/{id}', 'ManagerStoresApiController@clone');
-        Route::get('/view/{id}', 'ManagerStoresApiController@view');
-        Route::post('/multiaction', 'ManagerStoresApiController@multiaction');
-        Route::get('/duplicate/{id}', 'ManagerStoresApiController@duplicate');
+    Route::prefix('stores')/*->middleware('auth:api')*/->group(function (){
+        Route::get('/', 'StoresApiController@index');
+        Route::get('/{id}', 'StoresApiController@details');
+        Route::post('/store', 'StoresApiController@store');
+        Route::post('/update/{id}', 'StoresApiController@update');
+        Route::post('/delete/{id}', 'StoresApiController@delete');
     });
 
     // Sliders routes

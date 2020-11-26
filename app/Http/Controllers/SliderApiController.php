@@ -28,7 +28,7 @@ class SliderApiController extends Controller
      */
     public function details($id){
         return new JsonResponse([
-            'sliders' => Slider::find($id)
+            'slider' => Slider::find($id)
         ]);
     }
 

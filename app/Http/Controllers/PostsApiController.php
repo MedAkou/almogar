@@ -27,7 +27,7 @@ class PostsApiController extends Controller
      */
     public function details($id){
         return new JsonResponse([
-            'posts' => Post::find($id)
+            'post' => Post::find($id)
         ]);
     }
 

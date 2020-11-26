@@ -33,7 +33,7 @@ class ProductsCategoriesApiController extends Controller
      */
     public function details($id){
         return new JsonResponse([
-            'productCategories' => ProductCategories::find($id)
+            'productCategory' => ProductCategories::find($id)
         ]);
     }
 

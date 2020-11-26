@@ -27,7 +27,7 @@ class PagesApiController extends Controller
      */
     public function details($id){
         return new JsonResponse([
-            'pages' => Page::find($id)
+            'page' => Page::find($id)
         ]);
     }
 
