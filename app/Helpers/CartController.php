@@ -16,10 +16,6 @@ class CartController extends Controller
     public function index() {
         $cart = (new Cart())->get();
         $total = (new Cart())->total();
-        if(Auth::check()){
-            $dbcart = ModelsCart::where('user_id',Auth::user()->id)->get();dd($dbcart->id);
-            return view ($this->theme.'cart',compact('cart','total','dbcart'));
-        }
         
         return view ($this->theme.'cart',compact('cart','total'));
     }
@@ -41,8 +37,8 @@ class CartController extends Controller
         return redirect()->route('cart',compact('store'))->with('message',trans('cart.added'));
     }
    
-    public function remove($store,$id){
-        (new Cart())->remove($id);
+    public function remove(Request $request ,$store,$id){
+        (new Cart())->remove($request->product_id,$id);
         return redirect()->back()->with('message',trans('cart.removed'));
         return redirect()->route('cart',compact('store'))->with('message',trans('cart.removed'));
     }

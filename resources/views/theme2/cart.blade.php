@@ -40,15 +40,11 @@
                                  <div class="form-group--number zaydnaks">
                                     <button class="up">+</button>
                                     <button class="down">-</button>
-<<<<<<< HEAD
-                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart['id'] }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
-=======
-                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-cart="{{ $dbcart[0]['id'] ?? '' }}" data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
->>>>>>> 8a4c333be6932b464644c690530dab1691c0023f
+                                 <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
                                  </div>
                               </td>
                               <td>{{ System::currency() }} <span class="price">{{ number_format((float)$product['total'], 2, '.', '') }}</span></td>
-                              <td><a href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store])  }}"><i class="icon-cross"></i></a></td>
+                              <td><a href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store , 'product_id' => $product['id']] )  }}"><i class="icon-cross"></i></a></td>
                            </tr>
                            @endforeach @endif
                         </tbody>

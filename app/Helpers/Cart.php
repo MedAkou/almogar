@@ -54,7 +54,8 @@ class Cart {
 
 
 
-    public function remove($rowID) {
+    public function remove($product_id,$rowID) {
+        OnlineCartHelper::remove($product_id);
         return ShoppingCart::remove($rowID);
     }
 
