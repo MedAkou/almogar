@@ -37,13 +37,13 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('/duplicate/{id}', 'PostsApiController@duplicate');
         
         // posts categories routes
-        Route::prefix('categories')->middleware('auth:api')->group(function () {
-            Route::any('/', 'PostsCategoriesController@index');
-            Route::post('/store', 'PostsCategoriesController@store');
-            Route::post('/update/{id}', 'PostsCategoriesController@update');
-            Route::get('/delete/{id}', 'PostsCategoriesController@delete');
-            Route::post('/duplicate', 'PostsCategoriesController@duplicate');
-            Route::post('/view', 'PostsCategoriesController@view');
+        Route::prefix('categories')/*->middleware('auth:api')*/->group(function () {
+            Route::get('/', 'PostsCategoriesApiController@index');
+            Route::get('/{id}', 'PostsCategoriesApiController@details');
+            Route::post('/store', 'PostsCategoriesApiController@store');
+            Route::post('/update/{id}', 'PostsCategoriesApiController@update');
+            Route::post('/delete/{id}', 'PostsCategoriesApiController@delete');
+            Route::post('/duplicate/{id}', 'PostsCategoriesApiController@duplicate');
         });
     });
 
