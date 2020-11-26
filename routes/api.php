@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::prefix('user')->group(function () {
-        Route::post('login', 'ApiController@login');
+        Route::post('login', 'UserApiController@login');
     });
 
     // Users routes
@@ -130,13 +130,11 @@ Route::group(['prefix' => 'v1'], function () {
      });
 
      // Menus routes
-    Route::prefix('menus')->middleware('auth:api')->group(function (){
+    Route::prefix('menus')/*->middleware('auth:api')*/->group(function (){
         Route::get('/', 'ManagerMenusApiController@index');
-        Route::get('/create', 'ManagerMenusApiController@create');
-        Route::get('/edit/{id}', 'ManagerMenusApiController@edit');
         Route::post('/store', 'ManagerMenusApiController@store');
         Route::post('/update/{id}', 'ManagerMenusApiController@update');
-        Route::get('/delete/{id}', 'ManagerMenusApiController@delete');
+        Route::post('/delete/{id}', 'ManagerMenusApiController@delete');
      });
 
     //  Settings routes
