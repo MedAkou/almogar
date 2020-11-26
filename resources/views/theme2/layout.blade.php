@@ -72,20 +72,22 @@
                </div>
                <div class="header__content-center">
                     
-                  <form   class="ps-form--quick-search"
-                          id="search-form"
-                          autocomplete="off"
-                          data-link="{{ route('search' ,[  'store' => $store] ) }}"
-                          method="post"
+                  <form class="ps-form--quick-search"
+                        id="search-form"
+                        autocomplete="off"
+                        data-link="{{ route('search' ,[  'store' => $store] ) }}"
+                        action="{{ route('searchSubmit' ,[  'store' => $store] ) }}"
+                        method="post"
                   >
-                      <input  type="text"
+                     @csrf
+                     <input   type="text"
                               class="form-control"
                               id="search-input"
                               name="q"
                               placeholder="{{ ('Search') }}"
                               required
-                      >
-                      <button class="btn" type="submit"><i class="icon-search"></i>{{ ('Search') }}</button>
+                     >
+                     <button class="btn" type="submit"><i class="icon-search"></i>{{ ('Search') }}</button>
                   </form>
                   <div id="results">
                   </div>
@@ -258,7 +260,10 @@
                   id="search-form-mobile"
                   autocomplete="off"
                   data-link="{{ route('search' ,[  'store' => $store] ) }}"
-                  method="post">
+                  action="{{ route('searchSubmit' ,[  'store' => $store] ) }}"
+                  method="post"
+            >
+               @csrf
                <div class="form-group--nest">
                   <input   type="text"
                            class="form-control"

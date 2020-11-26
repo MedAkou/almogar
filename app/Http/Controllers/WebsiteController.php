@@ -240,7 +240,7 @@ return $content;
 
         }
 
-        public function searchProccessTo(Request $request){
+        public function searchProccessSubmit(Request $request){
             $q          = $request->q;
             $lang       = \App::getLocale();
             $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
@@ -391,9 +391,9 @@ return $content;
 
         // send email with the template
         Mail::send('emails.welcome_email', $email_data, function ($message) use ($email_data) {
-            $message->to($email_data['email'], $email_data['name'], $email_data['email'])
-                ->subject('Welcome to o-bazaar')
-                ->from('contact@o-bazaar.com', 'Welcome');
+            $message->to($email_data['email'])
+                    ->subject('Welcome to o-bazaar')
+                    ->from('contact@o-bazaar.com', 'Welcome');
         });
 
         Auth::loginUsingId($user->id);
@@ -941,6 +941,30 @@ function printpage() {
         $shops          =       $shops->orderBy('distance', 'asc');
 
         $shops          =       $shops->get();
+    }
+
+    public function contactSend(Request $request){
+        $websiteEmail = env('MAIL_ADDRESS');
+        // email data
+        $email_data = array(
+            'websiteEmail' => $websiteEmail,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'emailMessage' => $request->message
+        );
+        // send email with the template
+        Mail::send('emails.contactUs', $email_data, function ($message) use ($email_data) {
+            $message->to($email_data['websiteEmail'])
+                    ->subject('Contact us | o-bazaar')
+                    ->from($email_data['email'], 'Contact');
+        });
+
+        if(!Mail::failures()){
+            session()->flash('success', trans('Email sent successfully'));
+        };
+        
+        return redirect()->back();
     }
 
 

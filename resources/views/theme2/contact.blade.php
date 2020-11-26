@@ -7,7 +7,7 @@
 
 @section('content')
 
-
+@include('theme2/elements/alerts')
  <main class="main">
     <div class="ps-contact-form">
         <div class="container">
@@ -17,22 +17,22 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                         <div class="form-group">
-                            <input class="form-control" id="contact-name" name="contact-name" type="text" placeholder="{{ __('Name') }}" required>
+                            <input class="form-control" id="contact-name" name="name" type="text" placeholder="{{ __('Name') }}" required>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                         <div class="form-group">
-                            <input class="form-control" id="contact-email" name="contact-email" type="text" placeholder="{{ __('Email') }}" required>
+                            <input class="form-control" id="contact-email" name="email" type="text" placeholder="{{ __('Email') }}" required>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                         <div class="form-group">
-                            <input class="form-control" id="contact-phone" name="contact-phone" type="text" placeholder="{{ __('Phone Number') }}" required>
+                            <input class="form-control" id="contact-phone" name="phone" type="text" placeholder="{{ __('Phone Number') }}" required>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="contact-message" class="form-control" name="contact-message" placeholder="{{ __('What’s on your mind?') }}" required></textarea>
+                            <textarea class="form-control" rows="5" id="contact-message" class="form-control" name="message" placeholder="{{ __('What’s on your mind?') }}" required></textarea>
                         </div>
                     </div>
                 </div>

@@ -221,7 +221,7 @@ class PayementController extends Controller {
         
         // send email with the template
         Mail::send('emails.orderCreated', $email_data, function ($message) use ($email_data) {
-            $message->to($email_data['email'], $email_data['order'])
+            $message->to($email_data['email'])
                 ->subject('Order confirmed | o-bazaar')
                 ->from('contact@o-bazaar.com', 'Order confirmed');
         });
