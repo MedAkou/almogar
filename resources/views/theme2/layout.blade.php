@@ -84,10 +84,10 @@
                               class="form-control"
                               id="search-input"
                               name="q"
-                              placeholder="{{ ('Search') }}"
+                              placeholder="{{ __('Search') }}"
                               required
                      >
-                     <button class="btn" type="submit"><i class="icon-search"></i>{{ ('Search') }}</button>
+                     <button class="btn" type="submit"><i class="icon-search"></i>{{ __('Search') }}</button>
                   </form>
                   <div id="results">
                   </div>

@@ -55,19 +55,29 @@
                             </div>
                             <div class="ps-product__shopping">
                                 <figure>
-                                    <figcaption>Quantity</figcaption>
+                                    <figcaption>{{ __('quantity') }}</figcaption>
                                     <div class="form-group--number zaydnaks">
                                         <button class="up">+</button>
                                         <button class="down">-</button>
                                         <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}'  type="text" placeholder="1" value="{{ $product['qty'] }}">
                                     </div>
                                 </figure>
-                                <a class="ps-btn ps-btn--black" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" data-product-id='{{$product->id}}'  title="{{ __('cart.add') }}">                                    {{ __('cart.add') }}</a>
-                                <a class="ps-btn" style="display: none;" href="#">Buy Now</a>
-                                <div class="ps-product__actions"><a href="{{ route('wishlist.add', ['id' => $product->id, 'store' => $store  ]) }}" title="{{ __('wishlist.add') }}><i class="icon-heart"></i></a>                                    </div>                                
+                                <a class="ps-btn ps-btn--black" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" data-product-id='{{$product->id}}'  title="{{ __('cart.add') }}">{{ __('cart.add') }}</a>
+                                <a class="ps-btn" style="display: none;" href="#">{{ __('Buy now') }}</a>
+                                <div class="ps-product__actions">
+                                    <a href="{{ route('wishlist.add', ['id' => $product->id, 'store' => $store  ]) }}" title="{{ __('wishlist.add') }}">
+                                        <i class="icon-heart" style="display: none;"></i>
+                                    </a>
+                                </div>                                
                             </div>
 
-                            <div class="single-visitors"><span class="btnnbrview"><i class="fa fa-eye" aria-hidden="true"></i><span class="nbrvirws">78</span></span>  people watching this product</div>
+                            <div class="single-visitors">
+                                {{ __('people watching this product') }}
+                                <span class="btnnbrview">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="nbrvirws">78</span>
+                                </span>
+                            </div>
 
 
                             <div class="ps-product__sharing">

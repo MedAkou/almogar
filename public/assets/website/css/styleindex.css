@@ -438,7 +438,7 @@
     }
     
     input#search-input {
-        text-align: right;
+        text-align: left;
     }
     
     #results,
