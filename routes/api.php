@@ -50,14 +50,11 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Media routes
-    Route::prefix('media')->middleware('auth:api')->group(function () {
-        Route::get('/', 'MediaController@index');
-        Route::any('/view/{id}', 'MediaController@view');
-        Route::any('/upload', 'MediaController@upload');
-        Route::any('/uploader', 'MediaController@modal_uploader');
-        Route::get('/download/{id}', 'MediaController@download');
-        Route::get('/load', 'MediaController@load');
-        Route::any('/delete', 'MediaController@remove');
+    Route::prefix('media')/*->middleware('auth:api')*/->group(function () {
+        Route::get('/', 'MediaApiController@index');
+        Route::post('/upload', 'MediaApiController@upload');
+        Route::post('/update/{id}', 'MediaApiController@update');
+        Route::post('/delete/{id}', 'MediaApiController@delete');
     });
 
     // Pages routes
