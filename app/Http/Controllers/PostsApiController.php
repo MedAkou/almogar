@@ -20,6 +20,18 @@ class PostsApiController extends Controller
     }
 
     /**
+     * Get post which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'posts' => Post::find($id)
+        ]);
+    }
+
+    /**
      * Store post.
      * 
      * @param Request $request

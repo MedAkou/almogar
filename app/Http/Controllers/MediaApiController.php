@@ -8,9 +8,26 @@ use Illuminate\Http\Request;
 
 class MediaApiController extends Controller
 {
+    /**
+     * Get all medias.
+     * 
+     * @return JsonResponse
+     */
     public function index(){
         return new JsonResponse([
             'media' => Media::get()
+        ]);
+    }
+
+    /**
+     * Get media which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'media' => Media::find($id)
         ]);
     }
 

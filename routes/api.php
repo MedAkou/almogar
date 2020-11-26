@@ -31,6 +31,7 @@ Route::group(['prefix' => 'v1'], function () {
     //  posts routes
     Route::prefix('posts')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'PostsApiController@index');
+        Route::get('/{id}', 'PostsApiController@details');
         Route::post('/store', 'PostsApiController@store');
         Route::post('/update/{id}', 'PostsApiController@update');
         Route::post('/delete/{id}', 'PostsApiController@delete');
@@ -50,6 +51,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Media routes
     Route::prefix('media')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'MediaApiController@index');
+        Route::get('/{id}', 'MediaApiController@details');
         Route::post('/upload', 'MediaApiController@upload');
         Route::post('/update/{id}', 'MediaApiController@update');
         Route::post('/delete/{id}', 'MediaApiController@delete');
@@ -58,6 +60,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Pages routes
     Route::prefix('pages')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'PagesApiController@index');
+        Route::get('/{id}', 'PagesApiController@details');
         Route::post('/store', 'PagesApiController@store');
         Route::post('/update/{id}', 'PagesApiController@update');
         Route::post('/delete/{id}', 'PagesApiController@delete');
@@ -67,6 +70,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Ads routes
     Route::prefix('ads')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'AdsApiController@index');
+        Route::get('/{id}', 'AdsApiController@details');
         Route::post('/store', 'AdsApiController@store');
         Route::post('/update/{id}', 'AdsApiController@update');
         Route::post('/delete/{id}', 'AdsApiController@delete');
@@ -76,7 +80,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Products routes
     Route::prefix('products')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'ProductsApiController@index');
-        Route::post('/{id}/details', 'ProductsApiController@details');
+        Route::get('/{id}', 'ProductsApiController@details');
         Route::post('/store', 'ProductsApiController@store');
         Route::post('/{id}/update', 'ProductsApiController@update');
         Route::post('/{id}/delete', 'ProductsApiController@delete');
@@ -88,6 +92,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Products categories routes
     Route::prefix('categories')/*->middleware('auth:api')*/->group(function (){
         Route::get('/', 'ProductsCategoriesApiController@index');
+        Route::get('/{id}', 'ProductsCategoriesApiController@details');
         Route::post('/store', 'ProductsCategoriesApiController@store');
         Route::post('/update/{id}', 'ProductsCategoriesApiController@update');
         Route::post('/delete/{id}', 'ProductsCategoriesApiController@delete');
@@ -96,7 +101,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Orders routes
     Route::prefix('orders')/*->middleware('auth:api')*/->group(function (){
         Route::get('/', 'OrdersApiController@index');
-        Route::get('/{id}', 'OrdersApiController@get');
+        Route::get('/{id}', 'OrdersApiController@details');
         Route::get('/user/{user_id}', 'OrdersApiController@userOrder');
         Route::post('/changeStatue/{id}', 'OrdersApiController@changeStatue');
         Route::any('/delete/{id}', 'OrdersApiController@delete');
@@ -117,6 +122,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Sliders routes
     Route::prefix('slider')/*->middleware('auth:api')*/->group(function (){
         Route::get('/', 'SliderApiController@index');
+        Route::get('/{id}', 'SliderApiController@details');
         Route::post('/store', 'SliderApiController@store');
         Route::post('/update/{id}', 'SliderApiController@update');
         Route::post('/delete/{id}', 'SliderApiController@delete');
@@ -126,6 +132,7 @@ Route::group(['prefix' => 'v1'], function () {
      // Menus routes
     Route::prefix('menus')/*->middleware('auth:api')*/->group(function (){
         Route::get('/', 'ManagerMenusApiController@index');
+        Route::get('/{id}', 'ManagerMenusApiController@details');
         Route::post('/store', 'ManagerMenusApiController@store');
         Route::post('/update/{id}', 'ManagerMenusApiController@update');
         Route::post('/delete/{id}', 'ManagerMenusApiController@delete');

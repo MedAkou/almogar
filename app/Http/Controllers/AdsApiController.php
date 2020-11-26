@@ -20,6 +20,18 @@ class AdsApiController extends Controller
     }
 
     /**
+     * Get ads which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'ads' => Ads::find($id)
+        ]);
+    }
+
+    /**
      * Store ad.
      * 
      * @param Request $request

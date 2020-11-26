@@ -36,6 +36,20 @@ class ManagerMenusApiController extends Controller
     }
 
     /**
+     * Get Basemenus which lang same as auth lang,
+     * Get productCategories which lang as auth lang,
+     * Get last BaseMenu which lang as auth lang
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'menu' => BaseMenus::find($id)
+        ]);
+    }
+
+    /**
      * Store BaseMenu.
      * 
      * @param Request $request

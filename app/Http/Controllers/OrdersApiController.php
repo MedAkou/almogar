@@ -23,7 +23,7 @@ class OrdersApiController extends Controller
      * @param int $id
      * @return JsonResponse
      */
-    public function get($id){
+    public function details($id){
         return new JsonResponse([
             'orders' => Orders::find($id)
         ]);
