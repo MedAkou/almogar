@@ -624,45 +624,13 @@ function searchKeyUp(link, formData, results) {
     });
 }
 
-function searchSubmit(link, formData) {
-    return $.ajax({
-        url: link,
-        type: 'POST',
-        processData: false,
-        contentType: false,
-        data: formData,
-        cache: false,
-        dataType: "JSON",
-        success: function(response) {
-            if (response.products.data.length) {
-                console.log(response.products.data);
-            }
-        },
-        error: function(error) {
-            console.log(error);
-        }
-    });
-}
-
-$("#search-form").submit(function(e) {
-    e.preventDefault();
-    let token = $('meta[name="csrf-token"]').attr('content');
-    let link = $(this).attr('data-link');
-    let inputVal = $("#search-input").val();
-    let formData = new FormData();
-    formData.append('q', inputVal);
-    formData.append('_token', token);
-
-    searchSubmit(link, formData);
-})
-
 $("#search-input").keyup(function() {
 
-    let token = $('meta[name="csrf-token"]').attr('content');
-    let link = $("#search-form").attr('data-link');
-    let inputVal = $(this).val();
-    let results = $("#results");
-    let formData = new FormData();
+    const token = $('meta[name="csrf-token"]').attr('content');
+    const link = $("#search-form").attr('data-link');
+    const inputVal = $(this).val();
+    const results = $("#results");
+    const formData = new FormData();
     formData.append('q', inputVal);
     formData.append('_token', token);
 
@@ -670,29 +638,17 @@ $("#search-input").keyup(function() {
 })
 
 $("#search-input").blur(function() {
-    let results = $("#results");
+    const results = $("#results");
     results.slideUp();
-})
-
-$("#search-form-mobile").submit(function(e) {
-    e.preventDefault();
-    let token = $('meta[name="csrf-token"]').attr('content');
-    let link = $(this).attr('data-link');
-    let inputVal = $("#search-input-mobile").val();
-    let formData = new FormData();
-    formData.append('q', inputVal);
-    formData.append('_token', token);
-
-    searchSubmit(link, formData);
 })
 
 $("#search-input-mobile").keyup(function() {
 
-    let token = $('meta[name="csrf-token"]').attr('content');
-    let link = $("#search-form-mobile").attr('data-link');
-    let inputVal = $(this).val();
-    let results = $("#results-mobile");
-    let formData = new FormData();
+    const token = $('meta[name="csrf-token"]').attr('content');
+    const link = $("#search-form-mobile").attr('data-link');
+    const inputVal = $(this).val();
+    const results = $("#results-mobile");
+    const formData = new FormData();
     formData.append('q', inputVal);
     formData.append('_token', token);
 
@@ -700,7 +656,7 @@ $("#search-input-mobile").keyup(function() {
 })
 
 $("#search-input-mobile").blur(function() {
-    let results = $("#results-mobile");
+    const results = $("#results-mobile");
     results.slideUp();
 })
 

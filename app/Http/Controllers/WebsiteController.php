@@ -240,7 +240,7 @@ return $content;
 
         }
 
-        public function searchProccessTo(Request $request){
+        public function searchProccessSubmit(Request $request){
             $q          = $request->q;
             $lang       = \App::getLocale();
             $products   = Product::Merchant()->Active()->where('name->'.$lang,'LIKE','%' . $q . '%')->where('store_id' , Session::get('store_id'))->paginate(10);
