@@ -55,14 +55,22 @@ class OnlineCartHelper {
         
         
         if(!empty($cart)){
-            $products = Product::where('id' , $cart->product_id)->get(); 
+            $products = Product::where('id' , $cart->product_id)->get();
             $quantity = $cart->quantity;
             //$product_price = $product->presentPrice();
             //$subtotal = $quantity * $product_price;dd("rfrf");
 
+            $productid = array();
+
+            foreach(ShoppingCart::all() as $cart){
+                array_push($productid, $cart['id']);
+            }
+
             foreach($products as $product){
-                ShoppingCart::associate('App\Models\Product');
-                ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
+                if(!in_array($product->id, $productid)){
+                    ShoppingCart::associate('App\Models\Product');
+                    ShoppingCart::add( $product->id,$product->name, $quantity,$product->presentPrice(),['thumbnail' => $product->thumbnail ]);
+                }
             }
             
         }
@@ -74,22 +82,23 @@ class OnlineCartHelper {
             return false;
         }
 
-        // $user_id = Auth::user()->id;
-        // $product = Product::find($product_id)->get();
-        // $cart = Cart::find($cart_id);
-        // $cart->user_id = $user_id;
-        // $cart->store_id = $store_id;
-        // $cart->product_id = $product_id;
-        // $cart->quantity = $quantity;
-        // $cart->price = $product->presentPrice();
-        // $cart->subtotal = $quantity * $product->presentPrice();
-        // $cart->save();
+        $user_id = Auth::user()->id;
+        $product = Product::find($product_id)->get();
+        $cart = Cart::where("product_id",$product_id)->where("user_id",$user_id);
+        $cart->user_id = $user_id;
+        $cart->store_id = $store_id;
+        $cart->product_id = $product_id;
+        $cart->quantity = $quantity;
+        $cart->price = $product->presentPrice();
+        $cart->subtotal = $quantity * $product->presentPrice();dd($cart);
+        $cart->save();
 
         return $cart;
     }
 
-    public static function remove($cart_id)
+    public static function remove($product_id)
     {
-        //return Cart::where("product_id",$product_id)->where("user_id",$user_id)->delete();
+        $user_id = Auth::user()->id;
+        return Cart::where("product_id",$product_id)->where("user_id",$user_id)->delete();
     }
 }
