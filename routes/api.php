@@ -29,14 +29,12 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     //  posts routes
-    Route::prefix('posts')->middleware('auth:api')->group(function () {
-        Route::get('/', 'PostsController@index');
-        Route::post('/store', 'PostsController@store');
-        Route::post('/update/{id}', 'PostsController@update');
-        Route::get('/delete/{id}', 'PostsController@delete');
-        Route::get('/clone/{id}', 'PostsController@clone');
-        Route::get('/view/{id}', 'PostsController@view');
-        Route::post('/multiaction', 'PostsController@multiaction');
+    Route::prefix('posts')/*->middleware('auth:api')*/->group(function () {
+        Route::get('/', 'PostsApiController@index');
+        Route::post('/store', 'PostsApiController@store');
+        Route::post('/update/{id}', 'PostsApiController@update');
+        Route::post('/delete/{id}', 'PostsApiController@delete');
+        Route::post('/duplicate/{id}', 'PostsApiController@duplicate');
         
         // posts categories routes
         Route::prefix('categories')->middleware('auth:api')->group(function () {
