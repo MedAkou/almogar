@@ -70,13 +70,12 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Ads routes
-    Route::prefix('ads')->middleware('auth:api')->group(function () {
+    Route::prefix('ads')/*->middleware('auth:api')*/->group(function () {
         Route::get('/', 'AdsApiController@index');
         Route::post('/store', 'AdsApiController@store');
         Route::post('/update/{id}', 'AdsApiController@update');
-        Route::get('/delete/{id}', 'AdsApiController@delete');
-        Route::get('/clone/{id}', 'AdsApiController@clone');
-        Route::get('/duplicate/{id}', 'AdsApiController@duplicate');
+        Route::post('/delete/{id}', 'AdsApiController@delete');
+        Route::post('/duplicate/{id}', 'AdsApiController@duplicate');
     });
 
     // Products routes
