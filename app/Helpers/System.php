@@ -66,4 +66,9 @@ class System {
         }
     }
 
+    public static function storeId(){
+        if (\Session::has('store_id')) 
+            return \Session::get('store_id');
+    }
+
 }

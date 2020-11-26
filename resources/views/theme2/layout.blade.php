@@ -22,7 +22,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
-<body class="@yield('bodyClass')  @if(auth::check())  has-logged   @endif" data-slug="{{$store}}" data-store-id="{{ $id ?? '' }}">
+<body class="@yield('bodyClass')  @if(auth::check())  has-logged   @endif" data-slug="{{$store}}" data-store-id="{{ \System::storeId() }}">
       @include('theme2/elements/alerts')
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
