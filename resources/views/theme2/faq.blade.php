@@ -1,6 +1,6 @@
 @extends('theme2/pages-layout')
 @section('title')
-{{ __('404') }}
+{{ __('Faq') }}
 @endsection
 
 @section('content')

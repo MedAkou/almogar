@@ -1,6 +1,6 @@
 @extends('theme2/pages-layout')
 @section('title')
-{{ __('AGB KUNDEN') }}
+{{ __('Conditions') }}
 @endsection
 
 @section('content')

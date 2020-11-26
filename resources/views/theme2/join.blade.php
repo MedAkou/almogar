@@ -1,6 +1,6 @@
 @extends('theme2/pages-layout')
 @section('title')
-{{ __('404') }}
+{{ __('joinus') }}
 @endsection
 @section('content')
 <div class="ps-page--single">

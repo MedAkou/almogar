@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="csrf-token" content="{{ csrf_token() }}" />
-      <title>{{ baseSetting('sitename') }} | Datenschutzerklärung </title>
+      <title>{{ baseSetting('sitename') }} | {{ __('Data protection') }} </title>
       <meta name="keywords" content="{{ option('metakeywords') }}" />
       <meta name="description" content="{{ __('tagline') }}">
       @php $favicon = option('favicon'); @endphp @if(!empty($favicon))
