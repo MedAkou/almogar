@@ -24,7 +24,7 @@
                      @csrf
                       
                      <div class="ps-form__content">
-                        <h5>Log In Your Account</h5>
+                        <h5>{{ __('please insert login info') }}</h5>
                         <div class="form-group">
                            <input type="email" placeholder="{{ __('Email address') }}"  value="{{ old('username') }}" name="username" class="form-control" id="login-email" required="">
                         </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                            <div class="ps-checkbox">
                               <input class="form-control" type="checkbox" id="remember-me" name="remember-me">
-                              <label for="remember-me">Rememeber me</label>
+                              <label for="remember-me">{{ __('Remember Me') }}</label>
                            </div>
                         </div>
                         <div class="form-group submtit">
@@ -56,7 +56,7 @@
                   <form class="" action="{{ route('account.registration') }}" method="post">
                      @csrf
                      <div class="ps-form__content">
-                        <h5>Register An Account</h5>
+                        <h5>{{ __('Register account') }}</h5>
                         <div class="form-group">
                            <input placeholder="{{ __('Name') }}" value="{{ old('name') }}" type="text" name='name' class="form-control" id="name" >
                         </div>
