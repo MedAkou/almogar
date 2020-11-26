@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  dir="{{ System::isRtl()?'rtl':'ltr' }}">
    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>{{ baseSetting('sitename') }} | Datenschutzerklärung </title>
-    <meta name="keywords" content="{{ option('metakeywords') }}" />
-    <meta name="description" content="{{ __('tagline') }}">
-    @php $favicon = option('favicon'); @endphp @if(!empty($favicon))
-    <link rel="icon" type="image/x-icon" href="/uploads/{{ $favicon }}">
-    @endif
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/website/css/all.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-    <style>
-        .ps-block--site-features {
-        border: none;
-        }
-        .ster {
-        padding: 15px 0;
-        }
-    </style>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="csrf-token" content="{{ csrf_token() }}" />
+      <title>{{ baseSetting('sitename') }} | Datenschutzerklärung </title>
+      <meta name="keywords" content="{{ option('metakeywords') }}" />
+      <meta name="description" content="{{ __('tagline') }}">
+      @php $favicon = option('favicon'); @endphp @if(!empty($favicon))
+         <link rel="icon" type="image/x-icon" href="/uploads/{{ $favicon }}">
+      @endif
+      <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
+      @if(System::isRtl())
+         <link rel="stylesheet" href="{{ asset('assets/website/css/all_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/stylehome_rtl.css') }}?v={{ env('ASSETS_VERSION') }}">
+      @else
+         <link rel="stylesheet" href="{{ asset('assets/website/css/all.css') }}?v={{ env('ASSETS_VERSION') }}">
+         <link rel="stylesheet" href="{{ asset('assets/website/css/stylehome.css') }}?v={{ env('ASSETS_VERSION') }}">
+      @endif
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+      <style>
+         .ps-block--site-features {
+         border: none;
+         }
+         .ster {
+         padding: 15px 0;
+         }
+      </style>
     <style>
       .header--standard.header--sticky .header__content {
     display: none;
@@ -625,32 +631,8 @@ ENDE
 
 
      </div>
-<div class="ps-download-app">
-            <div class="ps-container">
-                <div class="ps-block--download-app">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                                <div class="ps-block__thumbnail"><img src="/assets/website/img/app1.png" alt=""></div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                                <div class="ps-block__content">
-                                    <h3>Download o-bazaar App Now!</h3>
-                                    <p>Shopping fastly and easily more with our app. Get a link to download the app on your phone</p>                                    
-
-                                    <p>Shopping fastly and easily more with our app. Get a link to download the app on your phone</p>                                    <p>Shopping fastly and easily more with our app. Get a link to download the app on your phone</p>
-
-
-                                   
-                                    <p class="download-link"><a href="#"><img src="/assets/website/img/google-play.png" alt=""></a><a href="#"><img src="/assets/website/img/app-store.png" alt=""></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @include('/theme2/elements/footer')
+         @include('/theme2/elements/download-app')
+         @include('/theme2/elements/footer')
 
 
      
