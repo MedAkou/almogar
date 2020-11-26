@@ -29,7 +29,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     //  posts routes
-    Route::prefix('posts')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('posts')->middleware('auth:api')->group(function () {
         Route::get('/', 'PostsApiController@index');
         Route::get('/{id}', 'PostsApiController@details');
         Route::post('/store', 'PostsApiController@store');
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('/duplicate/{id}', 'PostsApiController@duplicate');
         
         // posts categories routes
-        Route::prefix('categories')/*->middleware('auth:api')*/->group(function () {
+        Route::prefix('categories')->middleware('auth:api')->group(function () {
             Route::get('/', 'PostsCategoriesApiController@index');
             Route::get('/{id}', 'PostsCategoriesApiController@details');
             Route::post('/store', 'PostsCategoriesApiController@store');
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Media routes
-    Route::prefix('media')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('media')->middleware('auth:api')->group(function () {
         Route::get('/', 'MediaApiController@index');
         Route::get('/{id}', 'MediaApiController@details');
         Route::post('/upload', 'MediaApiController@upload');
@@ -58,7 +58,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Pages routes
-    Route::prefix('pages')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('pages')->middleware('auth:api')->group(function () {
         Route::get('/', 'PagesApiController@index');
         Route::get('/{id}', 'PagesApiController@details');
         Route::post('/store', 'PagesApiController@store');
@@ -68,7 +68,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Ads routes
-    Route::prefix('ads')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('ads')->middleware('auth:api')->group(function () {
         Route::get('/', 'AdsApiController@index');
         Route::get('/{id}', 'AdsApiController@details');
         Route::post('/store', 'AdsApiController@store');
@@ -78,7 +78,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Products routes
-    Route::prefix('products')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('products')->middleware('auth:api')->group(function () {
         Route::get('/', 'ProductsApiController@index');
         Route::get('/{id}', 'ProductsApiController@details');
         Route::post('/store', 'ProductsApiController@store');
@@ -90,7 +90,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Products categories routes
-    Route::prefix('categories')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('categories')->middleware('auth:api')->group(function (){
         Route::get('/', 'ProductsCategoriesApiController@index');
         Route::get('/{id}', 'ProductsCategoriesApiController@details');
         Route::post('/store', 'ProductsCategoriesApiController@store');
@@ -99,7 +99,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Orders routes
-    Route::prefix('orders')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('orders')->middleware('auth:api')->group(function (){
         Route::get('/', 'OrdersApiController@index');
         Route::get('/{id}', 'OrdersApiController@details');
         Route::get('/user/{user_id}', 'OrdersApiController@userOrder');
@@ -108,7 +108,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Stores routes
-    Route::prefix('stores')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('stores')->middleware('auth:api')->group(function (){
         Route::get('/', 'StoresApiController@index');
         Route::get('/{id}', 'StoresApiController@details');
         Route::post('/store', 'StoresApiController@store');
@@ -117,7 +117,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Sliders routes
-    Route::prefix('slider')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('slider')->middleware('auth:api')->group(function (){
         Route::get('/', 'SliderApiController@index');
         Route::get('/{id}', 'SliderApiController@details');
         Route::post('/store', 'SliderApiController@store');
@@ -127,7 +127,7 @@ Route::group(['prefix' => 'v1'], function () {
      });
 
      // Menus routes
-    Route::prefix('menus')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('menus')->middleware('auth:api')->group(function (){
         Route::get('/', 'ManagerMenusApiController@index');
         Route::get('/{id}', 'ManagerMenusApiController@details');
         Route::post('/store', 'ManagerMenusApiController@store');
@@ -137,8 +137,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     //  Settings routes
     Route::prefix('settings')->middleware('auth:api')->group(function (){
-        Route::get('/', 'ManagerSettingsApiController@index');
-        Route::post('/update/{id}', 'ManagerSettingsApiController@update');
+        Route::post('/update', 'ManagerSettingsApiController@update');
         Route::post('/social', 'ManagerSettingsApiController@social');
         Route::post('/stripe', 'ManagerSettingsApiController@stripe');
         Route::post('/paypal', 'ManagerSettingsApiController@paypal');
