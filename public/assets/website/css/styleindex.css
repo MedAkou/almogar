@@ -529,3 +529,21 @@
     .item.video img {
         transition: none !important;
     }
+
+    
+.alert.alert-success.d-flex.justify-content-center {
+    font-family: 'Tajawal';
+}
+
+.empty-order {
+    width: 100%;
+}
+
+.empty-order i {
+    font-size: 130px;
+}
+
+.empty-order p {
+    font-size: 25px;
+    line-height: 50px;
+}

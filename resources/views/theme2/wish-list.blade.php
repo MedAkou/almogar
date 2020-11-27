@@ -25,7 +25,7 @@
                      <div class="table-responsive">
                         <table class="table ps-table--whishlist">
                            <tbody>
-                              @foreach($wishlist as $product)
+                              @forelse($wishlist as $product)
                               <tr>
                                  <td><a href="{{ route('wishlist.remove', [ 'id' => $product->id , 'store' => $store ]) }}"><i class="icon-cross"></i></a></td>
                                  <td>
@@ -37,7 +37,9 @@
                                  <td class="price">{{ System::currency() }} {{ $product->product->presentPrice() }}</td>
                                  <td><a class="ps-btn" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}"><i class="icon-bag2"></i></a></td>
                               </tr>
-                              @endforeach
+                              @empty
+                                 Empty state
+                              @endforelse
                            </tbody>
                            <tbody>
                               <tr class="wishclearall">
