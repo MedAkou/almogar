@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4 list">
     <div class="ps-section__left">
         <aside class="ps-widget--account-dashboard">
             <div class="ps-widget__content">

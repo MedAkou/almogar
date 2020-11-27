@@ -38534,16 +38534,20 @@ nav.navigation--mobile-product {
     }
 }
 
-@media(max-width: 991px){
-    .ps-section--account-setting .ps-section__header,
-    .ps-section__right .ps-form__header{
-        margin-top: 20px;
-    }
-}
-
 @media(max-width: 510px){
     .ps-block__content div > a.sm{
         width: 20%;
-        padding: 15px 25px;
+    }
+    .ps-block__content div > a{
+        padding: 15px 18px!important;
+    }
+    .ps-block__content div > a.delete{
+        padding: 15px 20px!important;
+    }
+}
+
+@media(max-width: 991px){
+    .list {
+        margin-bottom: 40px;
     }
 }
