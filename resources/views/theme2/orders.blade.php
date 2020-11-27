@@ -22,14 +22,14 @@
                         <div class="col-lg-8">
                            <div class="ps-section__right">
                                <div class="ps-section--account-setting">
-                                    @if(empty(Auth::user()->orders))
+                                    @if(Auth::user()->orders->count() != 0)
                                         <div class="ps-section__header">
                                             <h3>{{ __('Orders') }}</h3>
                                         </div>
                                     @endif
                                    <div class="ps-section__content">
                                        <div class="table-responsive">
-                                          @if(empty(Auth::user()->orders))
+                                          @if(Auth::user()->orders->count() != 0)
                                            <table class="table ps-table ps-table--invoices">
                                                <thead>
                                                    <tr>
