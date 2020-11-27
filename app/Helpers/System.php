@@ -61,12 +61,12 @@ class System {
     public static function currency(){
         switch(App::getLocale()){
             case 'ar': return '€';
-            case 'de': return  '€';
+            case 'de': return '€';
             case 'tr': return '€';
         }
     }
 
-    public static function storeId(){
+    public static function currentStoreId(){
         if (\Session::has('store_id')) 
             return \Session::get('store_id');
     }
