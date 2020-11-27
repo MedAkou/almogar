@@ -80,8 +80,6 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu9"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-
-                                        <li><a target="_blank" href="{{ route('admin.shipping.view',['id' => $item->id]) }}" class="text-success-600"><i class="icon-eye position-left"></i>{{ __('View') }}</a></li>
                                         <li>
                                             <a href="{{ route('admin.shipping.edit',['id' => $item->id]) }}" class="text-primary-600">
                                                 <i class="icon-pencil7 position-left"></i>{{ __('Edit') }}

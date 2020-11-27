@@ -38551,3 +38551,9 @@ nav.navigation--mobile-product {
         margin-bottom: 40px;
     }
 }
+
+@media(max-width: 500px){
+    a.phone-link {
+        margin-right: 4px;
+    }
+}

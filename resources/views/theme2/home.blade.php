@@ -146,7 +146,10 @@
                                     <h4>{{ $product->name }}</h4>
                                     <br>
                                     <p><i class="icon-map-marker"></i> {{ $product->street }}</p>
-                                    <p><i class="icon-telephone"></i><a href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a></p>
+                                    <p>
+                                       <i class="icon-telephone pull-left mt-1"></i>
+                                       <a class="phone-link" href="tel:{{ $product->owner->phone }}">{{ $product->owner->phone }}</a>
+                                    </p>
                                  </figure>
                               </div>
                               <div class="ps-block__author">
