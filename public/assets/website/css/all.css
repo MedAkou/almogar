@@ -38574,3 +38574,17 @@ nav.navigation--mobile-product {
         width: 50%!important;
     }
 }
+
+@media(max-width: 991px){
+    .ps-section--account-setting .ps-section__header,
+    .ps-section__right .ps-form__header{
+        margin-top: 20px;
+    }
+}
+
+@media(max-width: 510px){
+    .ps-block__content div > a.sm{
+        width: 20%;
+        padding: 15px 25px;
+    }
+}

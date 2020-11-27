@@ -23,7 +23,7 @@
                </div>
                @foreach(Auth::user()->addresses as $addresse)
                <figure  class="ps-block--address @if( $addresse->is_primary == '1' ) active @endif">
-                  <div class="ps-block__content">
+                  <div class="ps-block__content d-flex flex-column">
                      <p>
                         {{ $addresse->given_name }}<br>
                         {{ $addresse->street }} <br>
@@ -31,11 +31,13 @@
                         {{ $addresse->country_code }} <br>
                         {{ $addresse->phone }}                                          
                      </p>
-                     <a class="ps-btn" href="{{ route('shipping.edit',['id' =>  $addresse->id  ,'store' => $store ]) }}"> {{ __('Edit') }}</a>
-                     <a class="ps-btn" href="{{ route('shipping.delete',['id' =>  $addresse->id ,'store' => $store ]) }}"> {{ __('Delete') }}</a>
-                     @if(!$addresse->is_primary) 
-                     <a class="ps-btn" href="{{ route('shipping.default',['id' =>  $addresse->id ,'store' => $store ]) }}"> {{ __('set As Default') }}</a>
-                     @endif
+                     <div>
+                        <a class="ps-btn sm" href="{{ route('shipping.edit',['id' =>  $addresse->id  ,'store' => $store ]) }}"> {{ __('Edit') }}</a>
+                        <a class="ps-btn sm" href="{{ route('shipping.delete',['id' =>  $addresse->id ,'store' => $store ]) }}"> {{ __('Delete') }}</a>
+                        @if(!$addresse->is_primary) 
+                        <a class="ps-btn" href="{{ route('shipping.default',['id' =>  $addresse->id ,'store' => $store ]) }}"> {{ __('set As Default') }}</a>
+                        @endif
+                     </div>
                   </div>
                </figure>
                @endforeach 
