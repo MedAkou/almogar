@@ -22,23 +22,27 @@
                         <div class="col-lg-8">
                            <div class="ps-section__right">
                                <div class="ps-section--account-setting">
-                                   <div class="ps-section__header">
-                                       <h3>{{ __('Orders') }}</h3>
-                                   </div>
+                                    @if (Auth::user()->orders->count() != 0)
+                                        <div class="ps-section__header">
+                                            <h3>{{ __('Orders') }}</h3>
+                                        </div>
+                                    @endif
                                    <div class="ps-section__content">
                                        <div class="table-responsive">
                                            <table class="table ps-table ps-table--invoices">
-                                               <thead>
-                                                   <tr>
-                                                       <th>{{ __('Order N°') }}</th>
-                                                       <th>{{ __('Date') }}</th>
-                                                       <th>{{ __('statue') }}</th>
-                                                       <th>{{ __('Total') }}</th>
-                                                       <th>{{ __('order details') }} </th>
-                                                   </tr>
-                                               </thead>
+                                                @if (Auth::user()->orders->count() != 0)
+                                                    <thead>
+                                                        <tr>
+                                                            <th>{{ __('Order N°') }}</th>
+                                                            <th>{{ __('Date') }}</th>
+                                                            <th>{{ __('statue') }}</th>
+                                                            <th>{{ __('Total') }}</th>
+                                                            <th>{{ __('order details') }} </th>
+                                                        </tr>
+                                                    </thead>
+                                                @endif
                                                <tbody>
-                                                @foreach(Auth::user()->orders as $order )
+                                                @forelse(Auth::user()->orders as $order )
                                                    <tr>
                                                        <td><a href="{{ route('orders_detail',['id' => $order->id , 'store' => $store ]) }}">{{ $order->id }}</a></td>
                                                        <td>{{ $order->created_at->diffForHumans() }}</td>
@@ -46,7 +50,15 @@
                                                        <td>{{ $order->total }} {{ System::currency() }}</td>
                                                        <td><a href="{{ route('orders_detail',['id' => $order->id , 'store' => $store ]) }}">{{ __('order details') }}</a></td>
                                                    </tr>
-                                                @endforeach
+                                                @empty
+                                                    <div class="row text-center">
+                                                        <div class="empty-cart mt-0">
+                                                            <i class="icon-cart"></i>
+                                                            <p>{{ __('Your shopping cart is empty') }}</p>
+                                                            <a class="ps-btn" href="/{{ $store }}">{{ __('Continue Shopping') }}</a>
+                                                        </div>
+                                                    </div>
+                                                @endforelse
                                                </tbody>
                                            </table>
                                        </div>
