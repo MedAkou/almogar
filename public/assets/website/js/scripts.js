@@ -597,6 +597,7 @@ function searchKeyUp(link, formData, results) {
         cache: false,
         dataType: "JSON",
         success: function(response) {
+            let lang = response.lang;
             if (response.products.data.length) {
                 results.empty();
                 results.slideDown();
@@ -607,7 +608,8 @@ function searchKeyUp(link, formData, results) {
                     result.append(`<div class="img-cont">
                                                     <img src="${response.products.data[i].thumbnail}"}>
                                                 </div>`);
-                    result.append(`<span>${response.products.data[i].name.ar}</span>`)
+                                                
+                    result.append(`<span>${response.products.data[i].name[lang]}</span>`);
                 }
                 $("p.result").click(function() {
                     let productId = $(this)[0].id;

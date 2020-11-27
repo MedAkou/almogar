@@ -235,7 +235,7 @@ return $content;
 
 
             
-            return response()->json(array('products' => $products, 'storeSlug' => $storeSlug), 200);
+            return response()->json(array('products' => $products, 'storeSlug' => $storeSlug, 'lang' => $lang), 200);
             // return view ($this->theme.'search', compact('products','q'));
 
         }
