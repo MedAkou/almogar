@@ -330,7 +330,7 @@
                   <h5 class="modaltitle">{{ __('wishlist.added') }}</h5>
                   <center>
                      <a href="{{ route('wishlist',['store' => $store ]) }}"  class="ps-btn">{{ __('My Wishlist') }}</a>
-                     <a href="#" data-toggle="modal" title="{{ __('Continue Shopping') }}" data-target="#addedTocCart" class="ps-btn">{{ __('Continue Shopping') }}</a>
+                     <a href="#" data-toggle="modal" title="{{ __('Continue Shopping') }}" data-target="#modalwishlist" class="ps-btn">{{ __('Continue Shopping') }}</a>
                   </center>
                </div>
             </div>
