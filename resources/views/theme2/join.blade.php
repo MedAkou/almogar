@@ -252,7 +252,7 @@
                         <br>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('name') }}</label>
-                           <input type="text" class="form-control rf " value="{{ old('storename') }}" name="storename" placeholder="{{ __('name') }}" value="">
+                           <input type="text" class="form-control rf " value="{{ old('storename') }}" name="storename" placeholder="{{ __('name') }}" value="" required>
                            <span class="input-group-addon"><i class="icon-user"></i></span>
                         </div>
                         <div class="form-group--icon form-group">
@@ -260,26 +260,26 @@
                            <div class="hidden">
                               {{ __('example :  ') }} {{ route('base') }}
                            </div>
-                           <input type="text" class="form-control rf" value="{{ old('url') }}" name="url" placeholder="{{ __('url') }}" value="">
+                           <input type="text" class="form-control rf" value="{{ old('url') }}" name="url" placeholder="{{ __('url') }}" value="" required>
                            <span class="input-group-addon"><i class="icon-user"></i></span>
                         </div>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('street') }}</label>
-                           <input type="text" value="{{ old('street') }}" class="form-control rf " name="street" placeholder="{{ __('street') }}" value="">
+                           <input type="text" value="{{ old('street') }}" class="form-control rf " name="street" placeholder="{{ __('street') }}" value="" required>
                            <span class="input-group-addon"><i class="icon-user"></i></span>
                         </div>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('postal code') }}</label>
-                           <input type="text" value="{{ old('postalcode') }}" class="form-control rf" value="" name="postalcode" placeholder="{{ __('postal code') }}">
+                           <input type="text" value="{{ old('postalcode') }}" class="form-control rf" value="" name="postalcode" placeholder="{{ __('postal code') }}" required>
                            <span class="input-group-addon"><i class="icon-map5"></i></span>
                         </div>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('description') }}</label>
-                           <textarea class="form-control" placeholder="{{ __('description') }}" name="description" id="description" cols="30" rows="10">{{ old('description') }}</textarea>
+                           <textarea class="form-control" placeholder="{{ __('description') }}" name="description" id="description" cols="30" rows="10" required>{{ old('description') }}</textarea>
                         </div>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('thumbnail') }}</label>
-                           <input type="file" class="form-control rf padtop"  name="thumbnail" placeholder="{{ __('thumbnail') }}">
+                           <input type="file" class="form-control rf padtop"  name="thumbnail" placeholder="{{ __('thumbnail') }}" required>
                            <span class="input-group-addon"><i class="icon-blog"></i></span>
                         </div>
                         <div class="form-group--icon form-group">
