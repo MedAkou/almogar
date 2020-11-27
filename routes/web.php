@@ -75,7 +75,12 @@ Route::get('/datenschutzerklarung/kunden', 'WebsiteController@datenschutzerklaru
 
 Route::get('/datenschutzerklarung/lieferanten/drittanbieter', 'WebsiteController@lieferanten_drittanbieter')->name('lieferanten_drittanbieter');
 
-
+Route::get('/payments-method', function(){
+  dd("Payments-method");
+});
+Route::get('/how-it-works', function(){
+  dd("how-it-works");
+});
 
 // Route::post('/form/send', 'WebsiteController@contactsend')->name('contact.send');
 Route::get('/contact-us', 'WebsiteController@contact')->name('contact');
