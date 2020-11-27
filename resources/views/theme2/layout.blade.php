@@ -232,25 +232,25 @@
       </div>
       <div class="navigation--list">
          <div class="navigation__content">
-            <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
-               <i class="icon-menu"></i>
-               <span>{{ __('Menu') }}</span>
+            <a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/">
+               <i class="icon-home"></i>
+               <span>{{ __('Home') }}</span>
             </a>
             <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile">
                <i class="icon-list4"></i>
                <span>{{ __('Categories') }}</span>
             </a>
-            <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
-               <i class="icon-magnifier"></i>
-               <span>{{ __('Search') }}</span>
-            </a>
             <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile">
                <i class="icon-cart"></i>
                <span>{{ __('Cart') }}</span>
             </a>
-            <a class="navigation__item ps-toggle--sidebar" onclick="window.location.href = '/';" href="/">
-               <i class="icon-home"></i>
-               <span>{{ __('Home') }}</span>
+            <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
+               <i class="icon-magnifier"></i>
+               <span>{{ __('Search') }}</span>
+            </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
+               <i class="icon-menu"></i>
+               <span>{{ __('Menu') }}</span>
             </a>
          </div>
       </div>
