@@ -23146,7 +23146,7 @@ textarea.form-control {
     border: none;
     background-color: transparent;
     position: absolute;
-    top: 50%;
+    top: 58%;
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
@@ -29586,6 +29586,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .ps-product--detail .ps-product__shopping .form-group--number input {
     border-radius: 0;
     border-color: rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
 }
 
 .ps-product--detail .ps-product__shopping .form-group--number i {
@@ -29695,7 +29696,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
         margin-left: 10px;
     }
     .ps-product--detail .ps-product__shopping .ps-btn {
-        margin-left: 10px;
+        margin-right: 10px;
         text-align: center;
     }
 }

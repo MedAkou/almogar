@@ -54,21 +54,24 @@
                                 </ul>
                             </div>
                             <div class="ps-product__shopping">
-                                <figure>
-                                    <figcaption>{{ __('quantity') }}</figcaption>
-                                    <div class="form-group--number zaydnaks">
-                                        <button class="up">+</button>
-                                        <button class="down">-</button>
-                                        <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}'  type="text" placeholder="1" value="{{ $product['qty'] }}">
-                                    </div>
-                                </figure>
-                                <a class="ps-btn ps-btn--black" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" data-product-id='{{$product->id}}'  title="{{ __('cart.add') }}">{{ __('cart.add') }}</a>
-                                <a class="ps-btn" style="display: none;" href="#">{{ __('Buy now') }}</a>
-                                <div class="ps-product__actions">
-                                    <a href="{{ route('wishlist.add', ['id' => $product->id, 'store' => $store  ]) }}" title="{{ __('wishlist.add') }}">
-                                        <i class="icon-heart" style="display: none;"></i>
-                                    </a>
-                                </div>                                
+                                <form action="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" method="post">
+                                    @csrf
+                                    <figure>
+                                        <figcaption>{{ __('quantity') }}</figcaption>
+                                        <div class="form-group--number zaydnaks">
+                                            <button type="button" class="up">+</button>
+                                            <button type="button" class="down">-</button>
+                                            <input class="quantity-ajax form-control instantQuantity" name="quantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}'  type="text" placeholder="1" value="{{ $product['qty'] }}">
+                                        </div>
+                                        <button class="ps-btn ps-btn--black">{{ __('cart.add') }}</button>
+                                    </figure>
+                                    <a class="ps-btn" style="display: none;" href="#">{{ __('Buy now') }}</a>
+                                    <div class="ps-product__actions">
+                                        <a href="{{ route('wishlist.add', ['id' => $product->id, 'store' => $store  ]) }}" title="{{ __('wishlist.add') }}">
+                                            <i class="icon-heart" style="display: none;"></i>
+                                        </a>
+                                    </div> 
+                                </form>                               
                             </div>
 
                             <div class="single-visitors">
