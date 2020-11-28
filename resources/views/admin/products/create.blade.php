@@ -111,13 +111,13 @@
                              <div class="form-group">
                                 <label class="control-label col-lg-2">{{ __('regular price') }}</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control rf" name="price" value="{{ old('price') }}">
+                                    <input type="number" class="form-control rf" name="price" value="{{ old('price') }}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-lg-2">{{ __('discount price') }}</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control rf" name="discount" value="{{ old('discount') }}">
+                                    <input type="number" class="form-control rf" name="discount" value="{{ old('discount') }}">
                                 </div>
                             </div>
                         </fieldset>
@@ -133,7 +133,7 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-2">{{ __('weight') }} (KG)</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control rf" name="weight" value="{{ old('weight') }}">
+                                    <input type="number" class="form-control rf" name="weight" value="{{ old('weight') }}">
                                 </div>
                             </div>
                            
@@ -143,13 +143,13 @@
                                     <div class="row">
                                         <div class="col-lg-4">
                                             
-                                            <input type="text" class="form-control rf" size="6" placeholder="{{ __('Length') }}" name="length" value="{{ old('length') }}">
+                                            <input type="number" class="form-control rf" size="6" placeholder="{{ __('Length') }}" name="length" value="{{ old('length') }}">
                                         </div>
                                         <div class="col-lg-4">
-                                            <input type="text" class="form-control rf" size="6" placeholder="{{ __('width') }}" name="width" value="{{ old('width') }}">
+                                            <input type="number" class="form-control rf" size="6" placeholder="{{ __('width') }}" name="width" value="{{ old('width') }}">
                                         </div>
                                         <div class="col-lg-4">
-                                            <input type="text" class="form-control rf" size="6" placeholder="{{ __('height') }}" name="height" value="{{ old('height') }}">
+                                            <input type="number" class="form-control rf" size="6" placeholder="{{ __('height') }}" name="height" value="{{ old('height') }}">
                                         </div>
                                     </div>
                                     
