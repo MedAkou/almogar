@@ -36257,7 +36257,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .header--standard .ps-form--quick-search button {
     background-color: #fcb800;
-    color: #000;
+    color: #FFF;
 }
 
 .header--standard .ps-form--quick-search .form-group--icon {
@@ -37892,7 +37892,7 @@ html .bg--parallax {
 }
 
 .header--market-place-1 .header__extra span i {
-    color: #000;
+    color: #FFF;
     font-weight: 700;
 }
 
