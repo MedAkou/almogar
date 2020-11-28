@@ -516,13 +516,14 @@
         content: "\f144";
         position: absolute;
         font-family: 'Font Awesome 5 Free';
-        top: 5px;
+        top: -2px;
         font-size: 30px;
         right: 15px;
         color: rgb(195 20 50);
     }
     
     .item.video {
+        position: relative;
         background: #00000075;
     }
     
