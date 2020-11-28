@@ -228,7 +228,7 @@
 
                         <input type="hidden" id="profile-photo" >
 
-                        <span class="btn btn-danger btn-rounded" onclick="filemanager.bulkSelectFile('myBulkSelectCallback')">Choose Images</span>
+                        <span class="btn btn-danger btn-rounded" onclick="filemanager.bulkSelectFile('myBulkSelectCallback')">{{ __('Choose images') }}</span>
                     </div>
                 </div>
 

@@ -1,6 +1,8 @@
 {
     "Logout": "Ausloggen",
 
+    "You have no favorites":"Sie haben keine Favoriten",
+
     "Login & Register": "Anmeldung Registrieren",
     "product.create.title": "productCreateTitle",
 
@@ -822,5 +824,7 @@
     "Welcome store": "Willkommensladen",
     "Welcome to o-bazaar store": "Willkommen im O-Bazaar Store",
     "You have no orders": "Sie haben keine Bestellungen",
-    "Order now": "Jetzt bestellen"
+    "Order now": "Jetzt bestellen",
+    "gallery": "Gellerie",
+    "Choose images": "Wählen Sie Bilder"
 }

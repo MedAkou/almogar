@@ -5,6 +5,8 @@
     "order.shippingcost": "Kargo Ücreti",
     "print order": "yazdırma emri",
 
+    "You have no favorites":"Favoriniz yok",
+
     "You purchased the": "Satın aldınız",
     "You will be charged": "Ücretlendirileceksiniz",
     "Primary Contact": "Birincil İlgili Kişi",
@@ -1531,5 +1533,7 @@
     "Welcome store": "Hoşgeldin mağazası",
     "Welcome to o-bazaar store": "O-bazaar mağazasına hoş geldiniz",
     "You have no orders": "Hiç emrin yok",
-    "Order now": "Şimdi sipariş ver"
+    "Order now": "Şimdi sipariş ver",
+    "gallery": "Gellery",
+    "Choose images": "Resimleri seçin"
 }

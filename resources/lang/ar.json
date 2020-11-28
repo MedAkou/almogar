@@ -1,4 +1,5 @@
 {
+    "Logout": "تسجيل الخروج",
 
     "Login & Register": "انشاء حساب جديد / تسجيل الدخول",
     "product.create.title": "",
@@ -294,7 +295,7 @@
     "Password": "كلمه السر",
     "Phone": "هاتف",
     "Register": "تسجيل",
-    "wishlist": "قائمة الرغبات",
+    "wishlist": "المفضلة",
     "Dashboard": "إعدادات الحساب",
     "Wishlist": "المفضلة",
     "clear wishlist": "تفريغ المفضلة",
@@ -731,7 +732,7 @@
     "+ add images": "+ إضافة صور",
     "product videos ( youtube links only ": "فيديو المنتج (روابط يوتيوب فقط",
     "+ add videos": "+ أضف فيديوهات",
-    "feautred image": "صورة مضمونة",
+    "feautred image": "الصورة الخارجية",
     "select thumbnail": "حدد الصورة المصغرة",
     "product category": "فئة المنتج",
     "Products Edit ": "تحرير المنتجات",
@@ -999,7 +1000,6 @@
     "Password": "كلمه السر",
     "Phone": "هاتف",
     "Register": "تسجيل",
-    "wishlist": "قائمة الرغبات",
     "Dashboard": "إعدادات الحساب",
     "ADD TO CART": "أضف إلى السلة",
     "remove from Wishlist": "إزالة من قائمة الرغبات",
@@ -1430,7 +1430,6 @@
     "+ add images": "+ إضافة صور",
     "product videos ( youtube links only ": "فيديو المنتج (روابط يوتيوب فقط",
     "+ add videos": "+ أضف فيديوهات",
-    "feautred image": "صورة مضمونة",
     "select thumbnail": "حدد الصورة المصغرة",
     "product category": "فئة المنتج",
     "Products Edit ": "تحرير المنتجات",
@@ -1534,5 +1533,8 @@
     "Welcome to o-bazaar store": "مرحبا بكم في متجر o-bazaar",
     "Your shopping cart is empty": "سلة التسوق الخاصة بك فارغة",
     "You have no orders": "ليس لديك أي طلبات",
-    "Order now": "اطلب الان"
+    "Order now": "اطلب الان",
+    "You have no favorites": "ليس لديك مفضلات",
+    "gallery": "معرض الصور",
+    "Choose images": "اختيار الصور"
 }

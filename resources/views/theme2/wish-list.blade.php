@@ -7,7 +7,7 @@
    <div class="ps-breadcrumb">
       <div class="container">
           <ul class="breadcrumb">
-              <li><a href="http://almogar.test:82/matjar"><i class="icon-home"></i></a></li>
+              <li><a href="{{ route('home',['store' => $store ]) }}"><i class="icon-home"></i></a></li>
               <li>{{ __('wishlist') }}</li>
           </ul>
       </div>
@@ -18,14 +18,18 @@
          <div class="col-lg-8">
             <div class="ps-section__right">
                <div class="ps-section--account-setting">
-                  <div class="ps-section__header">
-                     <h3>{{ __('Wishlist') }}</h3>
-                  </div>
+                  @if($wishlist->count() != 0)
+                     <div class="ps-section__header">
+                        <h3>{{ __('Wishlist') }}</h3>
+                     </div>
+                  @endif
                   <div class="ps-section__content">
+                     @if($wishlist->count() != 0)
                      <div class="table-responsive">
+                        
                         <table class="table ps-table--whishlist">
                            <tbody>
-                              @forelse($wishlist as $product)
+                              @foreach($wishlist as $product)
                               <tr>
                                  <td><a href="{{ route('wishlist.remove', [ 'id' => $product->id , 'store' => $store ]) }}"><i class="icon-cross"></i></a></td>
                                  <td>
@@ -37,9 +41,7 @@
                                  <td class="price">{{ System::currency() }} {{ $product->product->presentPrice() }}</td>
                                  <td><a class="ps-btn" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}"><i class="icon-bag2"></i></a></td>
                               </tr>
-                              @empty
-                                 Empty state
-                              @endforelse
+                              @endforeach
                            </tbody>
                            <tbody>
                               <tr class="wishclearall">
@@ -49,7 +51,19 @@
                               </tr>
                            </tbody>
                         </table>
+
                      </div>
+                     @else
+                        <div class="ps-table--invoices">
+                             <div class="row text-center">
+                                  <div class="empty-order">
+                                      <i class="icon-heart"></i>
+                                      <p>{{ __('You have no favorites') }}</p>
+                                      <a class="ps-btn" href="/{{ $store }}">{{ __('Continue Shopping') }}</a>
+                                  </div>
+                             </div>
+                          </div>
+                     @endif
                   </div>
                </div>
             </div>
