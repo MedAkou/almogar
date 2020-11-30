@@ -73,8 +73,8 @@
                     <ul class="ps-list--link">
                            <li><a href="/join">{{ __('joinus') }}</a></li>
                         <li><a href="/faq">{{ __('Faq') }}</a></li>
-                        <li><a href="/payments-method">{{ __('Payment Methods') }}</a></li>
-                        <li><a href="/how-it-works">{{ __('How it works') }}</a></li>
+                        {{-- <li><a href="/payments-method">{{ __('Payment Methods') }}</a></li>
+                        <li><a href="/how-it-works">{{ __('How it works') }}</a></li> --}}
        
                     </ul>
                 </aside>
@@ -83,7 +83,7 @@
 
 
                 <aside class="widget widget_footer">
-                    <h4 class="widget-title">{{ __('Main Features') }}</h4>
+                    {{-- <h4 class="widget-title">{{ __('Main Features') }}</h4> --}}
                     <ul class="ps-list--link">
                         <li><a href="/">{{ __('Home') }}</a></li>
                         <li><a href="/about-us">{{ __('About Us') }}</a></li>
@@ -91,7 +91,7 @@
                     </ul>
                 </aside>
                     <aside class="widget widget_footer">
-                    <h4 class="widget-title">{{ __('Main Features') }}</h4>
+                    {{-- <h4 class="widget-title">{{ __('Main Features') }}</h4> --}}
                     <ul class="ps-list--link">
                           <li><a href="/agb">{{ __('Conditions') }}</a></li>
                         <li><a href="/datenschutzerklarung">{{ __('Data protection') }}</a></li>

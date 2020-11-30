@@ -12,14 +12,20 @@ require base_path().'/app/Helpers.php';
 
   Route::post('/account/registration', 'AccountController@registration')->name('account.registration');
 
+  Route::post('/join/merchant', 'Manager\ManagerStoresController@store')->name('join.merchant');
+
+
+////forgot
+Route::get('/account/forgot', 'AccountController@forgot')->name('account.forgot');
+///reset
+Route::post('/account/resetpassword', 'WebsiteController@validatePasswordRequest')->name('account.resetpassword');
 
 Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Account'], function(){
 
   Route::get('/', 'AccountController@edit')->name('edit');
 
   Route::post('/update', 'AccountController@update')->name('update');
-
-  Route::get('/forgot', 'AccountController@forgot')->name('forgot');
+  
 
   Route::get('/info', 'AccountController@info')->name('info');
 
@@ -75,12 +81,7 @@ Route::get('/datenschutzerklarung/kunden', 'WebsiteController@datenschutzerklaru
 
 Route::get('/datenschutzerklarung/lieferanten/drittanbieter', 'WebsiteController@lieferanten_drittanbieter')->name('lieferanten_drittanbieter');
 
-Route::get('/payments-method', function(){
-  dd("Payments-method");
-});
-Route::get('/how-it-works', function(){
-  dd("how-it-works");
-});
+
 
 // Route::post('/form/send', 'WebsiteController@contactsend')->name('contact.send');
 Route::get('/contact-us', 'WebsiteController@contact')->name('contact');
