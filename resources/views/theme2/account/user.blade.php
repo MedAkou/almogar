@@ -58,19 +58,19 @@
                      <div class="ps-form__content">
                         <h5>{{ __('Register account') }}</h5>
                         <div class="form-group">
-                           <input placeholder="{{ __('Name') }}" value="{{ old('name') }}" type="text" name='name' class="form-control" id="name" >
+                           <input placeholder="{{ __('Name') }}" value="{{ old('name') }}" type="text" name='name' class="form-control" id="name" required/>
                         </div>
                         <div class="form-group">
-                           <input placeholder="{{ __('Email address') }}" type="email" name='email' class="form-control" id="register-email" >
+                           <input placeholder="{{ __('Email address') }}" type="email" name='email' class="form-control" id="register-email" required/>
                         </div>
                         <div class="form-group">
-                           <input placeholder="{{ __('Password') }}" type="password" name="password" class="form-control" id="register-password" />
+                           <input placeholder="{{ __('Password') }}" type="password" name="password" class="form-control" id="register-password" required/>
                         </div>
                         <div class="form-group">
-                           <input type="password" placeholder="{{ __('Repeat Password') }} " name="confirm_password" class="form-control" id="confirm_password" >
+                           <input type="password" placeholder="{{ __('Repeat Password') }} " name="confirm_password" class="form-control" id="confirm_password" required/>
                         </div>
                         <div class="form-group">
-                           <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="text" name="phone" class="form-control" id="phone" >
+                           <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="text" name="phone" class="form-control" id="phone" required/>
                         </div>
                         <div class="form-group submtit">
                            <button type="submit" class="ps-btn ps-btn--fullwidth">{{ __('Register') }}</button>
