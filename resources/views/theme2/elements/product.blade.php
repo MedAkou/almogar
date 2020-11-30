@@ -1,10 +1,7 @@
 <div class="dress-card">
-	@php
-        $link = !empty($product->slug) ? $product->slug : $product->id;
-  @endphp
   <div class="dress-card-head">
     {!! $product->presentcalculateDiscount() !!}
-  	<a href="{{ route('shop.product',['id' => $link , 'store' => $store ]) }}">{!! $product->presentThumbnail() !!}</a>    
+  	<a href="{{ route('shop.product',['id' => $product->getSlug() , 'store' => $store ]) }}">{!! $product->presentThumbnail() !!}</a>    
 
   </div>
   <div class="dress-card-body">
@@ -20,7 +17,7 @@
       		<div class="card-button-inner wish-button"><i class="icon-heart"></i></div></a>
       </div>
       <div class="col-md-3 card-button mobi25">
-      	<a id="quickview" href="javascript:;" data-link="{{ route('quickview',['id' => $link , 'store' => $store ]) }}">
+      	<a id="quickview" href="javascript:;" data-link="{{ route('quickview',['id' => $product->getSlug() , 'store' => $store ]) }}">
       		<div class="card-button-inner wish-button"><i class="icon-eye"></i></div></a>
       </div>
     </div>
