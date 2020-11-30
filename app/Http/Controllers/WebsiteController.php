@@ -170,11 +170,12 @@ return $content;
 
         public function basepage( $slug , Request $request) {
              $page = BasePages::where('slug',$request->slug)->first();
+             $store = $slug;
 
              if(!$page){
                     abort(404);
             }else {
-                return view ($this->theme.'page', compact('page'));
+                return view ($this->theme.'page', compact('page', 'store'));
             }
         }
 
