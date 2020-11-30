@@ -29373,7 +29373,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     position: absolute;
     top: 50%;
     right: 50%;
-    transform: translate(50%, -50%);
+    transform: translate(50%, -50%) rotate(180deg);
 }
 
 .ps-product--detail .ps-product__gallery .slick-arrow:first-child {
