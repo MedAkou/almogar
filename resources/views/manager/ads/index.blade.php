@@ -86,7 +86,7 @@
             <td>{{ $ad->id }}</td>
             <td data-label="{{ __('title ad') }}">{{ $ad->name }}</td>
             <td data-label="{{ __('created at') }}">{{ $ad->created_at->diffForHumans()}}</td>
-            <td data-label="{{ __('statue ') }}">{{ $ad->statue }} </td>
+            <td data-label="{{ __('statue ') }}">{{ $ad->statue ?? 'inactive' }} </td>
             <td data-label="{{ __('edit ') }}">
                   <a class="edit btn btn-success btn-block hidden-md hidden-lg hidden-sm"  href="{{ route('manager.users.edit',['id' => $ad->id]) }}">
                       {{ __('edit') }}
