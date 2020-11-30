@@ -113,12 +113,14 @@
             </div>
         </div>
         <div class="ps-section--default">
-            <div class="ps-section__header">
-               <h3>{{ __('Featured Products') }}</h3>
-            </div>
+            @if($related->count() != 0)
+                <div class="ps-section__header">
+                    <h3>{{ __('Featured Products') }}</h3>
+                </div>
+            @endif
             <div class="ps-section__content">
                <div class="ps-carousel--nav owl-slider owl-carousel owl-loaded owl-drag" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
-                  <div class="owl-stage-outer">
+                  <div class="owl-stage-outer" dir="{{ System::isRtl()?'ltr':'' }}">
                      <div class="owl-stage" style="transform: translate3d(-1673px, 0px, 0px); transition: all 1s ease 0s; width: 4543px;">
                         
                         @foreach($related->chunk(1) as $items)
