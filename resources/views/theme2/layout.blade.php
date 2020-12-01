@@ -111,6 +111,17 @@
                                  </div>
                               </div>
                               @endforeach @endif
+                              @if(!\System::shoppingCartIsNotEmpty())
+                                 <div class="ps-table--invoices">
+                                    <div class="row text-center">
+                                          <div class="empty-order">
+                                             <i class="icon-cart"></i>
+                                             <p>{{ __('You have no orders') }}</p>
+                                             <a class="ps-btn" href="/{{ $store }}">{{ __('Order now') }}</a>
+                                          </div>
+                                    </div>
+                                 </div>
+                              @endif
                            </div>
 			                  @if(\System::shoppingCartIsNotEmpty())
                               <div class="ps-cart__footer">
