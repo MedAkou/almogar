@@ -158,10 +158,10 @@
             <p>SELLER STORIES</p>
             <h4>See Seller share about their successful on Martfury</h4>
          </div>
-         <div class="ps-section__content">
+         <div class="ps-section__content" dir="ltr">
             <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="2" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="2" data-owl-duration="1000" data-owl-mousedrag="on">
                <div class="ps-block--testimonial">
-                  <div class="ps-block__header"><img src="https://i.imgur.com/XMpPdXw.jpg" alt=""></div>
+                  <div class="ps-block__header"><img class="imgjoin" src="https://i.imgur.com/XMpPdXw.jpg" alt=""></div>
                   <div class="ps-block__content">
                      <i class="icon-quote-close"></i>
                      <h4>Kanye West<span>Head Chef at BBQ Restaurant</span></h4>
@@ -169,7 +169,7 @@
                   </div>
                </div>
                <div class="ps-block--testimonial">
-                  <div class="ps-block__header"><img src="https://i.imgur.com/5ZKoE2i.jpg" alt=""></div>
+                  <div class="ps-block__header"><img class="imgjoin" src="https://i.imgur.com/5ZKoE2i.jpg" alt=""></div>
                   <div class="ps-block__content">
                      <i class="icon-quote-close"></i>
                      <h4>Anabella Kleva<span>Boss at TocoToco</span></h4>
@@ -177,7 +177,7 @@
                   </div>
                </div>
                <div class="ps-block--testimonial">
-                  <div class="ps-block__header"><img src="https://i.imgur.com/8RxvaQR.png" alt=""></div>
+                  <div class="ps-block__header"><img class="imgjoin" src="https://i.imgur.com/8RxvaQR.png" alt=""></div>
                   <div class="ps-block__content">
                      <i class="icon-quote-close"></i>
                      <h4>William Roles<span>Head Chef at BBQ Restaurant</span></h4>
@@ -241,7 +241,7 @@
       <!-- Content area -->
       <div class="content">
          @include('manager/elements/form-messages')
-         <form class="form-horizontal" action="{{ route('manager.stores.store') }}" method='POST' action="" autocomplete="off" enctype="multipart/form-data" >
+         <form class="form-horizontal" action="{{ route('join.merchant') }}" method='POST' action="" autocomplete="off" enctype="multipart/form-data" >
             {!! csrf_field() !!}
             <div class="col-md-12">
                <div class=" panel-flat">
@@ -252,7 +252,22 @@
                         <br>
                         <div class="form-group--icon form-group">
                            <label class="">{{ __('name') }}</label>
-                           <input type="text" class="form-control rf " value="{{ old('storename') }}" name="storename" placeholder="{{ __('name') }}" value="" required>
+                           <input type="text" class="form-control rf " value="{{ old('name') }}" name="name" placeholder="{{ __('name') }}" value="" required>
+                           <span class="input-group-addon"><i class="icon-user"></i></span>
+                        </div>
+                        <div class="form-group--icon form-group">
+                           <label class="">{{ __('storename') }}</label>
+                           <input type="text" class="form-control rf " value="{{ old('storename') }}" name="storename" placeholder="{{ __('storename') }}" value="" required>
+                           <span class="input-group-addon"><i class="icon-user"></i></span>
+                        </div>
+                        <div class="form-group--icon form-group">
+                           <label class="">{{ __('phone') }}</label>
+                           <input type="number" class="form-control rf " value="{{ old('phone') }}" name="phone" placeholder="{{ __('phone') }}" value="" required>
+                           <span class="input-group-addon"><i class="icon-user"></i></span>
+                        </div>
+                        <div class="form-group--icon form-group">
+                           <label class="">{{ __('email') }}</label>
+                           <input type="email" class="form-control rf " value="{{ old('email') }}" name="email" placeholder="{{ __('email') }}" value="" required>
                            <span class="input-group-addon"><i class="icon-user"></i></span>
                         </div>
                         <div class="form-group--icon form-group">

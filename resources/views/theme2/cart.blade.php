@@ -39,8 +39,8 @@
                                  <td>{{ System::currency() }}{{ $product['price'] }}</td>
                                  <td>
                                     <div class="form-group--number zaydnaks">
-                                       <button class="up">+</button>
-                                       <button class="down">-</button>
+                                       <button class="up fix-pos">+</button>
+                                       <button class="down fix-pos">-</button>
                                     <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
                                     </div>
                                  </td>

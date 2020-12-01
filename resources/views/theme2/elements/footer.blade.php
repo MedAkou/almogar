@@ -38,7 +38,7 @@
             <div class="ps-footer__copyright">
                 <div class="container">
                 <aside class="widget widget_footer">
-                    <h4 class="widget-title">{{ __('Address:') }}</h4>
+                    {{-- <h4 class="widget-title">{{ __('Address:') }}</h4> --}}
                     <div class="widget_content">
                         <div style="display: none;">
                             <p>{{ __('Call us') }}</p>

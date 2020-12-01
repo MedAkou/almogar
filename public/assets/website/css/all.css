@@ -38432,6 +38432,7 @@ figure.ps-block--address.active::before {
     background: rgb(195, 20, 50);
     padding: 5px;
     border-radius: 15px;
+    color: white;
 }
 
 .ps-product__badge {
@@ -38590,7 +38591,7 @@ nav.navigation--mobile-product {
 
 @media(max-width: 360px){
     .ps-block__content div > a.sm{
-        width: 24%;
+        width: 32%;
     }
     .ps-block__content div > a{
         padding: 15px 18px!important;
@@ -38621,3 +38622,10 @@ nav.navigation--mobile-product {
         margin-right: 0;
     }
 }
+
+@media (max-width: 600px) and (min-width: 0px) {
+    .offset-3 {
+        margin-left: 0;
+    }
+}
+
