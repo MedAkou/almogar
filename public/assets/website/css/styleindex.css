@@ -510,6 +510,12 @@
         .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-6.nestele {
             margin: 0px;
         }
+        .zoomWindow {
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+        }
+
     }
     
     .item.video::before {
@@ -548,3 +554,12 @@
     font-size: 25px;
     line-height: 50px;
 }
+
+.fix-pos{
+    top: 49%!important;
+}
+
+.ps-block__content.d-flex.flex-column.mt-3 a {
+    padding: 11px 0px !important;
+}
+

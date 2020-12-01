@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">{{ __('account') }}</li>
+                        <li><a href="/"><i class="icon-home"></i></a></li>
+                        <li>{{ __('account') }}</li>
                         <li class="breadcrumb-item active" aria-current="page">{{ __('wishlist') }}</li>
                     </ol> 
                 </div>
@@ -23,10 +23,13 @@
                         <div class="col-lg-8">
                             <div class="ps-section__right">
                                 <div class="ps-section--account-setting">
-                                    <div class="ps-section__header">
+                                    @if($wishlist->count() != 0)
+                                     <div class="ps-section__header">
                                         <h3>{{ __('Wishlist') }}</h3>
-                                    </div>
+                                     </div>
+                                  @endif
                                     <div class="ps-section__content">
+                                        @if($wishlist->count() != 0)
                                      <div class="table-responsive">
                                          <table class="table ps-table--whishlist">
                                              
@@ -45,12 +48,28 @@
                                              </tbody>
                                              <tbody>
                                                  <tr class="wishclearall">
-                                                    <th colspan="4"><a href="{{ route('account.wishlist_clear') }}"><i class="fa fa-trash" aria-hidden="true"></i>
-{{ __('clear wishlist') }}</a></th>
+                                                    <th colspan="4">
+                                                        <a class="ps-btn" href="{{ route('account.wishlist_clear') }}">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                            {{ __('clear wishlist') }}
+                                                        </a>
+                                                    </th>
                                                  </tr>
                                              </tbody>
                                          </table>
                                      </div>
+                                     @else
+                                        <div class="ps-table--invoices">
+                                             <div class="row text-center">
+                                                  <div class="empty-order">
+                                                      <i class="icon-heart"></i>
+                                                      <p>{{ __('You have no favorites') }}</p>
+                                                      <a class="ps-btn" href="/">{{ __('Continue Shopping') }}</a>
+                                                  </div>
+                                             </div>
+                                          </div>
+                                     @endif
+
                                  </div>
                                 </div>
                             </div>
