@@ -241,7 +241,7 @@
       <!-- Content area -->
       <div class="content">
          @include('manager/elements/form-messages')
-         <form class="form-horizontal" action="{{ route('join.merchant') }}" method='POST' action="" autocomplete="off" enctype="multipart/form-data" >
+         <form class="form-horizontal join-us-form" action="{{ route('join.merchant') }}" method='POST' action="" autocomplete="off" enctype="multipart/form-data" >
             {!! csrf_field() !!}
             <div class="col-md-12">
                <div class=" panel-flat">
