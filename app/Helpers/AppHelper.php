@@ -113,4 +113,24 @@ class AppHelper {
     }
 
 
+    public function currentstorecategories() {
+        $categories = ProductCategories::where('store_id',\Session::get('store_id'))->orderby('id','desc')->get();
+        $html = '';
+        $slug  = \Session::get('store').'/category/';
+
+        foreach ($categories as $category) {
+
+
+
+            $html .='<li class="drop-menu">
+                    <a class="" href="'. route('category',['store' => \Session::get('store') , 'slug'  =>  $category->slug   ]) .'">
+                        <span>'.$category->name.'</span>                        
+                    </a>
+              </li>';
+        }
+
+        return $html;
+    }
+
+
 }

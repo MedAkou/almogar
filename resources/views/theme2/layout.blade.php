@@ -21,6 +21,7 @@
       @endif
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/css/lightgallery.min.css" />
    </head>
 <body class="@yield('bodyClass')  @if(Auth::check())  has-logged   @endif" data-slug="{{$store}}" data-store-id="{{ \System::currentStoreId() }}">
       @include('theme2/elements/alerts')
@@ -57,7 +58,7 @@
                      <div class="menu__toggle"><i class="icon-menu"></i><span> {{ __('category') }}</span></div>
                      <div class="menu__content">
                         <ul class="menu--dropdown">
-                           {!!  app('SiteSetting')->MerchantMenu('homeCategories') !!}
+                           {!!  app('SiteSetting')->currentstorecategories() !!}
                         </ul>
                      </div>
                   </div>
@@ -105,16 +106,18 @@
                                  <div class="ps-product__thumbnail"><a href="#"><img src="{{ $product['thumbnail'] }}" alt="product"></a></div>
                                  <div class="ps-product__content">
                                     <a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }} </a>
-                                    <p><strong>Sold by</strong> {{ $store }}</p>
+                                    <p><strong> {{ __('Sold by') }} </strong> {{ $store }}</p>
                                     <small>{{ $product['qty'] }} x {{ System::currency() }} {{ $product['price'] }}</small>
                                  </div>
                               </div>
                               @endforeach @endif
                            </div>
-                           <div class="ps-cart__footer">
-                              <h3>{{ __('Total') }}<strong>{{ System::currency() }}{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</strong></h3>
-                              <figure><a class="ps-btn" href="{{ route('cart', ['store' => $store ]) }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
-                           </div>
+			                  @if(\System::shoppingCartIsNotEmpty())
+                              <div class="ps-cart__footer">
+                                 <h3 class="jahnama">{{ __('Total') }}<strong>{{ System::currency() }}{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</strong></h3>
+                                 <figure><a class="ps-btn" href="{{ route('cart', ['store' => $store ]) }}">{{ __('View Cart') }}</a><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
+                              </div>
+			                  @endif
                         </div>
                      </div>
                      @if(! auth::check())
@@ -142,7 +145,7 @@
                </div>
                <div class="navigation__center">
                   <ul class="menu">
-                     {!!  app('SiteSetting')->MerchantMenu('homeCategories') !!}
+                     {!!  app('SiteSetting')->currentstorecategories() !!}
                   </ul>
                </div>
             </div>
@@ -190,14 +193,19 @@
                <div class="ps-cart__content">
                   @if(!empty(ShoppingCart::all())) @foreach(ShoppingCart::all() as $product)
                   <div class="ps-product--cart-mobile">
+                     <div class="tachbkat align-self-center">
+                        <div class="removit align-self-center">
+                        <a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a>
+                     </div>
                      <div class="ps-product__thumbnail"><a href="{{ route('shop.product',['id' => $product['id'], 'store' => $store ]) }}"><img src="{{ $product['thumbnail'] }}" alt=""></a></div>
-                     <div class="ps-product__content lhsabbdyaltele"><a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }}</a><br>
+                     <div class="ps-product__content lhsabbdyaltele"><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }}</a><br>
                         <small class="product-col-tele-{{ $product['id'] }}"> <span class="prdqty">{{ $product['qty'] }}</span> x {{ System::currency() }} {{ $product['price'] }} <input type="hidden" class="preis" value="{{ $product['total'] }}"> </small>
                      </div>
-                     <div class="form-group--number zaydnaks updowntintele">
-                        <button class="up">+</button>
-                        <button class="down">-</button>
+                     <div class="form-group--number zaydnaks updowntintele align-self-center">
+                        <button class="up fix-pos">+</button>
+                        <button class="down fix-pos">-</button>
                         <input class="quantity-ajax form-control instantQuantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}' data-product="{{ $product->rawId() }}" type="text" value="{{ $product['qty'] }}">
+                     </div>
                      </div>
                   </div>
                   @endforeach @endif
@@ -213,10 +221,12 @@
                       </div>
                   @endif
                </div>
-               <div class="ps-cart__footer">
-                  <h3>{{ __('Total') }}<strong>{{ System::currency() }} <span class="TotalPriceM">{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</span> </strong></h3>
-                  <figure><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
-               </div>
+               @if(\System::shoppingCartIsNotEmpty())
+                  <div class="ps-cart__footer">
+                     <h3>{{ __('Total') }}<strong>{{ System::currency() }} <span class="TotalPriceM">{{  number_format((float)ShoppingCart::total(), 2, '.', '') }}</span> </strong></h3>
+                     <figure><a class="ps-btn" href="{{ route('checkout', ['store' => $store ]) }}">{{ __('Checkout') }}</a></figure>
+                  </div>
+               @endif
             </div>
          </div>
       </div>
@@ -287,7 +297,7 @@
          </div>
          <div class="ps-panel__content">
             <ul class="menu--mobile">
-               {!!  app('SiteSetting')->MerchantMenu('phone') !!}
+               {!!  app('SiteSetting')->currentstorecategories() !!}
             </ul>
          </div>
       </div>

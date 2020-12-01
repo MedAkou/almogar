@@ -71,4 +71,10 @@ class System {
             return \Session::get('store_id');
     }
 
+    public static function shoppingCartIsNotEmpty(){
+        if (\Session::has('shopping_cart'))
+            return \Session::get('shopping_cart')['default'] && count(\Session::get('shopping_cart')['default']);
+    }
+
+
 }

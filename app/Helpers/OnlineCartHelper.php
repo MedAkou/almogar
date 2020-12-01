@@ -76,21 +76,21 @@ class OnlineCartHelper {
         }
     }
 
-    public static function update($store_id, $product_id , $quantity)
+    public static function update($store_id, $product , $quantity)
     {
         if(!self::checkAuth()){
             return false;
         }
 
         $user_id = Auth::user()->id;
-        $product = Product::find($product_id)->get();
-        $cart = Cart::where("product_id",$product_id)->where("user_id",$user_id);
+        //$product = Product::find($product_id)->get();
+        $cart = Cart::where("product_id",$product->id)->where("user_id",$user_id)->first();
         $cart->user_id = $user_id;
         $cart->store_id = $store_id;
-        $cart->product_id = $product_id;
+        $cart->product_id = $product->id;
         $cart->quantity = $quantity;
         $cart->price = $product->presentPrice();
-        $cart->subtotal = $quantity * $product->presentPrice();dd($cart);
+        $cart->subtotal = $quantity * $product->presentPrice();
         $cart->save();
 
         return $cart;
@@ -98,7 +98,21 @@ class OnlineCartHelper {
 
     public static function remove($product_id)
     {
+        if(!self::checkAuth()){
+            return false;
+        }
+
         $user_id = Auth::user()->id;
         return Cart::where("product_id",$product_id)->where("user_id",$user_id)->delete();
+    }
+
+    public static function clear()
+    {
+        if(!self::checkAuth()){
+            return false;
+        }
+        
+        $user_id = Auth::user()->id;
+        return Cart::where("user_id",$user_id)->delete();
     }
 }
