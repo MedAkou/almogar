@@ -188,23 +188,14 @@ class AccountController extends Controller {
     }
 
     public function  registration(Request $request) {
-
         $geo = geoip(req::ip());
 
         $rules = [
           'email' => 'required|email|unique:users', 
-          'password' => 'required|confirmed|min:3',
-          'name' => 'required|string|min:4',
         ];
 
         $messages = [
-            'email.required'            => trans("email.required"),
-            'email.email'            => trans("email.email"),
-            'email.unique'            => trans("email.unique"),
-            'password.required'      => trans("password.required"),
-            'password.confirmed'      => trans("password.confirmed"),
-            'name.required' => trans("name.required"),
-            'name.string' => trans("name.string"),
+            'email.required' => trans("email.required"),
         ];
 
         $request->validate($rules,$messages);
@@ -241,7 +232,7 @@ class AccountController extends Controller {
 
         Auth::loginUsingId($user->id);
 
-        return redirect('/');       
+        return response()->json(["success" => "User registred successfully"]);
     }
 
     public function  update(Request $request) {

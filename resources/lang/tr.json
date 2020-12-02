@@ -1544,5 +1544,9 @@
     "Order now": "Şimdi sipariş ver",
     "gallery": "Gellery",
     "Choose images": "Resimleri seçin",
-    "cart.add": "Sepete ekle"
+    "cart.add": "Sepete ekle",
+    "Name have to be at least 3 characters": "İsim en az 3 karakter olmalıdır",
+    "Email required": "E-posta gerekli",
+    "Password have to be at least 4 characters": "Parola en az 4 karakter olmalıdır",
+    "Passwords doesn't match": "Şifreler eşleşmiyor"
 }

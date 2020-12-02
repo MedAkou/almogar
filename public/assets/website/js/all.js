@@ -5077,3 +5077,65 @@ function colorReplace(findHexColor, replaceWith) {
     });
 }
 colorReplace('#fcb800', '#c31432');
+
+function ResetRegisterErrors(){
+    $("p.nameError").hide().siblings('input').css('borderColor', '#495057');
+    $("p.emailError").hide().siblings('input').css('borderColor', '#495057');
+    $("p.emailExistError").hide().siblings('input').css('borderColor', '#495057');
+    $("p.passwordError").hide().siblings('input').css('borderColor', '#495057');
+    $("p.passwordConfirmationError").hide().siblings('input').css('borderColor', '#495057');
+}
+
+function CheckRegisterErrors(name, email, password, confirm_password){
+    if(name.length < 3){
+        $("p.nameError").show().siblings('input').css('borderColor', 'red');
+    }
+    if(email.length === 0){
+        $("p.emailError").show().siblings('input').css('borderColor', 'red');
+    }
+    if(password.length < 4){
+        $("p.passwordError").show().siblings('input').css('borderColor', 'red');
+    }
+    if(password !== confirm_password){
+        $("p.passwordConfirmationError").show().siblings('input').css('borderColor', 'red');
+    }
+    if(name.length < 3 || email.length === 0 || password.length < 4 || password !== confirm_password){
+        return false;
+    }else return true;
+}
+
+$("#register-form").submit(function(e) {
+    ResetRegisterErrors();
+    e.preventDefault();
+    const token = $('meta[name="csrf-token"]').attr('content');
+    const link = $("#register-form").attr('data-link');
+    const name = $("#name").val();
+    const email = $("#register-email").val();
+    const password = $("#register-password").val();
+    const confirm_password = $("#password_confirmation").val();
+    const phone = $("#phone").val();
+    const formData = new FormData();
+    
+    formData.append('_token', token);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('confirm_password', confirm_password);
+    formData.append('phone', phone);
+    if(CheckRegisterErrors(name, email, password, confirm_password) == false) return;
+    $.ajax({
+        url: link,
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        cache: false,
+        dataType: "JSON",
+        success: function(response) {
+            window.location.href = "/";
+        },
+        error: function(error) {
+            $("p.emailExistError").show().siblings('input').css('borderColor', 'red');
+        }
+    });
+})

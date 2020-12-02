@@ -1540,5 +1540,9 @@
     "Order now": "اطلب الان",
     "You have no favorites": "ليس لديك مفضلات",
     "gallery": "معرض الصور",
-    "Choose images": "اختيار الصور"
+    "Choose images": "اختيار الصور",
+    "Name have to be at least 3 characters": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
+    "Email required": "البريد الإلكتروني مطلوب",
+    "Password have to be at least 4 characters": "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل",
+    "Passwords doesn't match": "كلمات المرور غير متطابقة"
 }

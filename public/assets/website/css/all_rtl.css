@@ -38613,3 +38613,13 @@ figure.ps-block--address.active::before {
 .join-us-form{
     margin-bottom: 20px;
 }
+
+
+.nameError,
+.emailError,
+.emailExistError,
+.passwordError,
+.passwordConfirmationError{
+    display: none;
+    color: red;
+}

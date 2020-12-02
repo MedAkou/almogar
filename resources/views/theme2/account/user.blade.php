@@ -13,6 +13,7 @@
 <div class="ps-page--my-account">
    <div class="ps-my-account">
       <div class="container">
+
          <div class="ps-form--account ps-tab-root">
             <ul class="ps-tab-list">
                <li class="active"><a href="#sign-in">{{ __('Login') }}</a></li>
@@ -53,24 +54,31 @@
                   </form>
                </div>
                <div class="ps-tab" id="register">
-                  <form class="" action="{{ route('account.registration') }}" method="post">
+                  <form id="register-form"
+                        data-link="{{ route('account.registration') }}"
+                        method="post">
                      @csrf
                      <div class="ps-form__content">
                         <h5>{{ __('Register account') }}</h5>
-                        <div class="form-group">
+                        <div class="form-group name-cont">
                            <input placeholder="{{ __('Name') }}" value="{{ old('name') }}" type="text" name='name' class="form-control" id="name" required/>
+                           <p class="nameError">{{ __('Name have to be at least 3 characters') }}</p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group email-cont">
                            <input placeholder="{{ __('Email address') }}" type="email" name='email' class="form-control" id="register-email" required/>
+                           <p class="emailError">{{ __('Email required')  }}</p>
+                           <p class="emailExistError">{{ __('Email already exist')  }}</p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group password-cont">
                            <input placeholder="{{ __('Password') }}" type="password" name="password" class="form-control" id="register-password" required/>
+                           <p class="passwordError">{{ __('Password have to be at least 4 characters') }}</p>
                         </div>
                         <div class="form-group">
-                           <input type="password" placeholder="{{ __('Repeat Password') }} " name="confirm_password" class="form-control" id="confirm_password" required/>
+                           <input type="password" placeholder="{{ __('Repeat Password') }} " name="password_confirmation" class="form-control" id="password_confirmation" required/>
+                           <p class="passwordConfirmationError">{{ __("Passwords doesn't match") }}</p>
                         </div>
                         <div class="form-group">
-                           <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="text" name="phone" class="form-control" id="phone" required/>
+                           <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="tel" name="phone" class="form-control" id="phone" required/>
                         </div>
                         <div class="form-group submtit">
                            <button type="submit" class="ps-btn ps-btn--fullwidth">{{ __('Register') }}</button>
