@@ -6,6 +6,10 @@
     "Login & Register": "Anmeldung Registrieren",
     "product.create.title": "productCreateTitle",
 
+    "Email sent successfully":"Email wurde erfolgreich Versendet",
+
+    "storename" : "Geschäftsname",
+
     "Confirm Password": "bestätigen Sie Ihr Passwort",
     "Register account": "Neuen Account Registrieren",
     "Remember me": "Behalte mich in Erinnerung",
@@ -107,6 +111,7 @@
     "Continue Shopping": "Mit dem Einkaufen fortfahren",
     "backhome": "Zurück zuhause",
     "storename.required": "storenameErforderlich",
+    "password.confirmed":"Passwörter stimmen nicht überein",
     "url.required": "url.erforderlich",
     "street.required": "streetRequired",
     "postalcode.required": "Postleitzahl erforderlich",
@@ -440,6 +445,8 @@
     "user.shipping.default": "userShippingDefault",
     "user.shipping.shipping": "userShippingShipping",
     "user.pwd.updated": "userPwdUpdated",
+    "user.pwd.wrong": "falsches Passwort",
+    "user.pwd.wrong.match": "Passwörter unübertroffen",
     "user.account.updated": "userAccountUpdated",
     "user.wrong.auth": "userWrongAuth",
     "login.wrong": "loginWrong",

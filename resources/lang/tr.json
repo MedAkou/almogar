@@ -7,6 +7,10 @@
 
     "You have no favorites":"Favoriniz yok",
 
+    "storename" : "dükkan adı",
+
+    "Email sent successfully":"e-posta başarıyla gönderildi",
+
     "You purchased the": "Satın aldınız",
     "You will be charged": "Ücretlendirileceksiniz",
     "Primary Contact": "Birincil İlgili Kişi",
@@ -14,6 +18,8 @@
     "A great big thank you!": "Çok büyük teşekkür ederim!",
     "For choosing us and being so awesome all at once.": "Bizi seçtiğin ve aynı anda harika olduğun için.",
     "You have to login": "Giriş yapmalısın",
+
+    "password.confirmed":"Parolalar uyuşmuyor",
 
     "Confirm Password": "parolanızı onaylayın",
     "Register account": "Yeni hesap kaydedin",
@@ -439,7 +445,9 @@
     "user shipping created": "kullanıcı adresi oluşturuldu",
     "user shipping default": "kullanıcı adresi varsayılan olarak başarıyla ayarlandı",
     "user shipping shipping": " kullanıcı sipariş adresi başarı bir şekilde teslim edildi olarak ayarlandı",
-    "user pwd updated": "Şifre yenilendi",
+    "user.pwd.updated": "Şifre yenilendi",
+    "user.pwd.wrong": "yanlış şifre",
+    "user.pwd.wrong.match": "eşleşmeyen şifreler",
     "user account updated": "Hesapınız başarıyla güncellenmiştir",
     "user wrong auth": " Kimlik bilgilerinizi hatalı girdiniz",
     "login wrong": "hatalı bilgi",
