@@ -1,3 +1,5 @@
+<?php
+
 if (! function_exists('option')) {
     /**
      * Get / set the specified option value.

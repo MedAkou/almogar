@@ -24,7 +24,7 @@
 
 
 
-                    @include('theme2.account.elements.sidebar')
+                    @include(\System::$ACTIVE_THEME_PATH.'.account.elements.sidebar')
                     <div class="col-lg-8">
                         <div class="ps-section__right">
                     

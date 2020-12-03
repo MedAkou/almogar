@@ -17,33 +17,33 @@ class AccountController extends Controller {
 
 	public function __construct(){
 		if (!Auth::check()) {
-    		//return response()->view($this->theme.'account.user')->send();
+    		//return response()->view(\System::$ACTIVE_THEME_PATH.'/account.user')->send();
 		}
 
 	}
 
 	public function edit() {
-        return view ($this->theme.'account.edit');
+        return view (\System::$ACTIVE_THEME_PATH.'/account.edit');
     }
 
     public function orders() {
-        return view ($this->theme.'account.orders');
+        return view (\System::$ACTIVE_THEME_PATH.'/account.orders');
     }
 
     public function order_detail($id) {
 
     $content = Orders::find($id);
-    return view($this->theme.'account.order_detail',compact('content'));
+    return view(\System::$ACTIVE_THEME_PATH.'/account.order_detail',compact('content'));
     }
 
     public function wishlist() {
         $wishlist = WishList::currentuser()->paginate(5);        
-        return view ($this->theme.'account.wish-list',compact('wishlist')) ;   
+        return view (\System::$ACTIVE_THEME_PATH.'/account.wish-list',compact('wishlist')) ;   
     }
 
 	public function forgot()
     {
-        return view ($this->theme.'account.forgot');
+        return view (\System::$ACTIVE_THEME_PATH.'/account.forgot');
     }
 
     public function validatePasswordRequest(Request $request)
@@ -81,16 +81,16 @@ class AccountController extends Controller {
     }
 
     public function info() {
-     return view ($this->theme.'info');
+     return view (\System::$ACTIVE_THEME_PATH.'/info');
     }
 
     public function adresses(){
-        return view ($this->theme.'account.adresses');    
+        return view (\System::$ACTIVE_THEME_PATH.'/account.adresses');    
     }
 
     public function edit_shipping( $id) {
             $address = Addresses::find($id);
-            return view ($this->theme.'account.update-adress',compact('address'));   
+            return view (\System::$ACTIVE_THEME_PATH.'/account.update-adress',compact('address'));   
     }
 
     public function update_shipping($id,Request $request) {
@@ -128,7 +128,7 @@ class AccountController extends Controller {
     }
 
     public function shipping_add() {
-            return view ($this->theme.'account.shipping_add')  ;
+            return view (\System::$ACTIVE_THEME_PATH.'/account.shipping_add')  ;
         }
 
     public function shipping_store(Request $request ) {
@@ -151,7 +151,7 @@ class AccountController extends Controller {
         }
 
     public function user(Request $request){
-        return view ($this->theme.'account.user') ;   
+        return view (\System::$ACTIVE_THEME_PATH.'/account.user') ;   
     }
 
     public function  userAuth(Request $request) {
@@ -256,7 +256,7 @@ class AccountController extends Controller {
     }
 
     public function password() {
-        return view ($this->theme.'account.password');
+        return view (\System::$ACTIVE_THEME_PATH.'/account.password');
     }
 
     public function passwordUpdate(Request $request) {

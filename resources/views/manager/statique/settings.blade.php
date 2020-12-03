@@ -216,7 +216,7 @@
                <div class="form-group">
                    <label class="control-label col-lg-3">{{ __('Api Key') }}</label>
                    <div class="col-lg-9">
-                       <input type="text" class="form-control" name="STRIPE_API_KEY" value="{{ baseSetting('STRIPE_API_KEY') }}" >
+                       <input type="text" class="form-control" name="STRIPE_API_KEY" value="{{ baseSetting('phonenumber') }}" >
                    </div>
                </div>
                <div class="form-group">

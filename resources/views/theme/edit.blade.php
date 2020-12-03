@@ -18,7 +18,7 @@
 
             <div class="container">
                 <div class="row">
-                    @include('theme2.elements.sidebar')
+                    @include(\System::$ACTIVE_THEME_PATH.'.account.elements.sidebar')
                     <div class="col-lg-8">
                         <div class="ps-section__right">
                             <form class="ps-form--account-setting" action="{{ route('update',['store' => $store ]) }}" method="post">
