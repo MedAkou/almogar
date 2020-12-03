@@ -1,8 +1,14 @@
 {
     "Logout": "Ausloggen",
 
+    "You have no favorites":"Sie haben keine Favoriten",
+
     "Login & Register": "Anmeldung Registrieren",
     "product.create.title": "productCreateTitle",
+
+    "Email sent successfully":"Email wurde erfolgreich Versendet",
+
+    "storename" : "Geschäftsname",
 
     "Confirm Password": "bestätigen Sie Ihr Passwort",
     "Register account": "Neuen Account Registrieren",
@@ -105,6 +111,7 @@
     "Continue Shopping": "Mit dem Einkaufen fortfahren",
     "backhome": "Zurück zuhause",
     "storename.required": "storenameErforderlich",
+    "password.confirmed":"Passwörter stimmen nicht überein",
     "url.required": "url.erforderlich",
     "street.required": "streetRequired",
     "postalcode.required": "Postleitzahl erforderlich",
@@ -190,7 +197,7 @@
     "order.shipping": "bestellversand",
     "order.pending": "Bestellung anstehend",
     "order.success": "orderSuccess",
-    "cart.add": "cartAdd",
+    "cart.add": "in den Warenkorb legen",
     "wishlist.add": "Wunschliste.add",
     "empty.media": "emptyMedia",
     "empty.users": "leer. Benutzer",
@@ -438,6 +445,8 @@
     "user.shipping.default": "userShippingDefault",
     "user.shipping.shipping": "userShippingShipping",
     "user.pwd.updated": "userPwdUpdated",
+    "user.pwd.wrong": "falsches Passwort",
+    "user.pwd.wrong.match": "Passwörter unübertroffen",
     "user.account.updated": "userAccountUpdated",
     "user.wrong.auth": "userWrongAuth",
     "login.wrong": "loginWrong",
@@ -651,6 +660,7 @@
     "current password": "derzeitiges Passwort",
     "new password": "Neues Kennwort",
     "repeat new password": "Wiederhole das neue Passwort",
+    "Repeat Password": "Wiederhole das Passwort",
     "edit password": "Passwort bearbeiten",
     "site admin ": "Site-Administrator",
     "MA": "ma",
@@ -815,5 +825,17 @@
     "How it works": "Wie es funktioniert",
     "Faq": "Faq",
     "Conditions": "AGB",
-    "Data protection": "Datenschutzerklärung"
+    "Data protection": "Datenschutzerklärung",
+    "Buy now": "kaufe jetzt",
+    "people watching this product": "Leute, die dieses Produkt beobachten",
+    "Welcome store": "Willkommensladen",
+    "Welcome to o-bazaar store": "Willkommen im O-Bazaar Store",
+    "You have no orders": "Sie haben keine Bestellungen",
+    "Order now": "Jetzt bestellen",
+    "gallery": "Gellerie",
+    "Choose images": "Wählen Sie Bilder",
+    "Name have to be at least 3 characters": "Der Name muss mindestens 3 Zeichen lang sein",
+    "Email required": "Email erforderlich",
+    "Password have to be at least 4 characters": "Das Passwort muss aus mindestens 4 Zeichen bestehen",
+    "Passwords doesn't match": "Passwörter stimmen nicht überein"
 }

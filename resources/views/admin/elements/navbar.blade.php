@@ -28,7 +28,7 @@
 
                 <li class="dropdown language-switch">
                 <a class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="/assets//admin/images/lang/{{ App::getLocale() }}.png" class="position-left" alt="">
+                    <img src="/assets/admin/images/lang/{{ App::getLocale() }}.png" class="position-left" alt="">
                     <span class="caret"></span>
                 </a>
 
@@ -42,6 +42,10 @@
                     </li>
                     <li>
                         <a href="?lang=tr"><img src="/assets//admin/images/lang/tr.png" alt=""> {{ __('Turkish') }}</a>
+                    </li>
+
+                    <li>
+                        <a href="?lang=ir"><img src="/assets//admin/images/lang/ir.png" alt=""> {{ __('فارسى') }}</a>
                     </li>
 
                 </ul>

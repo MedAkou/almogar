@@ -27,7 +27,7 @@
                         <label class="control-label col-lg-3">{{ __('activate ad') }}</label>
                         <div class="col-lg-9">
                             <label class="adminswitch">
-                                <input name='active' type="checkbox" value="active" checked />
+                                <input name='active' type="checkbox" value="active" {{$content->statue?'checked':''}}/>
                                 <span class="slider round"></span>
                             </label>
                         </div>

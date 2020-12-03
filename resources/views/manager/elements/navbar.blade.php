@@ -10,6 +10,7 @@
     </div>
 
     <div class="navbar-collapse collapse" id="navbar-mobile">
+        
         <ul class="nav navbar-nav">
             <li><a class="sidebar-control sidebar-main-toggle hidden-xs "><i class="icon-paragraph-justify3"></i></a></li>
             <li>
@@ -31,6 +32,9 @@
                     </li>
                     <li>
                         <a href="?lang=tr"><img src="/assets//admin/images/lang/tr.png" alt=""> {{ __('Turkish') }}</a>
+                    </li>
+                    <li>
+                        <a href="?lang=ir"><img src="/assets//admin/images/lang/ir.png" alt=""> {{ __('فارسى') }}</a>
                     </li>
                 </ul>
             </li>

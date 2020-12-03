@@ -1417,11 +1417,7 @@ a#generatepass {
 
 .has-visible-elements {
     padding-bottom: 55px;
-}}
-.panel.div_rtl {
-    direction: ltr;
 }
-
 
 
 
@@ -1829,4 +1825,10 @@ table.table {
 }
 #current {
     padding-top: 25px;
+}
+
+.zoomWindow {
+    float: left !important;
+    left: 0 !important;
+    right: 140px !important;
 }

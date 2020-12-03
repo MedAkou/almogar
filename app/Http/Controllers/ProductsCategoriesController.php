@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProductCategories;
+use App\Models\{Stores,ProductCategories};
 
 
 class ProductsCategoriesController extends Controller
@@ -18,7 +18,7 @@ public $langs = ['ar' => 'العربية' ,'en'  => 'English' ,'de'  => 'Deutsch
     }
 
 
-    public function store(Request $request) {        
+    public function store(Request $request) {
 
         $rules = [
           'name'            => 'required', 
@@ -42,6 +42,13 @@ public $langs = ['ar' => 'العربية' ,'en'  => 'English' ,'de'  => 'Deutsch
             }
             
         }
+
+
+        //$user_store_id = (int)$request->user()->store_id;
+
+        //$user_store_slug = Stores::where('id',$user_store_id)->first();
+
+        //$content->slug =  "/".$user_store_slug->slug."/category/".$request->slug;
 
         $content->slug =  $request->slug;
 

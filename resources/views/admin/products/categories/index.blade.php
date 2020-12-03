@@ -39,10 +39,9 @@
                
             </div>
 
-            @php
-                $langs = ['de'  => 'Deutsch' , 'ar' => 'العربية'  ,'tr'  => 'Turkish'];
-            @endphp
-
+                                @php
+                                    $langs = \System::$LANGS_NAME;
+                                @endphp
             
 
 

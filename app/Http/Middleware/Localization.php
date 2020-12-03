@@ -9,7 +9,7 @@ class Localization
    
 
     const SESSION_KEY = 'lang';
-    const LOCALES = ['ar','fr','tr','de'];
+    const LOCALES = ['ar','fr','tr','de','ir'];
     
     public function handle($request, Closure $next) {
 

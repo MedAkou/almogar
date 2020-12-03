@@ -22,9 +22,9 @@ class ManagerStoresController extends Controller {
 
     public function store(Request $request) {
 
+
         $rules = [
           'email'       => 'required|email|unique:users', 
-          'password'    => 'required|min:3',
           'name'        => 'required|string|min:4',
           'phone'       => 'required',
           'storename'   => 'required',
@@ -34,6 +34,14 @@ class ManagerStoresController extends Controller {
           'description' => 'required',
           'latitude'    => 'required',
         ];
+
+
+        if( \Request::route()->getName() != 'join.merchant') {
+            $rules['password'] = 'required|min:3';
+        }else {
+                $request->password = 123456;
+        }
+
 
         $messages = [
             'storename.required'=> trans("storename.required"),
@@ -55,6 +63,13 @@ class ManagerStoresController extends Controller {
         $request->validate($rules,$messages);
 
         StoresHelper::save($request);
+
+
+
+        if( \Request::route()->getName() == 'join.merchant') {
+            return \Redirect::back()->with('success',trans('store.created'));
+        }
+
         return redirect()->route('manager.stores.home')->with('success',trans('store.created'));
     }
 

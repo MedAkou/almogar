@@ -17,11 +17,10 @@ class CartController extends Controller
     }
 
     public function add($store,$id,Request $request) {
-        dd('dlkdkldd');
 		$quantity = $request->quantity;
         (new Cart())->add($id,$quantity);
         if($request->ajax()){
-             return   Response::json(['success'=>true]);
+            return response()->json(["success" => "Product added to cart successfully"]);
         }
 
         return redirect()->route('cart',compact('store'))->with('message',trans('cart.added'));

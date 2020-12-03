@@ -122,7 +122,7 @@ $categories = ProductCategories::where('store_id',$store)->get();
         $content = Product::find($id);
         ProductHelper::save($content,$request);
         $link = HistoryHelper::get(2);
-        return redirect($link)->with('success',trans('product.updated'));   
+        return redirect()->route('admin.products.home')->with('success',trans('product.updated'));   
     }
 
     public function duplicate($id) {

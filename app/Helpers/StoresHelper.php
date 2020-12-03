@@ -83,7 +83,7 @@ class StoresHelper {
  
     
 
-    // create and update Product
+    // create and update Store
     public static function save($request){
 
         $store  = new self;
@@ -97,6 +97,11 @@ class StoresHelper {
         // set the store to user
         $user->store_id = $store->id;
         $user->save();
+
+
+
+
+        
 
     }
 

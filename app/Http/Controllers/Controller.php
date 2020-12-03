@@ -12,9 +12,14 @@ use Auth;
 class Controller extends BaseController
 {
 
-    public $theme = 'theme2/';
+    public $theme ;
 
     public $langs = ['ar' => 'العربية' ,'en'  => 'English' ,'de'  => 'Deutsch' ,'tr'  => 'Turkish'];
+
+
+    public function __construct(){
+        $this->theme = \System::$ACTIVE_THEME_PATH.'/';
+    }
 
     
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

@@ -6,11 +6,12 @@ h1,
 h2,
 h3,
 h4,
+h5,
 span,
 a,
 li,
 option,
-th {
+th,button,label,input,textarea,.alert {
     font-family: 'Tajawal', sans-serif !important;
 }
 
@@ -487,4 +488,71 @@ fieldset {
 aside.widget.widget_footer {
     width: 25%;
     float: right;
+}
+
+i.icon-chevron-right {
+    transform: rotate(180deg) !important;
+}
+
+i.icon-chevron-left {
+    transform: rotate(180deg) !important;
+}
+
+.ps-widget--account-dashboard .ps-widget__content ul li a:hover {
+    background-color: rgb(195, 20, 50);
+    color: #fff;
+}
+
+.empty-order {
+    width: 100%;
+}
+
+.empty-order i {
+    font-size: 130px;
+}
+
+.empty-order p {
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.alert.alert-error {
+    background: #f33434;
+    border-radius: 0;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 40px;
+    z-index: 99999;
+}
+
+.alert {
+    position: relative !important;
+}
+
+
+i.icon-chevron-right {
+    transform: rotate(0deg) !important;
+}
+
+i.icon-chevron-left {
+    transform: rotate(0deg) !important;
+}
+
+.ps-carousel--nav .owl-dots .owl-dot:last-child {
+    margin-left: 10px;
+}
+
+.ps-carousel--nav .owl-dots .owl-dot:first-child {
+    margin-left: 0;
+}
+
+
+
+@media (max-width: 600px) and (min-width: 0px) {
+    img.imgjoin {
+        width: 90px !important;
+    }
 }

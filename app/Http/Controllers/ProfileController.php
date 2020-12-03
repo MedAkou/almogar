@@ -21,19 +21,32 @@ class ProfileController extends Controller {
 
     public function passwordUpdate($store,Request $request) {
 
+
         $user = $request->user();
 
-        $validator = Validator::make($request->all(), [
+
+        $rules = [
           'password' => 'required|min:3',
           'newpassword' => 'required|min:3',
           'password_confirmation' => 'required|min:3',
-        ]);
+        ];
+
+        $customMessages = [
+            'required' => 'wrong password'
+        ];
+
+        $request->validate($rules, $customMessages);
+
+        if (!Hash::check($request->password, $user->password)) {
+
+            return redirect()->route('password',['store' => $store ])->with('error',trans('wrong password'));
+        }
+
 
         if($request->newpassword == $request->password_confirmation ) {
-            if (Hash::check($request->password, $user->password)) {
+          
                 $user->password = Hash::make($request->newpassword);
                 $user->save();
-            }
 
             return redirect()->route('password',['store' => $store ])->with('success',trans('user.pwd.updated'));
         }

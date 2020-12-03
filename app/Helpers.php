@@ -1,19 +1,8 @@
 <?php
 
-  unset($_SESSION['website_options2']);
-  if(!isset($_SESSION['website_options2'])){
-    $lang = \App::getLocale();
-    $options = \App\Models\Setting::where('lang',$lang)->get(['key','value'])->keyBy('key')->toArray();                    
-    $_SESSION['website_options2'] = $options;
-}
 
-    unset($_SESSION['website_options']);
-    if(!isset($_SESSION['website_options'])){
-        $lang = \App::getLocale();
-        $options = \App\Models\Options::where('store_id',\Session::get('store_id'))->where('lang',$lang)->get(['key','value'])->keyBy('key')->toArray();                    
-        $_SESSION['website_options'] = $options;
-    }
 
+    
 
 
 if (! function_exists('option')) {

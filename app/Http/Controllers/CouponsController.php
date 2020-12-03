@@ -14,8 +14,8 @@ class CouponsController extends Controller {
     }
 
     public function bulkdelete() {
-        Media::truncate();
-        return redirect()->route('admin.media.home')->with('success','data has been deleted successfully');
+        Coupons::truncate();
+        return Redirect()->back()->with('success','data has been deleted successfully');
     }
 
     public function create(){
@@ -132,6 +132,14 @@ class CouponsController extends Controller {
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
+    }
+
+    //duplicate coupon
+    public function duplicate($id){
+        $content = Coupons::find($id);
+        $new = $content->replicate();
+        $new->save();
+        return Redirect()->back()->with('success',trans('Coupon successfully duplicated'));
     }
 
 

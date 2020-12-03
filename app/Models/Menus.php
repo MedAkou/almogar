@@ -35,6 +35,7 @@ class Menus extends Base
     public function main_menu(){
         $menu = json_decode( $this->menu , TRUE);
         $html = '';
+        $slug  = \Session::get('store').'/category/';
         foreach($menu as $li ):        
         $chilren = ' ';
         if(isset($li['children'])){

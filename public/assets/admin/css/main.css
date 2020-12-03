@@ -1,7 +1,9 @@
 
-      #MediaThumbnail img {
+#MediaThumbnail img {
     width: 100%;
+    margin-bottom: 20px;
 }
+
 #MediaThumbnail {
     margin-top: 30px;
 }

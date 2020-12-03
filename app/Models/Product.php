@@ -162,10 +162,29 @@ class Product extends Base {
         return $price;
     }
 
+public function getSlug(){
+      $langs = ['de', 'tr', 'ar'];
+      $clientLang = \App::getLocale();
 
-    public function price($price){
-      return str_replace(',',".","$price");
+      if(!empty($this->slug)){
+        $slug =  $this->slug;
+      }else{
+        foreach($langs as $lang){
+          \App::setLocale($lang);
+          $slug = $this->slug;
+          if($slug) break;
+        }
+        \App::setLocale($clientLang);
+      }
+
+      if(!$slug){
+        $slug =  $this->id;
+      }
+
+      return $slug;
     }
+
+
 
 
 }

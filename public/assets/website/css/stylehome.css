@@ -494,3 +494,41 @@ div#carouselExampleIndicators {
         margin-bottom: 0px !important;
     }
 }
+
+.ps-widget--account-dashboard .ps-widget__content ul li a:hover {
+    background-color: rgb(195, 20, 50);
+    color: #fff;
+}
+
+.empty-order {
+    width: 100%;
+}
+
+.empty-order i {
+    font-size: 130px;
+}
+
+.empty-order p {
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.alert.alert-error {
+    background: #f33434;
+    border-radius: 0;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 40px;
+    z-index: 99999;
+}
+
+.alert {
+    position: relative !important;
+}
+
+img.imgjoin {
+    width: 90px !important;
+}

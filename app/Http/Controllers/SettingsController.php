@@ -74,6 +74,7 @@ class SettingsController extends Controller
         option(['DateFormat'           => $request->DateFormat]);
         option(['footer_copyright'     => $request->footer_copyright]);
         option(['currency'             => $request->currency]);
+        
         return redirect()->route('admin.settings.home')->with('success',trans('settings.updated'));
     }
 

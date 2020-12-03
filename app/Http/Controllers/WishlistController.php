@@ -32,7 +32,7 @@ class WishlistController extends Controller {
     }
 
     
-    public function remove($id,Request $request){
+    public function remove($store,$id,Request $request){
         $wish = WishList::find($id);
         if($wish){
             $wish->delete();

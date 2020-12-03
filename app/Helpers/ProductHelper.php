@@ -46,12 +46,13 @@ class ProductHelper {
                     
         }        
 
-                
+
+
 
         $content->thumbnail   =  $thumbnail;
         $content->gallery     =  $gallery;
         $content->videos      =  $videos;
-        $content->price       =  $content->price($request->price);
+        $content->price       =  str_replace(',',".",$request->price);
         $content->statue      =  $request->statue;
         $content->categoryID  =  $request->category;
         

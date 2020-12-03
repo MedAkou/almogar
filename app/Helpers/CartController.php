@@ -27,11 +27,10 @@ class CartController extends Controller
 				$quantity = 1 ;
 		}
 		
-		
         (new Cart())->add($id,$quantity);
 
         if($request->ajax()){
-             return   Response::json(['success'=>true]);
+             return response()->json(["success" => "Product added to cart successfully"]);
         }
 
         return redirect()->route('cart',compact('store'))->with('message',trans('cart.added'));
@@ -44,7 +43,6 @@ class CartController extends Controller
     }
 
     public function update(Request $request){
-         
         (new Cart())->update($request);
            if($request->ajax()){
              return   Response::json(['success'=>true]);

@@ -6,11 +6,11 @@
 @endif
 
 @if (session()->has('error'))
-		<div class="alert alert-error"> {{ session('error') }}	</div>
+		<div class="alert alert-danger"> {{ session('error') }}	</div>
 @endif
 
 @if($errors->any())
-<div class="alerts-zone-website">	
+<div class="alert alert-danger">	
     {!! implode('', $errors->all('<div>:message</div>')) !!}
 
 </div>

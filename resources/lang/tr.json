@@ -5,6 +5,12 @@
     "order.shippingcost": "Kargo Ücreti",
     "print order": "yazdırma emri",
 
+    "You have no favorites":"Favoriniz yok",
+
+    "storename" : "dükkan adı",
+
+    "Email sent successfully":"e-posta başarıyla gönderildi",
+
     "You purchased the": "Satın aldınız",
     "You will be charged": "Ücretlendirileceksiniz",
     "Primary Contact": "Birincil İlgili Kişi",
@@ -12,6 +18,8 @@
     "A great big thank you!": "Çok büyük teşekkür ederim!",
     "For choosing us and being so awesome all at once.": "Bizi seçtiğin ve aynı anda harika olduğun için.",
     "You have to login": "Giriş yapmalısın",
+
+    "password.confirmed":"Parolalar uyuşmuyor",
 
     "Confirm Password": "parolanızı onaylayın",
     "Register account": "Yeni hesap kaydedin",
@@ -437,7 +445,9 @@
     "user shipping created": "kullanıcı adresi oluşturuldu",
     "user shipping default": "kullanıcı adresi varsayılan olarak başarıyla ayarlandı",
     "user shipping shipping": " kullanıcı sipariş adresi başarı bir şekilde teslim edildi olarak ayarlandı",
-    "user pwd updated": "Şifre yenilendi",
+    "user.pwd.updated": "Şifre yenilendi",
+    "user.pwd.wrong": "yanlış şifre",
+    "user.pwd.wrong.match": "eşleşmeyen şifreler",
     "user account updated": "Hesapınız başarıyla güncellenmiştir",
     "user wrong auth": " Kimlik bilgilerinizi hatalı girdiniz",
     "login wrong": "hatalı bilgi",
@@ -651,6 +661,7 @@
     "current password": "Şimdiki şifre",
     "new password": "Yeni şifre",
     "repeat new password": "Yeni şifre tekrarla",
+    "Repeat Password": "Şifreyi tekrar girin",
     "edit password": "şifreyi düzenle",
     "site admin ": "Site yöneticisi",
     "MA": "Master",
@@ -1524,5 +1535,18 @@
     "How it works": "Nasıl çalışır",
     "Faq": "SSS",
     "Conditions": "Koşullar",
-    "Data protection": "Veri koruması"
+    "Data protection": "Veri koruması",
+    "Buy now": "Şimdi satın al",
+    "people watching this product": "bu ürünü izleyen insanlar",
+    "Welcome store": "Hoşgeldin mağazası",
+    "Welcome to o-bazaar store": "O-bazaar mağazasına hoş geldiniz",
+    "You have no orders": "Hiç emrin yok",
+    "Order now": "Şimdi sipariş ver",
+    "gallery": "Gellery",
+    "Choose images": "Resimleri seçin",
+    "cart.add": "Sepete ekle",
+    "Name have to be at least 3 characters": "İsim en az 3 karakter olmalıdır",
+    "Email required": "E-posta gerekli",
+    "Password have to be at least 4 characters": "Parola en az 4 karakter olmalıdır",
+    "Passwords doesn't match": "Şifreler eşleşmiyor"
 }

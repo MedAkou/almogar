@@ -28,9 +28,10 @@
                     <form class="form-horizontal" enctype="multipart/form-data" action="{{ route('admin.products.categories.update',['id'=>$content->id]) }}" method='POST' action="" autocomplete="off">
                         {!! csrf_field() !!}
                         <div class="alert alert-danger empty-form" style="display: none;">{{ __('empty-form-alert') }}</div>
-                        @php
-                $langs = ['de'  => 'Deutsch' , 'ar' => 'العربية'  ,'tr'  => 'Turkish'];
-            @endphp
+                                            
+                                 @php
+                                    $langs = \System::$LANGS_NAME;
+                                @endphp
 
             
 

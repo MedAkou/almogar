@@ -63,8 +63,8 @@ class ManagerAdsController extends Controller{
     public function update(Request $request, $id) {
         
         $ads           =  AdsManager::find($id);
-
-        $ads->statue   =  $request->statue;
+        
+        $ads->statue   =  $request->active;
         $ads->name     =  $request->name;
         $ads->url      =  $request->url;
         $ads->image    =  $request->image;

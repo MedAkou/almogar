@@ -43,7 +43,41 @@ class AccountController extends Controller {
 
 	public function forgot()
     {
-        return view ($this->theme.'forgot');
+        return view ($this->theme.'account.forgot');
+    }
+
+    public function validatePasswordRequest(Request $request)
+    {
+        //You can add validation login here
+        $user = User::where('email', '=', $request->resetemail)
+            ->first();
+        //Check if the user exists
+        //dd($request->resetemail);
+        if (!$user)
+        {
+            return redirect()->back()
+                ->withErrors(['email' => trans('User does not exist') ]);
+        }
+
+        //Create Password Reset Token
+        DB::table('password_resets')
+            ->insert(['email' => $request->resetemail, 'token' => str_random(60) , 'created_at' => Carbon::now() ]);
+        //Get the token just created above
+        $tokenData = DB::table('password_resets')->where('email', $request->resetemail)
+            ->first();
+
+        if ($this->sendResetEmail($request->resetemail, $tokenData->token))
+        {
+            return redirect()
+                ->back()
+                ->with('status', trans('A reset link has been sent to your email address.'));
+        }
+        else
+        {
+            return redirect()
+                ->back()
+                ->withErrors(['error' => trans('A Network Error occurred. Please try again.') ]);
+        }
     }
 
     public function info() {
@@ -154,16 +188,18 @@ class AccountController extends Controller {
     }
 
     public function  registration(Request $request) {
-
         $geo = geoip(req::ip());
 
         $rules = [
           'email' => 'required|email|unique:users', 
-          'password' => 'required|min:3',
-          'name' => 'required|string|min:4',
         ];
 
-        $request->validate($rules);
+        $messages = [
+            'email.required' => trans("email.required"),
+        ];
+
+        $request->validate($rules,$messages);
+
 
         $user           =  new User();
         $user->password =  Hash::make($request->password);
@@ -196,7 +232,7 @@ class AccountController extends Controller {
 
         Auth::loginUsingId($user->id);
 
-        return redirect('/');       
+        return response()->json(["success" => "User registred successfully"]);
     }
 
     public function  update(Request $request) {
@@ -225,24 +261,37 @@ class AccountController extends Controller {
 
     public function passwordUpdate(Request $request) {
 
+
         $user = $request->user();
 
-        $validator = Validator::make($request->all(), [
+
+        $rules = [
           'password' => 'required|min:3',
           'newpassword' => 'required|min:3',
           'password_confirmation' => 'required|min:3',
-        ]);
+        ];
+
+        $customMessages = [
+            'required' => 'wrong password'
+        ];
+
+        $request->validate($rules, $customMessages);
+      
+        if (!Hash::check($request->password, $user->password)) {
+
+            return redirect()->route('account.password')->with('error',trans('user.pwd.wrong'));
+        }
+
 
         if($request->newpassword == $request->password_confirmation ) {
-            if (Hash::check($request->password, $user->password)) {
+          
                 $user->password = Hash::make($request->newpassword);
                 $user->save();
-            }
 
             return redirect()->route('account.password')->with('success',trans('user.pwd.updated'));
         }
 
-        return redirect()->route('account.password')->with('error','wrong password');
+        return redirect()->route('account.password')->with('error','user.pwd.wrong.match');
     }
 
     public function clearwishlist(Request $request) {

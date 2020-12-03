@@ -12,14 +12,22 @@ require base_path().'/app/Helpers.php';
 
   Route::post('/account/registration', 'AccountController@registration')->name('account.registration');
 
+  Route::post('/join/merchant', 'Manager\ManagerStoresController@store')->name('join.merchant');
+
+  Route::get('/clear-cache', 'WebsiteController@clearcache');
+
+
+////forgot
+Route::get('/account/forgot', 'AccountController@forgot')->name('account.forgot');
+///reset
+Route::post('/account/resetpassword', 'WebsiteController@validatePasswordRequest')->name('account.resetpassword');
 
 Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Account'], function(){
 
   Route::get('/', 'AccountController@edit')->name('edit');
 
   Route::post('/update', 'AccountController@update')->name('update');
-
-  Route::get('/forgot', 'AccountController@forgot')->name('forgot');
+  
 
   Route::get('/info', 'AccountController@info')->name('info');
 
@@ -253,8 +261,6 @@ Route::group(['prefix' => '{store}', 'middleware' => 'store' ], function ($store
 
 
           Route::get('/404', 'WebsiteController@erreur404')->name('404');
-
-          Route::get('/category/{slug}', 'WebsiteController@category')->name('category');
 
 
 

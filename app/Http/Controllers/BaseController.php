@@ -19,11 +19,9 @@ class BaseController extends Controller
         
         $stores  = Stores::with('owner')->paginate(12);
 
-        $ads     = AdsManager::all();
-
         $view = $this->theme.'home';
         
-        return view($view,compact('sliders','stores','ads'));   
+        return view($view,compact('sliders','stores'));   
 
     }
    

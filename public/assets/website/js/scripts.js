@@ -597,6 +597,7 @@ function searchKeyUp(link, formData, results) {
         cache: false,
         dataType: "JSON",
         success: function(response) {
+            let lang = response.lang;
             if (response.products.data.length) {
                 results.empty();
                 results.slideDown();
@@ -607,7 +608,8 @@ function searchKeyUp(link, formData, results) {
                     result.append(`<div class="img-cont">
                                                     <img src="${response.products.data[i].thumbnail}"}>
                                                 </div>`);
-                    result.append(`<span>${response.products.data[i].name.ar}</span>`)
+                                                
+                    result.append(`<span>${response.products.data[i].name[lang]}</span>`);
                 }
                 $("p.result").click(function() {
                     let productId = $(this)[0].id;
@@ -662,6 +664,34 @@ $("#search-input-mobile").blur(function() {
 
 
 // End search script
+
+$("#addToCartForm").submit((e)=>{
+    e.preventDefault();
+    const token = $('meta[name="csrf-token"]').attr('content');
+    const link = $("#addToCartForm").attr('data-link');
+    const quantity = $("#add-to-cart-quantity").val();
+    console.log("Link: ", link);
+    console.log("Quantity: ", quantity);
+    const formData = new FormData();
+    formData.append('quantity', quantity);
+    formData.append('_token', token);
+
+    $.ajax({
+        url: link,
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        cache: false,
+        dataType: "JSON",
+        success: function(response) {
+            console.log("Response: ", response);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
 
 
 $(document).ready(function() {

@@ -34,10 +34,8 @@ class ShopController extends Controller {
         if(!$related) {
             $related = Product::all()->random(7);
         }
-        if(\Session::has('store_id')){
-            $id = \Session::get('store_id');
-        }
-        return view($this->theme.'product',compact('product','related','reviews','wishlist', 'id'));     
+        
+        return view($this->theme.'product',compact('product','related','reviews','wishlist'));     
     }
 
     public function quickview($store,$id) {
