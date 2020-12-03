@@ -77,7 +77,7 @@ Blog
 </nav>
 </div><!-- End .col-lg-9 -->
 
-@include('theme2.elements.blogsidbar')
+@include(\System::$ACTIVE_THEME_PATH.'/elements.blogsidbar')
 </div><!-- End .row -->
 </div><!-- End .container -->
 

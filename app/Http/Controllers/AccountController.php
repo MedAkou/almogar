@@ -279,7 +279,7 @@ class AccountController extends Controller {
       
         if (!Hash::check($request->password, $user->password)) {
 
-            return redirect()->route('account.password')->with('error',trans('user.pwd.wrong'));
+            return redirect()->route('account.password')->withErrors(['error',trans('user.pwd.wrong')]);
         }
 
 
@@ -288,16 +288,16 @@ class AccountController extends Controller {
                 $user->password = Hash::make($request->newpassword);
                 $user->save();
 
-            return redirect()->route('account.password')->with('success',trans('user.pwd.updated'));
+            return redirect()->route('account.password')->withErrors(['success',"trans('user.pwd.updated')"]);
         }
 
-        return redirect()->route('account.password')->with('error','user.pwd.wrong.match');
+        return redirect()->route('account.password')->withErrors(['error','user.pwd.wrong.match']);
     }
 
     public function clearwishlist(Request $request) {
        $user = Auth::user();
        $user->wishlist->each->delete();
-       return redirect()->route('account.wishlist')->with('success',trans('wishlist.cleared'));   
+       return redirect()->route('account.wishlist')->with(['success',trans('wishlist.cleared')]);   
     }
   
     

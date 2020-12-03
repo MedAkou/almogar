@@ -60,6 +60,7 @@
                         </ul>
                      </div>
                   </div>
+                  
                   @php
                   $logo = option('logo');
                   @endphp

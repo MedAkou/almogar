@@ -24,7 +24,7 @@
 
     <div class="container">
         <div class="row">
-            @include('theme2.account.elements.sidebar')
+            @include(\System::$ACTIVE_THEME_PATH.account.elements.sidebar')
             <div class="col-lg-8">
                 <h2>{{ __('Add new adress') }}  </h2>
 

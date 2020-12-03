@@ -81,7 +81,7 @@
 
             </div>
 
-            @include('theme2.elements.sidebar')
+            @include(\System::$ACTIVE_THEME_PATH.'/elements.sidebar')
         </div>
     </div>
 

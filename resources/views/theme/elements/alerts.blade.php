@@ -6,7 +6,7 @@
 		<div class="alert alert-error d-flex justify-content-center"> {{ session('error') }}	</div>
 @endif
 
-
+{{ $errors }}
 
 
 @if ($errors->any())

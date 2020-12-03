@@ -73,7 +73,7 @@ if (! function_exists('option')) {
                     return app('BaseSettings')->set($key);
                 }
 
-                return $_SESSION['website_options2'][$key]['value'] ?? '';
+                //return $_SESSION['website_options2'][$key]['value'] ?? '';
 
         
                 return app('BaseSettings')->get($key, $default);
