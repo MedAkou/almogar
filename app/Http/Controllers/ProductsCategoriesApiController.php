@@ -26,6 +26,18 @@ class ProductsCategoriesApiController extends Controller
     }
 
     /**
+     * Get product category which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'productCategory' => ProductCategories::find($id)
+        ]);
+    }
+
+    /**
      * Store product category.
      * 
      * @param Request $request

@@ -54,15 +54,24 @@
                                 </ul>
                             </div>
                             <div class="ps-product__shopping">
+<<<<<<< HEAD:resources/views/theme/product.blade.php
                                 <form 	id="addToCartForm"
                                 		data-link="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}"
                                 		method="post">
+=======
+                                <form action="{{ route('cart.add', ['id' => $product->id , 'store' => $store ]) }}" method="post">
+                                    @csrf
+>>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/product.blade.php
                                     <figure>
                                         <figcaption>{{ __('quantity') }}</figcaption>
                                         <div class="form-group--number zaydnaks">
                                             <button type="button" class="up">+</button>
                                             <button type="button" class="down">-</button>
+<<<<<<< HEAD:resources/views/theme/product.blade.php
                                             <input class="quantity-ajax form-control instantQuantity" id="add-to-cart-quantity" name="quantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}'  type="text" placeholder="1" value="1">
+=======
+                                            <input class="quantity-ajax form-control instantQuantity" name="quantity"  data-product-id='{{ $product['id'] }}' data-price='{{ $product['price'] }}'  type="text" placeholder="1" value="{{ $product['qty'] }}">
+>>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/product.blade.php
                                         </div>
                                         <button class="ps-btn ps-btn--black">{{ __('cart.add') }}</button>
                                     </figure>

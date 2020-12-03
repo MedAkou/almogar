@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::prefix('user')->group(function () {
-        Route::post('login', 'ApiController@login');
+        Route::post('login', 'UserApiController@login');
     });
 
     // Users routes
@@ -30,39 +30,37 @@ Route::group(['prefix' => 'v1'], function () {
 
     //  posts routes
     Route::prefix('posts')->middleware('auth:api')->group(function () {
-        Route::get('/', 'PostsController@index');
-        Route::post('/store', 'PostsController@store');
-        Route::post('/update/{id}', 'PostsController@update');
-        Route::get('/delete/{id}', 'PostsController@delete');
-        Route::get('/clone/{id}', 'PostsController@clone');
-        Route::get('/view/{id}', 'PostsController@view');
-        Route::post('/multiaction', 'PostsController@multiaction');
+        Route::get('/', 'PostsApiController@index');
+        Route::get('/{id}', 'PostsApiController@details');
+        Route::post('/store', 'PostsApiController@store');
+        Route::post('/update/{id}', 'PostsApiController@update');
+        Route::post('/delete/{id}', 'PostsApiController@delete');
+        Route::post('/duplicate/{id}', 'PostsApiController@duplicate');
         
         // posts categories routes
         Route::prefix('categories')->middleware('auth:api')->group(function () {
-            Route::any('/', 'PostsCategoriesController@index');
-            Route::post('/store', 'PostsCategoriesController@store');
-            Route::post('/update/{id}', 'PostsCategoriesController@update');
-            Route::get('/delete/{id}', 'PostsCategoriesController@delete');
-            Route::post('/duplicate', 'PostsCategoriesController@duplicate');
-            Route::post('/view', 'PostsCategoriesController@view');
+            Route::get('/', 'PostsCategoriesApiController@index');
+            Route::get('/{id}', 'PostsCategoriesApiController@details');
+            Route::post('/store', 'PostsCategoriesApiController@store');
+            Route::post('/update/{id}', 'PostsCategoriesApiController@update');
+            Route::post('/delete/{id}', 'PostsCategoriesApiController@delete');
+            Route::post('/duplicate/{id}', 'PostsCategoriesApiController@duplicate');
         });
     });
 
     // Media routes
     Route::prefix('media')->middleware('auth:api')->group(function () {
-        Route::get('/', 'MediaController@index');
-        Route::any('/view/{id}', 'MediaController@view');
-        Route::any('/upload', 'MediaController@upload');
-        Route::any('/uploader', 'MediaController@modal_uploader');
-        Route::get('/download/{id}', 'MediaController@download');
-        Route::get('/load', 'MediaController@load');
-        Route::any('/delete', 'MediaController@remove');
+        Route::get('/', 'MediaApiController@index');
+        Route::get('/{id}', 'MediaApiController@details');
+        Route::post('/upload', 'MediaApiController@upload');
+        Route::post('/update/{id}', 'MediaApiController@update');
+        Route::post('/delete/{id}', 'MediaApiController@delete');
     });
 
     // Pages routes
-    Route::prefix('pages')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('pages')->middleware('auth:api')->group(function () {
         Route::get('/', 'PagesApiController@index');
+        Route::get('/{id}', 'PagesApiController@details');
         Route::post('/store', 'PagesApiController@store');
         Route::post('/update/{id}', 'PagesApiController@update');
         Route::post('/delete/{id}', 'PagesApiController@delete');
@@ -72,17 +70,17 @@ Route::group(['prefix' => 'v1'], function () {
     // Ads routes
     Route::prefix('ads')->middleware('auth:api')->group(function () {
         Route::get('/', 'AdsApiController@index');
+        Route::get('/{id}', 'AdsApiController@details');
         Route::post('/store', 'AdsApiController@store');
         Route::post('/update/{id}', 'AdsApiController@update');
-        Route::get('/delete/{id}', 'AdsApiController@delete');
-        Route::get('/clone/{id}', 'AdsApiController@clone');
-        Route::get('/duplicate/{id}', 'AdsApiController@duplicate');
+        Route::post('/delete/{id}', 'AdsApiController@delete');
+        Route::post('/duplicate/{id}', 'AdsApiController@duplicate');
     });
 
     // Products routes
-    Route::prefix('products')/*->middleware('auth:api')*/->group(function () {
+    Route::prefix('products')->middleware('auth:api')->group(function () {
         Route::get('/', 'ProductsApiController@index');
-        Route::post('/{id}/details', 'ProductsApiController@details');
+        Route::get('/{id}', 'ProductsApiController@details');
         Route::post('/store', 'ProductsApiController@store');
         Route::post('/{id}/update', 'ProductsApiController@update');
         Route::post('/{id}/delete', 'ProductsApiController@delete');
@@ -92,17 +90,18 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     // Products categories routes
-    Route::prefix('categories')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('categories')->middleware('auth:api')->group(function (){
         Route::get('/', 'ProductsCategoriesApiController@index');
+        Route::get('/{id}', 'ProductsCategoriesApiController@details');
         Route::post('/store', 'ProductsCategoriesApiController@store');
         Route::post('/update/{id}', 'ProductsCategoriesApiController@update');
         Route::post('/delete/{id}', 'ProductsCategoriesApiController@delete');
     });
 
     // Orders routes
-    Route::prefix('orders')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('orders')->middleware('auth:api')->group(function (){
         Route::get('/', 'OrdersApiController@index');
-        Route::get('/{id}', 'OrdersApiController@get');
+        Route::get('/{id}', 'OrdersApiController@details');
         Route::get('/user/{user_id}', 'OrdersApiController@userOrder');
         Route::post('/changeStatue/{id}', 'OrdersApiController@changeStatue');
         Route::any('/delete/{id}', 'OrdersApiController@delete');
@@ -110,19 +109,17 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Stores routes
     Route::prefix('stores')->middleware('auth:api')->group(function (){
-        Route::get('/', 'ManagerStoresApiController@index');
-        Route::post('/store', 'ManagerStoresApiController@store');
-        Route::post('/update/{id}', 'ManagerStoresApiController@update');
-        Route::get('/delete/{id}', 'ManagerStoresApiController@delete');
-        Route::get('/clone/{id}', 'ManagerStoresApiController@clone');
-        Route::get('/view/{id}', 'ManagerStoresApiController@view');
-        Route::post('/multiaction', 'ManagerStoresApiController@multiaction');
-        Route::get('/duplicate/{id}', 'ManagerStoresApiController@duplicate');
+        Route::get('/', 'StoresApiController@index');
+        Route::get('/{id}', 'StoresApiController@details');
+        Route::post('/store', 'StoresApiController@store');
+        Route::post('/update/{id}', 'StoresApiController@update');
+        Route::post('/delete/{id}', 'StoresApiController@delete');
     });
 
     // Sliders routes
-    Route::prefix('slider')/*->middleware('auth:api')*/->group(function (){
+    Route::prefix('slider')->middleware('auth:api')->group(function (){
         Route::get('/', 'SliderApiController@index');
+        Route::get('/{id}', 'SliderApiController@details');
         Route::post('/store', 'SliderApiController@store');
         Route::post('/update/{id}', 'SliderApiController@update');
         Route::post('/delete/{id}', 'SliderApiController@delete');
@@ -132,17 +129,15 @@ Route::group(['prefix' => 'v1'], function () {
      // Menus routes
     Route::prefix('menus')->middleware('auth:api')->group(function (){
         Route::get('/', 'ManagerMenusApiController@index');
-        Route::get('/create', 'ManagerMenusApiController@create');
-        Route::get('/edit/{id}', 'ManagerMenusApiController@edit');
+        Route::get('/{id}', 'ManagerMenusApiController@details');
         Route::post('/store', 'ManagerMenusApiController@store');
         Route::post('/update/{id}', 'ManagerMenusApiController@update');
-        Route::get('/delete/{id}', 'ManagerMenusApiController@delete');
+        Route::post('/delete/{id}', 'ManagerMenusApiController@delete');
      });
 
     //  Settings routes
     Route::prefix('settings')->middleware('auth:api')->group(function (){
-        Route::get('/', 'ManagerSettingsApiController@index');
-        Route::post('/update/{id}', 'ManagerSettingsApiController@update');
+        Route::post('/update', 'ManagerSettingsApiController@update');
         Route::post('/social', 'ManagerSettingsApiController@social');
         Route::post('/stripe', 'ManagerSettingsApiController@stripe');
         Route::post('/paypal', 'ManagerSettingsApiController@paypal');

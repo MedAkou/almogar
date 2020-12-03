@@ -20,6 +20,18 @@ class PagesApiController extends Controller
     }
 
     /**
+     * Get page which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse 
+     */
+    public function details($id){
+        return new JsonResponse([
+            'page' => Page::find($id)
+        ]);
+    }
+
+    /**
      * Store page.
      * 
      * @param Request $request

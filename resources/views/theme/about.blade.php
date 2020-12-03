@@ -1,6 +1,6 @@
 @extends(\System::$ACTIVE_THEME_PATH.'/pages-layout')
 @section('title')
-{{ __('about us') }}
+{{ __('About Us') }}
 @endsection
 
 @section('content')

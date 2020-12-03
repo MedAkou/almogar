@@ -21,6 +21,18 @@ class SliderApiController extends Controller
     }
 
     /**
+     * Get merchant slider which id = $id.
+     * 
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function details($id){
+        return new JsonResponse([
+            'slider' => Slider::find($id)
+        ]);
+    }
+
+    /**
      * Store slider.
      * 
      * @param Request $request
