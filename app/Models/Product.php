@@ -163,7 +163,7 @@ class Product extends Base {
     }
 
 public function getSlug(){
-      $langs = ['de', 'tr', 'ar'];
+      $langs = \System::$LANGS;
       $clientLang = \App::getLocale();
 
       if(!empty($this->slug)){
@@ -184,27 +184,6 @@ public function getSlug(){
       return $slug;
     }
 
-    public function getSlug(){
-      $langs = ['de', 'tr', 'ar'];
-      $clientLang = \App::getLocale();
-
-      if(!empty($this->slug)){
-        $slug =  $this->slug;
-      }else{
-        foreach($langs as $lang){
-          \App::setLocale($lang);
-          $slug = $this->slug;
-          if($slug) break;
-        }
-        \App::setLocale($clientLang);
-      }
-
-      if(!$slug){
-        $slug =  $this->id;
-      }
-
-      return $slug;
-    }
 
 
 

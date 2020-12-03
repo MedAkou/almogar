@@ -188,13 +188,8 @@
             </div>
          </div>
       </div>
-<<<<<<< HEAD:resources/views/theme/home.blade.php
       @include(\System::$ACTIVE_THEME_PATH.'//elements/download-app')
       @include(\System::$ACTIVE_THEME_PATH.'//elements/footer')
-=======
-      @include('/theme2/elements/download-app')
-      @include('/theme2/elements/footer')
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/home.blade.php
       <div id="back2top"><i class="pe-7s-angle-up"></i></div>
       <div class="ps-site-overlay"></div>
       <div id="loader-wrapper">

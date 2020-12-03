@@ -67,11 +67,7 @@
                            <input placeholder="{{ __('Password') }}" type="password" name="password" class="form-control" id="register-password" required/>
                         </div>
                         <div class="form-group">
-<<<<<<< HEAD:resources/views/theme/user.blade.php
                            <input type="password" placeholder="{{ __('Confirm Password') }} " name="password_confirmation" class="form-control" id="password_confirmation" required/>
-=======
-                           <input type="password" placeholder="{{ __('Confirm Password') }} " name="confirm_password" class="form-control" id="confirm_password" required/>
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/user.blade.php
                         </div>
                         <div class="form-group">
                            <input placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" type="text" name="phone" class="form-control" id="phone" required/>

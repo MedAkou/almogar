@@ -27,33 +27,7 @@ class WebsiteController extends Controller
         return response()
             ->view('theme2.elements.ajax_cart', compact('store'))
             ->setStatusCode(200);
-<<<<<<< HEAD
-    }
 
-    public function join()
-    {
-        return view($this->theme . 'join');
-    }
-
-    public function basepage($slug, Request $request)
-    {
-        $page = BasePages::where('slug', $request->slug)
-            ->first();
-
-        if (!$page)
-        {
-            abort(404);
-        }
-        else
-        {
-            return view($this->theme . 'page', compact('page'));
-        }
-    }
-
-    public function websitepage(Request $request)
-    {
-
-=======
     }
 
     public function join()
@@ -76,7 +50,6 @@ class WebsiteController extends Controller
     public function websitepage(Request $request)
     {
 
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
         $slug = $request->page;
         if (is_numeric($request->page))
         {
@@ -264,7 +237,6 @@ class WebsiteController extends Controller
 
         $geo = geoip(req::ip());
 
-<<<<<<< HEAD
         $rules = [
           'email' => 'required|email|unique:users', 
           'password' => 'required|confirmed|min:3',
@@ -282,11 +254,6 @@ class WebsiteController extends Controller
         ];
 
         $request->validate($rules,$messages);
-=======
-        $rules = ['email' => 'required|email|unique:users', 'password' => 'required|min:3', 'name' => 'required|string|min:4', ];
-
-        $request->validate($rules);
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
 
         $user = new User();
         $user->password = Hash::make($request->password);
@@ -342,16 +309,10 @@ class WebsiteController extends Controller
 
     public function home(Request $request)
     {
-<<<<<<< HEAD
 
         if (!\Session::has('store_id'))
         {
 
-=======
-
-        if (!\Session::has('store_id'))
-        {
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
             $page = BasePages::where('slug', $request->store)
                 ->first();
 
@@ -365,7 +326,6 @@ class WebsiteController extends Controller
                 return view($this->theme . 'page', compact('page'));
             }
 
-<<<<<<< HEAD
         }
         else
         {
@@ -376,18 +336,6 @@ class WebsiteController extends Controller
             $sliders = Slider::Merchant()->get();
             return view($this->theme . 'index', compact('products', 'sliders'));
         }
-=======
-        }
-        else
-        {
-            $id = Stores::where('slug', $request->store)
-                ->first()->id;
-            $products = Product::where('store_id', $id)->where('active', 1)
-                ->paginate(12);
-            $sliders = Slider::Merchant()->get();
-            return view($this->theme . 'index', compact('products', 'sliders'));
-        }
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
 
     }
 
@@ -803,7 +751,6 @@ class WebsiteController extends Controller
         {
             session()->flash('success', trans('Email sent successfully'));
         };
-<<<<<<< HEAD
 
         return redirect()
             ->back();
@@ -812,11 +759,6 @@ class WebsiteController extends Controller
     public function clearcache(){
         Artisan::call('cache:clear');
         return "Cache is cleared";
-=======
-
-        return redirect()
-            ->back();
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
     }
 
 }

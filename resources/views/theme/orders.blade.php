@@ -30,11 +30,7 @@
                                    <div class="ps-section__content">
                                     @if(Auth::user()->orders->count() != 0)
                                        <div class="table-responsive">
-<<<<<<< HEAD:resources/views/theme/orders.blade.php
                                           
-=======
-                                          @if(Auth::user()->orders->count() != 0)
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/orders.blade.php
                                            <table class="table ps-table ps-table--invoices">
                                                <thead>
                                                    <tr>
@@ -57,21 +53,7 @@
                                                 @endforeach
                                                </tbody> 
                                            </table>
-<<<<<<< HEAD:resources/views/theme/orders.blade.php
                                           
-=======
-                                          @else
-                                          <div class="ps-table--invoices">
-                                               <div class="row text-center">
-                                                    <div class="empty-order">
-                                                        <i class="icon-cart"></i>
-                                                        <p>{{ __('You have no orders') }}</p>
-                                                        <a class="ps-btn" href="/{{ $store }}">{{ __('Order now') }}</a>
-                                                    </div>
-                                               </div>
-                                            </div>
-                                          @endif
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/orders.blade.php
                                        </div>
                                        @else
                                         <div class="ps-table--invoices">

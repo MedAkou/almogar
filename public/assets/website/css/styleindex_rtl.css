@@ -655,7 +655,6 @@ div#carouselExampleIndicators {
 
 .ps-cart--mini .ps-cart__footer h3{
     padding: 20px;
-<<<<<<< HEAD
     margin-bottom: 0 !important;
 }
 
@@ -718,7 +717,4 @@ h2.post-title {
     text-align: center;
 }
 
-=======
-    margin: 0 !important;
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
 }

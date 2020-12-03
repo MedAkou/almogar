@@ -23,11 +23,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
    </head>
    <body>
-<<<<<<< HEAD:resources/views/theme/pages-layout.blade.php
       @include(\System::$ACTIVE_THEME_PATH.'/elements/alerts')
-=======
-      @include('theme2/elements/alerts')
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380:resources/views/theme2/pages-layout.blade.php
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
             <div class="container">

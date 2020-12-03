@@ -14,11 +14,8 @@ require base_path().'/app/Helpers.php';
 
   Route::post('/join/merchant', 'Manager\ManagerStoresController@store')->name('join.merchant');
 
-<<<<<<< HEAD
   Route::get('/clear-cache', 'WebsiteController@clearcache');
 
-=======
->>>>>>> 607512cea1f2e040d12d5d02f20bc9488db88380
 
 ////forgot
 Route::get('/account/forgot', 'AccountController@forgot')->name('account.forgot');
