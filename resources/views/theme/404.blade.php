@@ -1,4 +1,4 @@
-@extends(\System::$ACTIVE_THEME_PATH.''/pages-layout')
+@extends(\System::$ACTIVE_THEME_PATH.'/pages-layout')
 @section('title')
 {{ __('404') }}
 @endsection

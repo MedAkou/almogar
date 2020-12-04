@@ -38641,3 +38641,7 @@ nav.navigation--mobile-product {
     display: none;
     color: red;
 }
+
+.reset-password-button {
+    font-size: 16px;
+}

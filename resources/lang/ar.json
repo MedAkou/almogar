@@ -925,7 +925,7 @@
     "Please login or sign up to checkout": "المرجوا انشاء حساب جديد أو تسجيل الدخول",
     "home_latest": "تصفح المتاجر",
     "Reset Password": "إعادة تعيين كلمة المرور",
-    "Please enter your email address below to receive a password reset link.": "يرجى إدخال عنوان بريدك الإلكتروني أدناه لتلقي رابط إعادة تعيين كلمة المرور.",
+    "Please enter your email address below to receive a password reset link.": "يرجى إدخال عنوان البريد الالكتروني في الخانة أدناه لتلقي رابط إعادة تعيين كلمة المرور.",
     "Email": "البريد الإلكتروني",
     "Reset My Password": "إعادة تعيين كلمة المرور الخاصة بي",
     "FREE SHIPPING & RETURN": "شحن مجاني وعودة",
@@ -1543,6 +1543,7 @@
     "Choose images": "اختيار الصور",
     "Name have to be at least 3 characters": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
     "Email required": "البريد الإلكتروني مطلوب",
+    "Email already exist": "البريد الالكتروني موجود مسبقا",
     "Password have to be at least 4 characters": "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل",
     "Passwords doesn't match": "كلمات المرور غير متطابقة"
 }

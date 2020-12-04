@@ -13,7 +13,7 @@ composer install
    
    Run this commands from the Terminal:
 
-	 cmd cp .env.example .env
+	 cp .env.example .env
 	 php artisan key:generate
 
 

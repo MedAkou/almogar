@@ -223,12 +223,15 @@ class AccountController extends Controller {
             'email' => $request->email,
         );
         
+
+        /*
         // send email with the template
         Mail::send('emails.welcome_email', $email_data, function ($message) use ($email_data) {
             $message->to($email_data['email'])
                     ->subject('Welcome to o-bazaar')
                     ->from('contact@o-bazaar.com', 'Welcome');
         });
+        */
 
         Auth::loginUsingId($user->id);
 

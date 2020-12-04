@@ -9,9 +9,10 @@ class HistoryHelper {
         public $history ;
 
         public function __construct() {
-
-            session_start();
-                 
+            if(session_id() == ''){
+                //session has not started
+                session_start();
+            }
             if (isset($_SESSION['browser_histoy'])){
 
                 $url = \Request::fullUrl();

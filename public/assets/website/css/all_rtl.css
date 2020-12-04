@@ -38623,3 +38623,7 @@ figure.ps-block--address.active::before {
     display: none;
     color: red;
 }
+
+.reset-password-button {
+    font-size: 16px;
+}

@@ -836,6 +836,7 @@
     "Choose images": "Wählen Sie Bilder",
     "Name have to be at least 3 characters": "Der Name muss mindestens 3 Zeichen lang sein",
     "Email required": "Email erforderlich",
+    "Email already exist": "E-Mail existiert bereits",
     "Password have to be at least 4 characters": "Das Passwort muss aus mindestens 4 Zeichen bestehen",
     "Passwords doesn't match": "Passwörter stimmen nicht überein"
 }

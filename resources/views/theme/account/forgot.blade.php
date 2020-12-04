@@ -11,7 +11,7 @@
             <div class="ps-breadcrumb">
               <div class="container">
                  <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">{{ __('Home') }}</a></li>
                     <li>{{ __('account') }}</li>
                     <li>{{ __('Forgot Password') }}</li>
                  </ul>
@@ -34,7 +34,7 @@
                             </div><!-- End .form-group -->
 
                             <div class="form-footer">
-                                <button type="submit" class="btn card-button-inner bag-button">{{ __('Reset My Password') }}</button>
+                                <button type="submit" class="btn card-button-inner bag-button reset-password-button">{{ __('Reset My Password') }}</button>
                             </div><!-- End .form-footer -->
                         </form>
                     </div>
