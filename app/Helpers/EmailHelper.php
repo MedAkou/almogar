@@ -15,22 +15,22 @@ class EmailHelper {
         return new self;
     }
 
-    public function with($with){
+    public static function with($with){
         self::$with = $with;;
-        return $this;
+        return new self;
     }
 
-    public function email($email){
+    public static function email($email){
         self::$email = $email;
-        return $this;
+        return new self;
     }
 
-    public function subject($subject){
+    public static function subject($subject){
         self::$subject = $subject;
-        return $this;
+        return new self;
     }
 
-    public function send(){
+    public static function send(){
         $url = 'https://api.elasticemail.com/v2/email/send';
         try{
             $post = array('from' => 'contact@3now.de',
