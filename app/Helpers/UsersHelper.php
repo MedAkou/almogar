@@ -71,9 +71,9 @@ class UsersHelper {
         $emailContent['buttonURL'] = '/';
         $emailContent['buttonTitle'] = 'Button Text';
 
-        Mail::send($emailView, ['user' => $user, 'emailContent' => $emailContent], function ($m) use ($user, $emailSubject) {
-                        $m->from('support@email.com', 'emailName');
-                        $m->to($user->email, $user->fname)->subject($emailSubject);
+        // Mail::send($emailView, ['user' => $user, 'emailContent' => $emailContent], function ($m) use ($user, $emailSubject) {
+        //                 $m->from('support@email.com', 'emailName');
+        //                 $m->to($user->email, $user->fname)->subject($emailSubject);
         });
 
     }

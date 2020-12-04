@@ -25,7 +25,7 @@ $(".zoomimgs").ezPlus();
 
 window.setInterval(function() {
     $(".single-visitors .nbrvirws").text(parseInt($(".single-visitors .nbrvirws").text()) + Math.floor((Math.random() * 5) + 1));
-}, 3000);
+}, 10000);
 
 
 function colorReplace(findHexColor, replaceWith) {

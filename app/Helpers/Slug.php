@@ -16,17 +16,11 @@ class Slug {
     {
         // Normalize the title
         $slug = \Str::slug($title);
-
         $allSlugs = self::getRelatedSlugs($slug, $model, $id);
-
-        if ( !in_array($slug, $allSlugs) ){
-            return $slug;
-        }
+        if(!in_array($slug, $allSlugs)) return $slug;
 
         for ($i = 1; $i <= 100; $i++) {
-            if ( !in_array($slug.'-'.$i, $allSlugs) ) {
-                return $slug.'-'.$i;
-            }
+            if(!in_array($slug.'-'.$i, $allSlugs)) return $slug.'-'.$i;
         }
 
         throw new \Exception('Can not create a unique slug');

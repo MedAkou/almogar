@@ -21,16 +21,10 @@ class CartController extends Controller
     }
 
     public function add($store,$id,Request $request) {
-		if($request->has('quantity')){
-				$quantity = $request->quantity ;
-		}else {
-				$quantity = 1 ;
-		}
-		
+        $quantity = $request->has('quantity') ? $request->quantity : 1;
         (new Cart())->add($id,$quantity);
-
         if($request->ajax()){
-             return response()->json(["success" => "Product added to cart successfully"]);
+            return response()->json(["success" => "Product added to cart successfully"]);
         }
 
         return redirect()->route('cart',compact('store'))->with('message',trans('cart.added'));

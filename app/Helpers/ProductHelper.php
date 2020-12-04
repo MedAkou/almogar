@@ -9,15 +9,13 @@ use App\Helpers\Slug;
 
 class ProductHelper {
 
-    public static $langs = ['ar' => 'العربية' ,'en'  => 'English' ,'de'  => 'Deutsch' ,'tr'  => 'Turkish'];
-
 
 
     // create and update Product
     public static function save($content,$request){
 
         // upload the thumbnail
-        $thumbnail =  $request->ProductThumbnail ?? ''; 
+        $thumbnail = $request->ProductThumbnail ?? ''; 
 
         $gallery = $request->gallery ? implode('|||', $request->gallery) : '';
 
@@ -25,29 +23,22 @@ class ProductHelper {
         //$gallery   = self::uploadGallery($request);
         
         // create slug from product name to use it for seo
-        $slug      = self::slugify($content, $request);
-
+        $slug = self::slugify($content, $request);
         // create videos list imploded
-        $videos    = self::videos($request);
+        $videos = self::videos($request);
         
-        foreach (self::$langs  as $key => $value) {
+        foreach (\System::$LANGS_NAME  as $key => $value) {
             $name = 'title_'.$key;
             $desc = 'description_'.$key;
 
             // dump($name." => ".$request->$name);
 
-            if($request->filled($name)){
+            if($request->filled($name))
                 $content->setTranslation('name', $key, $request->$name);
-            }
 
-            if($request->filled($desc)){
+            if($request->filled($desc))
                 $content->setTranslation('description', $key, $request->$desc);
-            }
-                    
-        }        
-
-
-
+        }
 
         $content->thumbnail   =  $thumbnail;
         $content->gallery     =  $gallery;
@@ -73,20 +64,15 @@ class ProductHelper {
 
         $thumbnail = '';
 
-        if(!empty($content->thumbnail)){
-            $thumbnail = $content->thumbnail;
-        }
+        if(!empty($content->thumbnail)) $thumbnail = $content->thumbnail;
 
-        if($request->hasFile('ProductThumbnail')){
-            $thumbnail = $request->ProductThumbnail->store('products',['disk' => 'public']);     
-        }
+        if($request->hasFile('ProductThumbnail'))
+            $thumbnail = $request->ProductThumbnail->store('products',['disk' => 'public']);
 
         // delete the old image
         if($request->hasFile('ProductThumbnail') and !empty($content->thumbnail) ){
             $file = public_path().'/uploads/'.$content->thumbnail;
-            if(file_exists($file)) {
-                unlink($file);
-            }
+            if(file_exists($file)) unlink($file);
         }
 
         return $thumbnail;
@@ -95,7 +81,6 @@ class ProductHelper {
 
 
     public static function uploadGallery($request) {
-        
         $new = [];
         $old = [];
 
@@ -105,9 +90,7 @@ class ProductHelper {
             }
         }
 
-        if($request->has('oldGallery')){
-            $old = $request->oldGallery;
-        }
+        if($request->has('oldGallery')) $old = $request->oldGallery;
 
         $merge = array_merge($old,$new);
         $gallery = implode('|', $merge);
@@ -115,44 +98,22 @@ class ProductHelper {
         return $gallery ?? '';
     }
 
-
-
     public static function slugify($content, $request) {
-        foreach (self::$langs  as $key => $value) {
+        foreach (\System::$LANGS_NAME  as $key => $value) {
             $name = 'title_'.$key;
-            if($request->filled($name)){
+            if($request->filled($name))
                 $content->setTranslation('slug', $key, Slug::create($request->$name,'\App\Models\Product'));
-            }
-                    
         }
         return $content ?? ''; 
     }
 
     public static function videos($request) {
-        if($request->has('videos')){
-            $videos = implode('|||', $request->videos);
-            return $videos;
-        }
+        if($request->has('videos')) return implode('|||', $request->videos);
         return '';
     }
 
-
-
     // delete all product gallery images and thumbnail
     public static function clean($content) {
-
-        /*
-        foreach ($content->gallery as $image) {
-            if(!empty($image)){
-                $file = public_path().'/uploads/'.$image;
-                if(file_exists($file)){
-                    @unlink($file);    
-                }
-            }
-            
-        }
-        */
-
         // delete the old image
         if(!empty($content->thumbnail) ){
             @unlink(public_path().'/uploads/'.$content->thumbnail);
@@ -162,15 +123,12 @@ class ProductHelper {
 
     // delete all the files in products directory
     public static function empty() {
-
-            $dir = public_path().'/uploads/products';
-            $files = glob($dir . '/{,.}*', GLOB_BRACE);
-            foreach($files as $file){ // iterate files
-              if(is_file($file))
-               unlink($file); // delete file
-            }
-
+        $dir = public_path().'/uploads/products';
+        $files = glob($dir . '/{,.}*', GLOB_BRACE);
+        // iterate files
+        foreach($files as $file){
+            // delete file
+            if(is_file($file)) unlink($file);
+        }
     }
-
-
 }

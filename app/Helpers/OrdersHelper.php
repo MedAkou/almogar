@@ -4,8 +4,8 @@ namespace App\Helpers;
 use Auth;
 use App\Models\{OrderDetails,Addresses,Shipping,Orders};
 use ShoppingCart;
-use Mail;
 use Session;
+use \App\Helpers\EmailHelper;
 
 
 class OrdersHelper {
@@ -29,8 +29,6 @@ class OrdersHelper {
 
     // create the order
     public static function save(){
-        
-
         $order = new self;
 
         // create the order
@@ -40,10 +38,10 @@ class OrdersHelper {
         $order->saveOrderProduct($id);
 
         // send email to user
-        //$order->notifyUser($id);
+        $order->notifyUser($id);
         
         // send email to admin
-        //$order->notifyAdmin($id);
+        $order->notifyAdmin($id);
 
         // clear cart
         (new Cart())->clear();
@@ -60,9 +58,8 @@ class OrdersHelper {
         if(Session::has('shippingMethod')){
 
             $shipping = Shipping::find(Session::has('shippingMethod'));
-            if($shipping) {//dd();
+            if($shipping)
                 $price = $price + (float)str_replace('€', '', $shipping->cost);
-            }
         }
 
         return $price ;
@@ -71,7 +68,6 @@ class OrdersHelper {
 
     
     public function createOrder() {
-
             $shipping_id = NULL;
             $shippingMethod = Session::get('shippingMethod');
             $pickup      = $shippingMethod;
@@ -105,9 +101,7 @@ class OrdersHelper {
 
 
     public function saveOrderProduct($id) {
-
         $items = [];
-
         foreach (ShoppingCart::all() as $product) {
                 $item = [
                     'order_id'   => $id ,
@@ -117,47 +111,27 @@ class OrdersHelper {
                 ];
                 $items[] = $item ;
         }
-
         return OrderDetails::insert($items);
     }
-
-
-
+    
     public function notifyUser($order_id) {
-
-        $order     = Orders::find($order_id);
-        $emailView = 'emails.orderCreated';
-        $email     = Auth::user()->email;
-
-        Mail::send($emailView, ['order'  =>  $order], function ($m) use($order,$email){
-            $m->from('contact@o-bazaar.com', option('sitename') );
-            $m->to('soulaimane@yopmail.com', $email)->subject(trans('order.received.subject'));
-        });
-
+        EmailHelper::to(Auth::user()->email)
+                    ->with(['order' => Orders::find($order_id)])
+                    ->email('emails.orderCreated')
+                    ->subject(trans('order.received.subject'))
+                    ->send();
     }
 
-
-
-
     public function notifyAdmin($order_id) {
-
-        $order     = Orders::find($order_id);
-        $name      = $order->store->owner->name;
-        $email     = $order->store->owner->name;
-        $emailView = 'emails.orderCreated';
-
-        Mail::send($emailView, ['order'  =>  $order], function ($m) use($order,$email){
-            $m->from('contact@o-bazaar.com', option('sitename') );
-            $m->to('soulaimane@yopmail.com', $email)->subject(trans('order.received.subject'));
-        });
-
+        $order = Orders::find($order_id);
+        EmailHelper::to($order->store->owner->email)
+                    ->with(['order' => Orders::find($order_id)])
+                    ->email('emails.orderCreated')
+                    ->subject(trans('order.received.subject'))
+                    ->send();
     }
 
     public static function generate_booking_id() {
         return "O-Bazaar".mt_rand(100000, 9999999);
     }
-
-  
-
-
 }

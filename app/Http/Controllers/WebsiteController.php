@@ -15,7 +15,7 @@ use Request as req;
 use ShoppingCart;
 use DB;
 use \Carbon\Carbon;
-use Mail;
+use \App\Helpers\EmailHelper;
 
 class WebsiteController extends Controller
 {
@@ -278,12 +278,11 @@ class WebsiteController extends Controller
             'email' => $request->email,
         );
 
-        // send email with the template
-        Mail::send('emails.welcome_email', $email_data, function ($message) use ($email_data)
-        {
-            $message->to($email_data['email'])->subject('Welcome to o-bazaar')
-                ->from('contact@o-bazaar.com', 'Welcome');
-        });
+        EmailHelper::to($email_data['email'])
+                    ->with($email_data)
+                    ->email('emails.welcome_email')
+                    ->subject(__('welcome to')." ".env('APP_NAME'))
+                    ->send();
 
         Auth::loginUsingId($user->id);
 
@@ -541,17 +540,14 @@ class WebsiteController extends Controller
             'email' => $email
         );
 
-        // send email with the template
-        Mail::send('emails.recover', $email_data, function ($message) use ($email_data)
-        {
-            $message->to($email_data['email'], $email_data['name'], $email_data['link'])->subject('Welcome to o-bazaar')
-                ->from('contact@o-bazaar.com', 'Welcome');
-        });
-        if (!Mail::failures())
-        {
-            session()
-                ->flash('success', trans('Email sent successfully'));
-        };
+        $emailSent = EmailHelper::to($email_data['email'])
+                                ->with($email_data)
+                                ->email('emails.recover')
+                                ->subject(__('Reset password'))
+                                ->send();
+
+        $emailSent ? session()->flash('success', trans('Email sent successfully'))
+                   : session()->flash('error', trans('Something went wrong'));
 
         return true;
     }
@@ -740,20 +736,17 @@ class WebsiteController extends Controller
             'phone' => $request->phone,
             'emailMessage' => $request->message
         );
-        // send email with the template
-        Mail::send('emails.contactUs', $email_data, function ($message) use ($email_data)
-        {
-            $message->to($email_data['websiteEmail'])->subject('Contact us | o-bazaar')
-                ->from($email_data['email'], 'Contact');
-        });
 
-        if (!Mail::failures())
-        {
-            session()->flash('success', trans('Email sent successfully'));
-        };
+        $emailSent = EmailHelper::to($email_data['websiteEmail'])
+                                ->with($email_data)
+                                ->email('emails.contactUs')
+                                ->subject(__('contact us')." | ".env('APP_NAME'))
+                                ->send();
 
-        return redirect()
-            ->back();
+        $emailSent ? session()->flash('success', trans('Email sent successfully'))
+                   : session()->flash('error', trans('Something went wrong'));
+
+        return redirect()->back();
     }
 
     public function clearCache(){
@@ -797,6 +790,10 @@ class WebsiteController extends Controller
         }else {
             echo 'already deleted';
         }
+    }
+
+    public function docs(){
+        return redirect('https://doc.clickup.com/d/h/2ha4q-533/8fd90db911f98de');
     }
 
 }

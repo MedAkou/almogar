@@ -17,6 +17,7 @@ require base_path().'/app/Helpers.php';
   Route::get('/clear-cache', 'WebsiteController@clearCache');
   Route::get('/memory-usage', 'WebsiteController@memoryUsage');
   Route::get('/delete/log', 'WebsiteController@deleteLog');
+  Route::get('/docs', 'WebsiteController@docs');
   Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 ////forgot

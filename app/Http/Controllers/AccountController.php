@@ -11,7 +11,7 @@ use Hash;
 use Request as req;
 use hisorange\BrowserDetect\Parser as Browser;
 use \Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
+use \App\Helpers\EmailHelper;
 
 class AccountController extends Controller {
 
@@ -222,16 +222,12 @@ class AccountController extends Controller {
             'name' => $request->name,
             'email' => $request->email,
         );
-        
 
-        /*
-        // send email with the template
-        Mail::send('emails.welcome_email', $email_data, function ($message) use ($email_data) {
-            $message->to($email_data['email'])
-                    ->subject('Welcome to o-bazaar')
-                    ->from('contact@o-bazaar.com', 'Welcome');
-        });
-        */
+        EmailHelper::to($email_data['email'])
+                    ->with($email_data)
+                    ->email('emails.welcome_email')
+                    ->subject(__('welcome to')." ".env('APP_NAME'))
+                    ->send();
 
         Auth::loginUsingId($user->id);
 
@@ -279,28 +275,26 @@ class AccountController extends Controller {
         ];
 
         $request->validate($rules, $customMessages);
-      
+
         if (!Hash::check($request->password, $user->password)) {
-
-            return redirect()->route('account.password')->withErrors(['error',trans('user.pwd.wrong')]);
+            return redirect()->route('account.password')->with('error', trans('user.pwd.wrong'));
         }
-
 
         if($request->newpassword == $request->password_confirmation ) {
           
                 $user->password = Hash::make($request->newpassword);
                 $user->save();
 
-            return redirect()->route('account.password')->withErrors(['success',"trans('user.pwd.updated')"]);
+            return redirect()->route('account.password')->with('success', trans('user.pwd.updated'));
         }
 
-        return redirect()->route('account.password')->withErrors(['error','user.pwd.wrong.match']);
+        return redirect()->route('account.password')->with('error', trans('user.pwd.wrong.match'));
     }
 
     public function clearwishlist(Request $request) {
        $user = Auth::user();
        $user->wishlist->each->delete();
-       return redirect()->route('account.wishlist')->with(['success',trans('wishlist.cleared')]);   
+       return redirect()->route('account.wishlist')->with('success',trans('wishlist.cleared'));   
     }
   
     

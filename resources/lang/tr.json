@@ -1549,5 +1549,7 @@
     "Email required": "E-posta gerekli",
     "Email already exist": "E-posta zaten mevcut",
     "Password have to be at least 4 characters": "Parola en az 4 karakter olmalıdır",
-    "Passwords doesn't match": "Şifreler eşleşmiyor"
+    "Passwords doesn't match": "Şifreler eşleşmiyor",
+    "Reset password": "şifreyi yenile",
+    "Something went wrong": "Bir şeyler yanlış gitti"
 }

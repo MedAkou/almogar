@@ -838,5 +838,7 @@
     "Email required": "Email erforderlich",
     "Email already exist": "E-Mail existiert bereits",
     "Password have to be at least 4 characters": "Das Passwort muss aus mindestens 4 Zeichen bestehen",
-    "Passwords doesn't match": "Passwörter stimmen nicht überein"
+    "Passwords doesn't match": "Passwörter stimmen nicht überein",
+    "Reset password": "Passwort zurücksetzen",
+    "Something went wrong": "Etwas ist schief gelaufen"
 }

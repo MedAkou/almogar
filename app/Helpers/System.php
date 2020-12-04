@@ -22,26 +22,30 @@ class System {
 
 
     public function __construct(){
-
-      
         self::$CURRENT_LANG =  App::getLocale();
     }
 
 
     public static function checkauth($type){
         if($type == 'merchant'){
-            if(Auth::user() && Auth::user()->role == 'merchant' && !empty(Auth::user()->store_id) && is_numeric(Auth::user()->store_id)){
-                if(strpos(\Route::currentRouteName(),'admin') !== false){
+            if( Auth::user() &&
+                Auth::user()->role == 'merchant' &&
+                !empty(Auth::user()->store_id) &&
+                is_numeric(Auth::user()->store_id)
+            ){
+                if(strpos(\Route::currentRouteName(),'admin') !== false)
                     return true;
-                }
             }
             return false;
         }
         if($type == 'manager'){
-            if(Auth::user() && Auth::user()->role == 'manager' && !empty(Auth::user()->store_id) && is_numeric(Auth::user()->store_id)){
-                if(strpos(\Route::currentRouteName(),'manager') !== false){
+            if( Auth::user() &&
+                Auth::user()->role == 'manager' &&
+                !empty(Auth::user()->store_id) &&
+                is_numeric(Auth::user()->store_id)
+            ){
+                if(strpos(\Route::currentRouteName(),'manager') !== false)
                     return true;
-                }
             }
             return false;
         }
@@ -49,9 +53,8 @@ class System {
 
     public static function ismobile(){
         $detect = new Mobile_Detect;
-        if($detect->isMobile()){
+        if($detect->isMobile())
             return true;
-        }
 
     }
     

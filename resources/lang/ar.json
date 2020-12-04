@@ -558,7 +558,6 @@
     "ordered at": "طلب في",
     "maintenace": "صيانة",
     "store info": "معلومات المتجر",
-    "activate ad": "تنشيط الإعلان",
     " preview ad": " معاينة الإعلان",
     "postal code": "الرمز البريدي",
     "slider link": "رابط السلايدر",
@@ -1255,7 +1254,7 @@
     "ordered at": "طلب في",
     "maintenace": "صيانة",
     "store info": "معلومات المتجر",
-    "activate ad": "تنشيط الإعلان",
+    "activate ad": "تفعيل الإعلان",
     " preview ad": " معاينة الإعلان",
     "postal code": "الرمز البريدي",
     "slider link": "رابط السلايدر",
@@ -1545,5 +1544,8 @@
     "Email required": "البريد الإلكتروني مطلوب",
     "Email already exist": "البريد الالكتروني موجود مسبقا",
     "Password have to be at least 4 characters": "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل",
-    "Passwords doesn't match": "كلمات المرور غير متطابقة"
+    "Passwords doesn't match": "كلمات المرور غير متطابقة",
+    "Welcome to o-bazaar": "مرحبا بك في o-bazaar",
+    "Reset password": "إعادة تعيين كلمة المرور",
+    "Something went wrong": "هناك خطأ ما"
 }
