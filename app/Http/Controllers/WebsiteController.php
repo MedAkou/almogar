@@ -756,9 +756,47 @@ class WebsiteController extends Controller
             ->back();
     }
 
-    public function clearcache(){
-        Artisan::call('cache:clear');
-        return "Cache is cleared";
+    public function clearCache(){
+        \Artisan::call('optimize:clear');
+        return \Artisan::output();
+    }
+
+    public function get_server_memory_usage(){
+  
+        $free = shell_exec('free');
+        $free = (string)trim($free);
+        $free_arr = explode("\n", $free);
+        $mem = explode(" ", $free_arr[1]);
+        $mem = array_filter($mem);
+        $mem = array_merge($mem);
+        $memory_usage = $mem[2]/$mem[1]*100;
+      
+      
+        return number_format((float)$memory_usage, 2, '.', '');
+    }
+      
+    public  function get_server_cpu_usage(){
+    
+        $load = sys_getloadavg();
+        return $load[0];
+    
+    }
+      
+    public function memoryUsage(){
+        ?>
+            <p><span class="description">Server Memory Usage:</span> <span class="result"><?php echo  $this->get_server_memory_usage(); ?>%</span></p>
+            <p><span class="description">Server CPU Usage: </span> <span class="result"><?php echo  $this->get_server_cpu_usage(); ?> %</span></p>
+        <?php
+    }
+
+    public function deleteLog(){
+        $log_file = base_path().'/storage/logs/laravel.log';
+        if(file_exists($log_file)){
+            unlink($log_file);
+            echo 'deleted';
+        }else {
+            echo 'already deleted';
+        }
     }
 
 }

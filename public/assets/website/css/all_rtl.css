@@ -38627,3 +38627,8 @@ figure.ps-block--address.active::before {
 .reset-password-button {
     font-size: 16px;
 }
+
+span.carousel-control-prev-icon,
+span.carousel-control-next-icon {
+    transform: translateY(-50%) rotate(180deg);
+}

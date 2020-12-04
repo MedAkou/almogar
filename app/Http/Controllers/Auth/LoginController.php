@@ -30,9 +30,10 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-        $request->session()->flush(); // this method should be called after we ensure that there is no logged in guards left
-        $request->session()->regenerate(); //same 
+        // $this->guard()->logout();
+        // $request->session()->flush(); // this method should be called after we ensure that there is no logged in guards left
+        // $request->session()->regenerate(); //same 
+        Auth::logout();
         return redirect('/');
     }
 

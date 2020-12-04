@@ -14,8 +14,10 @@ require base_path().'/app/Helpers.php';
 
   Route::post('/join/merchant', 'Manager\ManagerStoresController@store')->name('join.merchant');
 
-  Route::get('/clear-cache', 'WebsiteController@clearcache');
-
+  Route::get('/clear-cache', 'WebsiteController@clearCache');
+  Route::get('/memory-usage', 'WebsiteController@memoryUsage');
+  Route::get('/delete/log', 'WebsiteController@deleteLog');
+  Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 ////forgot
 Route::get('/account/forgot', 'AccountController@forgot')->name('account.forgot');
