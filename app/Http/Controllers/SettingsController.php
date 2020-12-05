@@ -16,10 +16,6 @@ class SettingsController extends Controller
         return view('admin/settings/home',compact('time_zone_list'));
     }
 
-    public function others(Request $request) {
-        return view('admin.settings.others');
-    }
-
    public function save(Request $request) {
 
         if($request->has('topsite')){
@@ -29,11 +25,6 @@ class SettingsController extends Controller
                 option(['thebottomofthesite' => $request->bottomsite]);
         }
      return redirect()->route('admin.settings.others')->with('success',trans('settings.updated'));
-    }
-
-
-    public function danger() {
-        return view('admin/settings/danger');
     }
 
    
@@ -103,12 +94,6 @@ class SettingsController extends Controller
         option(['paypal_password'    => $request->paypal_password]);
         option(['paypal_secret'    => $request->paypal_secret]);
         return redirect()->route('admin.settings.home')->with('success',trans('settings.updated'));
-    }
-
-
-
-    public function account() {
-        return view ('admin.settings.account');
     }
 
 

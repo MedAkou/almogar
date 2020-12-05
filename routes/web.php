@@ -4,7 +4,7 @@ require base_path().'/app/Helpers.php';
 
 
 
-  Route::get('/account/login', 'AccountController@user')->name('account.user');
+  Route::view('/account/login', \System::$ACTIVE_THEME_PATH.'/account.user')->name('account.user');
 
   Route::post('/account/login', 'AccountController@userAuth')->name('account.auth-user');
 
@@ -21,22 +21,22 @@ require base_path().'/app/Helpers.php';
   Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 ////forgot
-Route::get('/account/forgot', 'AccountController@forgot')->name('account.forgot');
+Route::view('/account/forgot', \System::$ACTIVE_THEME_PATH.'/account.forgot')->name('account.forgot');
 ///reset
 Route::post('/account/resetpassword', 'WebsiteController@validatePasswordRequest')->name('account.resetpassword');
 
 Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Account'], function(){
 
-  Route::get('/', 'AccountController@edit')->name('edit');
+  Route::view('/', \System::$ACTIVE_THEME_PATH.'/account.edit')->name('edit');
 
   Route::post('/update', 'AccountController@update')->name('update');
   
 
-  Route::get('/info', 'AccountController@info')->name('info');
+  Route::view('/info', \System::$ACTIVE_THEME_PATH.'/info')->name('info');
 
-  Route::get('/adresses', 'AccountController@adresses')->name('adresses');
+  Route::view('/adresses', \System::$ACTIVE_THEME_PATH.'/account.adresses')->name('adresses');
 
-  Route::get('/orders', 'AccountController@orders')->name('orders');
+  Route::view('/orders', \System::$ACTIVE_THEME_PATH.'/account.orders')->name('orders');
 
   Route::get('orders/details/{id}', 'AccountController@order_detail')->name('orders_detail');
 
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Acc
 
   Route::get('/wishlist/clear', 'AccountController@clearwishlist')->name('wishlist_clear');
 
-  Route::get('/shipping/add', 'AccountController@shipping_add')->name('shipping.add');
+  Route::view('/shipping/add', \System::$ACTIVE_THEME_PATH.'/account.shipping_add')->name('shipping.add');
 
   Route::post('/shipping/add', 'AccountController@shipping_store')->name('shipping.add');
 
@@ -56,7 +56,7 @@ Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Acc
 
   Route::get('/shipping/default/{id}', 'AccountController@shipping_default')->name('shipping.default');
 
-  Route::get('/password', 'AccountController@password')->name('password');
+  Route::view('/password', \System::$ACTIVE_THEME_PATH.'/account.password')->name('password');
 
   Route::post('/password/update', 'AccountController@passwordUpdate')->name('password-update');
 
@@ -139,7 +139,7 @@ Route::get('/', 'BaseController@index')->name('base');
 
 
 // Route for stripe payment form.
-//Route::get('stripe', 'StripeController@payWithStripe')->name('stripform');
+//Route::view('stripe', 'stripe')->name('stripform');
 // Route for stripe post request.
 //Route::post('stripe', 'StripeController@postPaymentWithStripe')->name('paywithstripe');
 

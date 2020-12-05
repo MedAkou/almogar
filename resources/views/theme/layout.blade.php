@@ -106,7 +106,7 @@
                                  <div class="ps-product__content">
                                     <a class="ps-product__remove" href="{{ route('cart.remove', ['id' => $product->rawId() , 'store' => $store ])  }}"><i class="icon-cross"></i></a><a href="{{ route('shop.product',['id' => $product['id'] , 'store' => $store ]) }}">{{ $product['name'] }} </a>
                                     <p><strong> {{ __('Sold by') }} </strong> {{ $store }}</p>
-                                    <small>{{ $product['qty'] }} x {{ System::currency() }} {{ $product['price'] }}</small>
+                                    <small dir="ltr">{{ $product['qty'] }} x {{ System::currency() }} {{ $product['price'] }}</small>
                                  </div>
                               </div>
                               @endforeach @endif
@@ -229,11 +229,14 @@
          </div>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+      <!-- <script src="{{ mix('/js/script.js') }}"></script> -->
+      <!-- If MIX Remove -->
       <script src="{{ asset('assets/website/js/all.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
       <script src="{{ asset('assets/website/js/jquery.ez-plus.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
       <script src="https://cdn.jsdelivr.net/npm/jquery-creditcardvalidator@1.0.0/jquery.creditCardValidator.min.js"></script>
       <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
       <script src="{{ asset('assets/website/js/scripts.js') }}?v={{ env('ASSETS_VERSION') }}"></script>
+      <!-- End if MIX Remove -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
       @yield('scripts')
    </body>

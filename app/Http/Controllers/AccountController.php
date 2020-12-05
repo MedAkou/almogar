@@ -22,28 +22,17 @@ class AccountController extends Controller {
 
 	}
 
-	public function edit() {
-        return view (\System::$ACTIVE_THEME_PATH.'/account.edit');
-    }
-
-    public function orders() {
-        return view (\System::$ACTIVE_THEME_PATH.'/account.orders');
-    }
-
     public function order_detail($id) {
-
-    $content = Orders::find($id);
-    return view(\System::$ACTIVE_THEME_PATH.'/account.order_detail',compact('content'));
+        $content = Orders::where('user_id',\Auth::user()->id)->where('id',$id)->first();
+        if(!$content){
+            abort(404);
+        }
+        return view(\System::$ACTIVE_THEME_PATH.'/account.order_detail',compact('content'));
     }
 
     public function wishlist() {
         $wishlist = WishList::currentuser()->paginate(5);        
         return view (\System::$ACTIVE_THEME_PATH.'/account.wish-list',compact('wishlist')) ;   
-    }
-
-	public function forgot()
-    {
-        return view (\System::$ACTIVE_THEME_PATH.'/account.forgot');
     }
 
     public function validatePasswordRequest(Request $request)
@@ -78,14 +67,6 @@ class AccountController extends Controller {
                 ->back()
                 ->withErrors(['error' => trans('A Network Error occurred. Please try again.') ]);
         }
-    }
-
-    public function info() {
-     return view (\System::$ACTIVE_THEME_PATH.'/info');
-    }
-
-    public function adresses(){
-        return view (\System::$ACTIVE_THEME_PATH.'/account.adresses');    
     }
 
     public function edit_shipping( $id) {
@@ -127,10 +108,6 @@ class AccountController extends Controller {
         return redirect()->route('account.adresses')->with('success',trans('user.shipping.default'));
     }
 
-    public function shipping_add() {
-            return view (\System::$ACTIVE_THEME_PATH.'/account.shipping_add')  ;
-        }
-
     public function shipping_store(Request $request ) {
 
             $adresse = [
@@ -149,10 +126,6 @@ class AccountController extends Controller {
 
             return redirect()->route('account.adresses')->with('success',trans('user.shipping.created'));
         }
-
-    public function user(Request $request){
-        return view (\System::$ACTIVE_THEME_PATH.'/account.user') ;   
-    }
 
     public function  userAuth(Request $request) {
 
@@ -252,10 +225,6 @@ class AccountController extends Controller {
         }
         return redirect()->route('account.user');  
 
-    }
-
-    public function password() {
-        return view (\System::$ACTIVE_THEME_PATH.'/account.password');
     }
 
     public function passwordUpdate(Request $request) {

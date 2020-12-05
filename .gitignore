@@ -9,3 +9,4 @@ composer.lock
 /.idea
 /.vs
 /public/filemanager
+/node_modules

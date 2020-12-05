@@ -33,7 +33,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
 
     // admin Index
     Route::get('/', 'DashboardController@home')->name('home');
-    Route::get('/account', 'UsersController@account')->name('account');
+    Route::view('/account', 'admin.users.account')->name('account');
 
     Route::post('/account/password/update', 'UsersController@updateAdminPassword')->name('account.password.update');
     Route::post('/account/info/update', 'UsersController@updateAdminInfo')->name('account.info.update');
@@ -42,7 +42,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // Users
     Route::group(['prefix' => '/users', 'as' => 'users.'], function () {
        Route::get('/', 'UsersController@index')->name('home');
-       Route::get('/create', 'UsersController@create')->name('create');
+       Route::view('/create', 'admin.users.create')->name('create');
        Route::post('/store', 'UsersController@store')->name('store');
        Route::get('/export/csv', 'UsersController@export_csv')->name('ToCsv');
        Route::get('/export/pdf', 'UsersController@export_pdf')->name('ToPdf');        
@@ -106,7 +106,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // Pages System
     Route::group(['prefix' => 'pages', 'as' => 'pages.'], function () {
         Route::get('', 'PagesController@index')->name('home');
-        Route::get('/create', 'PagesController@create')->name('create');
+        Route::view('/create', 'admin.pages.create')->name('create');
         Route::post('/store', 'PagesController@store')->name('store');
         Route::get('/bulkdelete', 'PagesController@bulkdelete')->name('bulkdelete');
         Route::get('/truncate', 'PagesController@truncate')->name('truncate');
@@ -116,7 +116,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
         Route::get('/delete/{id}', 'PagesController@delete')->name('delete');
         Route::get('/clone/{id}', 'PagesController@clone')->name('clone');
         Route::get('/duplicate/{id}', 'PagesController@duplicate')->name('duplicate');
-        Route::any('{id}', 'PagesController@create')->name('view');
+        Route::view('{id}', 'admin.pages.create')->name('view');
     });
 
 
@@ -127,7 +127,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // Ads System
     Route::group(['prefix' => 'ads', 'as' => 'ads.'], function () {
         Route::get('', 'AdsController@index')->name('home');
-        Route::get('/create', 'AdsController@create')->name('create');
+        Route::view('/create', 'admin.ads.create')->name('create');
         Route::post('/store', 'AdsController@store')->name('store');
         Route::get('/bulkdelete', 'AdsController@bulkdelete')->name('bulkdelete');
         Route::get('/truncate', 'AdsController@truncate')->name('truncate');
@@ -189,7 +189,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // Coupons System
     Route::group(['prefix' => 'coupons', 'as' => 'coupons.'], function () {
         Route::get('', 'CouponsController@index')->name('home');
-        Route::get('/create', 'CouponsController@create')->name('create');
+        Route::view('/create', 'admin.coupons.create')->name('create');
         Route::post('/store', 'CouponsController@store')->name('store');        
         Route::get('/bulkdelete', 'CouponsController@bulkdelete')->name('bulkdelete');
         Route::get('/truncate', 'CouponsController@truncate')->name('truncate');
@@ -206,7 +206,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // shipping Methods System
     Route::group(['prefix' => 'shipping', 'as' => 'shipping.'], function () {
         Route::get('', 'ShippingController@index')->name('home');
-        Route::get('/create', 'ShippingController@create')->name('create');
+        Route::view('/create', 'admin.shipping.create')->name('create');
         Route::post('/store', 'ShippingController@store')->name('store');        
         Route::get('/bulkdelete', 'ShippingController@bulkdelete')->name('bulkdelete');
         Route::get('/truncate', 'ShippingController@truncate')->name('truncate');
@@ -251,7 +251,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
     // Slider System
     Route::group(['prefix' => 'slider', 'as' => 'slider.'], function () {
        Route::get('', 'SliderController@index')->name('home');
-       Route::get('/create', 'SliderController@create')->name('create');
+       Route::view('/create', 'admin.slider.create')->name('create');
        Route::post('/store', 'SliderController@store')->name('store');
        Route::get('/bulkdelete', 'SliderController@truncate')->name('bulkdelete');       
        Route::get('/truncate', 'SliderController@truncate')->name('truncate');       
@@ -295,9 +295,9 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
 
 
 
-        Route::any('/account', 'SettingsController@account')->name('account');
+        Route::view('/account', 'admin.settings.account')->name('account');
         Route::any('/footer', 'SettingsController@footer')->name('footer');
-        Route::any('/others', 'SettingsController@others')->name('others');
+        Route::view('/others', 'admin.settings.others')->name('others');
         Route::any('/others/save', 'SettingsController@save')->name('save');
         Route::any('/store', 'SettingsController@store')->name('store');
         Route::any('/payments', 'SettingsController@payments')->name('payments');
@@ -305,7 +305,7 @@ Route::post('/bulkdeactivated', 'ProductsController@bulkdeactivated')->name('bul
         Route::any('/payments/edit/stripe', 'SettingsController@stripe')->name('stripe');
         Route::any('/payments/edit/bank', 'SettingsController@bank')->name('bank');
         Route::any('/system-info', 'Settings@system')->name('system');
-        Route::any('/danger', 'SettingsController@danger')->name('danger');
+        Route::view('/danger', 'admin/settings/danger')->name('danger');
     });
 
   Route::group(['prefix' => '/menus', 'as' => 'menus.'], function () {

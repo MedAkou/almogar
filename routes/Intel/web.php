@@ -139,7 +139,7 @@ Route::get('/', 'BaseController@index')->name('base');
 
 
 // Route for stripe payment form.
-//Route::get('stripe', 'StripeController@payWithStripe')->name('stripform');
+//Route::view('stripe', 'stripe')->name('stripform');
 // Route for stripe post request.
 //Route::post('stripe', 'StripeController@postPaymentWithStripe')->name('paywithstripe');
 

@@ -15,11 +15,6 @@ class AdsController extends Controller {
     public function index() {
         $ads = Ads::Merchant()->Lang()->orderby('id','desc')->paginate(10);
         return view('admin.ads.index',compact('ads'));   
-    } 
-    
-
-    public function create() {
-        return view('admin.ads.create');
     }
 
 

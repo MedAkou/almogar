@@ -24,10 +24,6 @@ class PagesController extends Controller {
  
     public function home() {
         return view('admin.statique.home');
-    }    
-    
-    public function create() {
-        return view('admin.pages.create');
     }
 
     public function store(Request $request) {

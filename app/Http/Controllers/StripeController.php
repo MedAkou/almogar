@@ -20,11 +20,6 @@ class StripeController extends Controller
 
     public $serial ='';
 
-    public function payWithStripe(Request $request)
-    {
-        return view('stripe');
-    }
-
     public function postPaymentWithStripe(Request $request)
     {
       

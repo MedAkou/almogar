@@ -30,9 +30,9 @@
                                         <div class="col-md-4 col-12">
                                             <figure class="ps-block--invoice">
                                                 <figcaption>{{ __('Adresse') }}</figcaption>
-                                                <div class="ps-block__content"><strong>{{ $content->addresse->given_name }}</strong>
-                                                    <p>Address: {{ $content->addresse->street }}, {{ $content->addresse->city }}, {{ $content->addresse->state }} , {{ $content->addresse->country_code }} , {{ $content->addresse->postal_code }}</p>
-                                                    <p>Phone: {{ $content->addresse->phone }}</p>
+                                                <div class="ps-block__content"><strong>{{ optional($content->addresse)->given_name }}</strong>
+                                                    <p>Address: {{ optional($content->addresse)->street }}, {{ optional($content->addresse)->city }}, {{ optional($content->addresse)->state }} , {{ optional($content->addresse)->country_code }} , {{ optional($content->addresse)->postal_code }}</p>
+                                                    <p>Phone: {{ optional($content->addresse)->phone }}</p>
                                                 </div>
                                             </figure>
                                         </div>
@@ -76,10 +76,17 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td><span><i>$</i>{{ $product->price }} </span></td>
+                                                    <td><span>{{ $product->price }} {{ System::currency()  }} </span></td>
                                                     <td> {{ $product->quantity }} </td>
                                                 </tr>
+                    
                                                 @endforeach
+                                                <tr>
+                                                <td colspan="2">{{ __('total') }}</td>
+                                                <td> {{ $content->total }}  {{ System::currency()  }}</td>
+                                                </tr>
+
+
                                             </tbody>
                                         </table>
                                     </div>

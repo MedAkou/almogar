@@ -16,16 +16,6 @@ class UsersController extends Controller
         return view('admin.users.index',compact('users'));
     }
 
-   
-    public function create() {
-        return view('admin.users.create');
-    }
-
-
-    public function account() {
-        return view('admin.users.account');
-    }
-
 
     public function store(Request $request) {
 

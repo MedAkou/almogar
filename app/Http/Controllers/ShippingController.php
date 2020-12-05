@@ -24,11 +24,6 @@ class ShippingController extends Controller
         return view('admin.shipping.index',compact('shipping'));  
     }
 
-
-    public function create() {
-        return view('admin.shipping.create');
-    }
-
     
     public function store( Request $request)
     {

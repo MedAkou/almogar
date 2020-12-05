@@ -18,10 +18,6 @@ class CouponsController extends Controller {
         return Redirect()->back()->with('success','data has been deleted successfully');
     }
 
-    public function create(){
-        return view('admin.coupons.create');     
-    }
-
     public function edit($id){
         $content = Coupons::whereId($id)->first();
         return view('admin.coupons.edit',compact('content'));     

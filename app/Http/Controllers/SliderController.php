@@ -16,11 +16,6 @@ class SliderController extends Controller {
     }
 
 
-    public function create() {
-        return view('admin.slider.create');
-    }
-
-
     public function truncate(){
         Slider::Merchant()->Lang()->truncate();
         return redirect()->route('admin.slider.home')->with('success',trans('slider.bulkDelete'));

@@ -11,5 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js([
+    'public/assets/website/js/all.js',
+    'public/assets/website/js/jquery.ez-plus.js',
+    'public/assets/website/js/creditCardValidator.js',
+    'public/assets/website/js/stripe.js',
+    'public/assets/website/js/scripts.js'
+], 'public/js/script.js').version();
