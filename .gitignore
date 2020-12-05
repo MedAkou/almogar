@@ -8,3 +8,4 @@ public/uploads/
 composer.lock
 /.idea
 /.vs
+/public/filemanager
