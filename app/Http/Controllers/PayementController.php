@@ -17,14 +17,23 @@ use Illuminate\Support\Facades\Mail;
 class PayementController extends Controller {
 
 
-	protected $provider;
+    protected $provider;
+    public $serial = '';
 
 	public function __construct() {
-	    $this->provider = new ExpressCheckout();
+        $this->provider = new ExpressCheckout();
+        
 	}
 
 
     public function checkout_pay(Request $request) {
+
+        if(!\System::shoppingCartIsNotEmpty()){
+            return redirect()->back()->with('error', trans('Your shopping cart is empty'));
+        }
+
+
+
 
         Session::forget('error');
 
@@ -33,7 +42,7 @@ class PayementController extends Controller {
         $address = Addresses::where('user_id',$user_id)->where('is_shipping',true)->first();
 
         if(!$address){
-        	return redirect()->back()->with('error','please select shipping adress first');
+        	return redirect()->back()->with('error', trans('please select shipping address first'));
         }
 
         $lang     = App::getLocale();
@@ -53,7 +62,7 @@ class PayementController extends Controller {
 
 
     	if(!$request->has('paymentmethod')){
-    		return redirect()->route('checkout',['store'=> $request->store])->with('error','please select payement method');   
+    		return redirect()->route('checkout',['store'=> $request->store])->with('error', trans('please select payment method'));   
     	}
 
     	if($request->has('paymentmethod') and $request->paymentmethod == 'paypal'){
@@ -99,6 +108,9 @@ class PayementController extends Controller {
                     $total = $shippingPrice + $SubtotalPrice - $discountPrice;
             }
 
+            $this->serial = OrdersHelper::generate_booking_id();
+            Session::put('order_serial', $this->serial);
+
             $payement           = Payement::create($data);
 
             $order              = Orders::find($order_id);
@@ -106,7 +118,7 @@ class PayementController extends Controller {
             $order->statue      = 'pending';
             $order->shipping_id = $shippingid;
             $order->total       = round($total, 2);
-            $order->serial      = OrdersHelper::generate_booking_id();
+            $order->serial      = $this->serial;
 
             
             $geo = geoip(\Request::ip());
@@ -270,7 +282,7 @@ class PayementController extends Controller {
                 'message'=>'Invalid Coupon!',
                 'alert-type'=>'error'
             );
-            return response()->json(['success'=>false,'notification'=>'Invalid Coupon!' ]);
+            return response()->json(['success'=>false,'notification'=>trans('Invalid Coupon!') ]);
         }
     }
 

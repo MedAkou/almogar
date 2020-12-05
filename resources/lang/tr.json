@@ -59,6 +59,8 @@
 
 
     "coupons": "kuponlar",
+    "Coupon": "kupon",
+    "coupon": "kupon",
     "Coupon code": "Kupon Kodu  ",
     "Status": "  Durum",
     "Frequency of use": "Kullanım sıklığı",
@@ -266,7 +268,7 @@
     "Save Changes": "Kaydet",
     "Shop": "Mağaza",
     "thank you": "Teşekkür ederiz",
-    "thank you": "Teşekkür ederiz",
+    "Thank You": "Teşekkür ederiz",
     "add shipping ": "Kargo ekle",
     "Dashboard": "Kontrol paneli",
     "Add new adress": "Yeni adres oluştur",
@@ -1551,5 +1553,13 @@
     "Password have to be at least 4 characters": "Parola en az 4 karakter olmalıdır",
     "Passwords doesn't match": "Şifreler eşleşmiyor",
     "Reset password": "şifreyi yenile",
-    "Something went wrong": "Bir şeyler yanlış gitti"
+    "Something went wrong": "Bir şeyler yanlış gitti",
+    "A great big thank you!": "Çok büyük teşekkürler",
+    "please select shipping address first": "lütfen önce gönderim adresini seçin",
+    "please select payment method": "lütfen ödeme yöntemini seçin",
+    "the card number is not a valid card number": "kart numarası geçerli bir kart numarası değil",
+    "Your card number is incorrect.": "Kart numaranız yanlış",
+    "Invalid Coupon!": "Geçersiz Kupon!",
+    "The card number is not a valid credit card number.": "Kart numarası, geçerli bir kredi kartı numarası değil.",
+    "wrong password": "yanlış şifre"
 }

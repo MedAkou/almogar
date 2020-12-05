@@ -52,6 +52,8 @@
 
     "coupons": "Coupons",
     "Coupon code": "Gutescheincode",
+    "Coupon": "Kupon",
+    "coupon": "Kupon",
     "Status": "Status",
     "Frequency of use": "Häufigkeit der Nutzung",
     "Add a new coupon": "Hinzufügen eines neuen Coupons",
@@ -265,7 +267,7 @@
     "Save Changes": "Änderungen speichern",
     "Shop": "Geschäft",
     "thank you": "Danke",
-    "thank you": "Danke",
+    "Thank You": "Danke",
     "add shipping ": "Versand hinzufügen",
     "Dashboard": "Instrumententafel",
     "Add new adress": "Neue Adresse hinzufügen",
@@ -840,5 +842,13 @@
     "Password have to be at least 4 characters": "Das Passwort muss aus mindestens 4 Zeichen bestehen",
     "Passwords doesn't match": "Passwörter stimmen nicht überein",
     "Reset password": "Passwort zurücksetzen",
-    "Something went wrong": "Etwas ist schief gelaufen"
+    "Something went wrong": "Etwas ist schief gelaufen",
+    "A great big thank you!": "Ein großes Dankeschön",
+    "please select shipping address first": "Bitte wählen Sie zuerst die Lieferadresse",
+    "please select payment method": "Bitte wählen Sie die Zahlungsmethode",
+    "the card number is not a valid card number": "Die Kartennummer ist keine gültige Kartennummer",
+    "Your card number is incorrect.": "Ihre Kartennummer ist falsch",
+    "Invalid Coupon!": "Ungültiger Gutschein!",
+    "The card number is not a valid credit card number.": "Die Kartennummer ist keine gültige Kreditkartennummer.",
+    "wrong password": "falsches Passwort"
 }

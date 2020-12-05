@@ -611,13 +611,14 @@ div#carouselExampleIndicators {
 
 @media (max-width: 600px) and (min-width: 0px) {
     .dress-card .dress-card-head {
+        height: 174px;
         min-height: 130px;
     }
     .dress-card .product{
         margin-top: 20px !important;
     }
     .dress-card {
-        min-height: 300px;
+        min-height: 340px;
     }
     h4.dress-card-title {
         margin-bottom: 0px;
@@ -687,6 +688,13 @@ h2.post-title {
     width: auto;
     min-height: 300px;
     text-align: center;
+}
+
+#applyCoupon {
+    transform: rotate(180deg);
+    border-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 @media (max-width: 600px) and (min-width: 0px) {

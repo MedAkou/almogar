@@ -10,12 +10,12 @@ var couponlink = "/couponcheck";
 /* End Settings Ajax Links */
 
 
-$('body').on('click', '.ps-product__remove', function(e) {
+$('body').on('click', '.ps-product__remove', function (e) {
 
     e.preventDefault();
     e.stopPropagation();
     var link = $(this).attr('href');
-    $.get(link, function() {});
+    $.get(link, function () { });
     $(this).closest('.ps-product--cart-mobile').remove();
 
 });
@@ -23,7 +23,7 @@ $('body').on('click', '.ps-product__remove', function(e) {
 $(".zoomimgs").ezPlus();
 
 
-window.setInterval(function() {
+window.setInterval(function () {
     $(".single-visitors .nbrvirws").text(parseInt($(".single-visitors .nbrvirws").text()) + Math.floor((Math.random() * 5) + 1));
 }, 10000);
 
@@ -41,12 +41,12 @@ function colorReplace(findHexColor, replaceWith) {
     }
 
     // Select and run a map function on every tag
-    $('*').map(function(i, el) {
+    $('*').map(function (i, el) {
         // Get the computed styles of each tag
         var styles = window.getComputedStyle(el);
 
         // Go through each computed style and search for "color"
-        Object.keys(styles).reduce(function(acc, k) {
+        Object.keys(styles).reduce(function (acc, k) {
             var name = styles[k];
             var value = styles.getPropertyValue(name);
             if (value !== null && name.indexOf("color") >= 0) {
@@ -64,7 +64,7 @@ colorReplace('#fcb800', 'rgb(195, 20, 50)');
 // #654ea3 , #456780 , 
 
 
-$(document).on('click', 'body #quickview', function(e) {
+$(document).on('click', 'body #quickview', function (e) {
 
     var token = $('meta[name="csrf-token"]').attr('content');
     var link = $(this).attr('data-link');
@@ -79,15 +79,15 @@ $(document).on('click', 'body #quickview', function(e) {
         data: formData,
         cache: false,
         dataType: "HTML",
-        beforeSend: function() {
-            $("#overlay").fadeIn(300);　
+        beforeSend: function () {
+            $("#overlay").fadeIn(300);
         },
-        success: function(data) {
-            $("#overlay").fadeOut(0);　
+        success: function (data) {
+            $("#overlay").fadeOut(0);
             $('body #product-quickview').html(data);
             $('#product-quickview').modal('show');
         },
-        error: function(response) {
+        error: function (response) {
             console.log('error');
             console.log(response);
         }
@@ -95,7 +95,7 @@ $(document).on('click', 'body #quickview', function(e) {
 
 });
 
-$(document).on('click', 'body #wishlist', function(e) {
+$(document).on('click', 'body #wishlist', function (e) {
 
     if (!$('body').hasClass('has-logged')) {
         $('#modalUnauth').modal('show');
@@ -116,16 +116,16 @@ $(document).on('click', 'body #wishlist', function(e) {
         cache: false,
         dataType: "HTML",
 
-        beforeSend: function() {
-            $("#overlay").fadeIn(300);　
+        beforeSend: function () {
+            $("#overlay").fadeIn(300);
         },
 
-        success: function(data) {
-            $("#overlay").fadeOut(0);　
+        success: function (data) {
+            $("#overlay").fadeOut(0);
             $('body .wishlist_count').html(data);
             $('#modalwishlist').modal('show');
         },
-        error: function(response) {
+        error: function (response) {
             console.log('error');
             console.log(response);
         }
@@ -161,7 +161,7 @@ function updatequantitiy(input) {
     });
 }
 
-$(document).on('click', 'body .zaydnaks .up', function(e) {
+$(document).on('click', 'body .zaydnaks .up', function (e) {
     var num = +$(this).closest('.zaydnaks').find('.instantQuantity').val() + 1;
     $(this).closest('.zaydnaks').find('.instantQuantity').val(num);
     var input = $(this).closest('.zaydnaks').find('.instantQuantity');
@@ -170,7 +170,7 @@ $(document).on('click', 'body .zaydnaks .up', function(e) {
 
 });
 
-$(document).on('click', 'body .zaydnaks .down', function(e) {
+$(document).on('click', 'body .zaydnaks .down', function (e) {
     var num = +$(this).closest('.zaydnaks').find('.instantQuantity').val() - 1;
     if (num > 0) {
         $(this).closest('.zaydnaks').find('.instantQuantity').val(num);
@@ -187,11 +187,11 @@ var olua = "<span class='home_back' style='marign-right:10px;'><a href='/'><i cl
 $('.header-top .header-left.header-dropdowns').prepend(olua);
 
 
-$('.ConfirmCard').click(function() {
+$('.ConfirmCard').click(function () {
     $('#StripeModal').modal('hide');
 });
 
-$('body [name="paymentmethod"]').on('change', function() {
+$('body [name="paymentmethod"]').on('change', function () {
     var method = $(this).val();
     if (method == 'stripe') {
         $('#StripeModal').modal('show');
@@ -199,7 +199,7 @@ $('body [name="paymentmethod"]').on('change', function() {
 });
 
 
-$('body .shipping-method-radio').on('change', function() {
+$('body .shipping-method-radio').on('change', function () {
 
     var subtotal = parseFloat($('#subtotal').val(), 10).toFixed(2);
     var price = parseFloat($('input[name=shippingMethod]:checked').attr('data-price'), 10).toFixed(2);
@@ -218,7 +218,7 @@ function getTotal() {
 
     var numbersFi = [];
     var total = 0;
-    $('#order-cart-section .preis').each(function() {
+    $('#order-cart-section .preis').each(function () {
         var number = parseFloat($(this).text()).toFixed(2);
         // alert(number);
         numbersFi.push(number);
@@ -238,7 +238,7 @@ function getTotalM() {
 
     var numbersFi = [];
     var total = 0;
-    $('#cart-mobile .preis').each(function() {
+    $('#cart-mobile .preis').each(function () {
         var number = parseFloat($(this).val()).toFixed(2);
         // alert(number);
         numbersFi.push(number);
@@ -302,7 +302,7 @@ function ikhaaaaan(input) {
 
 
 // add product to cart
-$(document).on('click', 'body #addtocard', function(e) {
+$(document).on('click', 'body #addtocard', function (e) {
 
 
     e.preventDefault();
@@ -343,11 +343,11 @@ $(document).on('click', 'body #addtocard', function(e) {
         data: formData,
         cache: false,
         dataType: "JSON",
-        beforeSend: function() {
-            $("#overlay").fadeIn(300);　
+        beforeSend: function () {
+            $("#overlay").fadeIn(300);
         },
-        success: function(data) {
-            $("#overlay").fadeOut(0);　
+        success: function (data) {
+            $("#overlay").fadeOut(0);
             $('#addedTocCart').modal('show');
             var formData = new FormData();
             formData.append('_token', token);
@@ -359,7 +359,7 @@ $(document).on('click', 'body #addtocard', function(e) {
                 data: formData,
                 cache: false,
                 dataType: "HTML",
-                success: function(data) {
+                success: function (data) {
                     $('body .ps-cart__content').html(data);
                     var quantity = $('#cartcount').val();
                     // $('body .TotalPriceM').html('');
@@ -429,13 +429,13 @@ success: function(data) {
 */
 
 
-$("#shipbtn").click(function() {
+$("#shipbtn").click(function () {
 
 
 });
 
 
-$('#btnsubmite').click(function() {
+$('#btnsubmite').click(function () {
     var name = $('#contact-name').val();
     var email = $('#contact-email').val();
     var phone = $('#contact-phone').val();
@@ -449,11 +449,11 @@ $('#btnsubmite').click(function() {
 });
 
 
-$(function() {
+$(function () {
 
     var $form = $(".require-validation");
 
-    $('form.require-validation').bind('submit', function(e) {
+    $('form.require-validation').bind('submit', function (e) {
         var $form = $(".require-validation"),
             inputSelector = ['input[type=email]', 'input[type=password]',
                 'input[type=text]', 'input[type=file]',
@@ -465,7 +465,7 @@ $(function() {
         $errorMessage.addClass('hide');
 
         $('.has-error').removeClass('has-error');
-        $inputs.each(function(i, el) {
+        $inputs.each(function (i, el) {
             var $input = $(el);
             if ($input.val() === '') {
                 $input.parent().addClass('has-error');
@@ -505,22 +505,22 @@ $(function() {
 
 });
 
-$('#facturem').click(function() {
+$('#facturem').click(function () {
     $('#inputpaymentmethod').val('facture');
 });
 
-$('#paypalm').click(function() {
+$('#paypalm').click(function () {
     $('#inputpaymentmethod').val('paypal');
 });
 
-$('#visam').click(function() {
+$('#visam').click(function () {
     $('#inputpaymentmethod').val('stripe');
 });
 
 $('.carousel').carousel()
 
 
-$('body .shipping-method-radio').on('change', function() {
+$('body .shipping-method-radio').on('change', function () {
 
     var subtotal = parseFloat($('#subtotal').val(), 10).toFixed(2);
     var price = parseFloat($('input[name=shippingMethod]:checked').attr('data-price'), 10).toFixed(2);
@@ -536,7 +536,7 @@ $('body .shipping-method-radio').on('change', function() {
 });
 
 // apply coupon
-$(document).on('click', 'body #applyCoupon', function() {
+$(document).on('click', 'body #applyCoupon', function () {
     var formData = new FormData();
     var token = $('meta[name="csrf-token"]').attr('content');
     var coupon = $('#couponvalue').val();
@@ -552,7 +552,7 @@ $(document).on('click', 'body #applyCoupon', function() {
         data: formData,
         cache: false,
         dataType: "JSON",
-        success: function(data) {
+        success: function (data) {
             //$('.TotalPrice').html("€ "+data.total);
             $('#couponV').val(data.discount);
             $('#typeDiscount').val(data.type);
@@ -596,7 +596,7 @@ function searchKeyUp(link, formData, results) {
         data: formData,
         cache: false,
         dataType: "JSON",
-        success: function(response) {
+        success: function (response) {
             let lang = response.lang;
             if (response.products.data.length) {
                 results.empty();
@@ -608,10 +608,10 @@ function searchKeyUp(link, formData, results) {
                     result.append(`<div class="img-cont">
                                                     <img src="${response.products.data[i].thumbnail}"}>
                                                 </div>`);
-                                                
+
                     result.append(`<span>${response.products.data[i].name[lang]}</span>`);
                 }
-                $("p.result").click(function() {
+                $("p.result").click(function () {
                     let productId = $(this)[0].id;
                     let productSlug = response.storeSlug[0].slug;
                     window.location.href = `/${productSlug}/shop/product/${productId}`;
@@ -620,13 +620,13 @@ function searchKeyUp(link, formData, results) {
                 results.empty();
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.log(error);
         }
     });
 }
 
-$("#search-input").keyup(function() {
+$("#search-input").keyup(function () {
 
     const token = $('meta[name="csrf-token"]').attr('content');
     const link = $("#search-form").attr('data-link');
@@ -639,12 +639,12 @@ $("#search-input").keyup(function() {
     searchKeyUp(link, formData, results);
 })
 
-$("#search-input").blur(function() {
+$("#search-input").blur(function () {
     const results = $("#results");
     results.slideUp();
 })
 
-$("#search-input-mobile").keyup(function() {
+$("#search-input-mobile").keyup(function () {
 
     const token = $('meta[name="csrf-token"]').attr('content');
     const link = $("#search-form-mobile").attr('data-link');
@@ -657,7 +657,7 @@ $("#search-input-mobile").keyup(function() {
     searchKeyUp(link, formData, results);
 })
 
-$("#search-input-mobile").blur(function() {
+$("#search-input-mobile").blur(function () {
     const results = $("#results-mobile");
     results.slideUp();
 })
@@ -665,7 +665,7 @@ $("#search-input-mobile").blur(function() {
 
 // End search script
 
-$("#addToCartForm").submit((e)=>{
+$("#addToCartForm").submit((e) => {
     e.preventDefault();
     const token = $('meta[name="csrf-token"]').attr('content');
     const link = $("#addToCartForm").attr('data-link');
@@ -684,17 +684,45 @@ $("#addToCartForm").submit((e)=>{
         data: formData,
         cache: false,
         dataType: "JSON",
-        success: function(response) {
-            console.log("Response: ", response);
+        beforeSend: function () {
+            $("#overlay").fadeIn(300);
         },
-        error: function(error) {
+        success: function (response) {
+            $("#overlay").fadeOut(0);
+            $('#addedTocCart').modal('show');
+            var formData = new FormData();
+            formData.append('_token', token);
+            $.ajax({
+                url: loadcartAgain,
+                type: 'GET',
+                processData: false, // important
+                contentType: false, // important
+                data: formData,
+                cache: false,
+                dataType: "HTML",
+                success: function (data) {
+                    $('body .ps-cart__content').html(data);
+                    var quantity = $('#cartcount').val();
+                    // $('body .TotalPriceM').html('');
+                    // $('.TotalPriceM').html('');
+                    //$('#cart-mobile .ps-cart__footer').html('');
+
+
+                    $('#cart-mobile .TotalPriceM').html($('#cart-mobile .jahnama').text());
+
+
+                    $('.ps-cart--mini .header__extra span i').html(quantity);
+                },
+            });
+        },
+        error: function (error) {
             console.log(error);
         }
     });
 })
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
         type: 'iframe',
         mainClass: 'mfp-fade',

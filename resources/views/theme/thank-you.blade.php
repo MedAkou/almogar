@@ -299,11 +299,11 @@ main {
 	<div class="container">
 
 		<section class="thankyou">
-			<h1>A great big thank you!</h1>
+			<h1>{{ __('A great big thank you!') }}</h1>
 
 			<p>
-				{{__('Thank You')}}, <strong>{{ $content->user->email }}</strong>!<br />
-				{{__('For choosing us and being so awesome all at once.')}}
+				{{ __('Thank You') }}, <strong>{{ $content->user->email }}</strong>!<br />
+				{{ __('For choosing us and being so awesome all at once.') }}
 			</p>
 		</section>
 
@@ -356,7 +356,7 @@ main {
                 <style>
                     main .content-box .payment-card.amex {
                         background: url('https://i.imgur.com/vDs17MR.png') no-repeat;
-                        background-position-y: -5px;
+                        background-size: contain;
                     }
                 </style>
             @endif
@@ -364,7 +364,7 @@ main {
                 <style>
                     main .content-box .payment-card.amex {
                         background: url('https://i.imgur.com/vJEpDih.png') no-repeat;
-                        background-position-y: -5px;
+                        background-size: contain;
                     }
                 </style>
             @endif
@@ -372,7 +372,7 @@ main {
                 <style>
                     main .content-box .payment-card.amex {
                         background: url('https://i.imgur.com/9gtHG0L.png') no-repeat;
-                        background-position-y: -5px;
+                        background-size: contain;
                     }
                 </style>
             @endif

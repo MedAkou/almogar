@@ -1,4 +1,4 @@
-@extends('theme2/pages-layout')
+@extends(\System::$ACTIVE_THEME_PATH.'/pages-layout')
 @section('title')
 {{ __('Forgot Password') }}
 @endsection

@@ -34,12 +34,12 @@
                                  <td><a href="{{ route('wishlist.remove', [ 'id' => $product->id , 'store' => $store ]) }}"><i class="icon-cross"></i></a></td>
                                  <td>
                                     <div class="ps-product--cart">
-                                       <div class="ps-product__thumbnail"><a href="{{ route('shop.product',['id' => $product->id , 'store' => $store]) }}">{!! $product->product->presentThumbnail() !!}</a></div>
-                                       <div class="ps-product__content"><a href="{{ route('shop.product',['id' => $product->id , 'store' => $store ]) }}">{{$product->product->name }}</a></div>
+                                       <div class="ps-product__thumbnail"><a href="{{ route('shop.product',['id' => $product->productID , 'store' => $store]) }}">{!! $product->product->presentThumbnail() !!}</a></div>
+                                       <div class="ps-product__content"><a href="{{ route('shop.product',['id' => $product->productID , 'store' => $store ]) }}">{{$product->product->name }}</a></div>
                                     </div>
                                  </td>
                                  <td class="price">{{ System::currency() }} {{ $product->product->presentPrice() }}</td>
-                                 <td><a class="ps-btn" id="addtocard" href="{{ route('cart.add', ['id' => $product->id , 'store' => $store]) }}"  data-product-id='{{$product->id}}'><i class="icon-bag2"></i></a></td>
+                                 <td><a class="ps-btn" id="addtocard" href="{{ route('cart.add', ['id' => $product->productID , 'store' => $store]) }}"  data-product-id='{{$product->productID}}'><i class="icon-bag2"></i></a></td>
                               </tr>
                               @endforeach
                            </tbody>

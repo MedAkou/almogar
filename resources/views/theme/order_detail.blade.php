@@ -30,10 +30,9 @@
                                     <div class="row">
                                         <div class="col-md-4 col-12">
                                             <figure class="ps-block--invoice">
-                                                <figcaption>{{ __('Adresse') }}</figcaption>
-                                                <div class="ps-block__content"><strong>{{ $content->addresse->given_name }}</strong>
-                                                    <p>Address: {{ $content->addresse->street }}, {{ $content->addresse->city }}, {{ $content->addresse->state }} , {{ $content->addresse->country_code }} , {{ $content->addresse->postal_code }}</p>
-                                                    <p>Phone: {{ $content->addresse->phone }}</p>
+                                                <div class="ps-block__content"><strong>{{ __('username') }} : {{ $content->addresse->given_name }}</strong>
+                                                    <p>{{ __('adresse') }} : <br/> {{ $content->addresse->street }}, {{ $content->addresse->city }}, {{ $content->addresse->state }} , {{ $content->addresse->country_code }} , {{ $content->addresse->postal_code }}</p>
+                                                    <p>{{ __('Phone') }} : <br/> {{ $content->addresse->phone }}</p>
                                                 </div>
                                             </figure>
                                         </div>
@@ -59,8 +58,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>{{ __('product') }}</th>
-                                                    <th>{{ __('price') }}</th>
                                                     <th>{{ __('quantity') }}</th>
+                                                    <th>{{ __('price') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,11 +76,17 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td><span><i>$</i>{{ $product->price }} </span></td>
                                                     <td> {{ $product->quantity }} </td>
+                                                    <td><span><i>{{ System::currency() }}</i> {{ $product->product->price }} </span></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ __('total') }}</th>
+                                                    <th class="text-center" colspan="2">{{ System::currency() }} {{ $content->total }}</th>
+                                                </tr>
+                                            </thead>
                                         </table>
                                     </div>
                                 </div>

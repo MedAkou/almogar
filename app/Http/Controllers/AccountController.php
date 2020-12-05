@@ -271,7 +271,7 @@ class AccountController extends Controller {
         ];
 
         $customMessages = [
-            'required' => 'wrong password'
+            'required' => trans('user.pwd.wrong')
         ];
 
         $request->validate($rules, $customMessages);

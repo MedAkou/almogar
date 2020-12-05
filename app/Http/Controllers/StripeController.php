@@ -97,7 +97,6 @@ class StripeController extends Controller
                 'order_id' => $order_id ,
                 'method' => 'stripe',
             ];
-            
             $payement_id        = Payement::create($data);
             
             $order              = Orders::find($order_id);
@@ -180,13 +179,13 @@ class StripeController extends Controller
                 return redirect()->route('checkout',['store'=> $request->store])->with('error','Money not add in wallet!!');
             }
         } catch (Exception $e) {
-            \Session::put('error',$e->getMessage());
+            \Session::put('error',trans($e->getMessage()));
             return redirect()->route('checkout',['store'=> $request->store]);
         } catch(\Cartalyst\Stripe\Exception\CardErrorException $e) {
-            \Session::put('error',$e->getMessage());
+            \Session::put('error',trans($e->getMessage()));
             return redirect()->route('checkout',['store'=> $request->store]);
         } catch(\Cartalyst\Stripe\Exception\MissingParameterException $e) {
-            \Session::put('error',$e->getMessage());
+            \Session::put('error',trans($e->getMessage()));
             return redirect()->route('checkout',['store'=> $request->store]);
         }
     }

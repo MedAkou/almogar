@@ -15,10 +15,12 @@
     <main class="main">
         <section class="ps-section--account ps-checkout">
             <div class="container">
+            @if(\System::shoppingCartIsNotEmpty())  
                 <div class="ps-section__header">
                     <h3>{{__('Payment')}}</h3>
                 </div>
                 <div class="ps-section__content">
+             
                     <form class="ps-form--checkout" action="{{ route('checkout.pay',['store' => $store]) }}" method="post">
                         <div class="ps-form__content">
                             @csrf
@@ -197,6 +199,18 @@
         
                         </div>
                     </form>
+                @else
+                <div class="ps-table--invoices">
+                    <div class="row text-center">
+                            <div class="empty-order">
+                                <i class="icon-cart"></i>
+                                <p>{{ __('Your shopping cart is empty') }}</p>
+                                <a class="ps-btn" href="/{{ $store }}">{{ __('Home') }}</a>
+                            </div>
+                    </div>
+                    </div>
+                @endif
+                
                 </div>
             </div>
         </section>

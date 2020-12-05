@@ -29684,7 +29684,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     }
     .ps-product--detail .ps-product__shopping figure,
     .ps-product--detail .ps-product__shopping .ps-btn {
-        margin-left: 10px;
+        margin: 10px 0;
     }
 }
 
@@ -29696,7 +29696,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
         margin-left: 10px;
     }
     .ps-product--detail .ps-product__shopping .ps-btn {
-        margin-right: 10px;
+        margin: 10px 0;
         text-align: center;
     }
 }

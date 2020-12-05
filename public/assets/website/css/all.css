@@ -29696,7 +29696,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
         flex-flow: row wrap;
     }
     .ps-product--detail .ps-product__shopping>* {
-        margin-right: 10px;
+        margin: 10px 0;
     }
     .ps-product--detail .ps-product__shopping .ps-btn {
         margin-left: 10px;

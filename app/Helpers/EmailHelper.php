@@ -10,6 +10,8 @@ class EmailHelper {
     private static $email;
     private static $subject;
     private static $API_KEY;
+    private static $from = 'contact@3now.de';
+    private static $fromName = '3now';
     private static $CURLOPT_URL = 'https://api.elasticemail.com/v2/email/send';
 
     public function __construct(){
@@ -38,8 +40,8 @@ class EmailHelper {
 
     public static function send(){
         try{
-            $post = array(  'from' => 'contact@3now.de',
-                            'fromName' => '3now',
+            $post = array(  'from' => self::$from,
+                            'fromName' => self::$fromName,
                             'apikey' => self::$API_KEY,
                             'subject' => self::$subject,
                             'to' => self::$to,

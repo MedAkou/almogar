@@ -25,7 +25,7 @@ class WebsiteController extends Controller
         $store = $request->store;
 
         return response()
-            ->view('theme2.elements.ajax_cart', compact('store'))
+            ->view($this->theme.'elements.ajax_cart', compact('store'))
             ->setStatusCode(200);
 
     }
@@ -704,7 +704,7 @@ class WebsiteController extends Controller
         $content = \App\Models\Orders::with('store', 'products', 'addresse', 'payement', 'shipping')->where('id', $id)->first();
 
         return response()
-            ->view('theme2.elements.printinvoiceThermal', compact('content'))
+            ->view($this->theme.'elements.printinvoiceThermal', compact('content'))
             ->setStatusCode(200);
 
     }

@@ -23,7 +23,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/css/lightgallery.min.css" />
    </head>
-<body class="@yield('bodyClass')  @if(Auth::check())  has-logged   @endif" data-auth-id="{{ \System::userId() }}" data-slug="{{$store}}" data-store-id="{{ \System::currentStoreId() }}">
+<body class="@yield('bodyClass')  @if(Auth::check())  has-logged   @endif @if(!\System::shoppingCartIsNotEmpty()) cart-empty @endif" data-auth-id="{{ \System::userId() }}" data-slug="{{$store}}" data-store-id="{{ \System::currentStoreId() }}" >
       @include(\System::$ACTIVE_THEME_PATH.'/elements/alerts')
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
@@ -115,7 +115,7 @@
                                     <div class="row text-center">
                                           <div class="empty-order">
                                              <i class="icon-cart"></i>
-                                             <p>{{ __('You have no orders') }}</p>
+                                             <p>{{ __('Your shopping cart is empty') }}</p>
                                              <a class="ps-btn" href="/{{ $store }}">{{ __('Order now') }}</a>
                                           </div>
                                     </div>

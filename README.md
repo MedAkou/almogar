@@ -47,3 +47,7 @@ Run this commands from the Terminal:
 	user : merchant@merchant.com
 	pass : 1234
 
+### 5. Setup contact email and base URL in .env file
+
+	MAIL_ADDRESS=contact@o-bazaar.com
+	APP_URL=https://obazaar-test.com/

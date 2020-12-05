@@ -1,4 +1,4 @@
-@extends('theme2/layout') 
+@extends(\System::$ACTIVE_THEME_PATH.'/layout') 
 @section('title') 
 {{ __('Cart') }} 
 @endsection 

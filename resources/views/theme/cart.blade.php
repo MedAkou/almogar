@@ -59,7 +59,7 @@
                            <div class="row text-center">
                                  <div class="empty-order">
                                     <i class="icon-cart"></i>
-                                    <p>{{ __('You have no orders') }}</p>
+                                    <p>{{ __('Your shopping cart is empty') }}</p>
                                     <a class="ps-btn" href="/{{ $store }}">{{ __('Order now') }}</a>
                                  </div>
                            </div>
