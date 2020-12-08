@@ -24,7 +24,6 @@
    </head>
    <body>
       @include(\System::$ACTIVE_THEME_PATH.'/elements/alerts')
-      
       <header class="header header--standard header--market-place-1" data-sticky="true">
          <div class="header__top">
             <div class="container">

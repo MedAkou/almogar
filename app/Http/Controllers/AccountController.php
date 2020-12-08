@@ -265,6 +265,15 @@ class AccountController extends Controller {
        $user->wishlist->each->delete();
        return redirect()->route('account.wishlist')->with('success',trans('wishlist.cleared'));   
     }
+
+    public function remove($id,Request $request){
+        $wish = WishList::find($id);
+        if($wish){
+            $wish->delete();
+            return redirect()->route('account.wishlist')->with('success',trans('wishlist.removed'));   
+        }
+        return redirect()->route('account.wishlist');   
+    }
   
     
 

@@ -71,13 +71,19 @@ class WebsiteController extends Controller
     {
 
         $id = Session::get('store_id');
+
+        $categories = ProductCategories::where('lang', \App::getLocale())
+                                        ->where('store_id', $id)
+                                        ->withCount(['products' => function($query){
+                                            $query->where('active', 1);
+                                        }])->get();
+
         $category = ProductCategories::where('slug', $slug)->where('store_id', $id)->first();
         $products = Product::where('store_id', $id)->where('categoryID', $category->id)
             ->where('active', 1)
             ->paginate(12);
 
-        //   $products = $category->products()->paginate(12);
-        return view($this->theme . 'shop', compact('products'));
+        return view($this->theme . 'shop', compact('products','categories'));
     }
 
     public function page(Request $request)
@@ -133,7 +139,6 @@ class WebsiteController extends Controller
         $products->appends(['q' => $q]);
         $storeSlug = Stores::where('id', Session::get('store_id'))->get('slug');
         $count = $products->count();
-        //        return view ($this->theme.'admin.products.index',compact('products','categories','count'))->withQuery ( $q );
         return view($this->theme . 'search', compact('products', 'q'));
     }
 
@@ -159,8 +164,10 @@ class WebsiteController extends Controller
 
     public function order_detail($store, $id)
     {
-
-        $content = Orders::find($id);
+        $content = Orders::where('user_id',\Auth::user()->id)->where('id',$id)->first();
+        if(!$content){
+            abort(404);
+        }
         return view($this->theme . 'order_detail', compact('content'));
     }
 

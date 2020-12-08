@@ -6,15 +6,16 @@
 @section('content')
 
 <main class="main">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+
+            <div class="ps-breadcrumb">
                 <div class="container">
-                    <ol class="breadcrumb">
+                    <ul class="breadcrumb">
                         <li><a href="/"><i class="icon-home"></i></a></li>
                         <li>{{ __('account') }}</li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('order details') }}</li>
-                    </ol> 
+                        <li>{{ __('order details') }}</li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
 
             <div class="container">
                 <div class="row">
@@ -58,8 +59,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>{{ __('product') }}</th>
-                                                    <th>{{ __('price') }}</th>
                                                     <th>{{ __('quantity') }}</th>
+                                                    <th>{{ __('price') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -76,14 +77,14 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td><span>{{ $product->price }} {{ System::currency()  }} </span></td>
                                                     <td> {{ $product->quantity }} </td>
+                                                    <td><span>{{ $product->price }} {{ System::currency()  }} </span></td>                                                    
                                                 </tr>
                     
                                                 @endforeach
                                                 <tr>
-                                                <td colspan="2">{{ __('total') }}</td>
-                                                <td> {{ $content->total }}  {{ System::currency()  }}</td>
+                                                <td>{{ __('total') }}</td>
+                                                <td class="text-center" colspan="2"> {{ $content->total }}  {{ System::currency()  }}</td>
                                                 </tr>
 
 

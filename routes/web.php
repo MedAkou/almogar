@@ -44,6 +44,8 @@ Route::group(['prefix' => 'account' , 'as' => 'account.'  , 'middleware' => 'Acc
 
   Route::get('/wishlist/clear', 'AccountController@clearwishlist')->name('wishlist_clear');
 
+  Route::get('/wishlist/remove/{id}', 'AccountController@remove')->name('wishlist.remove');
+
   Route::view('/shipping/add', \System::$ACTIVE_THEME_PATH.'/account.shipping_add')->name('shipping.add');
 
   Route::post('/shipping/add', 'AccountController@shipping_store')->name('shipping.add');

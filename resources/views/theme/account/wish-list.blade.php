@@ -7,15 +7,16 @@
 
 
 <main class="main">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+
+            <div class="ps-breadcrumb">
                 <div class="container">
-                     <ol class="breadcrumb">
+                    <ul class="breadcrumb">
                         <li><a href="/"><i class="icon-home"></i></a></li>
                         <li>{{ __('account') }}</li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('wishlist') }}</li>
-                    </ol> 
+                        <li>{{ __('wishlist') }}</li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
 
             <div class="container">
                 <div class="row">
@@ -36,6 +37,7 @@
                                              <tbody>
                                                 @foreach($wishlist as $product)
                                                  <tr>
+                                                 <td><a href="{{ route('account.wishlist.remove', [ 'id' => $product->id  ]) }}"><i class="icon-cross"></i></a></td>
                                                      <td>
                                                          <div class="ps-product--cart">
                                                              <div class="ps-product__thumbnail"><a href="#">{!! $product->product->presentThumbnail() !!}</a></div>

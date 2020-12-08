@@ -38632,3 +38632,81 @@ span.carousel-control-prev-icon,
 span.carousel-control-next-icon {
     transform: translateY(-50%) rotate(180deg);
 }
+
+div#results::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #f1f1f1;
+}
+
+div#results::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+div#results::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+div#results span
+{
+	margin-right: 10px;
+}
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: rgb(195, 20, 50);	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+
+ul.cat-list li {
+    border-bottom: none !important;
+}
+
+ul.cat-list li a {
+    color: black !important;
+}
+
+ul.cat-list li a:hover {
+    color: #c31432;
+}
+
+span.category_count {
+    float: left;
+    background: #c31432;
+    color: white;
+    text-align: center;
+    width: 30px;
+    border-radius: 5px;
+}
+
+button.btn.card-button-inner.bag-button {
+    font-size: 16px;
+}
+
+.card-button-inner.wish-button:hover {
+    background: rgb(195, 20, 50);
+    color: white;
+}

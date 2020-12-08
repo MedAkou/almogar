@@ -22,6 +22,7 @@ class System {
 
 
     public function __construct(){
+
         self::$CURRENT_LANG =  App::getLocale();
     }
 

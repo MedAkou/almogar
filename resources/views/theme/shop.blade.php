@@ -10,8 +10,11 @@
             <div class="sidebar-shop">
                <div class="widget">
                   <ul class="cat-list">
-                     @foreach (  $activeStore->categories  as $element)
-                     <li><a href="{{ route('category',['store' => $store , 'slug'  =>  $element->slug   ]) }}">{{ $element->name  }}</a></li>
+                     @foreach (  $categories  as $element)
+
+                     @php   $count =  $element->products_count == 0 ? 'style=display:none' : ''  ; @endphp
+
+                     <li {{ $count  }} ><a href="{{ route('category',['store' => $store , 'slug'  =>  $element->slug   ]) }}">{{ $element->name  }}  <span class="category_count">{{ $element->products_count  }}</span> </a></li>
                      @endforeach
                   </ul>
                </div>

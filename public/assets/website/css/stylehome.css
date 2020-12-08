@@ -532,3 +532,7 @@ div#carouselExampleIndicators {
 img.imgjoin {
     width: 90px !important;
 }
+
+.ps-btn, button.ps-btn {
+    color: white;
+}
